@@ -1,0 +1,398 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=League+Spartan:wght@500&display=swap');
+@layer utilities {
+  .clip-path-ticket {
+    clip-path: polygon(0 0, 100% 12%, 100% 100%, 0% 100%);
+  }
+}
+.background {
+  background-size: cover;
+  z-index: 101;
+}
+
+
+.btn {
+  border-radius: 50px;
+  background: linear-gradient(135deg, #fc0 0%, #fd1783 100%);
+  box-shadow: 0px 0px 20px 0px rgba(182, 1, 76, 0.34);
+}
+.btn2 {
+  border-radius: 50px;
+  box-shadow: 0px 0px 20px 0px rgba(182, 1, 76, 0.34);
+  border: 2px solid white;
+}
+.navbtn {
+  background: linear-gradient(270deg, #1a82fc 0%, rgba(112, 0, 255, 0.85) 100%);
+  box-shadow: 0px 0px 40px 0px #f9af2199;
+}
+
+.hoverEffectOnImg {
+  background: linear-gradient(135deg, #fc0 0%, #fd1783 100%);
+}
+
+.overlay {
+  background: hsl(332, 90%, 56%, 0.5);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.overlay:hover {
+  opacity: 1;
+}
+.underlineDiv{
+    transform: translateX(-120%);
+    transition: all 1.2s ease;
+
+}
+.overlay:hover .underlineDiv {
+    transform: translateX(0%);
+}
+.overlay-text {
+  transform: translateY(100%);
+  transition: all 0.8s ease;
+  overflow: hidden;
+}
+.overlay:hover .overlay-text {
+  transform: translateY(0%);
+}
+
+.hoverEffectOnImg {
+    background: linear-gradient(135deg, #FC0 0%, #FD1783 100%);
+}
+
+.intro{
+    transition: 0.6s;
+    background-color: rgba(27, 27, 27, 0.5);
+}
+
+
+.card:hover .intro
+{
+    height: 150px;
+    background-color: black;
+    opacity: 1;
+}
+
+.ptext{
+    visibility: hidden;
+}
+
+
+.card:hover .ptext
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.bgImg{
+    transition: 0.6s;
+}
+
+.card:hover .bgImg
+{
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.cartDiv{
+    background: linear-gradient(180deg, #FF8E4B 0%, #FF9252 0.01%, #DB1450 100%);;
+}
+
+
+.couponInput{
+    border-radius: 6px 0 0 6px;
+    background: #FFF;
+    box-shadow: 0px 0px 20px 0px rgba(182, 1, 76, 0.34);
+
+}
+.couponButton{
+    border-radius: 0px 6px 6px 0px;
+    background: linear-gradient(90deg, #FC0 0%, #FD1783 100%);
+    box-shadow: 0px 0px 20px 0px rgba(182, 1, 76, 0.34);
+
+}
+
+.checkoutBtn{
+    border-radius: 50px;
+background: linear-gradient(90deg, #FC0 0%, #FD1783 100%);
+box-shadow: 0px 0px 20px 0px rgba(182, 1, 76, 0.34);
+}
+
+.directionsBtn{
+    border-radius: 50px;
+background: linear-gradient(90deg, #FC0 0%, #FD1783 100%);
+box-shadow: 0px 0px 20px 0px rgba(182, 1, 76, 0.34);
+
+}
+/* .button-arrow{
+  
+} */
+
+.trans{
+  transition: all ease 1s;
+  transform: translateX(-5%);
+  overflow-x: hidden;
+}
+.imgcontainer:hover .trans{
+  transform: translateX(0%);
+}
+.trans::after{
+  height: 1px;
+  background: #000;
+}
+.spannum{
+  padding: 1px 0;
+  margin-right: 0;
+  display: inline-block;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+  opacity: 0;
+  text-indent: -50px;
+  white-space: nowrap;
+  will-change: text-indent,opacity,margin-right;
+  -webkit-transition: text-indent .4s ease-out,opacity .4s ease-out,margin-right .2s ease-out;
+  -ms-transition: text-indent .4s ease-out,opacity .4s ease-out,margin-right .2s ease-out;
+  transition: text-indent .4s ease-out,opacity .4s ease-out,margin-right .2s ease-out;
+}
+.imgcontainer:hover .spannum{
+  text-indent: 0px;
+  opacity: 1;
+}
+
+.trans:after{
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0%;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0%;
+  /* width: 0; */
+  background-color: grey;
+  will-change: width;
+  -webkit-transition: width .4s ease;
+  -ms-transition: width .4s ease;
+  transition: width .4s ease;
+  transition-delay: .4s;
+
+}
+.imgcontainer:hover .trans::after{
+  width: 70%;
+  opacity: 1;
+}
+.image{
+  height: 35vh;
+  transition: all .4s ease-in;
+  border-radius: 1rem;
+}
+.imgcontainer:hover .image{
+  /* display: none; */
+  /* zoom: 120%; */
+  transform: scale(1.05) ;
+}
+.button-arrow{
+
+  padding: 1px 0;
+  margin-right: 0;
+  display: inline-block;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+  opacity: 0;
+  text-indent: -50px;
+  white-space: nowrap;
+  will-change: text-indent,opacity,margin-right;
+  -webkit-transition: text-indent .4s ease-out,opacity .4s ease-out,margin-right .2s ease-out;
+  -ms-transition: text-indent .4s ease-out,opacity .4s ease-out,margin-right .2s ease-out;
+  transition: text-indent .4s ease-out,opacity .4s ease-out,margin-right .2s ease-out;
+}
+.btnDiv{
+  transition: all .5s ease;
+  
+}
+.btnDiv:hover .button-arrow{
+  text-indent: 0px;
+  opacity: 1;
+}
+.navbtn{
+  transition: all 0.5s ease;
+}
+.navbtnDiv:hover .button-arrow{
+  text-indent: 0px;
+  opacity: 1;
+}
+.transitions{
+  transition: all 0.5s ease;
+
+}
+
+
+
+/* //navbar settings */
+  
+  .refresh {
+    padding: 5px;
+    position: absolute;
+    border: 1px dotted var(--accent);
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .refresh path {
+    fill: var(--accent);
+  }
+  
+  .box {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin: 0;
+  }
+  
+ 
+  
+  .controls {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    padding-bottom: 50px;
+    align-items: center;
+  }
+  
+
+  .example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .item {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--background);
+    font-size: 240px;
+    line-height: 260px;
+    font-weight: 700;
+    border-radius: 30px;
+  }
+
+  
+/* creating hovering effect on knowMoreBtn */
+.arrowIcon {
+  opacity: 0;
+  transform: translateX(-100%) scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btnText {
+  position: relative;
+  left: 30px;
+  transition: opacity 0.3s ease, transform 0.3s ease, left 0.5s ease-in-out;
+  will-change: transform, left;
+
+}
+
+.knowMoreBtn:hover .arrowIcon {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
+
+.knowMoreBtn:hover .btnText {
+  left: 0;
+}
+
+
+
+.arrowIcon2 {
+  opacity: 0;
+  transform: translateX(-100%) scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btnText2 {
+  position: relative;
+  left: 20px;
+  transition: opacity 0.3s ease, transform 0.3s ease, left 0.5s ease-in-out;
+  will-change: transform, left;
+
+}
+
+.knowMoreBtn2:hover .arrowIcon2 {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
+
+.knowMoreBtn2:hover .btnText2 {
+  left: 0;
+}
+
+.sidebox-css{
+    background: linear-gradient(278.26deg, rgba(231, 3, 76, 0.9) 12.38%, rgba(252, 123, 3, 0.9) 94.29%);
+}
+
+
+.buyTicketsBtn{
+  border-radius: 50px;
+  background: linear-gradient(90deg, #FC0 0%, #FD1783 100%);
+  box-shadow: 0px 0px 15px 0px rgba(182, 1, 76, 0.18);
+}
+
+
+.buyTicketsBtn3{
+  background: linear-gradient(90deg, #FC0 0%, #FD1783 100%);
+  box-shadow: 0px 0px 15px 0px rgba(182, 1, 76, 0.18);
+}
+
+
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.fade-in.active {
+  opacity: 1;
+}
+
+
+
+.number-input {
+  /* Disable the default spinners */
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* For Firefox, additional styling is needed */
+.number-input::-webkit-outer-spin-button,
+.number-input::-webkit-inner-spin-button {
+  /* Hide the default spinners in Chrome, Safari, and newer versions of Edge */
+  -webkit-appearance: none;
+  margin: 0; /* Remove the inner padding in Chrome, Safari, and newer versions of Edge */
+}
+
+.serviceCard:hover{
+  background: linear-gradient(180deg, #FF8E4B 0%, #FF9252 0.01%, #DB1450 105.4%);
+}
+
+.serviceBackground{
+  background: url('/Service/service4.png');
+  background-repeat: no-repeat;
+  background-size: 100vw auto;
+}
