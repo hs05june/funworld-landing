@@ -4,8 +4,6 @@ import Image from 'next/image'
 // import DisabledGuests from "@/components/TextComponents/DisabledGuests"
 // import CodeOfConduct from '@/components/TextComponents/CodeOfConduct'
 // import Policy from '@/components/TextComponents/Policy'
-import Rules from '@/components/TextComponents/Rules'
-import CodeOfSafety from '@/components/TextComponents/CodeOfSafety'
 // import Disclaimer from '@/components/TextComponents/Disclaimer'
 import Ride from '@/app/ridedetails/page'
 
