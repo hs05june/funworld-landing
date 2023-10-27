@@ -1,20 +1,10 @@
 "use client"
 import React from 'react'
 import bg1 from "@/public/Reusable/bg1.svg"
-import child from "@/public/About/child.svg"
-import houseIcon from "@/public/About/houseIcon.svg"
-import knifeIcon from "@/public/About/knifeIcon.svg"
-import lockerIcon from "@/public/About/lockerIcon.svg"
-import riverIcon from "@/public/About/riverIcon.svg"
-import vision from "@/public/About/vision.svg"
-import mission from "@/public/About/mission.svg"
-import ringsWithChild from "@/public/About/ringsWithChild.svg"
-import waterSlide from "@/public/About/waterSlide.svg"
 import Image from 'next/image'
 import triangle from "@/public/Reusable/triangle.svg"
 import bottles from "@/public/Reusable/bottles.jpg"
 import { animated, useInView } from '@react-spring/web'
-import fun2 from "@/public/About/fun2.jpeg"
 import fun3 from "@/public/About/fun3.jpeg"
 import fun4 from "@/public/About/fun4.jpeg"
 import Head from 'next/head'
@@ -23,11 +13,9 @@ import { MdFastfood } from "react-icons/md"
 import mask from "@/public/Amusement/mask.png"
 import mask2 from "@/public/Amusement/mask2.png"
 import waterRide from "@/public/Amusement/waterRide.png"
-import group1 from "@/public/About/Group1.png"
 import group_pic1 from "@/public/About/group_pic1.png"
 import group_pic2 from "@/public/About/group_pic2.png"
 import group_pic3 from "@/public/About/group_pic3.png"
-import img1 from "@/public/About/fun2.jpeg"
 
 // First About Page
 
