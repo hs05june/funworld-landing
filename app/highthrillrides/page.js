@@ -28,7 +28,6 @@ import rides23 from "@/public/Amusement/rides23.webp";
 import rides24 from "@/public/Amusement/rides24.webp";
 import rides25 from "@/public/Amusement/rides25.webp";
 import rides26 from "@/public/Amusement/rides26.webp";
-import rides27 from "@/public/Amusement/rides27.webp";
 
 
 

@@ -1,12 +1,6 @@
 import React from 'react'
 import bg1 from "@/public/Reusable/bg1.svg"
 import Image from 'next/image'
-import enhancedCleaning from "@/public/SafetyMeasures/enhancedCleaning.svg"
-import physicalDistancing from "@/public/SafetyMeasures/physicalDistancing.svg"
-import reducedContact from "@/public/SafetyMeasures/reducedContact.svg"
-import limitedCapacity from "@/public/SafetyMeasures/limitedCapacity.svg"
-import mask from "@/public/SafetyMeasures/mask.svg"
-import screening from "@/public/SafetyMeasures/screening.svg"
 
 
 const PrivacyPolicy = () => {
