@@ -1,11 +1,11 @@
 "use client"
 import ProceedBtn from '@/components/Repeating/Button'
 import { ticketPricingFunction } from '@/components/ticketPricing'
-import bullet from "@/public/bulletIcon.svg"
-import ticketsicon1 from "@/public/Reusable/ticketsicon1.svg"
-import ticketsicon2 from "@/public/Reusable/ticketsicon2.svg"
-import ticketsicon3 from "@/public/Reusable/ticketsicon3.svg"
-import ticketsicon4 from "@/public/Reusable/ticketsicon4.svg"
+import bullet from "@/public/bulletIcon.webp"
+import ticketsicon1 from "@/public/Reusable/ticketsicon1.webp"
+import ticketsicon2 from "@/public/Reusable/ticketsicon2.webp"
+import ticketsicon3 from "@/public/Reusable/ticketsicon3.webp"
+import ticketsicon4 from "@/public/Reusable/ticketsicon4.webp"
 import axios from 'axios'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
@@ -438,7 +438,7 @@ const TicketsPage = () => {
       <section className="w-full min-h-[629px] relative max-lg:min-h-[400px] max-xl:min-h-[450px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]">
         <Image
           className="bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover"
-          src={"/Amusement/hero_background.svg"}
+          src={"/Amusement/hero_background.webp"}
           alt="background img"
           width={2042}
           height={1029}
@@ -452,17 +452,17 @@ const TicketsPage = () => {
         </div>
         <div className="w-full h-full absolute flex">
           <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
-            <Image src="/Rides/Ellipse1.svg" width={18} height={18} alt="abc" />
+            <Image src="/Rides/Ellipse1.webp" width={18} height={18} alt="abc" />
           </div>
           <div>
-            <Image src="/Rides/Ellipse2.svg" width={28} height={28} alt="abc" />
+            <Image src="/Rides/Ellipse2.webp" width={28} height={28} alt="abc" />
           </div>
           <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
-            <Image src="/Rides/stars.svg" width={68} height={68} alt="abc" />
+            <Image src="/Rides/stars.webp" width={68} height={68} alt="abc" />
           </div>
           <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
             <Image
-              src="/Rides/white-shape-banner1.svg"
+              src="/Rides/white-shape-banner1.webp"
               width={141}
               height={168}
               alt="abc"
@@ -470,7 +470,7 @@ const TicketsPage = () => {
           </div>
           <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
             <Image
-              src="/Rides/white-shape-banner2.svg"
+              src="/Rides/white-shape-banner2.webp"
               width={141}
               height={148}
               alt="abc"
@@ -995,7 +995,7 @@ const TicketsPage = () => {
           )
       }
       <div
-        style={{ backgroundImage: "url('/ticketspageimg.svg')" }}
+        style={{ backgroundImage: "url('/ticketspageimg.webp')" }}
         className="w-[80vw] lg:flex hidden mt-16 mx-auto bg-no-repeat h-[250px] bg-cover rounded-xl bg-center justify-around gap-6 items-center px-4">
         <div className='flex flex-col items-center justify-start text-white'>
           <Image src={ticketsicon1} alt="abc" />

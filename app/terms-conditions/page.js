@@ -1,12 +1,12 @@
 import React from 'react'
-import bg1 from "@/public/Reusable/bg1.svg"
+import bg1 from "@/public/Reusable/bg1.webp"
 import Image from 'next/image'
-import enhancedCleaning from "@/public/SafetyMeasures/enhancedCleaning.svg"
-import physicalDistancing from "@/public/SafetyMeasures/physicalDistancing.svg"
-import reducedContact from "@/public/SafetyMeasures/reducedContact.svg"
-import limitedCapacity from "@/public/SafetyMeasures/limitedCapacity.svg"
-import mask from "@/public/SafetyMeasures/mask.svg"
-import screening from "@/public/SafetyMeasures/screening.svg"
+import enhancedCleaning from "@/public/SafetyMeasures/enhancedCleaning.webp"
+import physicalDistancing from "@/public/SafetyMeasures/physicalDistancing.webp"
+import reducedContact from "@/public/SafetyMeasures/reducedContact.webp"
+import limitedCapacity from "@/public/SafetyMeasures/limitedCapacity.webp"
+import mask from "@/public/SafetyMeasures/mask.webp"
+import screening from "@/public/SafetyMeasures/screening.webp"
 
 
 const Terms = () => {

@@ -1,19 +1,19 @@
 "use client"
 import React,{ useState } from 'react'
-import bg1 from "@/public/Reusable/bg1.svg"
+import bg1 from "@/public/Reusable/bg1.webp"
 import Image from 'next/image'
-import enhancedCleaning from "@/public/SafetyMeasures/enhancedCleaning.svg"
-import physicalDistancing from "@/public/SafetyMeasures/physicalDistancing.svg"
-import reducedContact from "@/public/SafetyMeasures/reducedContact.svg"
-import limitedCapacity from "@/public/SafetyMeasures/limitedCapacity.svg"
-import mask from "@/public/SafetyMeasures/mask.svg"
-import screening from "@/public/SafetyMeasures/screening.svg"
-import enhancedCleaningHover from "@/public/SafetyMeasures/enhancedCleaningHover.svg"
-import physicalDistancingHover from "@/public/SafetyMeasures/physicalDistancingHover.svg"
-import reducedContactHover from "@/public/SafetyMeasures/reducedContactHover.svg"
-import limitedCapacityHover from "@/public/SafetyMeasures/limitedCapacityHover.svg"
-import maskHover from "@/public/SafetyMeasures/maskHover.svg"
-import screeningHover from "@/public/SafetyMeasures/screeningHover.svg"
+import enhancedCleaning from "@/public/SafetyMeasures/enhancedCleaning.webp"
+import physicalDistancing from "@/public/SafetyMeasures/physicalDistancing.webp"
+import reducedContact from "@/public/SafetyMeasures/reducedContact.webp"
+import limitedCapacity from "@/public/SafetyMeasures/limitedCapacity.webp"
+import mask from "@/public/SafetyMeasures/mask.webp"
+import screening from "@/public/SafetyMeasures/screening.webp"
+import enhancedCleaningHover from "@/public/SafetyMeasures/enhancedCleaningHover.webp"
+import physicalDistancingHover from "@/public/SafetyMeasures/physicalDistancingHover.webp"
+import reducedContactHover from "@/public/SafetyMeasures/reducedContactHover.webp"
+import limitedCapacityHover from "@/public/SafetyMeasures/limitedCapacityHover.webp"
+import maskHover from "@/public/SafetyMeasures/maskHover.webp"
+import screeningHover from "@/public/SafetyMeasures/screeningHover.webp"
 
 
 const SafetyMeasures = () => {

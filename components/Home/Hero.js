@@ -5,23 +5,23 @@ import "@splidejs/react-splide/css/core";
 import Image from 'next/image'
 import AnimatedText from '../AnimatedText'
 
-import arrow1 from "@/public/Reusable/carouselBack.svg"
-import arrow2 from "@/public/Reusable/carouselForward.svg"
-import img1 from "@/public/Reusable/manInFormals.svg"
-import img2 from "@/public/Reusable/manWithSpecs.svg"
-import img3 from "@/public/Reusable/quomas.svg"
+import arrow1 from "@/public/Reusable/carouselBack.webp"
+import arrow2 from "@/public/Reusable/carouselForward.webp"
+import img1 from "@/public/Reusable/manInFormals.webp"
+import img2 from "@/public/Reusable/manWithSpecs.webp"
+import img3 from "@/public/Reusable/quomas.webp"
 
 import hero1 from "@/public/Home/hero/hero1.jpg"
 import buy from "@/public/Home/hero/buy.jpg"
 
 
-import IMG1 from "@/public/Home/Carousel/Image1.svg"
-import IMG2 from "@/public/Home/Carousel/Image2.svg"
-import IMG3 from "@/public/Home/Carousel/Image3.svg"
+import IMG1 from "@/public/Home/Carousel/Image1.webp"
+import IMG2 from "@/public/Home/Carousel/Image2.webp"
+import IMG3 from "@/public/Home/Carousel/Image3.webp"
 import Link from 'next/link';
 
 
-// Home/Carousel/Image1.svg
+// Home/Carousel/Image1.webp
 
 
 const Hero = () => {

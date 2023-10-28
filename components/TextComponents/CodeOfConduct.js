@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import tick from "@/public/Reusable/tick.svg"
+import tick from "@/public/Reusable/tick.webp"
 
 
 

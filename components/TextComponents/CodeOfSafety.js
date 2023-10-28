@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import tick from "@/public/Reusable/tick.svg"
+import tick from "@/public/Reusable/tick.webp"
 
 const CodeOfSafety = () => {
     return (

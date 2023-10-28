@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
-import LogoBnG from "@/public/Home/footer/LogoBnG.svg"
-import Wires from "@/public/Reusable/wires.svg"
-import fbFooter from "@/public/Reusable/fbFooter.svg"
-import igFooter from "@/public/Reusable/igFooter.svg"
-import pinintrestFooter from "@/public/Reusable/pinintrestFooter.svg"
-import twitterFooter from "@/public/Reusable/twitterFooter.svg"
-import footerAddress from "@/public/Reusable/footer-address.svg"
-import footerEmail from "@/public/Reusable/footer-email.svg"
-import footerCall from "@/public/Reusable/foter-call.svg"
+import LogoBnG from "@/public/Home/footer/LogoBnG.webp"
+import Wires from "@/public/Reusable/wires.webp"
+import fbFooter from "@/public/Reusable/fbFooter.webp"
+import igFooter from "@/public/Reusable/igFooter.webp"
+import pinintrestFooter from "@/public/Reusable/pinintrestFooter.webp"
+import twitterFooter from "@/public/Reusable/twitterFooter.webp"
+import footerAddress from "@/public/Reusable/footer-address.webp"
+import footerEmail from "@/public/Reusable/footer-email.webp"
+import footerCall from "@/public/Reusable/foter-call.webp"
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineMenu } from "react-icons/ai"
@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
         </div>
       </div> */}
-      <div className='min-h-[400px] relative overflow-hidden lg:mt-12 text-white py-8 bg-[#1F1F34] bg-[url("../public/Home/footer/footerBG.svg")] flex flex-row flex-wrap  items-start xl:gap-8 lg:gap-6 gap-x-4 gap-y-8 md:pl-[10vw] md:justify-between justify-around md:pr-[5vw] md:pt-20 pb-12 '>
+      <div className='min-h-[400px] relative overflow-hidden lg:mt-12 text-white py-8 bg-[#1F1F34] bg-[url("../public/Home/footer/footerBG.webp")] flex flex-row flex-wrap  items-start xl:gap-8 lg:gap-6 gap-x-4 gap-y-8 md:pl-[10vw] md:justify-between justify-around md:pr-[5vw] md:pt-20 pb-12 '>
 
         <div className='lg:w-[25vw] w-[100vw]'>
           <div className='flex relative top-[-50px] flex-col items-center gap-4 my-8'>

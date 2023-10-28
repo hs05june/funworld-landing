@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import bgDots from "@/public/Home/welcome/bgDots.svg"
+import bgDots from "@/public/Home/welcome/bgDots.webp"
 import Image from 'next/image'
 import ProceedBtn from '../Repeating/Button'
 // import { motion, useInView } from 'framer-motion'
@@ -36,7 +36,7 @@ const Welcome = () => {
 
                     <Image priority src={'/Home/welcome/Welcome_Ride1.jpg'} alt="Ride" width={450} height={450} />
                     <div className='absolute right-[105px] bottom-[-50px] p-2 bg-white' >
-                        <Image priority src={'/Home/welcome/Welcome_Ride2.png'} alt="children" width={250} height={250} />
+                        <Image priority src={'/Home/welcome/Welcome_Ride2.jpg'} alt="children" width={250} height={250} />
                     </div>
 
                 </div>
