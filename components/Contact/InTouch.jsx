@@ -8,7 +8,7 @@ const InTouch = ({ gradient, image, heading, text, icon }) => {
         <Image priority src={image} width={60} height={60} className="h-full w-full object-fill" alt="abc" />
       </div>
       <div className='absolute right-0 top-0 aspect-square h-1/3 '>
-        <Image priority src={"/Contact/Vetcor2.svg"} width={60} height={60} className="h-full w-full object-fill" alt="abc" />
+        <Image priority src={"/Contact/Vetcor2.webp"} width={60} height={60} className="h-full w-full object-fill" alt="abc" />
       </div>
       <div className='w-full h-full flex absolute z-[3] pl-[10%] '>
         <div className='aspect-square pt-[20%] w-[60px] max-sm:w-10 max-sm:pt-[27%]'>

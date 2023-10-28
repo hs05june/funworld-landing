@@ -2,9 +2,9 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import slide from "@/public/Home/ticket/slide.svg"
+import slide from "@/public/Home/ticket/slide.webp"
 import ProceedBtn from "@/components/Repeating/Button.js"
-import ParkAttractions4 from "@/public/Home/parkAttractions/parkAttractions4.svg"
+import ParkAttractions4 from "@/public/Home/parkAttractions/parkAttractions4.webp"
 import { BsArrowRightCircleFill } from "react-icons/bs"
 import { gsap } from 'gsap'
 import { animated, useInView } from '@react-spring/web'

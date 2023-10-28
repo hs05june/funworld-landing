@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
-import bg1 from "@/public/Reusable/bg1.svg"
+import bg1 from "@/public/Reusable/bg1.webp"
 import Image from 'next/image'
-import triangle from "@/public/Reusable/triangle.svg"
+import triangle from "@/public/Reusable/triangle.webp"
 import bottles from "@/public/Reusable/bottles.jpg"
 import { animated, useInView } from '@react-spring/web'
 import fun3 from "@/public/About/fun3.jpeg"
@@ -336,7 +336,7 @@ const About = () => {
     <>
       <div className='min-h-screen w-screen flex flex-col overflow-x-hidden'>
         <section className='w-full min-h-[550px] relative max-md:min-h-[400px] max-xl:min-h-[450px] xl:h-fit max-lg:min-h-[300px] max-sm:min-h-[250px]'>
-          {/* <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg1.svg"} alt="bacgkround img" width={2042} height={1029} /> */}
+          {/* <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg1.webp"} alt="bacgkround img" width={2042} height={1029} /> */}
           <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
           <div className="w-full absolute max-sm:bottom-[1%] ">
             <div className=" h-[40vh] w-full flex flex-col text-center justify-center items-center relative top-[2vh] md:top-[8vh]">
@@ -350,17 +350,17 @@ const About = () => {
           </div>
           <div className="w-full h-full absolute flex ">
             <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-lg:hidden">
-              <Image alt="/" src="/Rides/Ellipse1.svg" width={18} height={18} />
+              <Image alt="/" src="/Rides/Ellipse1.webp" width={18} height={18} />
             </div>
             <div>
-              <Image alt="/" src="/Rides/Ellipse2.svg" width={28} height={28} />
+              <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
             </div>
             <div className="absolute bottom-[150px] right-[10rem] max-lg:hidden ">
-              <Image alt="/" src="/Rides/stars.svg" width={68} height={68} />
+              <Image alt="/" src="/Rides/stars.webp" width={68} height={68} />
             </div>
             <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
               <Image alt="/"
-                src="/Rides/white-shape-banner1.svg"
+                src="/Rides/white-shape-banner1.webp"
                 width={141}
                 height={168}
 
@@ -368,7 +368,7 @@ const About = () => {
             </div>
             <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
               <Image alt="/"
-                src="/Rides/white-shape-banner2.svg"
+                src="/Rides/white-shape-banner2.webp"
                 width={141}
                 height={148}
               />

@@ -23,7 +23,7 @@ const Left = ({ heading, text, image, url }) => {
 
                         <Link href="/waterrides">
                             <button className='flex items-center btn text-white px-8 py-2 hover:brightness-95'>
-                                Know More <span className='bg-white rounded-[50%] w-10 h-10 ml-5 flex items-center justify-center '><Image priority src="/arrow.svg" height={18} width={18} alt="abc" /></span>
+                                Know More <span className='bg-white rounded-[50%] w-10 h-10 ml-5 flex items-center justify-center '><Image priority src="/arrow.webp" height={18} width={18} alt="abc" /></span>
                             </button>
 
                         </Link>

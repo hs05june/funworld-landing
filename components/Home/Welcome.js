@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import bgDots from "@/public/Home/welcome/bgDots.svg"
+import bgDots from "@/public/Home/welcome/bgDots.webp"
 import Image from 'next/image'
 import ProceedBtn from '../Repeating/Button'
 // import { motion, useInView } from 'framer-motion'

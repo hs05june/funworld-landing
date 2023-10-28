@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import bg1 from "@/public/Reusable/bg1.svg"
+import bg1 from "@/public/Reusable/bg1.webp"
 import students from "@/public/students.jpg"
 
 import React from 'react'

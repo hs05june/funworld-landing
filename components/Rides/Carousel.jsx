@@ -4,7 +4,7 @@ import '@splidejs/react-splide/css';
 import React from 'react'
 import {Splide,SplideSlide} from "@splidejs/react-splide"
 import Image from 'next/image'
-import Rides1 from "@/public/Amusement/Rides1.svg"
+import Rides1 from "@/public/Amusement/Rides1.webp"
 import rides2 from "@/public/Amusement/rides2.jpeg"
 import rides3 from "@/public/Amusement/rides3.jpeg"
 import rides4 from "@/public/Amusement/rides4.jpeg"
