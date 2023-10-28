@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
-import bg1 from "@/public/Reusable/bg1.svg"
-import tick from "@/public/Reusable/tick.svg"
+import bg1 from "@/public/Reusable/bg1.webp"
+import tick from "@/public/Reusable/tick.webp"
 import Link from 'next/link'
 
 const Rules = () => {

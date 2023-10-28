@@ -2,9 +2,9 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import slide from "@/public/Home/ticket/slide.svg"
+import slide from "@/public/Home/ticket/slide.webp"
 import ProceedBtn from "@/components/Repeating/Button.js"
-import ParkAttractions4 from "@/public/Home/parkAttractions/parkAttractions4.svg"
+import ParkAttractions4 from "@/public/Home/parkAttractions/parkAttractions4.webp"
 import { BsArrowRightCircleFill } from "react-icons/bs"
 import { gsap } from 'gsap'
 import { animated, useInView } from '@react-spring/web'
@@ -148,7 +148,7 @@ const YourTicket = () => {
                                 ) : comp === 2 ? (
                                     <div className='flex fade-in active'>
                                         <div className='flex-1 bg-cover lg:block hidden'>
-                                            <Image className='h-full w-full' src={'/Amusement/landrides.png'} width={1500} height={1000} priority alt='slide' />
+                                            <Image className='h-full w-full' src={'/Amusement/landrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4' >
                                             <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Land Rides</div>
@@ -180,7 +180,7 @@ const YourTicket = () => {
                                 ) : comp === 4 ? (
                                     <div className='flex fade-in active'>
                                         <div className='flex-1 bg-cover lg:block hidden'>
-                                            <Image className='h-full w-full' src={'/Amusement/children_rides.png'} width={1500} height={1000} priority alt='slide' />
+                                            <Image className='h-full w-full' src={'/Amusement/children_rides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4' >
                                             <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Kids Rides</div>
@@ -238,7 +238,7 @@ const YourTicket = () => {
                                 <div className='flex'>
                                     <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4 px-6' >
                                         <div className='flex-1 bg-cover lg:block'>
-                                        <Image className='h-full w-full' src={'/Amusement/landrides.png'} width={1500} height={1000} priority alt='slide' />
+                                        <Image className='h-full w-full' src={'/Amusement/landrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Land Rides</div>
                                         <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>
@@ -271,7 +271,7 @@ const YourTicket = () => {
                                 <div className='flex'>
                                     <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4 px-6' >
                                         <div className='flex-1 bg-cover lg:block'>
-                                        <Image className='h-full w-full' src={'/Amusement/children_rides.png'} width={1500} height={1000} priority alt='slide' />
+                                        <Image className='h-full w-full' src={'/Amusement/children_rides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Kids Rides</div>
                                         <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>Designed with little adventurers in mind, our kids&apos; rides in the amusement park and water park offer safe and enchanting experiences. From gentle carousels to mini water slides, children will be all smiles.

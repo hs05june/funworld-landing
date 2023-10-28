@@ -21,7 +21,7 @@ const Index = () => {
           <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
         </Head>
          <section className='w-full min-h-[629px] relative max-lg:min-h-[400px] max-xl:min-h-[450px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
-        <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover ' src={"/Contact/hero_background.svg"} alt="bacgkround img" width={2042} height={1029} />
+        <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover ' src={"/Contact/hero_background.webp"} alt="bacgkround img" width={2042} height={1029} />
         <div className="w-full bottom-[50%] absolute max-lg:bottom-[40%]">
           <div className=" h-full w-full flex text-center justify-center items-center ">
             <div className=" text-center font-extrabold text-[70px] text-white max-lg:text-6xl max-md:text-5xl  max-xs:text-4xl ">
@@ -31,17 +31,17 @@ const Index = () => {
         </div>
         <div className="w-full h-full absolute flex ">
           <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
-            <Image src="/Rides/Ellipse1.svg" width={18} height={18} />
+            <Image src="/Rides/Ellipse1.webp" width={18} height={18} />
           </div>
           <div>
-            <Image src="/Rides/Ellipse2.svg" width={28} height={28} />
+            <Image src="/Rides/Ellipse2.webp" width={28} height={28} />
           </div>
           <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
-            <Image src="/Rides/stars.svg" width={68} height={68} />
+            <Image src="/Rides/stars.webp" width={68} height={68} />
           </div>
           <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
             <Image
-              src="/Rides/white-shape-banner1.svg"
+              src="/Rides/white-shape-banner1.webp"
               width={141}
               height={168}
 
@@ -49,7 +49,7 @@ const Index = () => {
           </div>
           <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
             <Image
-              src="/Rides/white-shape-banner2.svg"
+              src="/Rides/white-shape-banner2.webp"
               width={141}
               height={148}
             />
@@ -66,9 +66,9 @@ const Index = () => {
             </div>
             <div className=' w-full min-h-[230px] flex justify-center'>
               <div className='w-[100%] h-full grid grid-flow-col max-lg:grid-flow-row max-lg:grid-cols-2  max-lg:gap-2 max-sm:grid-cols-1 max-sm:px-[2%] max-sm:min-w-0 gap-2'>
-                  <InTouch gradient={"linear-gradient(180deg, #9644FF 0%, #BF61FF 0.01%, #5B38E7 82.59%)"} image={"/Contact/VectorBlue.svg"} icon={"/Contact/home.svg"} heading={"Address"} text={"Palace Grounds, Jayamahal Main Rd, Opposite TV Tower, J.C.Nagar Bengaluru, Karnataka 560006"} />
-                  <InTouch image={"/Contact/VectorRed.svg"}  gradient={"linear-gradient(180deg, #FF8E4B 0%, #FF9252 0.01%, #DB1450 82.59%)"} icon={"/Contact/phone.svg"} heading={"Phone"} text={"08431110000"} />
-                  <InTouch image={"/Contact/VectorGreen.svg"} gradient={"linear-gradient(180deg, #A2C450 0%, #BF61FF 0.01%, #A0C54E 0.02%, #139180 82.59%)"}  icon={"/Contact/mail.svg"} heading={"Mail"} text={"info@funworldblr.com"} />
+                  <InTouch gradient={"linear-gradient(180deg, #9644FF 0%, #BF61FF 0.01%, #5B38E7 82.59%)"} image={"/Contact/VectorBlue.webp"} icon={"/Contact/home.webp"} heading={"Address"} text={"Palace Grounds, Jayamahal Main Rd, Opposite TV Tower, J.C.Nagar Bengaluru, Karnataka 560006"} />
+                  <InTouch image={"/Contact/VectorRed.webp"}  gradient={"linear-gradient(180deg, #FF8E4B 0%, #FF9252 0.01%, #DB1450 82.59%)"} icon={"/Contact/phone.webp"} heading={"Phone"} text={"08431110000"} />
+                  <InTouch image={"/Contact/VectorGreen.webp"} gradient={"linear-gradient(180deg, #A2C450 0%, #BF61FF 0.01%, #A0C54E 0.02%, #139180 82.59%)"}  icon={"/Contact/mail.webp"} heading={"Mail"} text={"info@funworldblr.com"} />
               </div>
           </div>
           </div>

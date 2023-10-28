@@ -1,18 +1,18 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import BalancingGirl from '@/public/WaterPark/BalancingGirl.svg'
-import WaterGunFamily from '@/public/WaterPark/WaterGunFamily.svg'
-import Points from '@/public/Service/Points.svg'
-import Phone from '@/public/Service/Phone.svg'
+import BalancingGirl from '@/public/WaterPark/BalancingGirl.webp'
+import WaterGunFamily from '@/public/WaterPark/WaterGunFamily.webp'
+import Points from '@/public/Service/Points.webp'
+import Phone from '@/public/Service/Phone.webp'
 import family from "@/public/Service/Family.jpeg"
 import { useInView } from 'framer-motion'
-import swing from "@/public/Service/swing.png"
-import ServiceImage from "@/public/Service/Bengaluru_-_Banded_Kraits 1.png"
+import swing from "@/public/Service/swing.jpg"
+import ServiceImage from "@/public/Service/Bengaluru_-_Banded_Kraits 1.jpg"
 import Amusement from "@/public/Service/Amusement.jpg"
 import Water from "@/public/Service/Water.jpg"
 import { Box, Button, Card, Input, TextField, Typography } from '@mui/material'
-import map from "@/public/Service/map.png"
+import map from "@/public/Service/map.jpg"
 import first from "@/public/Service/1.jpg"
 import second from "@/public/Service/2.jpeg"
 import third from "@/public/Service/3.jpg"
@@ -385,7 +385,7 @@ const Service = () => {
 
 
                 <section className='w-full min-h-[629px] relative max-md:min-h-[400px] max-xl:min-h-[450px] xl:h-fit max-lg:min-h-[300px] max-sm:min-h-[250px]'>
-                    <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Amusement/hero_background.svg"} alt="bacgkround img" width={2042} height={1029} />
+                    <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Amusement/hero_background.webp"} alt="bacgkround img" width={2042} height={1029} />
                     <div className="w-full">
                         <div className=" h-fit w-fit flex flex-col text-center justify-center items-center space-y-5 md:space-y-10 mt-10 md:mt-14 lg:mt-24 xl:space-y-16 xl:mt-28">
                         <div className="text-center font-bold text-xl text-white md:text-4xl lg:text-5xl xl:text-7xl">
@@ -399,17 +399,17 @@ const Service = () => {
                     </div>
                     <div className="w-full h-full absolute flex ">
                         <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-lg:hidden">
-                            <Image alt="/" src="/Rides/Ellipse1.svg" width={18} height={18} />
+                            <Image alt="/" src="/Rides/Ellipse1.webp" width={18} height={18} />
                         </div>
                         <div>
-                            <Image alt="/" src="/Rides/Ellipse2.svg" width={28} height={28} />
+                            <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
                         </div>
                         <div className="absolute bottom-[150px] right-[10rem] max-lg:hidden ">
-                            <Image alt="/" src="/Rides/stars.svg" width={68} height={68} />
+                            <Image alt="/" src="/Rides/stars.webp" width={68} height={68} />
                         </div>
                         <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
                             <Image alt="/"
-                                src="/Rides/white-shape-banner1.svg"
+                                src="/Rides/white-shape-banner1.webp"
                                 width={141}
                                 height={168}
 
@@ -417,7 +417,7 @@ const Service = () => {
                         </div>
                         <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
                             <Image alt="/"
-                                src="/Rides/white-shape-banner2.svg"
+                                src="/Rides/white-shape-banner2.webp"
                                 width={141}
                                 height={148}
                             />

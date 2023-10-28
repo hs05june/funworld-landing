@@ -1,13 +1,13 @@
 "use client"
 import Image from 'next/image'
 import React, { useLayoutEffect, useState, useEffect } from 'react'
-import logo from "@/public/Home/hero/logo.svg"
+import logo from "@/public/Home/hero/logo.webp"
 import ReactModal from 'react-modal'
-import Wires from "@/public/Reusable/wires.svg"
-import fbFooter from "@/public/Reusable/fbFooter.svg"
-import igFooter from "@/public/Reusable/igFooter.svg"
-import pinintrestFooter from "@/public/Reusable/pinintrestFooter.svg"
-import twitterFooter from "@/public/Reusable/twitterFooter.svg"
+import Wires from "@/public/Reusable/wires.webp"
+import fbFooter from "@/public/Reusable/fbFooter.webp"
+import igFooter from "@/public/Reusable/igFooter.webp"
+import pinintrestFooter from "@/public/Reusable/pinintrestFooter.webp"
+import twitterFooter from "@/public/Reusable/twitterFooter.webp"
 import { motion, Variants } from "framer-motion";
 
 
@@ -17,7 +17,7 @@ import Link from 'next/link'
 import { BsArrowRightCircleFill } from 'react-icons/bs'
 
 
-import logo2 from "@/public/logo2.png"
+import logo2 from "@/public/logo2.jpg"
 
 import buy from "@/public/Home/hero/buy.jpg"
 
@@ -175,7 +175,7 @@ const Navbar = () => {
       <div className='lg:hidden block'>
         <div className='flex flex-col items-end justify-around mx-5 h-20'>
           <div className='w-fit h-fit absolute top-[-10px] left-5 z-10'>
-            <Image priority src={'/Home/hero/logo.svg'} alt="logo" width={100} height={100} />
+            <Image priority src={'/Home/hero/logo.webp'} alt="logo" width={100} height={100} />
           </div>
 
           <div className='flex flex-row gap-5 items-center'>

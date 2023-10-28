@@ -1,15 +1,15 @@
 import Image from 'next/image'
 
 import React from 'react'
-import Rides3 from "@/public/Rides&Attractions/Rides2.svg"
-import Rides4 from "@/public/Rides&Attractions/Rides2.svg"
-import Rides5 from "@/public/Rides&Attractions/Rides2.svg"
-import Rides6 from "@/public/Rides&Attractions/Rides2.svg"
-import Rides7 from "@/public/Rides&Attractions/Rides2.svg"
-import Rides8 from "@/public/Rides&Attractions/Rides2.svg"
-import Rides9 from "@/public/Rides&Attractions/Rides2.svg"
-import Rides10 from "@/public/Rides&Attractions/Rides2.svg"
-import waterpark1 from "@/public/Amusement/waterpark1.svg"
+import Rides3 from "@/public/Rides&Attractions/Rides2.webp"
+import Rides4 from "@/public/Rides&Attractions/Rides2.webp"
+import Rides5 from "@/public/Rides&Attractions/Rides2.webp"
+import Rides6 from "@/public/Rides&Attractions/Rides2.webp"
+import Rides7 from "@/public/Rides&Attractions/Rides2.webp"
+import Rides8 from "@/public/Rides&Attractions/Rides2.webp"
+import Rides9 from "@/public/Rides&Attractions/Rides2.webp"
+import Rides10 from "@/public/Rides&Attractions/Rides2.webp"
+import waterpark1 from "@/public/Amusement/waterpark1.webp"
 import Link from 'next/link'
 const Rides = ({ img, text, index }) => {
 
