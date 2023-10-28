@@ -284,32 +284,32 @@ const ServiceThird = () => {
 // Last Service Card
 const ServiceLast = () => {
     const data = [{
-        src: <Image src={first} width={100} height={100} className='w-full max-lg:h-[12vh] max-xl:h-[25vh]' alt='pic' />,
+        src: <Image src={first} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Enhanced Ride Experiences",
         content: "Infuse fresh excitement into existing rides. Our skilled modifications breathe new life into familiar attractions."
     },
     {
-        src: <Image src={second} width={100} height={100} className='w-full max-lg:h-[12vh] max-xl:h-[25vh]' alt='pic' />,
+        src: <Image src={second} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Restoration of Aging Rides",
         content: "Revive aging rides comprehensively. Our team restores charm and functionality, enhancing the appeal of your attractions."
     },
     {
-        src: <Image src={third} width={100} height={100} className='w-full max-lg:h-[12vh] max-xl:h-[25vh]' alt='pic' />,
+        src: <Image src={third} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "State-of-the-Art Ride",
         content: "Experience precision and reliability with our cutting-edge ride control systems. Ensure seamless operations for a smooth visitor experience."
     },
     {
-        src: <Image src={fourth} width={100} height={100} className='w-full max-lg:h-[12vh] max-xl:h-[25vh]' alt='pic' />,
+        src: <Image src={fourth} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Effortless Ride Transfers",
         content: "Planning to relocate? Rely on us for hassle-free ride relocation and precise installation, leaving a lasting impact."
     },
     {
-        src: <Image src={fifth} width={100} height={100} className='w-full max-lg:h-[12vh] max-xl:h-[25vh]' alt='pic' />,
+        src: <Image src={fifth} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Comprehensive Parts Solutions",
         content: "Ensure uninterrupted operation with complete spare parts coverage. Our specialized part fabrication guarantees seamless functionality."
     },
     {
-        src: <Image src={sixth} width={100} height={100} className='w-full max-lg:h-[12vh] max-xl:h-[25vh]' alt='pic' />,
+        src: <Image src={sixth} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Rides",
         content: "Explore a sneak peek of our spectacular rides. From the thrilling 'Break Dance Ride' to the classic 'Columbus' ride, Sky Drop, Tsunami, our portfolio oozes excitement."
     },
@@ -320,7 +320,7 @@ const ServiceLast = () => {
             <div className='flex flex-col h-[10%] justify-evenly'>
 
                 <Typography variant='h3' className='text-center max-lg:text-3xl max-lg:font-[600]'>Our Services</Typography>
-                <Typography variant='subtitle1' className='text-center text-[#5B5B5B]'>Below are some of our services. Contact us now to get a customized quote according to your preferences.</Typography>
+                <Typography variant='subtitle1' className='text-center text-[#5B5B5B] lg:px-0 px-10'>Below are some of our services. Contact us now to get a customized quote according to your preferences.</Typography>
             </div>
 
             <Box className="w-full h-[70%]">
@@ -363,19 +363,19 @@ const ServiceLast = () => {
 
 const CardService = ({ data }) => {
     return (
-        <div className='grid grid-cols-3 max-lg:grid-cols-2  gap-y-8 w-[90%] h-full mx-auto lg:px-10'>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1   gap-y-8 w-[90%] h-full mx-auto lg:px-10'>
             {data.map((e, index) => {
 
                 return (
-                    <Card key={index} className='w-[90%] h-[100%] shadow-xl rounded-xl'>
+                    <Card key={index} className='w-[90%] h-[100%] mx-auto shadow-xl rounded-xl'>
                         <div>
                             {/* <Image src={e.src} width={300} height={300} alt='pic' /> */}
                             {e.src}
-                            <Box className="gap-0 flex flex-col">
-                                <Typography className='md:p-4 max-lg:p-2 text-[#424234] text-[22px] font-[650] max-lg:text-sm'>
+                            <Box className="gap-2 my-4 px-4 flex flex-col">
+                                <Typography className='l text-[#424234] text-[22px] font-[650] max-lg:text-sm'>
                                     {e.head}
                                 </Typography>
-                                <Typography className='md:p-4 max-lg:p-2 max-lg:text-xs text-[#5B5B5B]'>
+                                <Typography className='mb-4 lg:mb-0 max-lg:text-xs text-[#5B5B5B]'>
                                     {e.content}
                                 </Typography>
                             </Box>
