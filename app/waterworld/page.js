@@ -564,12 +564,12 @@ const Index = () => {
                 <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
                 <div className="w-full bottom-[30%] sm:bottom-[50%] lg:bottom-[30%] absolute">
                     <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
-                        <div className=" text-center px-[15vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
+                    <h1 className=" text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
                             Welcome to Water World! An Aquatic Realm of Joy
-                        </div>
-                        <div className=" text-center w-[60%] md:w-full mt-8 lg:text-[20px] text-white text-xs">
+                        </h1>
+                        <p className="text-center w-[60%] lg:px-[20vw] md:px-[10vw] md:w-full md:mt-8 mt-3 lg:text-[20px] lg:leading-[30px] text-white text-xs">
                             A heavenly place to immerse yourself in an oasis of joy.
-                        </div>
+                        </p>
                     </div>
                 </div>
 
