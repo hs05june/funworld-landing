@@ -17,7 +17,7 @@ import Link from 'next/link'
 import { BsArrowRightCircleFill } from 'react-icons/bs'
 
 
-import logo2 from "@/public/logo2.png"
+import logo2 from "@/public/logo2.jpg"
 
 import buy from "@/public/Home/hero/buy.jpg"
 

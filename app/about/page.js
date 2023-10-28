@@ -10,12 +10,12 @@ import fun4 from "@/public/About/fun4.jpeg"
 import Head from 'next/head'
 import { Box, Card, Typography } from '@mui/material'
 import { MdFastfood } from "react-icons/md"
-import mask from "@/public/Amusement/mask.png"
-import mask2 from "@/public/Amusement/mask2.png"
-import waterRide from "@/public/Amusement/waterRide.png"
-import group_pic1 from "@/public/About/group_pic1.png"
-import group_pic2 from "@/public/About/group_pic2.png"
-import group_pic3 from "@/public/About/group_pic3.png"
+import mask from "@/public/Amusement/mask.jpg"
+import mask2 from "@/public/Amusement/mask2.jpg"
+import waterRide from "@/public/Amusement/waterRide.jpg"
+import group_pic1 from "@/public/About/group_pic1.jpg"
+import group_pic2 from "@/public/About/group_pic2.jpg"
+import group_pic3 from "@/public/About/group_pic3.jpg"
 
 // First About Page
 
@@ -308,7 +308,7 @@ const AboutFifth = () => {
         </div>
       </Box>
       <Box className="w-[50%] h-[90%] m-auto max-lg:hidden">
-        <div className='w-[90%] bg-[url("../public/About/Group1.png")] bg-no-repeat bg-center bg-cover  h-[95%] mx-auto' />
+        <div className='w-[90%] bg-[url("../public/About/Group1.jpg")] bg-no-repeat bg-center bg-cover  h-[95%] mx-auto' />
       </Box>
     </div>
   )

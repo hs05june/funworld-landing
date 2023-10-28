@@ -14,10 +14,10 @@ import { GiBodyHeight, GiHotSpices, GiMountainClimbing, GiMusicalNotes } from 'r
 import { MdHealthAndSafety, MdOutlineCleanHands } from 'react-icons/md'
 import { FaQuoteRight } from "react-icons/fa"
 import { BsCalendar3, BsThreeDots } from 'react-icons/bs'
-import vector from "@/public/Amusement/vector.png"
-import user from "@/public/Amusement/user.png"
-import businessUser from "@/public/Amusement/businessuser.png"
-import group1 from "@/public/About/Group1.png"
+import vector from "@/public/Amusement/vector.jpg"
+import user from "@/public/Amusement/user.jpg"
+import businessUser from "@/public/Amusement/businessuser.jpg"
+import group1 from "@/public/About/Group1.jpg"
 import first from "@/public/Service/1.jpg"
 import second from "@/public/Service/2.jpeg"
 import third from "@/public/Service/3.jpg"

@@ -12,18 +12,18 @@ import roller from "@/public/Amusement/roller.webp"
 import flying from "@/public/Amusement/flying.webp"
 import fireball from "@/public/Amusement/fireball.jpg"
 import { Box, Card, CardContent, CardMedia, Divider, Paper, Rating, Typography } from '@mui/material'
-import start1 from "@/public/Amusement/start1.png"
-import start2 from "@/public/Amusement/start2.png"
-import start3 from "@/public/Amusement/start3.png"
+import start1 from "@/public/Amusement/start1.jpg"
+import start2 from "@/public/Amusement/start2.jpg"
+import start3 from "@/public/Amusement/start3.jpg"
 import { IoMdBicycle, IoMdColorPalette } from "react-icons/io"
 import { GiHotSpices, GiMusicalNotes } from 'react-icons/gi'
 import { MdHealthAndSafety, MdOutlineCleanHands } from 'react-icons/md'
 import { FaQuoteRight } from "react-icons/fa"
 import { BsThreeDots } from 'react-icons/bs'
-import vector from "@/public/Amusement/vector.png"
-import user from "@/public/Amusement/user.png"
-import businessUser from "@/public/Amusement/businessuser.png"
-import bluebg from "@/public/Amusement/bluebg.png"
+import vector from "@/public/Amusement/vector.jpg"
+import user from "@/public/Amusement/user.jpg"
+import businessUser from "@/public/Amusement/businessuser.jpg"
+import bluebg from "@/public/Amusement/bluebg.jpg"
 
 // First Amusement Park Page
 

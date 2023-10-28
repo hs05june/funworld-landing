@@ -7,12 +7,12 @@ import Points from '@/public/Service/Points.svg'
 import Phone from '@/public/Service/Phone.svg'
 import family from "@/public/Service/Family.jpeg"
 import { useInView } from 'framer-motion'
-import swing from "@/public/Service/swing.png"
-import ServiceImage from "@/public/Service/Bengaluru_-_Banded_Kraits 1.png"
+import swing from "@/public/Service/swing.jpg"
+import ServiceImage from "@/public/Service/Bengaluru_-_Banded_Kraits 1.jpg"
 import Amusement from "@/public/Service/Amusement.jpg"
 import Water from "@/public/Service/Water.jpg"
 import { Box, Button, Card, Input, TextField, Typography } from '@mui/material'
-import map from "@/public/Service/map.png"
+import map from "@/public/Service/map.jpg"
 import first from "@/public/Service/1.jpg"
 import second from "@/public/Service/2.jpeg"
 import third from "@/public/Service/3.jpg"

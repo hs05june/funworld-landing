@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import bg1 from "@/public/Reusable/bg1.svg"
-import students from "@/public/students.png"
+import students from "@/public/students.jpg"
 
 import React from 'react'
 

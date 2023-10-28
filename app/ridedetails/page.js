@@ -4,10 +4,10 @@ import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 
 import React from 'react'
-import main_pic from "../../public/ride_page/main.png"
-import pic1 from "../../public/ride_page/image-copyright-2 1.png"
-import pic2 from "../../public/ride_page/Bengaluru_-_Banded_Kraits 1.png"
-import pic3 from "../../public/ride_page/image-copyright-2-1536x1024 4.png"
+import main_pic from "../../public/ride_page/main.jpg"
+import pic1 from "../../public/ride_page/image-copyright-2 1.jpg"
+import pic2 from "../../public/ride_page/Bengaluru_-_Banded_Kraits 1.jpg"
+import pic3 from "../../public/ride_page/image-copyright-2-1536x1024 4.jpg"
 
 import { BsFillExclamationTriangleFill, BsFillArrowRightCircleFill, BsSpeedometer2 } from "react-icons/bs"
 
