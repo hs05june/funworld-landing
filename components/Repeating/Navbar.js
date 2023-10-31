@@ -197,7 +197,7 @@ const Navbar = () => {
             top: ` ${isNavOpen ? "0" : "-100%"}`
           }}>
 
-<button className="absolute right-0 p-5" onClick={()=>setIsNavOpen(false)}>
+<button name="navbar btn" className="absolute right-0 p-5" onClick={()=>setIsNavOpen(false)}>
         {/* Close icon */}
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"> 
             <path
