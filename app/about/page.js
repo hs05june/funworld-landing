@@ -11,8 +11,8 @@ import Head from 'next/head'
 import { Box, Card, Typography } from '@mui/material'
 import { MdFastfood } from "react-icons/md"
 import { IoFastFoodOutline } from "react-icons/io"
-import mask from "@/public/Amusement/mask.jpg"
-import mask2 from "@/public/Amusement/mask2.jpg"
+import mask from "@/public/Amusement/mask.svg"
+import mask2 from "@/public/Amusement/mask2.svg"
 import waterRide from "@/public/Amusement/waterRide.jpg"
 import group_pic1 from "@/public/About/group_pic1.jpg"
 import group_pic2 from "@/public/About/group_pic2.jpg"
@@ -353,15 +353,15 @@ const About = () => {
                     </div>
 
                     <div className="w-full h-full flex">
-                        <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
+                        {/* <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
                             <Image alt="/" src="/Rides/Ellipse1.svg" width={18} height={18} />
-                        </div>
+                        </div> */}
                         <div>
                             <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
                         </div>
-                        <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
+                        {/* <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
                             <Image alt="/" src="/Rides/stars.svg" width={68} height={68} />
-                        </div>
+                        </div> */}
                         <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
                             <Image alt="/"
                                 src="/Rides/white-shape-banner1.webp"

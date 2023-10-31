@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import LogoBnG from "@/public/Home/footer/LogoBnG.webp"
+import LogoBnG from "@/public/Home/footer/LogoBnG.svg"
 import Wires from "@/public/Reusable/wires.webp"
 import fbFooter from "@/public/Reusable/fbFooter.webp"
 import igFooter from "@/public/Reusable/igFooter.webp"

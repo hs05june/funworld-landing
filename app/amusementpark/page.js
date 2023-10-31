@@ -30,14 +30,14 @@ import bluebg from "@/public/Amusement/bluebg.jpg"
 const CardMain = ({ num, src, head, content }) => {
   return (
 
-    <Card className={`lg:w-[25vw] w-[70vw] lg:h-[50vh] sm:h-[40vh] my-auto rounded-[1rem] flex  ${num === 1 ? "flex-col-reverse" : "flex-col"}`} >
+    <Card className={`lg:w-[25vw] w-[70vw] lg:min-h-[50vh] sm:min-h-[40vh] my-auto rounded-[1rem] flex  ${num === 1 ? "flex-col-reverse" : "flex-col"}`} >
       <Image className='lg:w-[40vw] w-[70vw] xl:w-[25vw] md:h-[50%] mx-auto'
         // image={start1}
         src={src}
         title="green iguana"
         width={400}
       />
-      <CardContent className='md:w-[80%] h-[50%] ml-4 mr-4'>
+      <CardContent className='md:w-[90%] h-[50%] ml-4 mr-4'>
         <Typography gutterBottom variant="h5" component="div" className=' lg:text-start text-center font-[600] md:text-[19px] lg:text-[22px]'>
           {head}
         </Typography>
