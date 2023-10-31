@@ -70,7 +70,7 @@ const AmusementParkStart = () => {
     <div className='md:w-[100vw] h-full'>
 
       <div className='lg:w-[60%] mx-auto text-center'>
-        <Typography variant='h2' className='font-[600] text-[5vw] xl:text-[3vw]'>
+        <Typography variant='h2' className='font-[600] text-[#0B1A48] text-[5vw] xl:text-[3vw]'>
           Visit Us for a Blast of Adventure, You Deserve a Break
         </Typography>
         <Typography className='md:w-[80%] text-[18px] text-[#5B5B5B] lg:mx-auto mx-4 mt-8'>
@@ -126,21 +126,21 @@ const GridParkSecond = ({ data }) => {
 
 
 
-    <div className=' mx-auto grid md:grid-cols-3 max-md:grid-cols-2 xl:w-[60%] md:w-[90%]'>
+    <div className=' mx-auto grid md:grid-cols-3 max-md:grid-cols-2 xl:w-[75%] md:w-[90%]'>
       {
         data.map((upper, index) => {
           return (
 
             <Box key={index}
-              onMouseEnter={() => handleMouseEnter(index, "top")}
-              onMouseLeave={handleMouseLeave}
-              className={`w-auto md:h-[350px] ${index % 2 === 0 ? "max-md:border-r-[1px]" : ""} ${index !== 4 && index !== 5 ? "max-md:border-b-[1px]" : ""} ${index === 0 || index === 1 || index === 2 ? "md:border-b-[1px]" : ""} ${index !== 2 && index !== 5 ? "md:border-r-[1px] border-gray-300" : ""}`}
+              className={`w-auto flex group hover:text-white hover:bg-gradient-to-r hover:from-[#FFB200] hover:to-[#F26702]  flex-col items-center justify-center md:min-h-[350px] py-4 lg:min-h-[400px] ${index % 2 === 0 ? "max-md:border-r-[1px]" : ""} ${index !== 4 && index !== 5 ? "max-md:border-b-[1px]" : ""} ${index === 0 || index === 1 || index === 2 ? "md:border-b-[1px]" : ""} ${index !== 2 && index !== 5 ? "md:border-r-[1px] border-gray-300" : ""}`}
             >
+
+
               {upper.icon}
-              <Typography variant='h5' className='text-center max-md:text-lg w-[80%] mx-auto mt-4'>
+              <Typography variant='h5' className='text-center max-md:text-lg w-[80%] mx-auto mt-4 group-hover:'>
                 {upper.head}
               </Typography>
-              <Typography variant='subtitle1' className='w-[80%] text-[#5B5B5B] max-md:text-sm mx-auto text-center mt-4'>
+              <Typography variant='subtitle1' className='w-[80%] max-md:text-sm mx-auto text-center mt-4'>
                 {upper.content}
               </Typography>
 
@@ -193,7 +193,7 @@ const AmusementParkSecond = () => {
 
   return (
     <div className='max-md:w-[100%]'>
-      <div className='flex max-md:flex-col justify-between w-[90%] xl:w-[60%] md:w-[90%] mx-auto md:h-[20%]'>
+      <div className='flex max-md:flex-col justify-between w-[90%] xl:w-[75%] gap-4 md:w-[90%] mx-auto md:h-[20%]'>
         <Typography variant='h3' className='text-left max-md:text-xl max-md:font-[650] max-md:text-center'>
           Fun World Has Something to Thrill Every Heart
         </Typography>
@@ -285,7 +285,7 @@ const CustomerReviewPage = () => {
     }
   ]
   return (
-    
+
     <div style={{ width: "100vw", height: "auto" }} className='overflow-y-hidden max-md:mt-10 flex flex-col items-center'>
       <Image src={vector} width={200} alt='pic' className='w-[100%] left-0 absolute h-[300px] -z-20 mx-auto max-lg:hidden' />
       <Typography variant='h3' className='text-center md:mt-3 max-md:text-xl max-md:font-[650]'>
@@ -329,67 +329,70 @@ const AmusementParkThird = () => {
   }))
 
   return (
-    <div style={{ width: "100vw" }}>
-      <div className='w-full text-center flex flex-col justify-center font-dm-sans text-xl font-normal'>
-        <div className=' md:w-[675px] text-center mx-auto font-bold text-6xl max-md:text-lg max-md:text-center mt-20'>
-          Rides for Everyone
+    <div className='flex items-center justify-center'>
+      <div className='lg:w-[85%] w-[95%]  flex items-center justify-center flex-wrap'>
+        <div className='w-full text-center flex flex-col justify-center font-dm-sans text-xl font-normal'>
+          <div className='  text-center mx-auto font-bold text-6xl max-md:text-lg max-md:text-center mt-20'>
+            Rides for Everyone
+          </div>
+          <div className=' text-center px-[10vw] my-5  max-md:text-sm'>
+            From Kids to Adults, Rides for everyone. Check out below some more exciting rides.
+          </div>
         </div>
-        <div className=' md:w-[675px] text-center mx-auto mt-5 max-md:text-sm'>
-          From Kids to Adults, Rides for everyone. Check out below some more exciting rides.
-        </div>
-      </div>
 
-      <div className='w-full mt-5 grid grid-flow-row grid-cols-3 lg:gap-12 max-md:grid-cols-2 max-md:ml-2 mx-12' ref={gridRef} style={gridProps} >
-        <div className='w-full flex flex-col imgcontainer '>
-          <Image alt="/" src={skydrop} className="md:image max-md:w-[90%] max-md:h-[120px]" />
-          <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
-            <div className=' trans '>
-              <span className='mr-0 ml-3 opacity-0 whitespace-nowrap spannum'></span> <span>Sky Drop</span>
+        <div className='w-full mt-5 grid grid-flow-row grid-cols-3 lg:gap-12 max-md:grid-cols-2 mx-6' ref={gridRef} style={gridProps} >
+          <div className='w-full flex flex-col imgcontainer '>
+            <Image alt="/" src={skydrop} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
+              <div className=' trans '>
+                <span className='mr-0 ml-3 opacity-0 whitespace-nowrap spannum'></span> <span>Sky Drop</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='w-full flex flex-col imgcontainer '>
-          <Image alt="/" src={tsunami} className="md:image max-md:w-[90%] max-md:h-[120px]" />
-          <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
-            <div className=' trans   '>
-              <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Tsunami</span>
+          <div className='w-full flex flex-col imgcontainer '>
+            <Image alt="/" src={tsunami} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
+              <div className=' trans   '>
+                <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Tsunami</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='w-full flex flex-col imgcontainer '>
-          <Image alt="/" src={pendulum} className="md:image max-md:w-[90%] max-md:h-[120px]" />
-          <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
-            <div className=' trans   '>
-              <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Pendulum</span>
+          <div className='w-full flex flex-col imgcontainer '>
+            <Image alt="/" src={pendulum} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
+              <div className=' trans   '>
+                <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Pendulum</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='w-full flex flex-col imgcontainer'>
-          <Image alt="/" src={fireball} className="md:image max-md:w-[90%] max-md:h-[120px]" />
-          <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
-            <div className=' trans   '>
-              <span className='mr-0 ml-3 opacity-0 whitespace-nowrap spannum '></span> <span>Crazy Fireball</span>
+          <div className='w-full flex flex-col imgcontainer'>
+            <Image alt="/" src={fireball} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
+              <div className=' trans   '>
+                <span className='mr-0 ml-3 opacity-0 whitespace-nowrap spannum '></span> <span>Crazy Fireball</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='w-full flex flex-col imgcontainer'>
-          <Image alt="/" src={flying} className="md:image max-md:w-[90%] max-md:h-[120px]" />
-          <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
-            <div className=' trans   '>
-              <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Flying chairs</span>
+          <div className='w-full flex flex-col imgcontainer'>
+            <Image alt="/" src={flying} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
+              <div className=' trans   '>
+                <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Flying chairs</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='w-full flex flex-col imgcontainer '>
-          <Image alt="/" src={roller} className="md:image max-md:w-[90%] max-md:h-[120px]" />
-          <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-md:text-lg max-md:text-center max-xl:text-2xl'>
-            <div className=' trans   '>
-              <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Roller coaster</span>
+          <div className='w-full flex flex-col imgcontainer '>
+            <Image alt="/" src={roller} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-md:text-lg max-md:text-center max-xl:text-2xl'>
+              <div className=' trans   '>
+                <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Roller coaster</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   )
 }
 
@@ -473,16 +476,16 @@ const Index = () => {
 
   return (
     <div className='w-screen flex flex-col gap-2 overflow-x-hidden' >
-      <section className='w-full min-h-[629px] relative max-lg:min-h-[400px] max-xl:min-h-[450px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
-        <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Amusement/hero_background.webp"} alt="bacgkround img" width={2042} height={1029} />
-        <div className="w-full bottom-[28%] md:bottom-[45%] lg:bottom-[38vh] absolute">
+      <section className='w-full min-h-[400px] relative max-lg:min-h-[400px] max-xl:min-h-[400px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
+        <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
+        <div className="w-full bottom-[30%] sm:bottom-[50%] lg:bottom-[30%] absolute">
           <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
-            <div className="text-center font-bold text-lg md:text-[5vw] md:h-[12vh] xl:text-[4vw] text-white md:leading-[6vh]">
+            <h1 className=" text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
               Your Ultimate Destination for One-Stop Entertainment Delights
-            </div>
-            <div className="text-center lg:mt-10 mt-4 text-sm md:text-[2vw] text-white xl:text-[1.7vw] max-md:w-[80%] ">
+            </h1>
+            <p className="text-center w-[60%] lg:px-[20vw] md:px-[10vw] md:w-full md:mt-8 mt-3 lg:text-[20px] lg:leading-[30px] text-white text-xs">
               Best Amusement Park in Bangalore, Where All the Fun and Happiness Resides
-            </div>
+            </p>
           </div>
         </div>
 
@@ -518,7 +521,7 @@ const Index = () => {
       </section>
 
 
-      <section className='w-full h-auto py-[3vh] lg:mt-0 mt-6'>
+      <section className='w-full h-auto lg:py-32 py-16 pb-0 lg:mt-0 '>
 
         <div className='w-full h-full sm:h-[auto] xl:h-full flex max-md:flex-col-reverse overflow-hidden'>
           <AmusementParkStart />
