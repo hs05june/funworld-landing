@@ -193,7 +193,7 @@ const AmusementParkSecond = () => {
 
   return (
     <div className='max-md:w-[100%]'>
-      <div className='flex max-md:flex-col justify-between w-[90%] xl:w-[75%] gap-4 md:w-[90%] mx-auto md:h-[20%]'>
+      <div className='flex  max-md:flex-col justify-between w-[90%] xl:w-[75%] gap-4 md:w-[90%] mx-auto md:h-[20%]'>
         <Typography variant='h3' className='text-left max-md:text-xl max-md:font-[650] max-md:text-center'>
           Fun World Has Something to Thrill Every Heart
         </Typography>
@@ -521,7 +521,7 @@ const Index = () => {
       </section>
 
 
-      <section className='w-full h-auto lg:py-32 py-16 pb-0 lg:mt-0 '>
+      <section className='w-full h-auto lg:pt-32 lg:pb-12 pt-16 pb-0 lg:mt-0 '>
 
         <div className='w-full h-full sm:h-[auto] xl:h-full flex max-md:flex-col-reverse overflow-hidden'>
           <AmusementParkStart />
@@ -529,7 +529,7 @@ const Index = () => {
 
       </section>
 
-      <section className='w-full h-auto max-md:h-auto py-[3vh] mt-12'>
+      <section className='w-full h-auto max-md:h-auto py-[3vh]'>
 
         <div className='w-full h-full max-md:h-auto flex max-md:flex-col-reverse max-md:justify-center overflow-hidden'>
           <AmusementParkSecond />
