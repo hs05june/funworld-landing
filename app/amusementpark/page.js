@@ -70,13 +70,13 @@ const AmusementParkStart = () => {
     <div className='md:w-[100vw] h-full'>
 
       <div className='lg:w-[80%] mx-auto text-center flex flex-col items-center justify-center'>
-        <Typography variant='h2' className='font-[600] text-[#0B1A48] text-[5vw] xl:text-[3vw]'>
+        <Typography variant='h2' className='font-[600] text-[#0B1A48] lg:text-[45px] text-[28px]'>
           Visit Us for a Blast of Adventure, You Deserve a Break
         </Typography>
-        <Typography className='lg:w-[80%] mx-auto text-center mt-6 text-[18px] text-[#5B5B5B]'>
+        <Typography className='lg:w-[80%] mx-auto px-[10vw] text-center mt-6 text-[18px] text-[#5B5B5B]'>
           Nothing&apos;s better than an electrifying experience at amusement parks, trying all the crazy rides for stress therapy.
         </Typography>
-        <Typography className='lg:w-[80%] mx-auto text-center text-[18px] text-[#5B5B5B]'>
+        <Typography className='lg:w-[80%] mx-auto px-[10vw] text-center text-[18px] text-[#5B5B5B]'>
           Fun World is the best place to bring smiles and joy to everyone.
         </Typography>
       </div>
