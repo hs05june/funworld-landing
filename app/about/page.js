@@ -321,8 +321,8 @@ const AboutFifth = () => {
 const AboutLast = () => {
   return (
     <Box className='w-full h-full flex flex-col md:px-[10rem] py-[2rem] text-center'>
-      <Typography variant='h3' className='font-[650] xl:w-[65%] max-lg:w-[90%] max-lg:text-xl mx-auto'>Elevate Your Park with Expert Maintenance & Custom Rides</Typography>
-      <Typography variant='h6' className='text-[#5B5B5B] xl:w-[65%] max-lg:w-[80%] max-lg:text-lg mx-auto mt-10'>With our experienced team of professionals, we handle everything from roller coasters to lighting systems with ease. Plus, we offer custom-made themed rides and even rental options for both new and refurbished rides. Let us bring the magic to your amusement park.</Typography>
+      <Typography variant='h3' className='font-[650] max-lg:text-xl mx-auto'>Elevate Your Park with Expert Maintenance & Custom Rides</Typography>
+      <Typography variant='h6' className='text-[#5B5B5B] max-lg:text-lg mx-auto mt-10'>With our experienced team of professionals, we handle everything from roller coasters to lighting systems with ease. Plus, we offer custom-made themed rides and even rental options for both new and refurbished rides. Let us bring the magic to your amusement park.</Typography>
 
       <Box className="flex justify-between mt-10 max-lg:w-[90%] max-lg:mx-auto">
         <Image src={group_pic1} width={300} height={400} alt='pic' className='w-[30%]' />
