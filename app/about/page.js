@@ -11,8 +11,8 @@ import Head from 'next/head'
 import { Box, Card, Typography } from '@mui/material'
 import { MdFastfood } from "react-icons/md"
 import { IoFastFoodOutline } from "react-icons/io"
-import mask from "@/public/Amusement/mask.jpg"
-import mask2 from "@/public/Amusement/mask2.jpg"
+import mask from "@/public/Amusement/mask.svg"
+import mask2 from "@/public/Amusement/mask2.svg"
 import waterRide from "@/public/Amusement/waterRide.jpg"
 import group_pic1 from "@/public/About/group_pic1.jpg"
 import group_pic2 from "@/public/About/group_pic2.jpg"
