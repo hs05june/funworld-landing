@@ -10,23 +10,27 @@ import fun4 from "@/public/About/fun4.jpeg"
 import Head from 'next/head'
 import { Box, Card, Typography } from '@mui/material'
 import { MdFastfood } from "react-icons/md"
+import { IoFastFoodOutline } from "react-icons/io"
 import mask from "@/public/Amusement/mask.jpg"
 import mask2 from "@/public/Amusement/mask2.jpg"
 import waterRide from "@/public/Amusement/waterRide.jpg"
 import group_pic1 from "@/public/About/group_pic1.jpg"
 import group_pic2 from "@/public/About/group_pic2.jpg"
 import group_pic3 from "@/public/About/group_pic3.jpg"
+import blackbottle from "@/public/About/blackbootle.jpg"
+import whitebottle from "@/public/About/whitebottle.jpg"
 
 // First About Page
 
 const CardMain = ({ data }) => {
   return (
     <div className='lg:flex h-[100%] grid grid-cols-2 md:h-[100%] max-lg:w-[100%] max-lg:mx-auto max-lg:ml-2 justify-center md:gap-x-6 items-end'>
-      {data.map((e, index) => {
+      {data.map((e, index) => { 
         return (
 
           <Card key={index} elevation={3} className='w-[19%] hover:text-white hover:bg-gradient-to-b hover:from-[#FFB200] hover:to-[#F26702] max-lg:w-[90%] h-[70%] max-lg:h-[90%] md:px-5 md:py-5 bg-[#EBF0FE] group'>
             <MdFastfood className='text-[80px] lg:text-[3vw] xl:text-[4vw] max-lg:text-[2rem] max-lg:mx-auto group-hover:text-white' />
+            
             <Typography variant='h5' className='font-bold md:text-[30px] lg:text-[1.8vw] xl:text-[1.6vw] max-lg:text-xs max-lg:text-center mt-4 group-hover:text-white'>
               {e.header}
             </Typography>
@@ -335,49 +339,53 @@ const About = () => {
   return (
     <>
       <div className='min-h-screen w-screen flex flex-col overflow-x-hidden'>
-        <section className='w-full min-h-[550px] relative max-md:min-h-[400px] max-xl:min-h-[450px] xl:h-fit max-lg:min-h-[300px] max-sm:min-h-[250px]'>
-          {/* <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg1.webp"} alt="bacgkround img" width={2042} height={1029} /> */}
-          <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
-          <div className="w-full absolute max-sm:bottom-[1%] ">
-            <div className=" h-[40vh] w-full flex flex-col text-center justify-center items-center relative top-[2vh] md:top-[8vh]">
-              <div className="text-center font-[700] text-[3.6vw] md:text-[4vw] xl:text-[4vw] md:h-[50%] w-[60%] text-white md:leading-[7vh]">
-                Welcome to Fun World Amusement Park – Where Fun Knows No Bounds!
-              </div>
-              <div className="text-center xl:mt-10 lg:leading-[3vh] text-[2.5vw] w-[90%] md:text-[2vw] px-[10vw] text-white xl:text-[21px] md:w-[80%]">
-                Nestled in the heart of vibrant Bengaluru, Fun World Amusement Park stands tall as one of Karnataka&apos; most cherished treasures.
-              </div>
-            </div>
-          </div>
-          <div className="w-full h-full absolute flex ">
-            <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-lg:hidden">
-              <Image alt="/" src="/Rides/Ellipse1.webp" width={18} height={18} />
-            </div>
-            <div>
-              <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
-            </div>
-            <div className="absolute bottom-[150px] right-[10rem] max-lg:hidden ">
-              <Image alt="/" src="/Rides/stars.webp" width={68} height={68} />
-            </div>
-            <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
-              <Image alt="/"
-                src="/Rides/white-shape-banner1.webp"
-                width={141}
-                height={168}
+      <section className='w-full min-h-[400px] relative max-lg:min-h-[400px] max-xl:min-h-[400px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
+                    <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
+                    <div className="w-full bottom-[30%] sm:bottom-[50%] lg:bottom-[15%] absolute">
+                        <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
+                            <h1 className="text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
+                            Welcome to Fun World Amusement Park – Where Fun Knows No Bounds!
+                            </h1>
+                            <p className="text-center w-[60%] lg:px-[20vw] md:px-[10vw] md:w-full md:mt-8 mt-3 lg:text-[20px] lg:leading-[30px] text-white text-xs">
+                            Nestled in the heart of vibrant Bengaluru, Fun World Amusement Park stands tall as one of Karnataka&apos; most cherished treasures.
+                            </p>
+                        </div>
+                    </div>
 
-              />
-            </div>
-            <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
-              <Image alt="/"
-                src="/Rides/white-shape-banner2.webp"
-                width={141}
-                height={148}
-              />
-            </div>
-          </div>
-        </section>
+                    <div className="w-full h-full flex">
+                        <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
+                            <Image alt="/" src="/Rides/Ellipse1.svg" width={18} height={18} />
+                        </div>
+                        <div>
+                            <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
+                        </div>
+                        <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
+                            <Image alt="/" src="/Rides/stars.svg" width={68} height={68} />
+                        </div>
+                        <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
+                            <Image alt="/"
+                                src="/Rides/white-shape-banner1.webp"
+                                width={141}
+                                height={168}
+
+                            />
+                        </div>
+                        <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
+                            <Image alt="/"
+                                src="/Rides/white-shape-banner2.webp"
+                                width={141}
+                                height={148}
+                            />
+                        </div>
+
+                    </div>
 
 
-        <div className='lg:px-[15vw] md:px-[10vw] md:mt-0 mt-6 px-[7vw] relative flex flex-col gap-12 items-center'>
+                </section>
+    
+
+
+        <div className='lg:px-[15vw] md:px-[10vw] lg:mt-32 md:mt-16 mt-6 px-[7vw] relative flex flex-col gap-12 items-center'>
           <p className='lg:text-[22px] text-center md:text-[22px] text-sm md:leading-[29px] text-[#5B5B5B]'>Since its establishment in 1990, this wide 24-acre wonderland has been dedicated to crafting unforgettable moments of joy, laughter, and adventure for families and friends alike.</p>
           <p className='text-center text-[#5B5B5B] md:text-[22px] text-sm md:leading-[29px]'>Our central location, just a stone&apos;s throw away from iconic landmarks like Snow City, Bangalore Palace, and Cubbon Park, makes us the ultimate destination for thrill-seekers and those seeking respite from the daily grind.
           </p>

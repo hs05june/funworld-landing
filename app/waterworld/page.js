@@ -14,6 +14,8 @@ import { GiBodyHeight, GiHotSpices, GiMountainClimbing, GiMusicalNotes } from 'r
 import { MdHealthAndSafety, MdOutlineCleanHands } from 'react-icons/md'
 import { FaQuoteRight } from "react-icons/fa"
 import { BsCalendar3, BsThreeDots } from 'react-icons/bs'
+import { FcBusinesswoman } from 'react-icons/fc'
+import { FcManager } from 'react-icons/fc'
 import vector from "@/public/Amusement/vector.jpg"
 import user from "@/public/Amusement/user.jpg"
 import businessUser from "@/public/Amusement/businessuser.jpg"
@@ -54,12 +56,14 @@ const WaterFirst = () => {
 
 
 // Second Water Component
-const   WaterSecond = () => {
+const WaterSecond = () => {
     return (
         <div className='w-full bg-[#FFFAF7] px-[12vw] flex flex-col gap-8 py-12'>
             <div className='flex lg:flex-row flex-col lg:gap-0 gap-6 lg:text-start text-center'>
                 <h4 className='flex-1 font-[500] lg:text-[42px] md:[28px] '>Excitement is Alright!<br /> But Being Safe is Also Fun</h4>
-                <h4 className='flex-1'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h4>
+                <h4 className='flex-1'>
+                    Experience the thrill at Funworld Amusement and Waterworld! Excitement is just the beginning of your adventure. Our priority is your safety. We've been providing fun and safe entertainment for families since 1990. Our water park is the perfect place to cool off during the hot summer.
+                </h4>
             </div>
 
             <div className='flex gap-6 lg:flex-row flex-col'>
@@ -106,7 +110,7 @@ const WaterThird = () => {
         total: "$400"
     },
     ]
-    return (        
+    return (
         <div className='w-full h-full px-[1rem] md:px-[10rem] flex flex-col gap-10'>
             <Typography variant='h3' className='text-center text-lg md:text-[4rem] md:leading-[4rem]'>
                 Secure Your Fun Spot Today!<br /> Book Tickets Online
@@ -240,45 +244,21 @@ const TableComponentMain = ({ data }) => {
 
 const GridParkSecond = ({ data }) => {
 
-    const [hover, setHover] = useState({
-        bool: false,
-        index: null,
-        place: ""
-    })
-
-    const handleMouseEnter = (index, place) => {
-        setHover({
-            bool: true,
-            index: index,
-            place: place
-        })
-    }
-
-    const handleMouseLeave = (index, place) => {
-        setHover({
-            bool: false,
-            index: null,
-            place: ""
-        })
-    }
 
     return (
 
-        <div className=' mx-auto grid md:grid-cols-3 max-md:grid-cols-2 xl:w-[60%] md:w-[90%]'>
+        <div className=' mx-auto grid md:grid-cols-3 max-md:grid-cols-2 xl:w-[75%] md:w-[90%]'>
             {
                 data.map((upper, index) => {
                     return (
 
                         <Box key={index}
-                            onMouseEnter={() => handleMouseEnter(index, "top")}
-                            onMouseLeave={handleMouseLeave}
-
-                            className={`w-auto flex  flex-col items-center justify-center md:h-[350px] lg:h-[400px] ${index % 2 === 0 ? "max-md:border-r-[1px]" : ""} ${index !== 4 && index !== 5 ? "max-md:border-b-[1px]" : ""} ${index === 0 || index === 1 || index === 2 ? "md:border-b-[1px]" : ""} ${index !== 2 && index !== 5 ? "md:border-r-[1px] border-gray-300" : ""}`}
+                            className={`w-auto flex group hover:text-white hover:bg-gradient-to-r hover:from-[#FFB200] hover:to-[#F26702]  flex-col items-center justify-center md:h-[350px] lg:h-[400px] ${index % 2 === 0 ? "max-md:border-r-[1px]" : ""} ${index !== 4 && index !== 5 ? "max-md:border-b-[1px]" : ""} ${index === 0 || index === 1 || index === 2 ? "md:border-b-[1px]" : ""} ${index !== 2 && index !== 5 ? "md:border-r-[1px] border-gray-300" : ""}`}
                         >
 
 
                             {upper.icon}
-                            <Typography variant='h5' className='text-center max-md:text-lg w-[80%] mx-auto mt-4'>
+                            <Typography variant='h5' className='text-center max-md:text-lg w-[80%] mx-auto mt-4 group-hover:'>
                                 {upper.head}
                             </Typography>
                             <Typography variant='subtitle1' className='w-[80%] max-md:text-sm mx-auto text-center mt-4'>
@@ -301,32 +281,32 @@ const WaterFourth = () => {
 
     const data = [
         {
-            icon: <IoMdBicycle className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+            icon: <IoMdBicycle size={80} className='p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
             head: "27 Thrilling Water Rides",
             content: "Embark on a Aquatic Journey With Heart Throbbing Rides."
         },
         {
-            icon: <IoMdColorPalette className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+            icon: <IoMdColorPalette size={80} className=' p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
             head: "A Topical Paradise",
             content: "Have a relaxing day at cabanas or unwind yourself in serene pools, enjoy to the fullest."
         },
         {
-            icon: <GiHotSpices className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+            icon: <GiHotSpices size={80} className=' p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
             head: "Irresistible Delicacies and Beverages",
             content: "Refresh yourself during the aquatic journey with our most savoury dishes and beverages."
         },
         {
-            icon: <GiMusicalNotes className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+            icon: <GiMusicalNotes size={80} className=' p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
             head: "Luxurious Amenities",
             content: "Relax and elevate your every moment into a lavish escape."
         },
         {
-            icon: <MdHealthAndSafety className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+            icon: <MdHealthAndSafety size={80} className=' p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
             head: "Extremely Safe Environment",
-            content:"Our extreme safety measures will peacefully let you dive into a state of excitement and fun."
+            content: "Our extreme safety measures will peacefully let you dive into a state of excitement and fun."
         },
         {
-            icon: <MdOutlineCleanHands className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+            icon: <MdOutlineCleanHands size={80} className='p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
             head: "Affordability",
             content: "Have tons of fun with value for money deals at affordable rates."
         }
@@ -336,9 +316,9 @@ const WaterFourth = () => {
         <div className='max-md:w-[100%]'>
             <div className='flex max-md:flex-col justify-between w-[90%] xl:w-[60%] md:w-[90%] mx-auto md:h-[20%]'>
                 <Typography variant='h3' className='text-left max-md:text-xl max-md:font-[700] max-md:text-center'>
-                You Can&apos;t Resist Coming to Water World
+                    You Can&apos;t Resist Coming to Water World
                 </Typography>
-                <Typography variant='h6' className='w-[80%] mt-3 mx-auto max-md:text-sm max-md:w-[95%] max-md:text-center'>
+                <Typography variant='h6' className='w-[80%] text-[#5B5B5B] mt-3 mx-auto max-md:text-sm max-md:w-[95%] max-md:text-center'>
                     Nothing&apos;s better than an electrifying experience at amusement parks, trying all the crazy rides for stress therapy.
                 </Typography>
             </div>
@@ -355,16 +335,17 @@ const CardElement = ({ data }) => {
     const [value, setValue] = useState(null)
 
     return (
-        <div className='flex flex-col lg:flex-row max-md:h-[100%] h-[100%] w-[90%] justify-between mx-auto mt-10 gap-10'>
+        <div className='flex flex-col lg:flex-row max-md:h-[100%] h-[100%] w-[90%] justify-between mx-auto mt-10 gap-8'>
             {
                 data.map((e, index) => {
                     return (
                         <Card key={index} elevation={4} className='flex flex-col md:w-[80%] mx-auto lg:w-[35%] rounded-lg max-md:py-4 max-lg:h-[30%]'>
-                            <Box sx={{ display: "flex" }} className="w-[60%] gap-[2vw] mx-auto md:mt-5">
+                            <Box sx={{ display: "flex" }} className="w-[80%]  flex gap-2 mx-auto md:mt-5">
                                 <div>
-                                    <Image src={user} width={60} height={60} className='border rounded-[3rem] h-[60px] w-[60px]' alt='pic' />
+                                    {e.rating == 5 ? <FcBusinesswoman size={35} /> : <FcManager size={35} />}
+                                    {/* <Image src={user} width={60} height={60} className='border rounded-[3rem] h-[60px] w-[60px]' alt='pic' /> */}
                                 </div>
-                                <div className='w-[40%]'>
+                                <div className=''>
                                     <Typography variant='h6' className='font-bold'>
                                         {e.name}
                                     </Typography>
@@ -403,36 +384,36 @@ const CustomerReviewPage = () => {
     const data = [
         {
             src: { user },
-            name: "Divakshi",
-            username: "@Divakshi",
+            name: "Divakshi Bhardwaj",
+            username: "@Divakshi Bhardwaj",
             rating: 4,
             comment: "The very fun place went there with my colleagues, and it was so much fun, enjoyed it a lot! The rides & activities were so good, worth every single penny! 👌🏻😁"
         },
         {
             src: { user },
-            name: "Pankaj",
-            username: "@Pankaj",
+            name: "Pankaj Shrivastavnkaj",
+            username: "@Pankaj Shrivastav",
             rating: 5,
             comment: "Very good to place to have fun time with family and friends. Kids friendly rides in Water park and in Amusement park. 👌🏻😁"
         },
         {
             src: { user },
-            name: "Devil",
-            username: "@Devil",
+            name: "Sanjay Kumar",
+            username: "@Sanjay Kumar",
             rating: 4,
-            comment: "The very fun place went there with my colleagues, and it was so much fun, enjoyed it a lot! The rides & activities were so good, worth every single penny! 👌🏻😁"
+            comment: "I had an amazing time at this place with my colleagues. It was an absolute blast, and I had a great time! The rides & activities were outstanding, definitely worth the visit! 👏😃"
         }
     ]
     return (
         <div style={{ width: "100vw", height: "auto" }} className='max-md:mt-10 flex flex-col items-center'>
             <Image src={vector} width={200} alt='pic' className='w-[100%] left-0 absolute h-[300px] -z-20 mx-auto max-lg:hidden' />
-            <Typography variant='h3' className='text-center md:mt-3 max-md:text-xl max-md:font-[650]'>
+            <Typography variant='h3' className='text-center lg:pt-12 pt-8 md:mt-3 max-md:text-xl max-md:font-[650]'>
                 Customers&apos; Reviews
             </Typography>
             <Typography variant='subtitle1' className='text-center mt-5'>
                 Nothing&apos;s better than an electrifying experience at amusement parks
             </Typography>
-            <Box className="mx-auto w-[80%] z-10 lg:h-[34vh] relative">
+            <Box className="mx-auto w-[80%] z-10 lg:min-h-[34vh] relative">
                 <CardElement data={data} />
             </Box>
         </div>
@@ -443,32 +424,32 @@ const CustomerReviewPage = () => {
 // Fifth Service Card
 const WaterFifth = () => {
     const data = [{
-        src: <Image src={first} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[100px]' alt='pic' />,
+        src: <Image src={first} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Crystal Clear Water Quality",
         content: "Water World offers you superior quality water with PH level between 7.2-7.8, protecting your skin from irritation and eyes from cloudiness."
     },
     {
-        src: <Image src={second} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[100px]' alt='pic' />,
+        src: <Image src={second} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Impressive architecture",
         content: "Discover our aqua realm adorned with mesmerising infrastructure marvels."
     },
     {
-        src: <Image src={third} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[100px]' alt='pic' />,
+        src: <Image src={third} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Periodic Maintenance Sessions",
         content: "We are committed towards your safety. Our regular inspections and maintenance sessions ensure it."
     },
     {
-        src: <Image src={fourth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[100px]' alt='pic' />,
+        src: <Image src={fourth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Aquatic Play System for all Ages",
         content: "Our dynamic aquatic play system ensures endless excitement for all, making your day at Water World an unforgettable journey of joy."
     },
     {
-        src: <Image src={fifth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[100px]' alt='pic' />,
+        src: <Image src={fifth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Weekend Themes",
         content: "Enhance your weekend experience with our captivating special themes and elevate your water world adventure."
     },
     {
-        src: <Image src={sixth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[100px]' alt='pic' />,
+        src: <Image src={sixth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Guardians at Duty",
         content: "Our experienced and trained lifeguards persistently safeguard you and your loved ones."
     },
@@ -491,11 +472,11 @@ const WaterFifth = () => {
 
 const CardService = ({ data }) => {
     return (
-        <div className='grid lg:grid-cols-3 gap-4 gap-y-8 gap-x-8 px-8 w-[90%] h-full mx-auto'>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 gap-y-8 gap-x-8 px-8 w-[90%] h-full mx-auto'>
             {data.map((e, index) => {
 
                 return (
-                    <Card key={index} className='lg:w-[90%] w-[70%] h-[100%] max-md:w-full'>
+                    <Card key={index} className='lg:w-[90%] w-[70%] h-[100%] hover:text-white hover:bg-gradient-to-r hover:from-[#FFB200] hover:to-[#F26702]  max-md:w-full'>
                         <div>
                             {/* <Image src={e.src} width={300} height={300} alt='pic' /> */}
                             {e.src}
@@ -564,7 +545,7 @@ const Index = () => {
                 <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
                 <div className="w-full bottom-[30%] sm:bottom-[50%] lg:bottom-[30%] absolute">
                     <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
-                    <h1 className=" text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
+                        <h1 className=" text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
                             Welcome to Water World! An Aquatic Realm of Joy
                         </h1>
                         <p className="text-center w-[60%] lg:px-[20vw] md:px-[10vw] md:w-full md:mt-8 mt-3 lg:text-[20px] lg:leading-[30px] text-white text-xs">
@@ -646,13 +627,13 @@ const Index = () => {
 
             </section>
 
-                {/* <section className='w-full h-[60vh] py-[3vh] max-md:h-auto hidden lg:flex'>
+            <section className='w-full min-h-[65vh] pb-12 max-md:h-auto flex overflow-hidden'>
 
-                    <div className='w-full h-full flex max-md:justify-center'>
-                        <CustomerReviewPage />
-                    </div>
+                <div className='w-full h-full flex max-md:justify-center'>
+                    <CustomerReviewPage />
+                </div>
 
-                </section> */}
+            </section>
 
 
             {/* <section className='w-full h-[100vh] px-[10%] py-[5vh]'>
