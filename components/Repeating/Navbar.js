@@ -175,7 +175,7 @@ const Navbar = () => {
       <div className='lg:hidden block'>
         <div className='flex flex-col items-end justify-around mx-5 h-20'>
           <div className='w-fit h-fit absolute top-[-10px] left-5 z-10'>
-            <Image priority src={'/Home/hero/logo.webp'} alt="logo" width={100} height={100} />
+            <Image priority src={logo2} alt="logo" width={100} height={100} />
           </div>
 
           <div className='flex flex-row gap-5 items-center'>
