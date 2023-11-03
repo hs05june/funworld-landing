@@ -16,7 +16,7 @@ const Right = ({ image, heading, text }) => {
                     <div className='my-6'>
                         <Link href="/kidsrides">
                             <button className='flex items-center btn text-white px-8 py-2'>
-                                Know More <span className='bg-white rounded-[50%] w-10 h-10 ml-5 flex items-center justify-center '><Image priority src="/arrow.webp" height={18} width={18} alt="abc" /></span>
+                                Know More <span className='bg-white rounded-[50%] w-10 h-10 ml-5 flex items-center justify-center '><Image priority src="https://funworldblr.s3.amazonaws.com/public/arrow.webp" height={18} width={18} alt="abc" /></span>
                             </button>
                         </Link>
 
@@ -24,7 +24,7 @@ const Right = ({ image, heading, text }) => {
                 </div>
             </div>
             <div className='h-full  w-[48%]  flex '>
-                <Image priority src={image} alt='abc' className=" w-full h-full  object-cover" loading='lazy' />
+                <img priority src={image} alt='abc' className=" w-full h-full  object-cover" loading='lazy' />
             </div>
         </div>
     )

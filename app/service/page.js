@@ -1,24 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import BalancingGirl from '@/public/WaterPark/BalancingGirl.webp'
-import WaterGunFamily from '@/public/WaterPark/WaterGunFamily.webp'
-import Points from '@/public/Service/Points.webp'
-import Phone from '@/public/Service/Phone.webp'
-import family from "@/public/Service/Family.jpeg"
-import { useInView } from 'framer-motion'
-import swing from "@/public/Service/swing.jpg"
-import ServiceImage from "@/public/Service/Bengaluru_-_Banded_Kraits 1.jpg"
-import Amusement from "@/public/Service/Amusement.jpg"
-import Water from "@/public/Service/Water.jpg"
 import { Box, Button, Card, Input, TextField, Typography } from '@mui/material'
-import map from "@/public/Service/map.jpg"
-import first from "@/public/Service/1.jpg"
-import second from "@/public/Service/2.jpeg"
-import third from "@/public/Service/3.jpg"
-import fourth from "@/public/Service/4.jpg"
-import fifth from "@/public/Service/5.jpeg"
-import sixth from "@/public/Service/6.jpg"
 import { MdComputer, MdHealthAndSafety, MdPark, MdWebhook } from 'react-icons/md'
 import { BsBook, BsFillTelephoneFill, BsTelephone } from 'react-icons/bs'
 import { AiOutlineMail } from 'react-icons/ai'
@@ -46,7 +29,7 @@ const ServiceFirst = () => {
 
             <div className='flex lg:flex-row flex-col w-full lg:h-[50%] justify-between max-lg:gap-5'>
                 <div className='lg:w-1/2 h-full' >
-                    <Image src={Amusement} alt="rings with child" />
+                    <img src={"https://funworldblr.s3.amazonaws.com/public/Service/Amusement.jpg"} alt="rings with child" />
                 </div>
                 <div className='lg:w-[50%] lg:items-center lg:justify-center gap-5 flex flex-col'>
                     <span className='text-xl font-bold md:text-2xl xl:text-3xl text-[#252525] md:px-10 text-left px-2'>
@@ -77,7 +60,7 @@ const ServiceFirst = () => {
                 </div>
 
                 <div className='lg:w-1/2 h-full' >
-                    <Image src={Water} alt="water slide" />
+                    <img src={"https://funworldblr.s3.amazonaws.com/public/Service/Water.jpg"} alt="water slide" />
                 </div>
             </div>
         </div>
@@ -89,7 +72,7 @@ const ServiceSecond = () => {
     return (
         <div className='w-full'>
             <div className='flex-1 top-[30%] xl:top-[25%] absolute -z-10 max-xl:hidden'>
-                <Image src={swing} className='mt-[400px] w-[100vw]' alt='water gun' />
+                <img src={"https://funworldblr.s3.amazonaws.com/public/Service/swing.jpg"} className='mt-[400px] w-[100vw]' alt='water gun' />
             </div>
             <div className='xl:bg-[#F3E6DE] xl:w-[90vw] xl:px-20 xl:py-20 lg:py-32 py-10 flex max-xl:flex-col xl:relative lg:top-[30vh] xl:top-[40vh] lg:left-[12vw] lg:gap-14 xl:rounded-tl-[3rem] md:gap-8 gap-4'>
                 <Box className=" flex flex-col md:gap-16 gap-8">
@@ -231,7 +214,7 @@ const ServiceThird = () => {
             </Box>
 
             <div className='flex lg:flex-row flex-col lg:gap-0 gap-8 lg:px-0 px-4'>
-                <div className='flex-1 min-h-[40vh] bg-center bg-cover bg-no-repeat bg-[url("../public/Service/map.jpg")]'>
+                <div className='flex-1 min-h-[40vh] bg-center bg-cover bg-no-repeat bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/map.jpg")]'>
                 </div>
 
                 <div className="bg-[#47475EF5] lg:rounded-none rounded-xl flex-1 text-white lg:w-[40%] flex flex-col xl:space-y-10 md:space-y-5 py-5 xl:py-10 xl:px-14 md:px-5 px-3 space-y-3 lg:text-start text-center">
@@ -284,32 +267,32 @@ const ServiceThird = () => {
 // Last Service Card
 const ServiceLast = () => {
     const data = [{
-        src: <Image src={first} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/1.jpg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Enhanced Ride Experiences",
         content: "Infuse fresh excitement into existing rides. Our skilled modifications breathe new life into familiar attractions."
     },
     {
-        src: <Image src={second} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/2.jpeg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Restoration of Aging Rides",
         content: "Revive aging rides comprehensively. Our team restores charm and functionality, enhancing the appeal of your attractions."
     },
     {
-        src: <Image src={third} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/3.jpg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "State-of-the-Art Ride",
         content: "Experience precision and reliability with our cutting-edge ride control systems. Ensure seamless operations for a smooth visitor experience."
     },
     {
-        src: <Image src={fourth} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/4.jpg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Effortless Ride Transfers",
         content: "Planning to relocate? Rely on us for hassle-free ride relocation and precise installation, leaving a lasting impact."
     },
     {
-        src: <Image src={fifth} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/5.jpeg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Comprehensive Parts Solutions",
         content: "Ensure uninterrupted operation with complete spare parts coverage. Our specialized part fabrication guarantees seamless functionality."
     },
     {
-        src: <Image src={sixth} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/6.jpg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Rides",
         content: "Explore a sneak peek of our spectacular rides. From the thrilling 'Break Dance Ride' to the classic 'Columbus' ride, Sky Drop, Tsunami, our portfolio oozes excitement."
     },
@@ -395,7 +378,7 @@ const Service = () => {
         <>
             <div className='w-screen overflow-hidden flex flex-col '>
                 <section className='w-full min-h-[400px] relative max-lg:min-h-[400px] max-xl:min-h-[400px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
-                    <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
+                    <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
                     <div className="w-full bottom-[30%] sm:bottom-[50%] lg:bottom-[30%] absolute">
                         <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
                             <h1 className=" text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
@@ -412,14 +395,14 @@ const Service = () => {
                             <Image alt="/" src="/Rides/Ellipse1.svg" width={18} height={18} />
                         </div> */}
                         <div>
-                            <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
+                            <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse2.webp" width={28} height={28} />
                         </div>
                         {/* <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
                             <Image alt="/" src="/Rides/stars.svg" width={68} height={68} />
                         </div> */}
                         <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
                             <Image alt="/"
-                                src="/Rides/white-shape-banner1.webp"
+                                src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner1.webp"
                                 width={141}
                                 height={168}
 
@@ -427,7 +410,7 @@ const Service = () => {
                         </div>
                         <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
                             <Image alt="/"
-                                src="/Rides/white-shape-banner2.webp"
+                                src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner2.webp"
                                 width={141}
                                 height={148}
                             />
@@ -453,19 +436,19 @@ const Service = () => {
 
                 <section className='lg:min-h-[50vh] min-h-[40vh] lg:mt-12 mt-6 w-full flex items-center justify-center lg:gap-0 gap-8 flex-col lg:mb-[130px]'>
                     <div className='flex lg:flex-row flex-col items-center justify-center lg:gap-0 gap-6'>
-                        <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16  bg-[url("../public/Service/ridetube.jpg")]'>
+                        <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16  bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/ridetube.jpg")]'>
                         </div>
-                        <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("../public/Service/gradient.jpg")]'>
+                        <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
                             <h3 className='lg:text-[42px] lg:leading-[46px] md:text-[32px] md:leading-[35px] text-[25px] leading-[27px] text-[#252525] font-[550] lg:text-start text-center'>Amusement Park Ride Manufacturing</h3>
                             <p className='text-[#5B5B5B] lg:text-start text-center'>Experience the thrill and wonder of amusement parks with our adrenaline-packed rides. Immerse your visitors in excitement like never before.</p>
                         </div>
                     </div>
 
                     <div className='flex lg:flex-row-reverse flex-col items-center justify-center lg:gap-0 gap-6'>
-                        <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16 bg-[url("../public/About/fun2.jpeg")]'>
+                        <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16 bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")]'>
                         </div>
 
-                        <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("../public/Service/gradient.jpg")]'>
+                        <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
                             <h3 className='lg:text-[42px] lg:leading-[46px] md:text-[32px] md:leading-[35px] text-[25px] leading-[27px] text-[#252525] font-[550] lg:text-start text-center'>Water Park Ride Manufacturing</h3>
                             <p className='text-[#5B5B5B] lg:text-start text-center'>Provide refreshing adventures for all ages with our innovative water park rides. Let your visitors engage in aquatic fun and unforgettable experiences.</p>
                         </div>

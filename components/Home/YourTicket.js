@@ -2,33 +2,12 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import slide from "@/public/Home/ticket/slide.webp"
 import ProceedBtn from "@/components/Repeating/Button.js"
-import ParkAttractions4 from "@/public/Home/parkAttractions/parkAttractions4.webp"
 import { BsArrowRightCircleFill } from "react-icons/bs"
-import { gsap } from 'gsap'
-import { animated, useInView } from '@react-spring/web'
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/core";
 import Link from 'next/link'
-import windmill from "@/public/Amusement/windmill.webp"
-import waterpark from "@/public/Home/parkAttractions/waterpark.jpeg"
-import Water_image from '@/public/Home/ticket/Water_Image.jpg'
-import childRides from "@/public/Amusement/rides7.jpeg"
-import familyRides from "@/public/Amusement/rides14.webp";
-import LandRides from "@/public/Amusement/rides10.jpeg";
-import waterRides from "@/public/Amusement/rides5.jpeg"
-
-import adrides from "@/public/Amusement/Nadrides.jpg"
-import kirides from "@/public/Amusement/Nkidsrides.jpg"
-import Nwaterrides from "@/public/Amusement/Nwaterrides.jpg"
-import Nwaterrides2 from "@/public/Amusement/Nwaterrides2.jpg"
-import Nfamilyrides from "@/public/Amusement/Nfamilyrides.jpg"
-
-
-
-
 
 
 const YourTicket = () => {
@@ -89,10 +68,9 @@ const YourTicket = () => {
 
     return (
         <div className='w-screen'>
-            <div className='xl:min-h-[125vh] lg:min-h-[90vh] md:h-[75vh] h-[80vh] lg:px-[10vw] flex items-center text-white flex-col text-center w-full relative cursor-none bg-[url("/Home/ticket/Water_Image.jpg")] 2xl:bg-cover'
-            // ref={imgRef} style={imgProps}
+            <div className='xl:min-h-[125vh] lg:min-h-[90vh] md:h-[75vh] h-[80vh] lg:px-[10vw] flex items-center text-white flex-col text-center w-full relative cursor-none bg-[url("https://funworldblr.s3.amazonaws.com/public/Home/ticket/Water_Image.jpg")] 2xl:bg-cover'
             >
-                <Image priority src={'/Home/ticket/Water_Image.jpg'} alt="girl in pool" height={2200} width={1650} className="lg:block hidden absolute -z-20 w-full h-auto 2xl:w-full  max-sm:h-full object-contain  max-xs:object-cover" />
+                <Image priority src={'https://funworldblr.s3.amazonaws.com/public/Home/ticket/Water_Image.jpg'} alt="girl in pool" height={2200} width={1650} className="lg:block hidden absolute -z-20 w-full h-auto 2xl:w-full  max-sm:h-full object-contain  max-xs:object-cover" />
 
                 <div className='w-full  flex flex-col items-center text-center justify-center xl:min-h-[125vh] lg:min-h-[90vh] md:h-[75vh] h-[60vh] md:gap-8 gap-4'>
                     <h2 className='xl:text-[62px] xl:leading-[62px] lg:text-[45px] lg:leading-[45px] md:text-[32px] md:leading-[32px] text-[18px] leading-[22px] font-[600] '>Safety First: Our Amusement Park Takes Your Fun Seriously!</h2>
@@ -110,8 +88,8 @@ const YourTicket = () => {
             </div>
 
             <div className={`lg:clip-path-ticket bg-[#EBF0FE] min-h-[80vh] relative top-[-150px] lg:pt-[230px] pt-[70px] px-[10vw] pb-24`}>
-                <Image priority style={{ transform: 'rotate(-10deg)' }}
-                    className='absolute z-10 top-2 left-6 lg:block hidden' src={ParkAttractions4} alt="ballons" />
+                <img priority style={{ transform: 'rotate(-10deg)' }}
+                    className='absolute z-10 top-2 left-6 lg:block hidden' src={"https://funworldblr.s3.amazonaws.com/public/Home/parkAttractions/parkAttractions4.webp"} alt="ballons" />
 
                 <div className='flex flex-col items-center justify-center lg:gap-16 md:gap-8 gap-4'
                 //  ref={divRef} style={divProps}
@@ -132,7 +110,7 @@ const YourTicket = () => {
                                 comp === 1 ? (
                                     <div className='flex fade-in active'>
                                         <div className='flex-1 bg-cover lg:block'>
-                                            <Image className='h-full w-full' src={'/Amusement/Nadrides.jpg'} width={1500} height={1000} priority alt='slide' />
+                                            <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/Nadrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4' >
                                             <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Adernaline Rides</div>
@@ -148,7 +126,7 @@ const YourTicket = () => {
                                 ) : comp === 2 ? (
                                     <div className='flex fade-in active'>
                                         <div className='flex-1 bg-cover lg:block hidden'>
-                                            <Image className='h-full w-full' src={'/Amusement/landrides.jpg'} width={1500} height={1000} priority alt='slide' />
+                                            <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/landrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4' >
                                             <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Land Rides</div>
@@ -165,7 +143,7 @@ const YourTicket = () => {
                                 ) : comp === 3 ? (
                                     <div className='flex fade-in active'>
                                         <div className='flex-1 bg-cover lg:block hidden'>
-                                            <Image className='h-full w-full' src={'/Amusement/Nwaterrides2.jpg'} width={1500} height={1000} priority alt='slide' />
+                                            <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/Nwaterrides2.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4' >
                                             <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Water Rides</div>
@@ -180,7 +158,7 @@ const YourTicket = () => {
                                 ) : comp === 4 ? (
                                     <div className='flex fade-in active'>
                                         <div className='flex-1 bg-cover lg:block hidden'>
-                                            <Image className='h-full w-full' src={'/Amusement/children_rides.jpg'} width={1500} height={1000} priority alt='slide' />
+                                            <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/children_rides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4' >
                                             <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Kids Rides</div>
@@ -196,7 +174,7 @@ const YourTicket = () => {
                                 ) : (
                                     <div className='flex fade-in active'>
                                         <div className='flex-1 bg-cover lg:block hidden'>
-                                            <Image className='h-full w-full' src={'/Amusement/Nfamilyrides.jpg'} width={1500} height={1000} priority alt='slide' />
+                                            <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/Nfamilyrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4' >
                                             <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Family Rides</div>
@@ -223,7 +201,7 @@ const YourTicket = () => {
                             <SplideSlide>
                                 <div className='flex-1 items-center text-center flex flex-col gap-4 px-6' >
                                     <div className='flex-1 bg-cover lg:block'>
-                                    <Image className='h-full w-full' src={'/Amusement/Nadrides.jpg'} width={1500} height={1000} priority alt='slide' />
+                                    <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/Nadrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                     </div>
                                     <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Adernaline Rides</div>
                                     <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>Calling all thrill-seekers to experience the rush of our adrenaline rides! In our amusement park and water park in Banglore, these high-octane attractions will leave you breathless and exhilarated. Brave daring loops, wild drops, and heart-pounding speeds as you challenge yourself to the ultimate adventure.
@@ -238,7 +216,7 @@ const YourTicket = () => {
                                 <div className='flex'>
                                     <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4 px-6' >
                                         <div className='flex-1 bg-cover lg:block'>
-                                        <Image className='h-full w-full' src={'/Amusement/landrides.jpg'} width={1500} height={1000} priority alt='slide' />
+                                        <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/landrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Land Rides</div>
                                         <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>
@@ -255,7 +233,7 @@ const YourTicket = () => {
                                 <div className='flex'>
                                     <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4 px-6' >
                                         <div className='flex-1 bg-cover lg:block'>
-                                        <Image className='h-full w-full' src={'/Amusement/Nwaterrides2.jpg'} width={1500} height={1000} priority alt='slide' />
+                                        <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/Nwaterrides2.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Water Rides</div>
                                         <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>Dive into aquatic excitement with our fantastic water rides at the water park. From twisting water slides to lazy rivers, it&apos;s a watery paradise for all ages. Kids can splash and play on kids rides in the water park, while adults seek thrill on adult rides in the water park.<br />
@@ -271,7 +249,7 @@ const YourTicket = () => {
                                 <div className='flex'>
                                     <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4 px-6' >
                                         <div className='flex-1 bg-cover lg:block'>
-                                        <Image className='h-full w-full' src={'/Amusement/children_rides.jpg'} width={1500} height={1000} priority alt='slide' />
+                                        <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/children_rides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Kids Rides</div>
                                         <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>Designed with little adventurers in mind, our kids&apos; rides in the amusement park and water park offer safe and enchanting experiences. From gentle carousels to mini water slides, children will be all smiles.
@@ -289,7 +267,7 @@ const YourTicket = () => {
                                 <div className='flex'>
                                     <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4 px-6' >
                                         <div className='flex-1 bg-cover lg:block'>
-                                        <Image className='h-full w-full' src={'/Amusement/Nfamilyrides.jpg'} width={1500} height={1000} priority alt='slide' />
+                                        <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/Nfamilyrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Family Rides</div>
                                         <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>Families seeking shared moments of joy will love our diverse range of family rides in the amusement park and water park. Whether it&apos;s a thrilling coaster ride or a relaxing boat trip, these attractions cater to all generations.

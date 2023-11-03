@@ -1,11 +1,6 @@
 "use client"
 import ProceedBtn from '@/components/Repeating/Button'
 import { ticketPricingFunction } from '@/components/ticketPricing'
-import bullet from "@/public/bulletIcon.webp"
-import ticketsicon1 from "@/public/Reusable/ticketsicon1.webp"
-import ticketsicon2 from "@/public/Reusable/ticketsicon2.webp"
-import ticketsicon3 from "@/public/Reusable/ticketsicon3.webp"
-import ticketsicon4 from "@/public/Reusable/ticketsicon4.webp"
 import axios from 'axios'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
@@ -438,7 +433,7 @@ const TicketsPage = () => {
       <section className="w-full min-h-[629px] relative max-lg:min-h-[400px] max-xl:min-h-[450px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]">
         <Image
           className="bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover"
-          src={"/Amusement/hero_background.webp"}
+          src={"https://funworldblr.s3.amazonaws.com/public/Amusement/hero_background.webp"}
           alt="background img"
           width={2042}
           height={1029}
@@ -452,17 +447,17 @@ const TicketsPage = () => {
         </div>
         <div className="w-full h-full absolute flex">
           <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
-            <Image src="/Rides/Ellipse1.webp" width={18} height={18} alt="abc" />
+            <Image src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse1.webp" width={18} height={18} alt="abc" />
           </div>
           <div>
-            <Image src="/Rides/Ellipse2.webp" width={28} height={28} alt="abc" />
+            <Image src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse2.webp" width={28} height={28} alt="abc" />
           </div>
           <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
-            <Image src="/Rides/stars.webp" width={68} height={68} alt="abc" />
+            <Image src="https://funworldblr.s3.amazonaws.com/public/Rides/stars.webp" width={68} height={68} alt="abc" />
           </div>
           <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
             <Image
-              src="/Rides/white-shape-banner1.webp"
+              src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner1.webp"
               width={141}
               height={168}
               alt="abc"
@@ -470,7 +465,7 @@ const TicketsPage = () => {
           </div>
           <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
             <Image
-              src="/Rides/white-shape-banner2.webp"
+              src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner2.webp"
               width={141}
               height={148}
               alt="abc"
@@ -995,29 +990,29 @@ const TicketsPage = () => {
           )
       }
       <div
-        style={{ backgroundImage: "url('/ticketspageimg.webp')" }}
+        style={{ backgroundImage: "url('https://funworldblr.s3.amazonaws.com/public/ticketspageimg.webp')" }}
         className="w-[80vw] lg:flex hidden mt-16 mx-auto bg-no-repeat h-[250px] bg-cover rounded-xl bg-center justify-around gap-6 items-center px-4">
         <div className='flex flex-col items-center justify-start text-white'>
-          <Image src={ticketsicon1} alt="abc" />
+          <img src={"https://funworldblr.s3.amazonaws.com/public/Reusable/ticketsicon1.webp"} alt="abc" />
           <span className='text-center text-[23px] font-[700] '>100% Secure Payments</span>
           <span className='text-center text-[18px] '>Go cashless. Make 100% secure payments
           </span>
         </div>
         <div className='flex flex-col items-center justify-start text-white'>
-          <Image src={ticketsicon2} alt="abc" />
+          <img src={"https://funworldblr.s3.amazonaws.com/public/Reusable/ticketsicon2.webp"} alt="abc" />
           <span className='text-center text-[23px] font-[700] '>Trust pay</span>
           <span className='text-center text-[18px] '>100% Payment Protection
           </span>
         </div>
         <div className='flex flex-col items-center justify-start text-white'>
-          <Image src={ticketsicon3} alt="abc" />
+          <img src={"https://funworldblr.s3.amazonaws.com/public/Reusable/ticketsicon3.webp"} alt="abc" />
           <span className='text-center text-[23px] font-[700] '>Instant Booking
           </span>
           <span className='text-center text-[18px] '>Book & get instant tickets
           </span>
         </div>
         <div className='flex flex-col items-center justify-start text-white'>
-          <Image src={ticketsicon4} alt="abc" />
+          <img src={"https://funworldblr.s3.amazonaws.com/public/Reusable/ticketsicon4.webp"} alt="abc" />
           <span className='text-center text-[23px] font-[700] '>24X7 Support</span>
           <span className='text-center text-[18px] '>Have a query and need help ? Click here
           </span>
@@ -1033,27 +1028,27 @@ const TicketsPage = () => {
 
         <div className='flex flex-col gap-3 text-[#5B5B5B] xl:text-[21px] lg:text-[20px] md:text-[18px] text-[16px]'>
           <div className='flex gap-4'>
-            <span className='h-[40px] flex justify-center items-center w-[40px]'><Image src={bullet} alt="abc" /></span>
+            <span className='h-[40px] flex justify-center items-center w-[40px]'><img src={"https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"} alt="abc" /></span>
             <p>Child Ticket is not applicable for children below 80 cms. Child Ticket is applicable only for children between 80 cms – 140 cms of height only.</p>
           </div>
           <div className='flex gap-4'>
-            <span className='h-[40px] flex justify-center items-center w-[40px]'><Image src={bullet} alt="abc" /></span>
+            <span className='h-[40px] flex justify-center items-center w-[40px]'><img src={"https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"} alt="abc" /></span>
             <p>No Refunds | No Cancellations | No Exchanges | No Date Extensions under any circumstances.</p>
           </div>
           <div className='flex gap-4'>
-            <span className='h-[40px] flex justify-center items-center w-[40px]'><Image src={bullet} alt="abc" /></span>
+            <span className='h-[40px] flex justify-center items-center w-[40px]'><img src={"https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"} alt="abc" /></span>
             <p>Please wear masks at all times.</p>
           </div>
           <div className='flex gap-4'>
-            <span className='h-[40px] flex justify-center items-center w-[40px]'><Image src={bullet} alt="abc" /></span>
+            <span className='h-[40px] flex justify-center items-center w-[40px]'><img src={"https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"} alt="abc" /></span>
             <p>Timings due to Covid Restrictions are Funworld (10:30 Am – 7:00 Pm) and Waterworld (10:30 Am – 5:00 Pm) </p>
           </div>
           <div className='flex gap-4'>
-            <span className='h-[40px] flex justify-center items-center w-[40px]'><Image src={bullet} alt="abc" /></span>
+            <span className='h-[40px] flex justify-center items-center w-[40px]'><img src={"https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"} alt="abc" /></span>
             <p>All Government and Public Holidays – Weekend Ticket Prices applicable.</p>
           </div>
           <div className='flex gap-4'>
-            <span className='h-[40px] flex justify-center items-center w-[40px]'><Image src={bullet} alt="abc" /></span>
+            <span className='h-[40px] flex justify-center items-center w-[40px]'><img src={"https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"} alt="abc" /></span>
             <p>STUDENT Discount if used, Must Carry a Valid Student ID Card for verification. Valid only for School & College Students.</p>
           </div>
         </div>

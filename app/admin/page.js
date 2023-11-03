@@ -263,7 +263,7 @@ const Admin = () => {
                                 <tbody>
                                     {soldTicketsArray && soldTicketsArray.map((ticket, index) => (
                                        (ticket._id.toLowerCase().includes(search.toLowerCase()) || ticket.name.toLowerCase().includes(search.toLowerCase()) || ticket.email.toLowerCase().includes(search.toLowerCase()) || ticket.number.toLowerCase().includes(search.toLowerCase()) || ticket.tickets[0].visitDate.toLowerCase().includes(search.toLowerCase()) || findDayOfWeek(ticket.tickets[0].visitDate).toLowerCase().includes(search.toLowerCase())) && <tr key={index}>
-                                            <td className="p-1 px-5 border border-gray-300 text-center "><div className='flex flex-row space-x-6 items-center'><div className='cursor-pointer' onClick={async()=>{await handleDelete(ticket._id, index)}}><Image src={'/delete.jpg'} width={30} height={30}></Image></div><span className='text-center'>{ticket._id}</span></div></td>
+                                            <td className="p-1 px-5 border border-gray-300 text-center "><div className='flex flex-row space-x-6 items-center'><div className='cursor-pointer' onClick={async()=>{await handleDelete(ticket._id, index)}}><Image src={'https://funworldblr.s3.amazonaws.com/delete.jpg'} width={30} height={30}></Image></div><span className='text-center'>{ticket._id}</span></div></td>
                                             <td className="p-2 border border-gray-300">{ticket.name}<br /> {ticket.email}<br /> {ticket.number}</td>
                                             <td className='p-2 border border-gray-300 text-center'>
                                                 {ticket.payment ? (ticket.price) : "Not Paid"}

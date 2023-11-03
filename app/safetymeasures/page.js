@@ -1,20 +1,6 @@
 "use client"
 import React,{ useState } from 'react'
-import bg1 from "@/public/Reusable/bg1.webp"
 import Image from 'next/image'
-import enhancedCleaning from "@/public/SafetyMeasures/enhancedCleaning.webp"
-import physicalDistancing from "@/public/SafetyMeasures/physicalDistancing.webp"
-import reducedContact from "@/public/SafetyMeasures/reducedContact.webp"
-import limitedCapacity from "@/public/SafetyMeasures/limitedCapacity.webp"
-import mask from "@/public/SafetyMeasures/mask.webp"
-import screening from "@/public/SafetyMeasures/screening.webp"
-import enhancedCleaningHover from "@/public/SafetyMeasures/enhancedCleaningHover.webp"
-import physicalDistancingHover from "@/public/SafetyMeasures/physicalDistancingHover.webp"
-import reducedContactHover from "@/public/SafetyMeasures/reducedContactHover.webp"
-import limitedCapacityHover from "@/public/SafetyMeasures/limitedCapacityHover.webp"
-import maskHover from "@/public/SafetyMeasures/maskHover.webp"
-import screeningHover from "@/public/SafetyMeasures/screeningHover.webp"
-
 
 const SafetyMeasures = () => {
     const [hover1,setHover1] = useState(false)
@@ -26,7 +12,7 @@ const SafetyMeasures = () => {
     return (
         <div className="w-screen flex flex-col" >
             <section className='w-full min-h-[629px] relative max-lg:min-h-[400px] max-xl:min-h-[450px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
-            <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10 w-full max-sm:h-full object-contain  max-xs:object-cover' src={bg1} alt="bacgkround img" width={2042} height={1029} />
+            <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10 w-full max-sm:h-full object-contain  max-xs:object-cover' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/bg1.webp"} alt="bacgkround img" width={2042} height={1029} />
             <div className="w-full bottom-[50%] absolute max-lg:bottom-[40%]">
           <div className=" h-full w-full flex text-center justify-center items-center ">
             <div className=" text-center font-extrabold text-[70px] text-white max-lg:text-6xl max-md:text-5xl  max-xs:text-4xl ">
@@ -45,21 +31,21 @@ const SafetyMeasures = () => {
 
                 <div className='flex flex-wrap gap-6 items-center justify-center' >
                     <div className='max-w-[330px] min-w-[280px] h-[300px] flex flex-col gap-4 pt-12 bg-[#FFEEF6] px-8 pr-12  rounded-lg hover:bg-gradient-to-l  hover:from-[#E7034C] hover:to-[#FC7B03] hover:text-white' onMouseOver={()=>setHover1(true)} onMouseOut={()=>setHover1(false)}>
-                        <Image src={hover1 ? enhancedCleaningHover : enhancedCleaning} alt="enhanced cleaning" />
+                        <Image src={hover1 ? "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/enhancedCleaningHover.webp" : "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/enhancedCleaning.webp"} width={50} height={50} alt="enhanced cleaning" />
                         <h3 className='text-[23px] font-[600]'>Enhanced Cleaning</h3>
                         <p>Cleaning procedures are enhanced throughout</p>
                     </div>
 
                     <div onMouseOver={()=>setHover2(true)} onMouseOut={()=>setHover2(false)} className='max-w-[330px] min-w-[280px] h-[300px] flex flex-col gap-4 pt-12 bg-[#FFEEF6] px-8 pr-12  rounded-lg hover:bg-gradient-to-l  hover:from-[#E7034C] hover:to-[#FC7B03] hover:text-white'>
-                        <Image src={hover2 ? physicalDistancingHover : physicalDistancing} alt="Physical Distancing" />
+                        <Image src={hover2 ? "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/physicalDistancingHover.webp" : "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/physicalDistancing.webp"} alt="Physical Distancing" width={50} height={50}/>
                         <h3 className='text-[23px] font-[600]'>Physical Distancing
-                        </h3>`
+                        </h3>
                         <p>Temporary adjustments are in place to promote physical distancing.</p>
                     </div>
 
 
                     <div className='max-w-[330px] min-w-[280px] h-[300px] flex flex-col gap-4 pt-12 bg-[#FFEEF6] px-8 pr-12  rounded-lg hover:bg-gradient-to-l  hover:from-[#E7034C] hover:to-[#FC7B03] hover:text-white' onMouseOver={()=>setHover3(true)} onMouseOut={()=>setHover3(false)}>
-                        <Image src={hover3 ? reducedContactHover : reducedContact} alt="reduced contact" />
+                        <Image src={hover3 ? "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/reducedContactHover.webp" : "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/reducedContact.webp"} alt="reduced contact" width={50} height={50}/>
                         <h3 className='text-[23px] font-[600]'>Reduced Contact
 
                         </h3>
@@ -69,7 +55,7 @@ const SafetyMeasures = () => {
                     </div>
 
                     <div className='max-w-[330px] min-w-[280px] h-[300px] flex flex-col gap-4 pt-12 bg-[#FFEEF6] px-8 pr-12  rounded-lg hover:bg-gradient-to-l  hover:from-[#E7034C] hover:to-[#FC7B03] hover:text-white' onMouseOver={()=>setHover4(true)} onMouseOut={()=>setHover4(false)}>
-                        <Image src={hover4 ? limitedCapacityHover : limitedCapacity} alt="limited capicity" />
+                        <Image src={hover4 ? "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/limitedCapacityHover.webp" : "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/limitedCapacity.webp"} alt="limited capicity" width={50} height={50}/>
                         <h3 className='text-[23px] font-[600]'>Limited Capacity
                         </h3>
                         <p>
@@ -78,7 +64,7 @@ const SafetyMeasures = () => {
                     </div>
 
                     <div className='max-w-[330px] min-w-[280px] h-[300px] flex flex-col gap-4 pt-12 bg-[#FFEEF6] px-8 pr-12  rounded-lg hover:bg-gradient-to-l  hover:from-[#E7034C] hover:to-[#FC7B03] hover:text-white' onMouseOver={()=>setHover5(true)} onMouseOut={()=>setHover5(false)}>
-                        <Image src={hover5 ? maskHover : mask} alt="wearning masks" />
+                        <Image src={hover5 ? "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/maskHover.webp" : "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/mask.webp"} alt="wearning masks" width={50} height={50}/>
                         <h3 className='text-[23px] font-[600]'>Face Masks
                         </h3>
                         <p>
@@ -88,7 +74,7 @@ const SafetyMeasures = () => {
 
 
                     <div className='max-w-[330px] min-w-[280px] h-[300px] flex flex-col gap-4 pt-12 bg-[#FFEEF6] px-8 pr-12  rounded-lg hover:bg-gradient-to-l  hover:from-[#E7034C] hover:to-[#FC7B03] hover:text-white' onMouseOver={()=>setHover6(true)} onMouseOut={()=>setHover6(false)}>
-                        <Image src={hover6 ? screeningHover : screening} alt="temperature Screening" />
+                        <Image src={hover6 ? "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/screeningHover.webp" : "https://funworldblr.s3.amazonaws.com/public/SafetyMeasures/screening.webp"} alt="temperature Screening" width={50} height={50}/>
                         <h3 className='text-[23px] font-[600]'>Temperature Screenings
 
                         </h3>

@@ -1,11 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import arrow1 from "@/public/Reusable/carouselBack.webp"
-import arrow2 from "@/public/Reusable/carouselForward.webp"
-import Image from 'next/image'
-import img1 from "@/public/Reusable/manInFormals.webp"
-import img2 from "@/public/Reusable/manWithSpecs.webp"
-import img3 from "@/public/Reusable/quomas.webp"
 
 const slides = [
     {

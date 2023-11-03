@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import bg1 from "@/public/Reusable/bg1.webp"
-import tick from "@/public/Reusable/tick.webp"
 import Link from 'next/link'
 
 const Rules = () => {
@@ -25,38 +23,38 @@ const Rules = () => {
 
                 <div>
                     <div className='flex items-start gap-2 mt-8'>
-                        <Image priority className='mt-1' src={tick} width={30} alt="tick" />
+                        <img priority className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={30} alt="tick" />
                         <p>Amusement Park Attire – Shoes and appropriate clothing are required at all times. (e.g., shirts must fully cover the belly, all “private” body areas must be appropriately covered, and the Park does not allow sagging clothing that may reveal undergarments).</p>
                     </div>
 
                     <div className='flex items-start gap-2 mt-8'>
-                        <Image priority  className='mt-1' src={tick} width={30} alt="tick" />
+                        <img priority  className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={30} alt="tick" />
                         <p>Water Park Attire – Appropriate swimwear is required for water rides or water-play structures. Swimwear which is too provocative or revealing, including without limitation, transparent or mesh-style material, is prohibited.</p>
                     </div>
 
                     <div className='flex items-start gap-2 mt-8'>
-                        <Image priority className='mt-1' src={tick} width={30} alt="tick" />
+                        <img priority className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={30} alt="tick" />
                         <p>For safety reasons and to prevent property damage of rides and attractions, the Park prohibits cut-off jeans, denim shorts, clothing/swimwear with metal rivets or spikes, metal fasteners or buckles, or belts. Shoes of any kind are not allowed on any water slide or tube rides.</p>
                     </div>
 
                     <div className='flex items-start gap-2 mt-8'>
-                        <Image priority className='mt-1' src={tick} width={30} alt="tick" />
+                        <img priority className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={30} alt="tick" />
                         <p>The Park prohibits any jewelry that may pose a hazard to the rider, other guests, the rides itself, or other property. Prohibited items may include: bulky, protruding or dangling jewelry (e.g., large hoop earrings which could snag on something, long necklaces which can pose a strangulation hazard, bulky rings, and any piercings that could snag or catch on equipment).</p>
                     </div>
 
                     <div className='flex items-start gap-2 mt-8'>
-                        <Image priority className='mt-1' src={tick} width={20} alt="tick" />
+                        <img priority className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={20} alt="tick" />
                         <p>Masks, horror, or Halloween-style attire is not permitted. We do not permit clothing that depicts violence.</p>
                     </div>
 
                     <div className='flex items-start gap-2 mt-8'>
-                        <Image priority className='mt-1' src={tick} width={20} alt="tick" />
+                        <img priority className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={20} alt="tick" />
                         <p>Appropriate “public” clothing. No pajamas, bath robes, lingerie, indoor slippers, costumes of any kind, etc.</p>
                     </div>
 
                     <div className='flex items-start gap-2 mt-8'>
 
-                        <Image priority className='mt-1' src={tick} width={30} alt="tick" />
+                        <img priority className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={30} alt="tick" />
                         <p>No vulgar or offensive tattoos, statements or artwork on clothing. This includes curse words, depictions of sexual acts or nudity, depictions or messages of violence, and racially or religiously divisive/hateful material.</p>
                     </div>
                 </div>
@@ -93,17 +91,17 @@ const Rules = () => {
                 </h1>
 
                 <div className='flex items-start gap-2 mt-3'>
-                    <Image className='mt-1' src={tick} width={20} alt="tick" />
+                    <img className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={20} alt="tick" />
                     <p>Prices and operating schedule are subject to change without notice.</p>
                 </div>
 
                 <div className='flex items-start gap-2 mt-3'>
-                    <Image className='mt-1' src={tick} width={20} alt="tick" />
+                    <img className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={20} alt="tick" />
                     <p>All attractions are subject to temporary maintenance, safety or inclement weather shutdowns.</p>
                 </div>
 
                 <div className='flex items-start gap-2 mt-3'>
-                    <Image className='mt-1' src={tick} width={20} alt="tick" />
+                    <img className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={20} alt="tick" />
                     <p>These Park Rules & Policies are not comprehensive, and are subject to change without notice. The Park may have numerous additional rules and procedures applicable to guests which, if not followed, may subject the guest to ejection without refund.</p>
                 </div>
 
@@ -126,17 +124,17 @@ const Rules = () => {
                 </h1>
 
                 <Link href={'/guidelines/codeofconduct'}><div className='flex items-start gap-2'>
-                    <Image className='mt-1' src={tick} width={20} alt="tick" />
+                    <img className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={20} alt="tick" />
                     <p>Code of Conduct</p>
                 </div></Link>
 
                 <Link href={'/guidelines/codeofsafety'}><div className='flex items-start gap-2'>
-                    <Image className='mt-1' src={tick} width={20} alt="tick" />
+                    <img className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={20} alt="tick" />
                     <p>Code of Safety</p>
                 </div></Link>
 
                 <Link href={'/guidelines/disclaimer'}><div className='flex items-start gap-2'>
-                    <Image className='mt-1' src={tick} width={20} alt="tick" />
+                    <img className='mt-1' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/tick.webp"} width={20} alt="tick" />
                     <p>Disclaimer</p>
                 </div></Link>
             </div>

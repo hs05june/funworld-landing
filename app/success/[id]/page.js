@@ -1,7 +1,6 @@
 "use client"
 import TicketPage from '@/components/Repeating/TicketPage'
 import axios from 'axios'
-import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 const Success = ({ params }) => {

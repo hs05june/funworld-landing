@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import bgDots from "@/public/Home/welcome/bgDots.webp"
 import Image from 'next/image'
 import ProceedBtn from '../Repeating/Button'
-// import { motion, useInView } from 'framer-motion'
 import { useInView, animated } from "@react-spring/web"
 import Link from 'next/link'
 
@@ -24,7 +22,7 @@ const Welcome = () => {
                 //  ref={ref} style={props}
                 >
                     <div className='mx-auto lg:mx-0'>
-                        <Image priority className='z-25 absolute top-[-100px] left-[-90px]' src={bgDots} alt="bgDots" />
+                        <img priority className='z-25 absolute top-[-100px] left-[-90px]' src={"https://funworldblr.s3.amazonaws.com/public/Home/welcome/bgDots.webp"} alt="bgDots" />
                         <div style={{ transform: 'rotate(-90deg)' }}
                             className=' px-4 absolute z-10 bottom-[110px] left-[-120px]  rounded text-white font-[600] text-2xl py-2 bg-gradient-to-r w-[270px] from-[#FD1783] to-[#FFCC00]'>
                             <p>
@@ -34,9 +32,9 @@ const Welcome = () => {
                         </div>
                     </div>
 
-                    <Image priority src={'/Home/welcome/Welcome_Ride1.jpg'} alt="Ride" width={450} height={450} />
+                    <Image priority src={'https://funworldblr.s3.amazonaws.com/public/Home/welcome/Welcome_Ride1.jpg'} alt="Ride" width={450} height={450} />
                     <div className='absolute right-[105px] bottom-[-50px] p-2 bg-white' >
-                        <Image priority src={'/Home/welcome/Welcome_Ride2.jpg'} alt="children" width={250} height={250} />
+                        <Image priority src={'https://funworldblr.s3.amazonaws.com/public/Home/welcome/Welcome_Ride2.jpg'} alt="children" width={250} height={250} />
                     </div>
 
                 </div>

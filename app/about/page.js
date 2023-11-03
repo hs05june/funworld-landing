@@ -1,25 +1,9 @@
 "use client"
 import React from 'react'
-import bg1 from "@/public/Reusable/bg1.webp"
 import Image from 'next/image'
-import triangle from "@/public/Reusable/triangle.webp"
-import bottles from "@/public/Reusable/bottles.jpg"
 import { animated, useInView } from '@react-spring/web'
-import fun3 from "@/public/About/fun3.jpeg"
-import fun4 from "@/public/About/fun4.jpeg"
-import Head from 'next/head'
 import { Box, Card, Typography } from '@mui/material'
 import { MdFastfood } from "react-icons/md"
-import { IoFastFoodOutline } from "react-icons/io"
-import mask from "@/public/Amusement/mask.svg"
-import mask2 from "@/public/Amusement/mask2.svg"
-import waterRide from "@/public/Amusement/waterRide.jpg"
-import group_pic1 from "@/public/About/group_pic1.jpg"
-import group_pic2 from "@/public/About/group_pic2.jpg"
-import group_pic3 from "@/public/About/group_pic3.jpg"
-import blackbottle from "@/public/About/blackbootle.jpg"
-import whitebottle from "@/public/About/whitebottle.jpg"
-
 // First About Page
 
 const CardMain = ({ data }) => {
@@ -67,7 +51,7 @@ const AboutStart = () => {
       className='w-full flex flex-col items-center '
     >
       {/* <Image src={'/About/fun2.jpeg'}  alt="child swimming in pool" className='w-[100vw] absolute -z-10 max-lg:hidden overflow-y-hidden' /> */}
-      <div className='w-[100%] h-[100vh] bg-cover bg-no-repeat bg-center bg-[url("../public/About/fun2.jpeg")] absolute -z-10 max-lg:hidden overflow-y-hidden' />
+      <div className='w-[100%] h-[100vh] bg-cover bg-no-repeat bg-center bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")] absolute -z-10 max-lg:hidden overflow-y-hidden' />
       <div className='md:h-[100%] h-full md:relative top-[100%]'>
         <CardMain data={data} />
       </div>
@@ -85,7 +69,7 @@ const AboutSecond = () => {
       <Box className="flex flex-col justify-center items-end gap-6 lg:w-[50vw] ">
         <div className='h-[40%] flex flex-col md:items-start items-center lg:w-[70%] lg:pr-6'>
           {/* <MdFastfood className='text-[15vw] md:text-[6rem] max-lg:mx-auto' /> */}
-          <Image src={bottles} alt="bottles" />
+          <img src={"https://funworldblr.s3.amazonaws.com/public/Reusable/bottles.jpg"} alt="bottles" />
           <Typography variant='h4' className='mt-4 max-lg:text-center text-[7vw] md:text-[2rem]'>
             Our Vision
           </Typography>
@@ -95,7 +79,7 @@ const AboutSecond = () => {
         </div>
         <div className='h-[40%] flex flex-col md:items-start items-center lg:w-[70%] lg:pr-6'>
           {/* <MdFastfood className='text-[15vw] md:text-[6rem] max-lg:mx-auto' /> */}
-          <Image src={bottles} alt="bottles"/>
+          <img src={"https://funworldblr.s3.amazonaws.com/public/Reusable/bottles.jpg"} alt="bottles"/>
           <Typography variant='h4' className='mt-4 max-lg:text-center text-[7vw] md:text-[2rem]'>
             Our Mission
           </Typography>
@@ -107,7 +91,7 @@ const AboutSecond = () => {
 
       <Box className="flex items-center pr-8 lg:w-[50vw] max-lg:hidden">
         <div className='w-[80%] h-[70%] '>
-          <div className='bg-cover rounded-sm bg-center w-[100%] h-[100%] bg-[url("../public/About/fun2.jpeg")] bg-no-repeat '></div>
+          <div className='bg-cover rounded-sm bg-center w-[100%] h-[100%] bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")] bg-no-repeat '></div>
         </div>
       </Box>
     </div>
@@ -144,13 +128,13 @@ const AboutThird = () => {
             Operating Hours
           </Typography>
 
-          <Image src={mask} width={450} height={40} className='mx-auto' alt='pic' />
+          <img src={"https://funworldblr.s3.amazonaws.com/public/Amusement/mask.svg"} width={450} height={40} className='mx-auto' alt='pic' />
 
           <Typography variant='h5' className='tracking-[10px] mt-5 text-[4vw] md:text-[2rem]'>
             FUN WORLD
           </Typography>
 
-          <Image src={mask2} width={150} height={40} className='mx-auto' alt='pic' />
+          <img src={"https://funworldblr.s3.amazonaws.com/public/Amusement/mask2.svg"} width={150} height={40} className='mx-auto' alt='pic' />
 
           <Typography variant='h5' className='font-bold text-[5vw] md:text-[2rem]'>
             10:30 AM TO 7:00 PM
@@ -166,7 +150,7 @@ const AboutThird = () => {
             WATER WORLD
           </Typography>
 
-          <Image src={mask2} width={150} height={40} className='mx-auto' alt='pic' />
+          <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/mask2.svg"} width={150} height={40} className='mx-auto' alt='pic' />
 
           <Typography variant='h5' className='font-bold text-[5vw] md:text-[2rem]'>
             10:30 AM TO 5:00 PM
@@ -187,13 +171,13 @@ const AboutThird = () => {
             Entry Fees
           </Typography>
 
-          <Image src={mask} width={450} height={40} className='mx-auto' alt='pic' />
+          <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/mask.svg"} width={450} height={40} className='mx-auto' alt='pic' />
 
           <Typography variant='h5' className='tracking-[10px] mt-2 text-[4vw] md:text-[2rem]'>
             ADULTS
           </Typography>
 
-          <Image src={mask2} width={150} height={40} className='mx-auto' alt='pic' />
+          <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/mask2.svg"} width={150} height={40} className='mx-auto' alt='pic' />
 
           <Typography variant='h5' className='font-bold text-[5vw] md:text-[2rem]'>
             INR 1199 <span className='text-[16px]'>on weekends</span>, INR 1499 <span className='text-[16px]'>on weekdays</span>
@@ -205,7 +189,7 @@ const AboutThird = () => {
             CHILDREN
           </Typography>
 
-          <Image src={mask2} width={150} height={40} className='mx-auto' alt='pic' />
+          <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/mask2.svg"} width={150} height={40} className='mx-auto' alt='pic' />
 
           <Typography variant='h5' className='font-bold text-[5vw] md:text-[2rem]'>
             INR 999 <span className='text-[16px]'>on weekends</span>, INR 999 <span className='text-[16px]'>on weekdays</span>
@@ -217,7 +201,7 @@ const AboutThird = () => {
             HOLIDAY SPECIAL
           </Typography>
 
-          <Image src={mask2} width={150} height={40} className='mx-auto' alt='pic' />
+          <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/mask2.svg"} width={150} height={40} className='mx-auto' alt='pic' />
 
           <Typography variant='h5' className='font-bold text-[5vw] md:text-[2rem]'>
             INR 999 <span className='text-[16px]'>for kids</span>, INR 999 <span className='text-[16px]'>for senior citizens and </span>
@@ -270,7 +254,7 @@ const AboutFourth = () => {
 
         </div>
         <div className='md:w-[50vw] bg-cover md:p-0 p-6' ref={img1Ref} style={img1Props} >
-          <Image src={fun3} alt="rings with child" />
+          <img src={'https://funworldblr.s3.amazonaws.com/public/About/fun3.jpeg'} alt="rings with child" />
         </div>
 
       </div>
@@ -283,7 +267,7 @@ const AboutFourth = () => {
         </div>
 
         <div className='md:w-[50vw] bg-cover md:p-0 p-6' ref={img2Ref} style={img2Props}>
-          <Image src={fun4} alt="water slide" />
+          <img src={"https://funworldblr.s3.amazonaws.com/public/About/fun4.jpeg"} alt="water slide" />
         </div>
       </div>
     </div>
@@ -312,7 +296,7 @@ const AboutFifth = () => {
         </div>
       </Box>
       <Box className="w-[50%] h-[90%] m-auto max-lg:hidden">
-        <div className='w-[90%] bg-[url("../public/About/Group1.jpg")] bg-no-repeat bg-center bg-cover  h-[95%] mx-auto' />
+        <div className='w-[90%] bg-[url("https://funworldblr.s3.amazonaws.com/public/About/Group1.jpg")] bg-no-repeat bg-center bg-cover  h-[95%] mx-auto' />
       </Box>
     </div>
   )
@@ -325,9 +309,9 @@ const AboutLast = () => {
       <Typography variant='h6' className='text-[#5B5B5B] max-lg:text-lg mx-auto mt-10'>With our experienced team of professionals, we handle everything from roller coasters to lighting systems with ease. Plus, we offer custom-made themed rides and even rental options for both new and refurbished rides. Let us bring the magic to your amusement park.</Typography>
 
       <Box className="flex justify-between mt-10 max-lg:w-[90%] max-lg:mx-auto">
-        <Image src={group_pic1} width={300} height={400} alt='pic' className='w-[30%]' />
-        <Image src={group_pic2} width={300} height={400} alt='pic' className='w-[30%]' />
-        <Image src={group_pic3} width={300} height={400} alt='pic' className='w-[30%]' />
+        <Image src={"https://funworldblr.s3.amazonaws.com/public/About/group_pic1.jpg"} width={300} height={400} alt='pic' className='w-[30%]' />
+        <Image src={"https://funworldblr.s3.amazonaws.com/public/About/group_pic2.jpg"} width={300} height={400} alt='pic' className='w-[30%]' />
+        <Image src={"https://funworldblr.s3.amazonaws.com/public/About/group_pic3.jpg"} width={300} height={400} alt='pic' className='w-[30%]' />
       </Box>
 
     </Box>
@@ -340,7 +324,7 @@ const About = () => {
     <>
       <div className='min-h-screen w-screen flex flex-col overflow-x-hidden'>
       <section className='w-full min-h-[400px] relative max-lg:min-h-[400px] max-xl:min-h-[400px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
-                    <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
+                    <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
                     <div className="w-full bottom-[30%] sm:bottom-[50%] lg:bottom-[15%] absolute">
                         <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
                             <h1 className="text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
@@ -354,17 +338,17 @@ const About = () => {
 
                     <div className="w-full h-full flex">
                         {/* <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
-                            <Image alt="/" src="/Rides/Ellipse1.svg" width={18} height={18} />
+                            <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse1.svg" width={18} height={18} />
                         </div> */}
                         <div>
-                            <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
+                            <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse2.webp" width={28} height={28} />
                         </div>
                         {/* <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
-                            <Image alt="/" src="/Rides/stars.svg" width={68} height={68} />
+                            <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/stars.svg" width={68} height={68} />
                         </div> */}
                         <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
                             <Image alt="/"
-                                src="/Rides/white-shape-banner1.webp"
+                                src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner1.webp"
                                 width={141}
                                 height={168}
 
@@ -372,7 +356,7 @@ const About = () => {
                         </div>
                         <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
                             <Image alt="/"
-                                src="/Rides/white-shape-banner2.webp"
+                                src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner2.webp"
                                 width={141}
                                 height={148}
                             />

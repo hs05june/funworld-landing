@@ -1,29 +1,10 @@
 "use client"
 import Image from 'next/image'
 import React, { useLayoutEffect, useState, useEffect } from 'react'
-import logo from "@/public/Home/hero/logo.webp"
-import ReactModal from 'react-modal'
-import Wires from "@/public/Reusable/wires.webp"
-import fbFooter from "@/public/Reusable/fbFooter.webp"
-import igFooter from "@/public/Reusable/igFooter.webp"
-import pinintrestFooter from "@/public/Reusable/pinintrestFooter.webp"
-import twitterFooter from "@/public/Reusable/twitterFooter.webp"
 import { motion, Variants } from "framer-motion";
-
-
-import { AiOutlineShoppingCart } from "react-icons/ai"
 import { GiHamburgerMenu } from "react-icons/gi"
 import Link from 'next/link'
 import { BsArrowRightCircleFill } from 'react-icons/bs'
-
-
-import logo2 from "@/public/logo2.png"
-
-import buy from "@/public/Home/hero/buy.jpg"
-
-import { AiOutlineMenu } from "react-icons/ai"
-import { RxCross2 } from "react-icons/rx"
-
 import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
 import ProceedBtn from './Button'
@@ -68,13 +49,13 @@ const Navbar = () => {
           <div className='flex flex-row md:justify-start justify-center gap-4'>
             <div className="flex flex-row md:justify-start justify-center gap-4">
               <a href="https://www.facebook.com/funworld.bangalore/" target="_blank" rel="noopener noreferrer" className="hover:bg-gradient-to-r from-[#FC0] to-[#FD1783] hover:scale-105 transition-all delay-200 border-2 border-white flex items-center justify-center rounded-full p-2">
-                <Image priority src={fbFooter} alt="facebook icon" />
+                <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/fbFooter.webp"} alt="facebook icon" />
               </a>
               <a href="https://www.instagram.com/funworld__blr/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:bg-gradient-to-r from-[#FC0] to-[#FD1783] hover:scale-105 transition-all delay-200 border-2 border-white flex items-center justify-center rounded-full p-2">
-                <Image priority src={igFooter} alt="instagram icon" />
+                <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/igFooter.webp"} alt="instagram icon" />
               </a>
               <a href="https://twitter.com/funworld_blr?lang=en" target="_blank" rel="noopener noreferrer" className="hover:bg-gradient-to-r from-[#FC0] to-[#FD1783] hover:scale-105 transition-all delay-200 border-2 border-white flex items-center justify-center rounded-full p-2">
-                <Image priority src={twitterFooter} alt="twitter icon" />
+                <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/twitterFooter.webp"} alt="twitter icon" />
               </a>
             </div>
 
@@ -87,7 +68,7 @@ const Navbar = () => {
 
             </div>
             <Link className='absolute top-[-35px] z-10' href="/">
-              <Image className='' priority src={logo2} alt='logo2' />
+              <img className='' priority src={"https://funworldblr.s3.amazonaws.com/public/logo2.png"} alt='logo2' />
             </Link>
 
             <div className='flex xl:gap-8 lg:gap-4 gap-3 items-center  text-[19px] font-[600]'>
@@ -175,7 +156,7 @@ const Navbar = () => {
       <div className='lg:hidden block'>
         <div className='flex flex-col items-end justify-around mx-5 h-20'>
           <div className='w-fit h-fit absolute top-[-10px] left-5 z-10'>
-            <Image priority src={logo2} alt="logo" width={100} height={100} />
+            <Image priority src={"https://funworldblr.s3.amazonaws.com/public/logo2.png"} alt="logo" width={100} height={100} />
           </div>
 
           <div className='flex flex-row gap-5 items-center'>

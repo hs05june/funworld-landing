@@ -1,16 +1,6 @@
 import React, { useEffect } from 'react'
-import LogoBnG from "@/public/Home/footer/LogoBnG.svg"
-import Wires from "@/public/Reusable/wires.webp"
-import fbFooter from "@/public/Reusable/fbFooter.webp"
-import igFooter from "@/public/Reusable/igFooter.webp"
-import pinintrestFooter from "@/public/Reusable/pinintrestFooter.webp"
-import twitterFooter from "@/public/Reusable/twitterFooter.webp"
-import footerAddress from "@/public/Reusable/footer-address.webp"
-import footerEmail from "@/public/Reusable/footer-email.webp"
-import footerCall from "@/public/Reusable/foter-call.webp"
 import Image from 'next/image'
 import Link from 'next/link'
-import { AiOutlineMenu } from "react-icons/ai"
 
 const Footer = () => {
 
@@ -32,7 +22,7 @@ const Footer = () => {
 
   return (
     <div className='relative overflow-hidden mt-10'>
-      <Image priority className='absolute lg:block hidden md:left-4 z-30 rotate-6 md:bottom-[240px] bottom-[600px]' src={Wires} alt="wires" />
+      <img priority className='absolute lg:block hidden md:left-4 z-30 rotate-6 md:bottom-[240px] bottom-[600px]' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/wires.webp"} alt="wires" />
 
 
       {/* will uncomment it later */}
@@ -45,15 +35,15 @@ const Footer = () => {
           </div>
         </div>
       </div> */}
-      <div className='min-h-[400px] relative overflow-hidden lg:mt-12 text-white py-8 bg-[#1F1F34] bg-[url("../public/Home/footer/footerBG.webp")] flex flex-row flex-wrap  items-start xl:gap-8 lg:gap-6 gap-x-4 gap-y-8 md:pl-[10vw] md:justify-between justify-around md:pr-[5vw] md:pt-20 pb-12 '>
+      <div className='min-h-[400px] relative overflow-hidden lg:mt-12 text-white py-8 bg-[#1F1F34] bg-[url("https://funworldblr.s3.amazonaws.com/public/Home/footer/footerBG.webp")] flex flex-row flex-wrap  items-start xl:gap-8 lg:gap-6 gap-x-4 gap-y-8 md:pl-[10vw] md:justify-between justify-around md:pr-[5vw] md:pt-20 pb-12 '>
 
         <div className='lg:w-[25vw] w-[100vw]'>
           <div className='flex relative top-[-50px] flex-col items-center gap-4 my-8'>
-            <Image src={LogoBnG} priority alt="logo" />
+            <img src={"https://funworldblr.s3.amazonaws.com/public/Home/footer/LogoBnG.svg"} priority alt="logo" />
             <div className='w-full flex gap-4 flex-col'>
                 <div className='flex gap-3 items-center ml-12 lg:ml-0'>
                   <div>
-                    <Image priority src={footerCall} alt="calling icon" />
+                    <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/foter-call.webp"} alt="calling icon" />
                   </div>
                   <div className='text-[12px] cursor-pointer' onClick={handleCopyNumber} title='Click to Copy'>
                     <p className='hover:text-[#FFBF0A] hover:scale-105 transition-all delay-200 md:text-base'>084311 10000</p>
@@ -62,13 +52,13 @@ const Footer = () => {
                 </div>
 
                 <div className='flex gap-3 items-center text-[12px] ml-12 lg:ml-0'>
-                  <Image priority src={footerEmail} alt="Email icon" />
+                  <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/footer-email.webp"} alt="Email icon" />
 
                   <Link href={'mailto:info@funworldblr.com'}><p className='hover:text-[#FFBF0A] hover:scale-105 transition-all delay-200 cursor-pointer md:text-base'> info@funworldblr.com</p></Link>
                 </div>
                 <Link href={'https://www.google.co.in/maps/dir//Fun+World+Amusement+Park,+Palace+Grounds,+Jayamahal+Main+Rd,+opposite+TV+Tower,+J.C.Nagar,+Bengaluru,+Karnataka+560006/@13.0069448,77.5895227,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae17b55c78182f:0xd46d15155f682466!2m2!1d77.5920976!2d13.0069448?entry=ttu'}>
                 <div className='flex gap-2 items-center text-center text-[12px] lg:px-0  px-12'>
-                  <Image priority src={footerAddress} alt="Address icon" />
+                  <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/footer-address.webp"} alt="Address icon" />
                   <p className='hover:text-[#FFBF0A] hover:scale-105 transition-all delay-200 md:text-base text-left'>Palace Grounds, Jayamahal Main Rd, Opposite TV Tower, J.C.Nagar Bengaluru, Karnataka 560006</p>
                 </div>
                   </Link>
@@ -178,13 +168,13 @@ const Footer = () => {
 
         <div className='flex xl:flex-col flex-row md:justify-start justify-center gap-4 my-6' >
           <Link href='https://www.facebook.com/funworld.bangalore/' target='_blank' className='hover:bg-gradient-to-r from-[#FC0] to-[#FD1783] hover:scale-105 transition-all delay-200 border-2 border-white flex items-center justify-center rounded-full p-2'>
-            <Image priority src={fbFooter} alt="facebook icon" />
+            <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/fbFooter.webp"} alt="facebook icon" />
           </Link>
           <Link href='https://www.instagram.com/funworld__blr/?hl=en' target='_blank' className='hover:bg-gradient-to-r from-[#FC0] to-[#FD1783] hover:scale-105 transition-all delay-200 border-2 border-white flex items-center justify-center rounded-full p-2'>
-            <Image priority src={igFooter} alt="facebook icon" />
+            <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/igFooter.webp"} alt="facebook icon" />
           </Link>
           <Link href="https://twitter.com/funworld_blr?lang=en" target='_blank' className='hover:bg-gradient-to-r from-[#FC0] to-[#FD1783] hover:scale-105 transition-all delay-200 border-2 border-white flex items-center justify-center rounded-full p-2'>
-            <Image priority src={twitterFooter} alt="facebook icon" />
+            <img priority src={"https://funworldblr.s3.amazonaws.com/public/Reusable/twitterFooter.webp"} alt="facebook icon" />
           </Link>
           {/* <div className='hover:bg-gradient-to-r from-[#FC0] to-[#FD1783] hover:scale-105 transition-all delay-200 border-2 border-white flex items-center justify-center rounded-full p-2'>
             <Image src={pinintrestFooter} alt="facebook icon" />

@@ -3,27 +3,12 @@ import Image from 'next/image'
 import React from 'react'
 import { animated, useInView } from '@react-spring/web'
 import { useState } from 'react'
-import skydrop from "@/public/Amusement/skydrop.webp"
-import a1 from "@/public/Amusement/a1.jpg"
-import a2 from "@/public/Amusement/a2.jpg"
-import tsunami from "@/public/Amusement/tsunami.webp"
-import pendulum from "@/public/Amusement/pendulum.jpg"
-import roller from "@/public/Amusement/roller.webp"
-import flying from "@/public/Amusement/flying.webp"
-import fireball from "@/public/Amusement/fireball.jpg"
 import { Box, Card, CardContent, CardMedia, Divider, Paper, Rating, Typography } from '@mui/material'
-import start1 from "@/public/Amusement/start1.jpg"
-import start2 from "@/public/Amusement/start2.jpg"
-import start3 from "@/public/Amusement/start3.jpg"
 import { IoMdBicycle, IoMdColorPalette } from "react-icons/io"
 import { GiHotSpices, GiMusicalNotes } from 'react-icons/gi'
 import { MdHealthAndSafety, MdOutlineCleanHands } from 'react-icons/md'
 import { FaQuoteRight } from "react-icons/fa"
 import { BsThreeDots } from 'react-icons/bs'
-import vector from "@/public/Amusement/vector.jpg"
-import user from "@/public/Amusement/user.jpg"
-import businessUser from "@/public/Amusement/businessuser.jpg"
-import bluebg from "@/public/Amusement/bluebg.jpg"
 
 // First Amusement Park Page
 
@@ -31,7 +16,7 @@ const CardMain = ({ num, src, head, content }) => {
   return (
 
     <Card className={`lg:w-[25vw] w-[70vw] lg:min-h-[50vh] sm:min-h-[40vh] my-auto rounded-[1rem] flex  ${num === 1 ? "flex-col-reverse" : "flex-col"}`} >
-      <Image className='lg:w-[40vw] w-[70vw] xl:w-[25vw] md:h-[50%] mx-auto'
+      <img className='lg:w-[40vw] w-[70vw] xl:w-[25vw] md:h-[50%] mx-auto'
         // image={start1}
         src={src}
         title="green iguana"
@@ -51,17 +36,17 @@ const CardMain = ({ num, src, head, content }) => {
 
 const AmusementParkStart = () => {
   const cardData = [{
-    src: start1,
+    src: "https://funworldblr.s3.amazonaws.com/public/Amusement/start1.jpg",
     head: "Midnight Madness",
     content: "Go crazy under the moonlight and embark on a journey of midnight madness at the Fun World amusement park!"
   },
   {
-    src: start2,
+    src: "https://funworldblr.s3.amazonaws.com/public/Amusement/start2.jpg",
     head: "Happy Days, Weekend",
     content: "Spend a sparkling weekend in the Fun World with the best discount deals on all tickets."
   },
   {
-    src: start3,
+    src: "https://funworldblr.s3.amazonaws.com/public/Amusement/start3.jpg",
     head: "Happy Days, Weekdays",
     content: "Have joyous and thrilling weekdays with an amazing theme park experience."
   }]
@@ -223,7 +208,7 @@ const CardElement = ({ data }) => {
             <Card key={index} elevation={4} className='flex flex-col md:w-[80%] mx-auto lg:w-[35%] rounded-lg max-md:py-4 max-lg:h-[30%]'>
               <Box sx={{ display: "flex" }} className="w-[60%] gap-[2vw] mx-auto md:mt-5">
                 <div>
-                  <Image src={user} width={60} height={60} className='border rounded-[3rem] h-[60px] w-[60px]' alt='pic' />
+                  <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg"} width={60} height={60} className='border rounded-[3rem] h-[60px] w-[60px]' alt='pic' />
                 </div>
                 <div className='w-[40%]'>
                   <Typography variant='h6' className='font-bold'>
@@ -263,21 +248,21 @@ const CustomerReviewPage = () => {
 
   const data = [
     {
-      src: { user },
+      src: "https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg" ,
       name: "Divakshi",
       username: "@Divakshi",
       rating: 4,
       comment: "The very fun place went there with my colleagues, and it was so much fun, enjoyed it a lot! The rides & activities were so good, worth every single penny! 👌🏻😁"
     },
     {
-      src: { user },
+      src: "https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg",
       name: "Pankaj",
       username: "@Pankaj",
       rating: 5,
       comment: "Very good to place to have fun time with family and friends. Kids friendly rides in Water park and in Amusement park. 👌🏻😁"
     },
     {
-      src: { user },
+      src: "https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg",
       name: "Devil",
       username: "@Devil",
       rating: 4,
@@ -287,7 +272,7 @@ const CustomerReviewPage = () => {
   return (
 
     <div style={{ width: "100vw", height: "auto" }} className='overflow-y-hidden max-md:mt-10 flex flex-col items-center'>
-      <Image src={vector} width={200} alt='pic' className='w-[100%] left-0 absolute h-[300px] -z-20 mx-auto max-lg:hidden' />
+      <img src={"https://funworldblr.s3.amazonaws.com/public/Amusement/vector.jpg"} width={200} alt='pic' className='w-[100%] left-0 absolute h-[300px] -z-20 mx-auto max-lg:hidden' />
       <Typography variant='h3' className='text-center md:mt-3 max-md:text-xl max-md:font-[650]'>
         Customers&apos; Reviews
       </Typography>
@@ -342,7 +327,7 @@ const AmusementParkThird = () => {
 
         <div className='w-full mt-5 grid grid-flow-row grid-cols-3 lg:gap-12 max-md:grid-cols-2 mx-6' ref={gridRef} style={gridProps} >
           <div className='w-full flex flex-col imgcontainer '>
-            <Image alt="/" src={skydrop} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <img alt="/" src={"https://funworldblr.s3.amazonaws.com/public/Amusement/skydrop.webp"} className="md:image max-md:w-[90%] max-md:h-[120px]" />
             <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
               <div className=' trans '>
                 <span className='mr-0 ml-3 opacity-0 whitespace-nowrap spannum'></span> <span>Sky Drop</span>
@@ -350,7 +335,7 @@ const AmusementParkThird = () => {
             </div>
           </div>
           <div className='w-full flex flex-col imgcontainer '>
-            <Image alt="/" src={tsunami} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <img alt="/" src={"https://funworldblr.s3.amazonaws.com/public/Amusement/tsunami.webp"} className="md:image max-md:w-[90%] max-md:h-[120px]" />
             <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
               <div className=' trans   '>
                 <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Tsunami</span>
@@ -358,7 +343,7 @@ const AmusementParkThird = () => {
             </div>
           </div>
           <div className='w-full flex flex-col imgcontainer '>
-            <Image alt="/" src={pendulum} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <img alt="/" src={"https://funworldblr.s3.amazonaws.com/public/Amusement/pendulum.jpg"} className="md:image max-md:w-[90%] max-md:h-[120px]" />
             <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
               <div className=' trans   '>
                 <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Pendulum</span>
@@ -366,7 +351,7 @@ const AmusementParkThird = () => {
             </div>
           </div>
           <div className='w-full flex flex-col imgcontainer'>
-            <Image alt="/" src={fireball} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <img alt="/" src={"https://funworldblr.s3.amazonaws.com/public/Amusement/fireball.jpg"} className="md:image max-md:w-[90%] max-md:h-[120px]" />
             <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
               <div className=' trans   '>
                 <span className='mr-0 ml-3 opacity-0 whitespace-nowrap spannum '></span> <span>Crazy Fireball</span>
@@ -374,7 +359,7 @@ const AmusementParkThird = () => {
             </div>
           </div>
           <div className='w-full flex flex-col imgcontainer'>
-            <Image alt="/" src={flying} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <img alt="/" src={"https://funworldblr.s3.amazonaws.com/public/Amusement/flying.webp"} className="md:image max-md:w-[90%] max-md:h-[120px]" />
             <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-xl:text-2xl max-md:text-lg max-md:text-center'>
               <div className=' trans   '>
                 <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Flying chairs</span>
@@ -382,7 +367,7 @@ const AmusementParkThird = () => {
             </div>
           </div>
           <div className='w-full flex flex-col imgcontainer '>
-            <Image alt="/" src={roller} className="md:image max-md:w-[90%] max-md:h-[120px]" />
+            <img alt="/" src={"https://funworldblr.s3.amazonaws.com/public/Amusement/roller.webp"} className="md:image max-md:w-[90%] max-md:h-[120px]" />
             <div className='w-full font-spartan py-4 text-left text-4xl font-bold max-md:text-lg max-md:text-center max-xl:text-2xl'>
               <div className=' trans   '>
                 <span className='mr-0 opacity-0 whitespace-nowrap spannum '></span> <span>Roller coaster</span>
@@ -399,11 +384,11 @@ const AmusementParkThird = () => {
 // Fourth Amusement Park Page
 
 const AmusementParkFourth = () => {
-  const data = [a1, a2, skydrop]
+  const data = ["https://funworldblr.s3.amazonaws.com/public/Amusement/a1.jpg", "https://funworldblr.s3.amazonaws.com/public/Amusement/a2.jpg", "https://funworldblr.s3.amazonaws.com/public/Amusement/skydrop.webp"]
   return (
     <div style={{ width: "100%" }} className='flex lg:h-[100%] flex-col mt-12 justify-between max-md:py-4'
     >
-      <Image src={bluebg} width={300} alt='/' className='absolute w-[100vw] h-[400px] -z-10 -left-0 max-md:hidden' />
+      <img src={"https://funworldblr.s3.amazonaws.com/public/Amusement/bluebg.jpg"} width={300} alt='/' className='absolute w-[100vw] h-[400px] -z-10 -left-0 max-md:hidden' />
       <div className='xl:w-[40%] md:mt-5 lg:ml-12'>
         <Typography variant='h3' className='text-left lg:text-white max-md:text-2xl max-md:font-[650] max-xl:text-center'>
           Rides & Attractions
@@ -417,7 +402,7 @@ const AmusementParkFourth = () => {
         <Box className="flex lg:flex-row mt-4 flex-col items-center gap-4 lg:justify-end lg:gap-10 lg:h-[60%] lg:mt-10 ">
           {data.map((e, index) => {
 
-            return <Image key={index} src={e} alt="pic" width={200} className='lg:w-[30%] w-[70%] md:h-[20rem] rounded-lg' />
+            return <img key={index} src={e} alt="pic" width={200} className='lg:w-[30%] w-[70%] md:h-[20rem] rounded-lg' />
           })}
         </Box>
       </div>
@@ -444,10 +429,10 @@ const SatisfactionPage = () => {
         About Our Services
       </Typography>
       <Box className="flex justify-evenly mt-[3rem]">
-        <Image src={businessUser} alt='pic' width={200} className='w-[40%] h-[80%]' />
+        <img src={"https://funworldblr.s3.amazonaws.com/public/Amusement/businessuser.jpg"} alt='pic' width={200} className='w-[40%] h-[80%]' />
         <Box className="w-[40%] flex flex-col justify-evenly">
           <div className='flex w-[60%]'>
-            <Image src={user} alt='pic' width={50} className='w-[80px] h-[80px] rounded-[10rem]' />
+            <img src={"https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg"} alt='pic' width={50} className='w-[80px] h-[80px] rounded-[10rem]' />
             <div className='ml-5'>
               <Typography variant='h5' className='font-bold'>
                 David K. Vinson
@@ -477,7 +462,7 @@ const Index = () => {
   return (
     <div className='w-screen flex flex-col gap-2 overflow-x-hidden' >
       <section className='w-full min-h-[400px] relative max-lg:min-h-[400px] max-xl:min-h-[400px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
-        <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
+        <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
         <div className="w-full bottom-[30%] sm:bottom-[50%] lg:bottom-[30%] absolute">
           <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
             <h1 className=" text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
@@ -491,17 +476,17 @@ const Index = () => {
 
         <div className="w-full h-full flex">
           <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
-            <Image alt="/" src="/Rides/Ellipse1.webp" width={18} height={18} />
+            <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse1.webp" width={18} height={18} />
           </div>
           <div>
-            <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
+            <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse2.webp" width={28} height={28} />
           </div>
           <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
-            <Image alt="/" src="/Rides/stars.webp" width={68} height={68} />
+            <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/stars.webp" width={68} height={68} />
           </div>
           <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
             <Image alt="/"
-              src="/Rides/white-shape-banner1.webp"
+              src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner1.webp"
               width={141}
               height={168}
 
@@ -509,7 +494,7 @@ const Index = () => {
           </div>
           <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
             <Image alt="/"
-              src="/Rides/white-shape-banner2.webp"
+              src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner2.webp"
               width={141}
               height={148}
             />

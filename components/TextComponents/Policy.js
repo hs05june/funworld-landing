@@ -26,7 +26,7 @@ const Policy = () => {
             </div>
 
             <div>
-                <div className='text-lg lg:text-[44px] lg:leading-[44px] text-lg font-[600] px-[13vw] mt-12'>
+                <div className='text-lg lg:text-[44px] lg:leading-[44px] font-[600] px-[13vw] mt-12'>
                     Collection of Personally Identifiable Information and Other Information
                 </div>
                 <ul className='px-[13vw] mt-8 flex flex-col gap-8 items-center text-justify text-[#5B5B5B] list-disc'>

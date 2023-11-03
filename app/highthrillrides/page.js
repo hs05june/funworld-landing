@@ -3,35 +3,6 @@ import Rides from '@/components/Rides/Rides'
 import { animated, useInView } from '@react-spring/web'
 import Image from 'next/image'
 import React from 'react'
-import rides2 from "@/public/Amusement/rides2.jpeg"
-import rides3 from "@/public/Amusement/rides3.jpeg"
-import rides4 from "@/public/Amusement/rides4.jpeg"
-import rides5 from "@/public/Amusement/rides5.jpeg"
-import rides6 from "@/public/Amusement/rides6.jpeg"
-import rides7 from "@/public/Amusement/rides7.jpeg"
-import rides8 from "@/public/Amusement/rides8.jpeg"
-import rides9 from "@/public/Amusement/rides9.jpeg";
-import rides10 from "@/public/Amusement/rides10.jpeg";
-import rides11 from "@/public/Amusement/rides11.webp";
-import rides12 from "@/public/Amusement/rides12.webp";
-import rides13 from "@/public/Amusement/rides13.webp";
-import rides14 from "@/public/Amusement/rides14.webp";
-import rides15 from "@/public/Amusement/rides15.webp";
-import rides16 from "@/public/Amusement/rides16.webp";
-import rides17 from "@/public/Amusement/rides17.webp";
-import rides18 from "@/public/Amusement/rides18.webp";
-import rides19 from "@/public/Amusement/rides19.webp";
-import rides20 from "@/public/Amusement/rides20.webp";
-import rides21 from "@/public/Amusement/rides21.webp";
-import rides22 from "@/public/Amusement/rides22.webp";
-import rides23 from "@/public/Amusement/rides23.webp";
-import rides24 from "@/public/Amusement/rides24.webp";
-import rides25 from "@/public/Amusement/rides25.webp";
-import rides26 from "@/public/Amusement/rides26.webp";
-
-
-
-
 
 const Index = () => {
   const [ref, props] = useInView(() => ({
@@ -42,37 +13,33 @@ const Index = () => {
     delay: 1000
   }))
 
+  
+
 const ridesArray = [
-  // { img: rides2,  text: "Mini Dragon Train"},
-  { img: rides2, text: "Toy Railway Engine" },
-  { img: rides3, text: "Hang Glider" },
-  { img: rides4, text: "Matter Horn" },
-  { img: rides5, text: "Shark Ride" },
-  { img: rides6, text: "Mini Train" },
-  { img: rides7, text: "Flying Appu" },
-  { img: rides8, text: "Fun Trooper" },
-  { img: rides9, text: "MatterHorn" },
-  { img: rides10, text: "Cycle Monorail" },
-  // { img: rides10, text: "ride 10" },
-  // { img: rides10, text: "ride 10" },
-  // { img: rides10, text: "ride 10" },
-    { img: rides11, text: "Spanish Bull" },
-    { img: rides12, text: "Swinging Chair" },
-    { img: rides13, text: "Crazy Fireball" },
-    { img: rides14, text: "Roller Coaster" },
-    { img: rides15, text: "Pendulum " },
-    { img: rides16, text: "Power Surge" },
-    { img: rides17, text: "Sky Drop" },
-    { img: rides18, text: "Orbit" },
-    { img: rides19, text: "Moving Bucket" },
-    { img: rides20, text: "Swinging Car" },
-    { img: rides21, text: "UFO" },
-    { img: rides22, text: "Swinging Chair" },
-    { img: rides23, text: "Mini Pirate Ship " },
-    { img: rides24, text: "Surf Ride" },
-    { img: rides25, text: "Space Car" },
-    { img: rides26, text: "Fun Trooper" },
-    // { img: rides27, text: "Flying Appu" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides2.jpeg", text: "Fun Express" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides3.jpeg", text: "Cycle  Monorail" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides4.jpeg", text: "Techno Jump" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides5.jpeg", text: "Shark Ride" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides6.jpeg", text: "Mini Train" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides7.jpeg", text: "Flying Appu" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides8.jpeg", text: "Kiddy Swing Chair" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides9.jpeg", text: "Carousel" },
+  { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides10.jpeg", text: "Matter Horn" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides12.webp", text: "Power Surge" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides13.webp", text: "Tsunami" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides14.webp", text: "Roller Coaster" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides15.webp", text: "Pendulum" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides16.webp", text: "High Tower" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides17.webp", text: "Sky Drop" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides18.webp", text: "Wind Mill" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides19.webp", text: "Kiddy Tagada" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides20.webp", text: "Motor Bike" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides21.webp", text: "Helecoptor" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides22.webp", text: "Revolving Tower" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides23.webp", text: "Mini Pirate Ship " },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides24.webp", text: "Children Jeep" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides25.webp", text: "NFS Car" },
+    { img: "https://funworldblr.s3.amazonaws.com/public/Amusement/rides26.webp", text: "Flying Tiger" },
   ];
   
 
@@ -92,17 +59,17 @@ const ridesArray = [
         </div>
         <div className="w-full h-full absolute flex ">
           <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
-            <Image src="/Rides/Ellipse1.webp" width={18} height={18} />
+            <Image src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse1.webp" width={18} height={18} />
           </div>
           <div>
-            <Image src="/Rides/Ellipse2.webp" width={28} height={28} />
+            <Image src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse2.webp" width={28} height={28} />
           </div>
           <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
-            <Image src="/Rides/stars.webp" width={68} height={68} />
+            <Image src="https://funworldblr.s3.amazonaws.com/public/Rides/stars.webp" width={68} height={68} />
           </div>
           <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
             <Image
-              src="/Rides/white-shape-banner1.webp"
+              src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner1.webp"
               width={141}
               height={168}
 
@@ -110,7 +77,7 @@ const ridesArray = [
           </div>
           <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
             <Image
-              src="/Rides/white-shape-banner2.webp"
+              src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner2.webp"
               width={141}
               height={148}
             />

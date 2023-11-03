@@ -16,20 +16,6 @@ import { FaQuoteRight } from "react-icons/fa"
 import { BsCalendar3, BsThreeDots } from 'react-icons/bs'
 import { FcBusinesswoman } from 'react-icons/fc'
 import { FcManager } from 'react-icons/fc'
-import vector from "@/public/Amusement/vector.jpg"
-import user from "@/public/Amusement/user.jpg"
-import businessUser from "@/public/Amusement/businessuser.jpg"
-import group1 from "@/public/About/Group1.jpg"
-import first from "@/public/Service/1.jpg"
-import second from "@/public/Service/2.jpeg"
-import third from "@/public/Service/3.jpg"
-import fourth from "@/public/Service/4.jpg"
-import fifth from "@/public/Service/5.jpeg"
-import sixth from "@/public/Service/6.jpg"
-import group from "@/public/waterworld/group.jpg"
-
-
-
 
 // First Water Component
 const WaterFirst = () => {
@@ -46,7 +32,7 @@ const WaterFirst = () => {
             </div>
 
             <div className='flex-1'>
-                <Image src={group} className='' alt='pic' />
+                <img src={"https://funworldblr.s3.amazonaws.com/public/waterworld/group.jpg"} className='' alt='pic' />
 
             </div>
 
@@ -383,21 +369,21 @@ const CustomerReviewPage = () => {
 
     const data = [
         {
-            src: { user },
+            src: "https://funworldblr.s3.amazonaws.com/public/public/Amusement/user.jpg" ,
             name: "Divakshi Bhardwaj",
             username: "@Divakshi Bhardwaj",
             rating: 4,
             comment: "The very fun place went there with my colleagues, and it was so much fun, enjoyed it a lot! The rides & activities were so good, worth every single penny! 👌🏻😁"
         },
         {
-            src: { user },
+            src: "https://funworldblr.s3.amazonaws.com/public/public/Amusement/user.jpg" ,
             name: "Pankaj Shrivastavnkaj",
             username: "@Pankaj Shrivastav",
             rating: 5,
             comment: "Very good to place to have fun time with family and friends. Kids friendly rides in Water park and in Amusement park. 👌🏻😁"
         },
         {
-            src: { user },
+            src: "https://funworldblr.s3.amazonaws.com/public/public/Amusement/user.jpg" ,
             name: "Sanjay Kumar",
             username: "@Sanjay Kumar",
             rating: 4,
@@ -406,7 +392,7 @@ const CustomerReviewPage = () => {
     ]
     return (
         <div style={{ width: "100vw", height: "auto" }} className='max-md:mt-10 flex flex-col items-center'>
-            <Image src={vector} width={200} alt='pic' className='w-[100%] left-0 absolute h-[300px] -z-20 mx-auto max-lg:hidden' />
+            <img src={"https://funworldblr.s3.amazonaws.com/public/Amusement/vector.jpg"} width={200} alt='pic' className='w-[100%] left-0 absolute h-[300px] -z-20 mx-auto max-lg:hidden' />
             <Typography variant='h3' className='text-center lg:pt-12 pt-8 md:mt-3 max-md:text-xl max-md:font-[650]'>
                 Customers&apos; Reviews
             </Typography>
@@ -424,32 +410,32 @@ const CustomerReviewPage = () => {
 // Fifth Service Card
 const WaterFifth = () => {
     const data = [{
-        src: <Image src={first} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/1.jpg"} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Crystal Clear Water Quality",
         content: "Water World offers you superior quality water with PH level between 7.2-7.8, protecting your skin from irritation and eyes from cloudiness."
     },
     {
-        src: <Image src={second} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/2.jpeg"} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Impressive architecture",
         content: "Discover our aqua realm adorned with mesmerising infrastructure marvels."
     },
     {
-        src: <Image src={third} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/3.jpg"} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Periodic Maintenance Sessions",
         content: "We are committed towards your safety. Our regular inspections and maintenance sessions ensure it."
     },
     {
-        src: <Image src={fourth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/4.jpg"} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Aquatic Play System for all Ages",
         content: "Our dynamic aquatic play system ensures endless excitement for all, making your day at Water World an unforgettable journey of joy."
     },
     {
-        src: <Image src={fifth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/5.jpeg"} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Weekend Themes",
         content: "Enhance your weekend experience with our captivating special themes and elevate your water world adventure."
     },
     {
-        src: <Image src={sixth} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/6.jpg"} width={100} height={100} className='w-full h-[270px] max-md:w-[100%] max-lg:h-[150px]' alt='pic' />,
         head: "Guardians at Duty",
         content: "Our experienced and trained lifeguards persistently safeguard you and your loved ones."
     },
@@ -508,10 +494,10 @@ const SatisfactionPage = () => {
                 About Our Services
             </Typography>
             <Box className="flex justify-evenly mt-[3rem]">
-                <Image src={businessUser} alt='pic' width={200} className='w-[40%] h-[80%]' />
+                <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/businessuser.jpg"} alt='pic' width={200} className='w-[40%] h-[80%]' />
                 <Box className="w-[40%] flex flex-col justify-evenly">
                     <div className='flex w-[60%]'>
-                        <Image src={user} alt='pic' width={50} className='w-[80px] h-[80px] rounded-[10rem]' />
+                        <Image src={"https://funworldblr.s3.amazonaws.com/public/public/Amusement/user.jpg"} alt='pic' width={50} className='w-[80px] h-[80px] rounded-[10rem]' />
                         <div className='ml-5'>
                             <Typography variant='h5' className='font-bold'>
                                 David K. Vinson
@@ -542,7 +528,7 @@ const WaterPark = () => {
         <div className='w-screen flex flex-col overflow-x-hidden' >
 
             <section className='w-full min-h-[400px] relative max-lg:min-h-[400px] max-xl:min-h-[400px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]'>
-                <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
+                <Image className='bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  ' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/bg2.jpg"} alt="bacgkround img" width={2042} height={1029} />
                 <div className="w-full bottom-[30%] sm:bottom-[50%] lg:bottom-[30%] absolute">
                     <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
                         <h1 className=" text-center px-[10vw] lg:leading-[60px] md:w-full font-extrabold lg:text-[65px] md:text-[50px] md:leading-[46px] text-white sm:text-3xl">
@@ -556,17 +542,17 @@ const WaterPark = () => {
 
                 <div className="w-full h-full flex">
                     <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
-                        <Image alt="/" src="/Rides/Ellipse1.webp" width={18} height={18} />
+                        <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse1.webp" width={18} height={18} />
                     </div>
                     <div>
-                        <Image alt="/" src="/Rides/Ellipse2.webp" width={28} height={28} />
+                        <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse2.webp" width={28} height={28} />
                     </div>
                     <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
-                        <Image alt="/" src="/Rides/stars.webp" width={68} height={68} />
+                        <Image alt="/" src="https://funworldblr.s3.amazonaws.com/public/Rides/stars.webp" width={68} height={68} />
                     </div>
                     <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
                         <Image alt="/"
-                            src="/Rides/white-shape-banner1.webp"
+                            src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner1.webp"
                             width={141}
                             height={168}
 
@@ -574,7 +560,7 @@ const WaterPark = () => {
                     </div>
                     <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
                         <Image alt="/"
-                            src="/Rides/white-shape-banner2.webp"
+                            src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner2.webp"
                             width={141}
                             height={148}
                         />
