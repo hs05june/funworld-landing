@@ -369,21 +369,21 @@ const CustomerReviewPage = () => {
 
     const data = [
         {
-            src: "https://funworldblr.s3.amazonaws.com/public/public/Amusement/user.jpg" ,
+            src: "https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg" ,
             name: "Divakshi Bhardwaj",
             username: "@Divakshi Bhardwaj",
             rating: 4,
             comment: "The very fun place went there with my colleagues, and it was so much fun, enjoyed it a lot! The rides & activities were so good, worth every single penny! 👌🏻😁"
         },
         {
-            src: "https://funworldblr.s3.amazonaws.com/public/public/Amusement/user.jpg" ,
+            src: "https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg" ,
             name: "Pankaj Shrivastavnkaj",
             username: "@Pankaj Shrivastav",
             rating: 5,
             comment: "Very good to place to have fun time with family and friends. Kids friendly rides in Water park and in Amusement park. 👌🏻😁"
         },
         {
-            src: "https://funworldblr.s3.amazonaws.com/public/public/Amusement/user.jpg" ,
+            src: "https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg" ,
             name: "Sanjay Kumar",
             username: "@Sanjay Kumar",
             rating: 4,
@@ -497,7 +497,7 @@ const SatisfactionPage = () => {
                 <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/businessuser.jpg"} alt='pic' width={200} className='w-[40%] h-[80%]' />
                 <Box className="w-[40%] flex flex-col justify-evenly">
                     <div className='flex w-[60%]'>
-                        <Image src={"https://funworldblr.s3.amazonaws.com/public/public/Amusement/user.jpg"} alt='pic' width={50} className='w-[80px] h-[80px] rounded-[10rem]' />
+                        <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/user.jpg"} alt='pic' width={50} className='w-[80px] h-[80px] rounded-[10rem]' />
                         <div className='ml-5'>
                             <Typography variant='h5' className='font-bold'>
                                 David K. Vinson
