@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 const Success = ({ params }) => {
     const [ticket, setTicket] = useState({})
     useEffect(() => {
-        axios.get(`https://goldfish-app-t4kk3.ondigitalocean.app/api/soldtickets?id=${params.id}`).then((res) => {
+        axios.get(`https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${params.id}`).then((res) => {
             setTicket(res.data.message);
             // console.log(res.data.message);
             window.localStorage.setItem('cart', JSON.stringify([]))
