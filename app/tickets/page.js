@@ -167,7 +167,7 @@ const TicketsPage = () => {
 
     // setPage(3);
     try {
-      const res = await axios.post("https://goldfish-app-t4kk3.ondigitalocean.app/api/soldtickets", {
+      const res = await axios.post("https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets", {
         userDetails: bookingDetails, bookingInfo: info
       })
 
@@ -200,7 +200,7 @@ const TicketsPage = () => {
       // console.log(checkoutPrice);
 
       const res = await axios.post(
-        "https://goldfish-app-t4kk3.ondigitalocean.app/api/razorpay/create-order",
+        "https://monkfish-app-m3uws.ondigitalocean.app/api/razorpay/create-order",
         {
           amount: Number(checkoutPriceAfterDiscount * 100),
           name: info.name ? info.name : "",
@@ -221,7 +221,7 @@ const TicketsPage = () => {
         description: "Book Tickets",
         image: "https://example.com/your_logo",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        callback_url: `https://goldfish-app-t4kk3.ondigitalocean.app/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
+        callback_url: `https://monkfish-app-m3uws.ondigitalocean.app/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
         prefill: {
           //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
           name: info.name, //your customer's name
@@ -306,7 +306,7 @@ const TicketsPage = () => {
     if (code === "10SUMMEROFF" || code === "20GOVTOFF" || code === "30STUDENTOFF") {
       try {
         const res = await axios.post(
-          "https://goldfish-app-t4kk3.ondigitalocean.app/api/coupon/verifycouponcode",
+          "https://monkfish-app-m3uws.ondigitalocean.app/api/coupon/verifycouponcode",
           {
             couponCode: code, // Fix the variable name here from coupon to code
           }

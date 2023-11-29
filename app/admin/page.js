@@ -17,7 +17,7 @@ const Admin = () => {
             const token1 = JSON.parse(token)
             let { email, password } = jwt.decode(token1)
             if (email && password) {
-                axios.post("https://goldfish-app-t4kk3.ondigitalocean.app/api/auth/admin", {
+                axios.post("https://monkfish-app-m3uws.ondigitalocean.app/api/auth/admin", {
                     email: email,
                     password: password
                 }).then(res => {
@@ -34,7 +34,7 @@ const Admin = () => {
         const fetchSoldTickets = async () => {
             if (isAdminLoggedIn) {
                 try {
-                    const res = await axios.get("https://goldfish-app-t4kk3.ondigitalocean.app/api/soldtickets");
+                    const res = await axios.get("https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets");
                     // console.log(res.data);
                     // setSoldTicketsArray(res.data);
                     let arr = res.data.sort((a, b) => b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate));
@@ -72,7 +72,7 @@ const Admin = () => {
         let ask = window.confirm('Do you want to delete?')
         if(!ask)return
         try{
-            const res = await axios.delete(`https://goldfish-app-t4kk3.ondigitalocean.app/api/soldtickets?id=${id}`)
+            const res = await axios.delete(`https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${id}`)
             console.log(res)
             let tempArray = [...soldTicketsArray]
             tempArray.splice(index,1)
@@ -91,7 +91,7 @@ const Admin = () => {
     const verifyCredentials = async (email, password) => {
         
         try {
-            const res = await axios.post("https://goldfish-app-t4kk3.ondigitalocean.app/api/auth/admin", {
+            const res = await axios.post("https://monkfish-app-m3uws.ondigitalocean.app/api/auth/admin", {
                 email: email,
                 password: password
             });
@@ -124,7 +124,7 @@ const Admin = () => {
 
 
         try {
-            const res = await axios.put(`https://goldfish-app-t4kk3.ondigitalocean.app/api/soldtickets?id=${soldTicketId}`, { tickets: updatedSoldTicketsArray[index].tickets });
+            const res = await axios.put(`https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${soldTicketId}`, { tickets: updatedSoldTicketsArray[index].tickets });
 
             // Assuming the API call was successful, update the state with the updated array
             setSoldTicketsArray(updatedSoldTicketsArray);
