@@ -37,8 +37,8 @@ const CardMain = ({ num, src, head, content }) => {
 const AmusementParkStart = () => {
   const cardData = [{
     src: "https://funworldblr.s3.amazonaws.com/public/Amusement/start1.jpg",
-    head: "Midnight Madness",
-    content: "Go crazy under the moonlight and embark on a journey of midnight madness at the Fun World amusement park!"
+    head: "Family-Friendly Attractions",
+    content: "Fun World Bangalore is your premier destination for family-friendly fun and entertainment."
   },
   {
     src: "https://funworldblr.s3.amazonaws.com/public/Amusement/start2.jpg",
