@@ -99,7 +99,7 @@ const YourTicket = () => {
 
                     <div className='lg:block hidden'>
                         <div className={`flex lg:flex-row flex-col  lg:items-center justify-around xl:gap-4 lg:gap-2 gap-4 xl:text-[23px] xl:leading-[25px] lg:text-[19px] md:text-[17px] text-[15px] font-[620] text-[#2A324A]`}>
-                            <button onClick={() => { handleCompChange(1) }} className={`flex px-6 py-3 rounded-3xl lg:w-auto  w-[90vw] ${comp === 1 && ' text-white font-[500] bg-gradient-to-br from-[#FFCC00] to-[#FD1783]'}`}>Adernaline Rides</button>
+                            <button onClick={() => { handleCompChange(1) }} className={`flex px-6 py-3 rounded-3xl lg:w-auto  w-[90vw] ${comp === 1 && ' text-white font-[500] bg-gradient-to-br from-[#FFCC00] to-[#FD1783]'}`}>Adrenaline Rides</button>
                             <button className={`flex px-6 py-3 lg:w-auto w-[90vw] rounded-3xl ${comp === 2 && ' text-white font-[500] bg-gradient-to-br   from-[#FFCC00] to-[#FD1783]'}`} onClick={() => { handleCompChange(2) }}>Land Rides</button>
                             <button className={`flex px-6 py-3 rounded-3xl lg:w-auto w-[90vw] ${comp === 3 && ' text-white font-[500] bg-gradient-to-br  from-[#FFCC00] to-[#FD1783]'}`} onClick={() => { handleCompChange(3) }}>Water Rides</button>
                             <button className={`flex px-6 py-3 rounded-3xl lg:w-auto w-[90vw] ${comp === 4 && ' text-white font-[500] bg-gradient-to-br   from-[#FFCC00] to-[#FD1783]'}`} onClick={() => { handleCompChange(4) }}>Kids Rides</button>
@@ -113,7 +113,7 @@ const YourTicket = () => {
                                             <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/Nadrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                         </div>
                                         <div className='flex-1 lg:ml-12 lg:items-start items-center lg:text-start text-center flex flex-col xl:gap-8 gap-4' >
-                                            <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Adernaline Rides</div>
+                                            <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Adrenaline Rides</div>
                                             <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>Calling all thrill-seekers to experience the rush of our adrenaline rides! In our amusement park and water park in Banglore, these high-octane attractions will leave you breathless and exhilarated. Brave daring loops, wild drops, and heart-pounding speeds as you challenge yourself to the ultimate adventure.
                                                 <br /> Feel the adrenaline surge through your veins on these mind-blowing rides designed for adrenaline junkies. Visit us and unleash your inner daredevil!
                                             </p>
@@ -203,7 +203,7 @@ const YourTicket = () => {
                                     <div className='flex-1 bg-cover lg:block'>
                                     <Image className='h-full w-full' src={'https://funworldblr.s3.amazonaws.com/public/Amusement/Nadrides.jpg'} width={1500} height={1000} priority alt='slide' />
                                     </div>
-                                    <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Adernaline Rides</div>
+                                    <div className='xl:text-[50px] lg:text-[42px] md:text-[34px] text-[24px] font-[620] text-[#0B1A48]'>Adrenaline Rides</div>
                                     <p className='text-justify xl:text-[20px] xl:leading-[33px] text-[#5B5B5B]'>Calling all thrill-seekers to experience the rush of our adrenaline rides! In our amusement park and water park in Banglore, these high-octane attractions will leave you breathless and exhilarated. Brave daring loops, wild drops, and heart-pounding speeds as you challenge yourself to the ultimate adventure.
                                         <br /> Feel the adrenaline surge through your veins on these mind-blowing rides designed for adrenaline junkies. Visit us and unleash your inner daredevil!
                                     </p>
