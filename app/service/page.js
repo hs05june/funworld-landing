@@ -266,32 +266,32 @@ const ServiceThird = () => {
 // Last Service Card
 const ServiceLast = () => {
     const data = [{
-        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/1.jpg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/1.png"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Enhanced Ride Experiences",
         content: "Infuse fresh excitement into existing rides. Our skilled modifications breathe new life into familiar attractions."
     },
     {
-        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/2.jpeg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/2.png"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Restoration of Aging Rides",
         content: "Revive aging rides comprehensively. Our team restores charm and functionality, enhancing the appeal of your attractions."
     },
     {
-        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/3.jpg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/3.png"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "State-of-the-Art Ride",
         content: "Experience precision and reliability with our cutting-edge ride control systems. Ensure seamless operations for a smooth visitor experience."
     },
     {
-        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/4.jpg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/4.png"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Effortless Ride Transfers",
         content: "Planning to relocate? Rely on us for hassle-free ride relocation and precise installation, leaving a lasting impact."
     },
     {
-        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/5.jpeg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/5.png"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Comprehensive Parts Solutions",
         content: "Ensure uninterrupted operation with complete spare parts coverage. Our specialized part fabrication guarantees seamless functionality."
     },
     {
-        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/6.jpg"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
+        src: <Image src={"https://funworldblr.s3.amazonaws.com/public/Service/6.png"} width={100} height={100} className='w-full h-[25vh] lg::h-[25vh]' alt='pic' />,
         head: "Rides",
         content: "Explore a sneak peek of our spectacular rides. From the thrilling 'Break Dance Ride' to the classic 'Columbus' ride, Sky Drop, Tsunami, our portfolio oozes excitement."
     },
