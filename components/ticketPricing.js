@@ -12,7 +12,7 @@ export const ticketPricingFunction = (type, visitDate) => {
     const isAdult = type === "adult";
     // console.log(visitDate, typeof(visitDate))
     // ${year}-${month}-${day}
-    const otherWeekendDates = ['2023-09-18','2023-09-28','2023-10-02','2023-10-23','2023-10-24','2023-11-01','2023-11-14','2023-11-30','2023-12-25']
+    const otherWeekendDates = ['2023-09-18','2023-09-28','2023-10-02','2023-10-23','2023-10-24','2023-11-01','2023-11-14','2023-11-30','2023-12-25', '2024-01-01']
 
     let isWeekend = findDayOfWeek(visitDate) === "Saturday" || findDayOfWeek(visitDate) === "Sunday";
 

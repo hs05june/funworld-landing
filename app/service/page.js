@@ -1,10 +1,9 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import { Box, Button, Card, Input, TextField, Typography } from '@mui/material'
+import { Box, Button, Card, Typography } from '@mui/material'
 import { MdComputer, MdHealthAndSafety, MdPark, MdWebhook } from 'react-icons/md'
-import { BsBook, BsFillTelephoneFill, BsTelephone } from 'react-icons/bs'
-import { AiOutlineMail } from 'react-icons/ai'
+import { BsBook, BsFillTelephoneFill} from 'react-icons/bs'
 import { IoMdMail } from 'react-icons/io'
 
 
