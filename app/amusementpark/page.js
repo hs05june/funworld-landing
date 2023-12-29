@@ -145,38 +145,38 @@ const AmusementParkSecond = () => {
 
   const data = [
     {
-      // icon: <IoMdBicycle className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
-      icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/cycle.png"} width={100} height={100} className='md:text-[6rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      icon: <IoMdBicycle className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      // icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/cycle.png"} width={100} height={100} className='md:text-[6rem] text-[4rem] bg-[#EBF0FE] rounded-[5rem] mx-auto my-[10px]' />,
       head: "57 Adventurous Rides- All Ages",
       content: "Enhance the fun and feel the chills with exciting ride options for every age."
     },
     {
-      // icon: <IoMdColorPalette className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
-      icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/paint.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      icon: <IoMdColorPalette className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      // icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/paint.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
       head: "Enjoy Unique Themes",
       content: "Special themes to amplify the entertainment and joy for kids."
     },
     {
-      // icon: <GiHotSpices className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
-      icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/chilli.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      icon: <GiHotSpices className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      // icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/chilli.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
       head: "Tasty Spice Delights",
       content: "We have a multitude of savoury delights to feast upon."
     },
     {
-      // icon: <GiMusicalNotes className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
-      icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/disco.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      icon: <GiMusicalNotes className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      // icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/disco.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
       head: "Fusion of Live Music, DJ",
       content: "Groove upon the melodic beats with our extraordinary fusion of live music and DJ setup."
     },
     {
-      // icon: <MdHealthAndSafety className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
-      icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/circle.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      icon: <MdHealthAndSafety className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      // icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/circle.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
       head: "Ultimate Safety Measures",
       content: "Your safety is our priority. At Fun World, we have the most reliable array of safety arrangements."
     },
     {
-      // icon: <MdOutlineCleanHands className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
-      icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/recycle.png"} width={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      icon: <MdOutlineCleanHands className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
+      // icon: <Image src={"https://funworldblr.s3.amazonaws.com/public/Amusement/recycle.png"} w57 Adidth={100} height={100} className='md:text-[8rem] text-[4rem] p-[5px] bg-[#EBF0FE] rounded-[5rem] md:p-[10px] mx-auto my-[10px]' />,
       head: "Cleanliness and Hygiene",
       content: "Our park has the best cleanliness arrangements, with litter at every corner, clean restrooms and periodic maintenance."
     }
