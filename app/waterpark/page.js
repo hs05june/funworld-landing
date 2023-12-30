@@ -391,7 +391,7 @@ const WaterFourth = () => {
 
   return (
     <div className="max-md:w-[100%]">
-      <div className="flex max-md:flex-col justify-between w-[90%] xl:w-[60%] md:w-[90%] mx-auto md:h-[20%]">
+      <div className="flex max-md:flex-col justify-between w-[90%] xl:w-[60%] md:w-[90%] mx-auto md:h-[20%] gap-6">
         <Typography
           variant="h3"
           className="text-left max-md:text-xl max-md:font-[700] max-md:text-center"
