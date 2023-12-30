@@ -53,7 +53,7 @@ const ridesArray = [
         <div className="w-full bottom-[50%] absolute max-lg:bottom-[40%]">
           <div className=" h-full w-full flex text-center justify-center items-center ">
             <div className=" text-center font-extrabold text-[70px] text-white max-lg:text-6xl max-md:text-5xl  max-xs:text-4xl">
-            Adernaline Rides
+            Adrenaline Rides
             </div>
           </div>
         </div>

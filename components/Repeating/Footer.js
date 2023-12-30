@@ -116,14 +116,6 @@ const Footer = () => {
                 Facilities at the Park
               </Link>
             </li>
-
-            <li className='hover:text-[#FFBF0A] hover:scale-105 transition-all delay-200 md:text-base'>
-              <Link href="/schools&colleges">
-                Schools & Colleges
-
-              </Link>
-            </li>
-
             <li className='hover:text-[#FFBF0A] hover:scale-105 transition-all delay-200 md:text-base'>
 
 
@@ -131,6 +123,14 @@ const Footer = () => {
                 Park Prohibitions
               </Link>
             </li>
+
+            <li className='hover:text-[#FFBF0A] hover:scale-105 transition-all delay-200 md:text-base'>
+              <Link href="/terms-conditions">
+                Terms & Conditions
+
+              </Link>
+            </li>
+
 
           </ul>
         </div>
