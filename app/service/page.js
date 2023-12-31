@@ -253,9 +253,6 @@ const ServiceThird = () => {
             </div>
 
             <Box className="flex max-lg:flex-col  justify-evenly items-center ">
-                <div style={{ backgroundColor: "green" }} className='flex-1 h-full bg-red-800  '>
-                    {/* <Image src={map} className='h-full' alt='pic' /> */}
-                </div>
 
             </Box>
 
@@ -437,7 +434,7 @@ const Service = () => {
                     <div className='flex lg:flex-row flex-col items-center justify-center lg:gap-0 gap-6'>
                         <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16  bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/ridetube.jpg")]'>
                         </div>
-                        <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
+                        <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
                             <h3 className='lg:text-[42px] lg:leading-[46px] md:text-[32px] md:leading-[35px] text-[25px] leading-[27px] text-[#252525] font-[550] lg:text-start text-center'>Amusement Park Ride Manufacturing</h3>
                             <p className='text-[#5B5B5B] lg:text-start text-center'>Experience the thrill and wonder of amusement parks with our adrenaline-packed rides. Immerse your visitors in excitement like never before.</p>
                         </div>
@@ -447,7 +444,7 @@ const Service = () => {
                         <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16 bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")]'>
                         </div>
 
-                        <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
+                        <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
                             <h3 className='lg:text-[42px] lg:leading-[46px] md:text-[32px] md:leading-[35px] text-[25px] leading-[27px] text-[#252525] font-[550] lg:text-start text-center'>Water Park Ride Manufacturing</h3>
                             <p className='text-[#5B5B5B] lg:text-start text-center'>Provide refreshing adventures for all ages with our innovative water park rides. Let your visitors engage in aquatic fun and unforgettable experiences.</p>
                         </div>
