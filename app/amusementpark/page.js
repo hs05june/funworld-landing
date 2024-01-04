@@ -85,7 +85,7 @@ const AmusementParkStart = () => {
       <div className="lg:w-[80%] mx-auto xl:mt-10 2xl:mt-48 text-center flex flex-col items-center justify-center">
         <Typography
           variant="h2"
-          className="font-[600] text-[#0B1A48] lg:text-[45px] text-[28px]"
+          className="font-[600] text-[#0B1A48] lg:text-[45px] md:text-[36px] text-[26px]"
         >
           Visit Us for a Blast of Adventure, You Deserve a Break
         </Typography>
@@ -559,7 +559,7 @@ const AmusementParkFourth = () => {
         </Typography>
         <Typography
           variant="subtitle1"
-          className="text-left mt-3 lg:text-white max-xl:w-[95%] max-xl:mx-auto max-xl:text-center"
+          className="text-left mt-3 lg:text-white max-xl:w-[90%] max-xl:mx-auto max-xl:text-center"
         >
           Prepare to unleash your inner thrill-seeker as you encounter an array
           of exhilarating rides that cater to every level of bravery.
