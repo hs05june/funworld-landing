@@ -17,13 +17,13 @@ import { FiCheckCircle } from "react-icons/fi";
 
 const CardMain = ({ data }) => {
   return (
-    <div className="lg:flex h-[100%] grid grid-cols-2 md:h-[100%] max-lg:w-[100%] max-lg:mx-auto max-lg:ml-2 justify-center md:gap-x-6 items-end">
+    <div className="lg:flex h-[100%] grid grid-cols-2 gap-y-6 md:h-[100%] max-lg:w-[100%] max-lg:mx-auto max-lg:ml-2 justify-center md:gap-x-6 items-end">
       {data.map((e, index) => {
         return (
           <Card
             key={index}
             elevation={3}
-            className="w-[19%] hover:text-white hover:bg-gradient-to-b hover:from-[#FFB200] hover:to-[#F26702] max-lg:w-[90%] h-[75%] max-lg:h-[90%] md:px-5 md:py-5 bg-[#EBF0FE] group"
+            className="w-[19%] hover:text-white hover:bg-gradient-to-b hover:from-[#FFB200] hover:to-[#F26702] max-lg:w-[90%] h-[75%] max-lg:h-[105%] md:px-5 md:py-5 bg-[#EBF0FE] group"
           >
             {e.icon}
 
@@ -122,7 +122,7 @@ const AboutSecond = () => {
           </Typography>
           <Typography
             variant="subtitle1"
-            className="mt-3 max-lg:text-center text-[4vw] md:text-[1.1rem]"
+            className="mt-3 md:px-0 px-6 max-lg:text-center text-[4vw] md:text-[1.1rem]"
           >
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
@@ -139,7 +139,7 @@ const AboutSecond = () => {
           </Typography>
           <Typography
             variant="subtitle1"
-            className="mt-3 max-lg:text-center text-[4vw] md:text-[1.1rem]"
+            className="mt-3 md:px-0 px-6 max-lg:text-center text-[4vw] md:text-[1.1rem]"
           >
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout.
@@ -386,9 +386,9 @@ const AboutFourth = () => {
   }));
   return (
     <div>
-      <div className="mt-20 flex md:flex-row md:gap-2 gap-8 flex-col">
-        <div className="md:w-[50vw] px-12 items-center justify-center gap-10 flex flex-col">
-          <h4 className="md:text-[35px] md:leading-[35px] xl:leading-[45px]  lg:text-[45px] max-md:w-[100%] text-xl font-[650] max-sm:text-center lg:w-[70%]">
+      <div className="lg:mt-20 mt-8 flex md:flex-row md:gap-2 gap-8 flex-col">
+        <div className="md:w-[50vw] px-12 items-center justify-center lg:gap-10 gap-4 flex flex-col">
+          <h4 className="md:text-[35px] md:leading-[35px] xl:leading-[45px]  lg:text-[45px] max-md:w-[100%] text-[28px] font-[600] max-sm:text-center lg:w-[70%]">
             A Day Packed with Entertainment
           </h4>
           <div className="w-[70%] max-lg:w-[100%] max-md:text-center text-[#5B5B5B] mx-auto">
@@ -416,7 +416,7 @@ const AboutFourth = () => {
         </div>
       </div>
 
-      <div className="mt-20 flex md:flex-row-reverse md:gap-2 gap-8 flex-col">
+      <div className="lg:mt-20 mt-8 flex md:flex-row-reverse md:gap-2 gap-8 flex-col">
         <div className="md:w-[50vw] xl:leading-[30px] px-12 items-center justify-center gap-10 flex flex-col">
           <div className="w-[70%] text-[#5B5B5B] max-md:text-center mx-auto">
             Join us at Fun World{" "}
@@ -445,7 +445,7 @@ const AboutFifth = () => {
   return (
     <div className="bg-[#FFFAF7] mt-20 flex md:gap-2 gap-8 w-full h-[90%]">
       <Box className="w-[50%] max-lg:w-[90%] max-lg:mx-auto h-[80%] m-auto md:px-[5rem] lg:px-[2rem] xl:px-[5rem]">
-        <div className="xl:text-[45px] lg:text-[38px] md:text-[35px] text-[25px] max-lg:text-center  font-[650]">
+        <div className="xl:text-[45px] lg:text-[38px] md:text-[35px] text-[28px] max-lg:text-center  font-[600]">
           A World of Fun Awaits
         </div>
 
@@ -481,12 +481,15 @@ const AboutFifth = () => {
 const AboutLast = () => {
   return (
     <Box className="w-full h-full flex flex-col md:px-[10rem] py-[2rem] text-center">
-      <Typography variant="h3" className="font-[650] max-lg:text-xl mx-auto">
+      <Typography
+        variant="h3"
+        className="font-[600] max-lg:text-[28px] mx-auto"
+      >
         Elevate Your Park with Expert Maintenance & Custom Rides
       </Typography>
       <Typography
         variant="h6"
-        className="text-[#5B5B5B] max-lg:text-lg mx-auto mt-10"
+        className="text-[#5B5B5B] px-6 max-lg:text-lg mx-auto mt-10"
       >
         With our experienced team of professionals, we handle everything from
         roller coasters to lighting systems with ease. Plus, we offer
@@ -586,7 +589,7 @@ const About = () => {
           </div>
         </section>
 
-        <div className="lg:px-[15vw] md:px-[10vw] lg:mt-32 md:mt-16 mt-6 px-[7vw] relative flex flex-col gap-12 items-center">
+        <div className="lg:px-[15vw] md:px-[10vw] lg:mt-32 md:mt-16 mt-6 px-[7vw] relative flex flex-col lg:gap-12 gap-6 items-center">
           <p className="lg:text-[22px] text-center md:text-[22px] text-sm md:leading-[29px] text-[#5B5B5B]">
             Since its establishment in 1990, this wide 24-acre wonderland has
             been dedicated to crafting unforgettable moments of joy, laughter,
