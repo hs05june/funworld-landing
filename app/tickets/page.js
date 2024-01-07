@@ -535,10 +535,10 @@ const TicketsPage = () => {
 
       {        page == 1 ? (<div className='flex flex-col gap-8'>
           <section className='flex items-center justify-center mt-4'>
-            <div className='md:w-[60vw] w-[80vw] min-h-[180px] bg-[#FFEEF6] rounded-2xl flex flex-col md:flex-row justify-around items-center gap-4 py-4'>
+            <div className='md:w-[60vw] w-[80vw] min-h-[180px] bg-[#FFEEF6] rounded-2xl justify-around items-center gap-4 py-4'>
 
-
-              <div onClick={() => handleDateChange(formattedCurrentDate)} className={`w-[220px] md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${info.visitDate === formattedCurrentDate ? "buyTicketsBtn3" : ""} `}>
+              <div className='flex flex-col items-center gap-5 md:flex-row'>
+              <div onClick={() => handleDateChange(formattedCurrentDate)} className={`w-[220px] md:w-1/3 md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${info.visitDate === formattedCurrentDate ? "buyTicketsBtn3" : ""} `}>
                 <span className='md:relative md:bottom-4'>
                   Today<br />
                   {formattedCurrentDate} <br />
@@ -546,7 +546,7 @@ const TicketsPage = () => {
                 </span>
               </div>
 
-              <div onClick={() => handleDateChange(formattedNextDay)} className={`w-[220px] md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${info.visitDate === formattedNextDay ? "buyTicketsBtn3" : ""} `}>
+              <div onClick={() => handleDateChange(formattedNextDay)} className={`w-[220px] md:w-1/3 md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${info.visitDate === formattedNextDay ? "buyTicketsBtn3" : ""} `}>
                 <span className='md:relative md:bottom-4'>
                   Tomorrow <br />
                   {formattedNextDay} <br />
@@ -556,12 +556,12 @@ const TicketsPage = () => {
               </div>
 
 
-              <div className=''
+              <div className='w-[220px] md:w-1/3'
                 htmlFor="dateInput" // Use the "htmlFor" property with the input's ID
 
               >
                 <label
-                  className={`w-[220px] md:h-[130px] h-[80px] p-1 text-xs font-bold rounded-xl shadow-xl bg-[#0B1A48] text-white  hover:scale-105 transition-all ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center  ${(info.visitDate != formattedNextDay && info.visitDate != formattedCurrentDate) ? "buyTicketsBtn3 text-white" : ""} `}
+                  className={` md:h-[130px] h-[80px] p-1 text-xs font-bold rounded-xl shadow-xl bg-[#0B1A48] text-white  hover:scale-105 transition-all ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center  ${(info.visitDate != formattedNextDay && info.visitDate != formattedCurrentDate) ? "buyTicketsBtn3 text-white" : ""} `}
                   onChange={(e) => handleDateChange(e.target.value)}
                 >
                   <input
@@ -574,6 +574,7 @@ const TicketsPage = () => {
                   Choose Another Date
                 </label>
 
+              </div>
               </div>
 
 
@@ -736,15 +737,15 @@ const TicketsPage = () => {
               Booking Details
             </h4>
 
-            <div className='flex flex-col gap-6'>
-              <div className='flex md:flex-row flex-col gap-6'>
+            <div className='flex flex-col gap-6 grow'>
+              <div className='flex md:flex-row flex-col gap-6 grow'>
                 <input
                   type='text'
                   name='name'
                   placeholder='Name*'
                   value={bookingDetails.name}
                   onChange={handleChange}
-                  className='flex-1 outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded'
+                  className=' outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow md:w-1/2'
                 />
                 <input
                   type='number'
@@ -752,18 +753,19 @@ const TicketsPage = () => {
                   placeholder='Mobile Number*'
                   value={bookingDetails.number}
                   onChange={handleChange}
-                  className='flex-1 outline-none number-input text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded'
+                  className='outline-none number-input text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow md:w-1/2'
                 />
               </div>
-
+              {/* <div className='flex md:flex-row flex-col gap-6 grow'> */}
               <input
                 type='email'
                 name='email'
                 placeholder='Email Address*'
                 value={bookingDetails.email}
                 onChange={handleChange}
-                className='flex-1 outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded'
+                className='outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow'
               />
+              {/* </div> */}
 
               {/* <textarea
                 name='address'
