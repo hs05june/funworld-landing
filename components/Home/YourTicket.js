@@ -101,7 +101,7 @@ const YourTicket = () => {
       </div>
 
       <div
-        className={`lg:clip-path-ticket bg-[#EBF0FE] min-h-[80vh] relative top-[-150px] lg:pt-[230px] pt-[70px] px-[10vw] pb-24`}
+        className={`lg:clip-path-ticket bg-[#EBF0FE] sm:min-h-[60vh] md:min-h-[80vh] relative top-[-150px] lg:pt-[230px] pt-[70px] px-[10vw] pb-8`}
       >
         <img
           priority
@@ -116,8 +116,8 @@ const YourTicket = () => {
         <div
           className="flex flex-col items-center justify-center lg:gap-16 md:gap-8 gap-4"
           //  ref={divRef} style={divProps}
-        >
-          <h2 className="xl:text-[62px] xl:leading-[68px] lg:text-[45px] lg:leading-[47px] md:text-[32px] md:leading-[34px] text-[24px] leading-[24px] text-[#0B1A48] mb-6 font-[620] text-center">
+         >
+          <h2 className="xl:text-[62px] xl:leading-[68px] lg:text-[45px] lg:leading-[47px] md:text-[32px] md:leading-[34px] text-[24px] leading-[24px] text-[#0B1A48] mb-6 font-[620] text-center px-4">
             Splash, Spin, Soar: Your Ultimate
             <br /> Family Escape Awaits!
           </h2>
@@ -125,7 +125,7 @@ const YourTicket = () => {
           <div className="lg:block hidden">
             <div
               className={`flex lg:flex-row flex-col  lg:items-center justify-around xl:gap-4 lg:gap-2 gap-4 xl:text-[23px] xl:leading-[25px] lg:text-[19px] md:text-[17px] text-[15px] font-[620] text-[#2A324A]`}
-            >
+             >
               <button
                 onClick={() => {
                   handleCompChange(1);
