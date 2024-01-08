@@ -21,7 +21,7 @@ const Footer = () => {
   }
 
   return (
-    <div className='relative overflow-hidden mt-10'>
+    <div className='relative overflow-hidden mt-10 '>
       <img priority className='absolute lg:block hidden md:left-4 z-30 rotate-6 md:bottom-[240px] bottom-[600px]' src={"https://funworldblr.s3.amazonaws.com/public/Reusable/wires.webp"} alt="wires" />
 
 
@@ -35,10 +35,10 @@ const Footer = () => {
           </div>
         </div>
       </div> */}
-      <div className='min-h-[400px] relative overflow-hidden lg:mt-12 text-white py-8 bg-[#1F1F34] bg-[url("https://funworldblr.s3.amazonaws.com/public/Home/footer/footerBG.webp")] flex flex-row flex-wrap  items-start xl:gap-8 lg:gap-6 gap-x-4 gap-y-8 md:pl-[10vw] md:justify-between justify-around md:pr-[5vw] md:pt-20 pb-12 '>
+      <div className='min-h-[400px] relative overflow-hidden lg:mt-12 text-white sm:py-8 lg:4 bg-[#1F1F34] bg-[url("https://funworldblr.s3.amazonaws.com/public/Home/footer/footerBG.webp")] flex flex-row flex-wrap  items-start xl:gap-8 lg:gap-6 gap-x-4 gap-y-8 md:pl-[10vw] md:justify-between justify-around md:pr-[5vw] md:pt-20 pb-12 '>
 
         <div className='lg:w-[25vw] w-[100vw]'>
-          <div className='flex relative top-[-50px] flex-col items-center gap-4 my-8'>
+          <div className='flex relative top-[-50px] flex-col items-center gap-4 my-8 pt-10'>
             <img src={"https://funworldblr.s3.amazonaws.com/public/Home/footer/LogoBnG.svg"} priority alt="logo" />
             <div className='w-full flex gap-4 flex-col'>
                 <div className='flex gap-3 items-center ml-12 lg:ml-0'>
@@ -182,7 +182,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className='bg-[#33344E] text-white md:py-2 md:text-[14px] text-[8px] flex justify-around'>
+      <div className='bg-[#33344E] text-white md:py-3 md:text-[14px] text-[10px] flex justify-around py-3'>
         <div className='flex items-center justify-center md:gap-4 gap-2'>
           <Link href="/about"><span>About</span> </Link>
           <div className='w-[1px] h-[15px] bg-white'></div>

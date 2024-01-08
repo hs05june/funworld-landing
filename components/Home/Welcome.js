@@ -16,13 +16,15 @@ const Welcome = () => {
     }))
     return (
         <div
-            className='relative overflow-hidden lg:pb-12 pb-0'  >
+            className='relative overflow-hidden lg:pb-0 pb-0'  >
             <div className='flex px-[10vw] lg:flex-row lg:gap-0 gap-12  flex-col-reverse lg:mt-0 mt-[4rem] lg:mb-32 mb-12 overflow-hidden'>
                 <div className='flex-1 relative'
+
                 //  ref={ref} style={props}
                 >
                     <div className='mx-auto lg:mx-0'>
                         <img priority className='z-25 absolute top-[-100px] left-[-90px]' src={"https://funworldblr.s3.amazonaws.com/public/Home/welcome/bgDots.webp"} alt="bgDots" />
+                        
                         <div style={{ transform: 'rotate(-90deg)' }}
                             className=' px-4 absolute z-10 bottom-[110px] left-[-120px]  rounded text-white font-[600] text-2xl py-2 bg-gradient-to-r w-[270px] from-[#FD1783] to-[#FFCC00]'>
                             <p>
