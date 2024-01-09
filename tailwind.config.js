@@ -1,24 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       backgroundImage: () => ({
-        'gradient-primary': 'linear-gradient(129.13deg, #FFCC00 22.43%, #FD1783 77.57%)'
+        "gradient-primary":
+          "linear-gradient(129.13deg, #FFCC00 22.43%, #FD1783 77.57%)",
       }),
       fontFamily: {
-        'dm-sans': ['DM Sans', 'sans-serif'],
-        "spartan":['League Spartan', 'sans-serif'],
+        "dm-sans": ["DM Sans", "sans-serif"],
+        spartan: ["League Spartan", "sans-serif"],
       },
-      screens:{
-        'xs':'480px'
-      }
+      screens: {
+        xs: "480px",
+        "1.5xl": "1400px",
+        "3xl": "1800px",
+      },
     },
-
   },
   plugins: [],
-}
+};
