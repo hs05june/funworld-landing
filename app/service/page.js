@@ -204,14 +204,11 @@ const ServiceThird = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "https://monkfish-app-m3uws.ondigitalocean.app/api/query",
-        {
-          name: name,
-          email: email,
-          query: query,
-        }
-      );
+      const res = await axios.post("http://3.90.151.83/api/query", {
+        name: name,
+        email: email,
+        query: query,
+      });
 
       console.log(res.status);
 
