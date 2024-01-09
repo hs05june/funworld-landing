@@ -11,8 +11,6 @@ const Admin = () => {
   const [soldTicketsArray, setSoldTicketsArray] = useState();
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
 
-  console.log("jwt secert is", process.env.JWTSECRET);
-
   useEffect(() => {
     let token = window.localStorage.getItem("funworldLogin");
     if (token) {
