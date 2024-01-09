@@ -517,54 +517,73 @@ const TicketsPage = () => {
               </div>
             </div>
           </div>
+        </div>
+      ) : null}
 
-        </div>) : null
-      }
-
-      {        page == 1 ? (<div className='flex flex-col gap-8'>
-          <section className='flex items-center justify-center mt-4'>
-            <div className='md:w-[60vw] w-[80vw] min-h-[180px] bg-[#FFEEF6] rounded-2xl justify-around items-center gap-4 py-4'>
-
-              <div className='flex flex-col items-center gap-5 md:flex-row'>
-              <div onClick={() => handleDateChange(formattedCurrentDate)} className={`w-[220px] md:w-1/3 md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${info.visitDate === formattedCurrentDate ? "buyTicketsBtn3" : ""} `}>
-                <span className='md:relative md:bottom-4'>
-                  Today<br />
-                  {formattedCurrentDate} <br />
-                  {findDayOfWeek(formattedCurrentDate)}
-                </span>
-              </div>
-
-              <div onClick={() => handleDateChange(formattedNextDay)} className={`w-[220px] md:w-1/3 md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${info.visitDate === formattedNextDay ? "buyTicketsBtn3" : ""} `}>
-                <span className='md:relative md:bottom-4'>
-                  Tomorrow <br />
-                  {formattedNextDay} <br />
-                  {findDayOfWeek(formattedNextDay)}
-                </span>
-              </div>
-
-              <div className='w-[220px] md:w-1/3'
-                htmlFor="dateInput" // Use the "htmlFor" property with the input's ID
-              >
-                <label
-                  className={` md:h-[130px] h-[80px] p-1 text-xs font-bold rounded-xl shadow-xl bg-[#0B1A48] text-white  hover:scale-105 transition-all ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center  ${(info.visitDate != formattedNextDay && info.visitDate != formattedCurrentDate) ? "buyTicketsBtn3 text-white" : ""} `}
-                  onChange={(e) => handleDateChange(e.target.value)}
+      {page == 1 ? (
+        <div className="flex flex-col gap-8">
+          <section className="flex items-center justify-center mt-4 lg:mt-24 xl:mt-40 2xl:mt-60 3xl:mt-80">
+            <div className="md:w-[60vw] w-[80vw] min-h-[180px] bg-[#FFEEF6] rounded-2xl justify-around items-center gap-4 py-4">
+              <div className="flex flex-col items-center gap-5 md:flex-row">
+                <div
+                  onClick={() => handleDateChange(formattedCurrentDate)}
+                  className={`w-[220px] md:w-1/3 md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${
+                    info.visitDate === formattedCurrentDate
+                      ? "buyTicketsBtn3"
+                      : ""
+                  } `}
                 >
-                  <input
-                    className={`px-2 py-1 rounded text-black outline-none  ${
+                  <span className="md:relative md:bottom-4">
+                    Today
+                    <br />
+                    {formattedCurrentDate} <br />
+                    {findDayOfWeek(formattedCurrentDate)}
+                  </span>
+                </div>
+
+                <div
+                  onClick={() => handleDateChange(formattedNextDay)}
+                  className={`w-[220px] md:w-1/3 md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${
+                    info.visitDate === formattedNextDay ? "buyTicketsBtn3" : ""
+                  } `}
+                >
+                  <span className="md:relative md:bottom-4">
+                    Tomorrow <br />
+                    {formattedNextDay} <br />
+                    {findDayOfWeek(formattedNextDay)}
+                  </span>
+                </div>
+
+                <div
+                  className="w-[220px] md:w-1/3"
+                  htmlFor="dateInput" // Use the "htmlFor" property with the input's ID
+                >
+                  <label
+                    className={` md:h-[130px] h-[80px] p-1 text-xs font-bold rounded-xl shadow-xl bg-[#0B1A48] text-white  hover:scale-105 transition-all ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center  ${
                       info.visitDate != formattedNextDay &&
                       info.visitDate != formattedCurrentDate
-                        ? " "
+                        ? "buyTicketsBtn3 text-white"
                         : ""
                     } `}
-                    value={info.visitDate}
-                    type="date"
-                    min={formattedCurrentDate} // Set the minimum date to the current date
                     onChange={(e) => handleDateChange(e.target.value)}
-                  ></input>
-                  Choose Another Date
-                </label>
+                  >
+                    <input
+                      className={`px-2 py-1 rounded text-black outline-none  ${
+                        info.visitDate != formattedNextDay &&
+                        info.visitDate != formattedCurrentDate
+                          ? " "
+                          : ""
+                      } `}
+                      value={info.visitDate}
+                      type="date"
+                      min={formattedCurrentDate} // Set the minimum date to the current date
+                      onChange={(e) => handleDateChange(e.target.value)}
+                    ></input>
+                    Choose Another Date
+                  </label>
+                </div>
               </div>
-              </div>
+            </div>
           </section>
 
           <section className="flex flex-col lg:gap-2 gap-12 justify-around md:w-[60vw] w-[80vw] mx-auto">
@@ -723,15 +742,15 @@ const TicketsPage = () => {
               Booking Details
             </h4>
 
-            <div className='flex flex-col gap-6 grow'>
-              <div className='flex md:flex-row flex-col gap-6 grow'>
+            <div className="flex flex-col gap-6 grow">
+              <div className="flex md:flex-row flex-col gap-6 grow">
                 <input
                   type="text"
                   name="name"
                   placeholder="Name*"
                   value={bookingDetails.name}
                   onChange={handleChange}
-                  className=' outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow md:w-1/2'
+                  className=" outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow md:w-1/2"
                 />
                 <input
                   type="number"
@@ -739,7 +758,7 @@ const TicketsPage = () => {
                   placeholder="Mobile Number*"
                   value={bookingDetails.number}
                   onChange={handleChange}
-                  className='outline-none number-input text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow md:w-1/2'
+                  className="outline-none number-input text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow md:w-1/2"
                 />
               </div>
               {/* <div className='flex md:flex-row flex-col gap-6 grow'> */}
@@ -749,7 +768,7 @@ const TicketsPage = () => {
                 placeholder="Email Address*"
                 value={bookingDetails.email}
                 onChange={handleChange}
-                className='outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow'
+                className="outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow"
               />
               {/* </div> */}
 
