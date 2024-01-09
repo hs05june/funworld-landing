@@ -11,6 +11,8 @@ const Admin = () => {
   const [soldTicketsArray, setSoldTicketsArray] = useState();
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
 
+  console.log("jwt secert is", process.env.JWTSECRET);
+
   useEffect(() => {
     let token = window.localStorage.getItem("funworldLogin");
     if (token) {
@@ -18,13 +20,10 @@ const Admin = () => {
       let { email, password } = jwt.decode(token1);
       if (email && password) {
         axios
-          .post(
-            "https://monkfish-app-m3uws.ondigitalocean.app/api/auth/admin",
-            {
-              email: email,
-              password: password,
-            }
-          )
+          .post("http://3.90.151.83/api/auth/admin", {
+            email: email,
+            password: password,
+          })
           .then((res) => {
             if (res.data.admin) {
               setIsAdminLoggedIn(true);
@@ -39,9 +38,7 @@ const Admin = () => {
     const fetchSoldTickets = async () => {
       if (isAdminLoggedIn) {
         try {
-          const res = await axios.get(
-            "https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets"
-          );
+          const res = await axios.get("http://3.90.151.83/api/soldtickets");
           // console.log(res.data);
           // setSoldTicketsArray(res.data);
           let arr = res.data.sort((a, b) =>
@@ -76,7 +73,7 @@ const Admin = () => {
     if (!ask) return;
     try {
       const res = await axios.delete(
-        `https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${id}`
+        `http://3.90.151.83/api/soldtickets?id=${id}`
       );
       console.log(res);
       let tempArray = [...soldTicketsArray];
@@ -95,13 +92,10 @@ const Admin = () => {
 
   const verifyCredentials = async (email, password) => {
     try {
-      const res = await axios.post(
-        "https://monkfish-app-m3uws.ondigitalocean.app/api/auth/admin",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const res = await axios.post("http://3.90.151.83/api/auth/admin", {
+        email: email,
+        password: password,
+      });
       if (res.data.admin) {
         setIsAdminLoggedIn(true);
         let token = jwt.sign({ email: email, password: password }, "FUNWORLD");
@@ -131,7 +125,7 @@ const Admin = () => {
 
     try {
       const res = await axios.put(
-        `https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${soldTicketId}`,
+        `http://3.90.151.83/api/soldtickets?id=${soldTicketId}`,
         { tickets: updatedSoldTicketsArray[index].tickets }
       );
 

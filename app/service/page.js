@@ -204,7 +204,7 @@ const ServiceThird = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000/api/query", {
+      const res = await axios.post("http://3.90.151.83/api/query", {
         name: name,
         email: email,
         query: query,
