@@ -7,9 +7,7 @@ const Success = ({ params }) => {
   const [ticket, setTicket] = useState({});
   useEffect(() => {
     axios
-      .get(
-        `https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${params.id}`
-      )
+      .get(`http://3.90.151.83/api/soldtickets?id=${params.id}`)
       .then((res) => {
         setTicket(res.data.message);
         // console.log(res.data.message);

@@ -17,13 +17,10 @@ const Scan = () => {
       let { email, password } = jwt.decode(token1);
       if (email && password) {
         axios
-          .post(
-            "https://monkfish-app-m3uws.ondigitalocean.app/api/auth/admin",
-            {
-              email: email,
-              password: password,
-            }
-          )
+          .post("http://3.90.151.83/api/auth/admin", {
+            email: email,
+            password: password,
+          })
           .then((res) => {
             if (res.data.admin) {
               setIsAdminLoggedIn(true);
@@ -44,13 +41,10 @@ const Scan = () => {
 
   const verifyCredentials = async (email, password) => {
     try {
-      const res = await axios.post(
-        "https://monkfish-app-m3uws.ondigitalocean.app/api/auth/admin",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const res = await axios.post("http://3.90.151.83/api/auth/admin", {
+        email: email,
+        password: password,
+      });
       if (res.data.admin) {
         setIsAdminLoggedIn(true);
         let token = jwt.sign({ email: email, password: password }, "FUNWORLD");
@@ -74,7 +68,7 @@ const Scan = () => {
       let soldTicketId = qrcode.split(" ")[0];
       let ticketId = qrcode.split(" ")[1];
       let res = await axios.get(
-        `https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${soldTicketId}`
+        `http://3.90.151.83/api/soldtickets?id=${soldTicketId}`
       );
 
       if (!res.data.status) {
@@ -95,7 +89,7 @@ const Scan = () => {
           if (check) {
             tickets[i].checkedIn = true;
             res = await axios.put(
-              `https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${soldTicketId}`,
+              `http://3.90.151.83/api/soldtickets?id=${soldTicketId}`,
               { tickets: tickets }
             );
           }
