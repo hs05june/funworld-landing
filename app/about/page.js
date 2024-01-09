@@ -97,7 +97,7 @@ const AboutStart = () => {
   return (
     <div className="w-full flex flex-col items-center ">
       {/* <Image src={'/About/fun2.jpeg'}  alt="child swimming in pool" className='w-[100vw] absolute -z-10 max-lg:hidden overflow-y-hidden' /> */}
-      <div className='w-[100%] h-[100vh] bg-cover bg-no-repeat bg-center bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")] absolute -z-10 max-lg:hidden overflow-y-hidden' />
+      <div className='w-[100%] h-[100vh] bg-cover bg-no-repeat bg-center bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")] absolute -z-10  overflow-y-hidden' />
       <div className="md:h-[100%] h-full md:relative top-[100%]">
         <CardMain data={data} />
       </div>
@@ -449,7 +449,7 @@ const AboutFifth = () => {
           A World of Fun Awaits
         </div>
 
-        <div className="mt-5 text-[4vw] xl:text-[1.2vw] lg:text-[2vw] max-lg:text-center text-[#5B5B5B] lg:leading-[30px] gap-4 flex flex-col">
+        <div className="mt-5 text-[3.5vw] xl:text-[1.2vw] lg:text-[2vw] max-lg:text-center text-[#5B5B5B] lg:leading-[30px] gap-4 flex flex-col">
           <div>
             Join us at Fun World Amusement Park, where the only limit to your
             fun is the sky above! Come be a part of the fun-filled legacy that
@@ -480,7 +480,7 @@ const AboutFifth = () => {
 
 const AboutLast = () => {
   return (
-    <Box className="w-full h-full flex flex-col md:px-[10rem] py-[2rem] text-center">
+    <Box className="w-full flex flex-col md:px-[10rem] py-[2rem] text-center">
       <Typography variant="h3" className="font-[650] max-lg:text-xl mx-auto">
         Elevate Your Park with Expert Maintenance & Custom Rides
       </Typography>
@@ -586,7 +586,7 @@ const About = () => {
           </div>
         </section>
 
-        <div className="lg:px-[15vw] md:px-[10vw] lg:mt-32 md:mt-16 mt-6 px-[7vw] relative flex flex-col gap-12 items-center">
+        <div className="lg:px-[15vw] md:px-[10vw] 2xl:mt-72 lg:mt-32 md:mt-16 mt-6 px-[7vw] relative flex flex-col gap-12 items-center">
           <p className="lg:text-[22px] text-center md:text-[22px] text-sm md:leading-[29px] text-[#5B5B5B]">
             Since its establishment in 1990, this wide 24-acre wonderland has
             been dedicated to crafting unforgettable moments of joy, laughter,
@@ -604,7 +604,7 @@ const About = () => {
           <AboutStart />
         </div>
 
-        <div className="mt-[5rem] lg:mt-[40rem] h-[65vh] md:h-[80vh] flex w-full lg:h-[100vh]">
+        <div className="mt-[10rem] md:mt-[60rem] h-[65vh] md:h-[80vh] flex w-full lg:h-[100vh]">
           <AboutSecond />
         </div>
 
