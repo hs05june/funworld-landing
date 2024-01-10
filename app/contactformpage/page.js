@@ -14,13 +14,10 @@ const Admin = () => {
       let { email, password } = jwt.decode(token1);
       if (email && password) {
         axios
-          .post(
-            "https://monkfish-app-m3uws.ondigitalocean.app/api/auth/admin",
-            {
-              email: email,
-              password: password,
-            }
-          )
+          .post("http://3.90.151.83/api/auth/admin", {
+            email: email,
+            password: password,
+          })
           .then((res) => {
             if (res.data.admin) {
               setIsAdminLoggedIn(true);
@@ -45,13 +42,10 @@ const Admin = () => {
 
   const verifyCredentials = async (email, password) => {
     try {
-      const res = await axios.post(
-        "https://monkfish-app-m3uws.ondigitalocean.app/api/auth/admin",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const res = await axios.post("http://3.90.151.83/api/auth/admin", {
+        email: email,
+        password: password,
+      });
       if (res.data.admin) {
         setIsAdminLoggedIn(true);
         let token = jwt.sign({ email: email, password: password }, "FUNWORLD");
@@ -65,12 +59,9 @@ const Admin = () => {
 
   const handleAddHoliday = async (e) => {
     e.preventDefault();
-    const res = await axios.post(
-      "https://monkfish-app-m3uws.ondigitalocean.app/api/holidays",
-      {
-        holiday: holiday,
-      }
-    );
+    const res = await axios.post("http://3.90.151.83/api/holidays", {
+      holiday: holiday,
+    });
     const sortedHolidays = res.data.message.sort((a, b) => {
       // Assuming holidayDate is in the format that allows direct string comparison
       return a.holidayDate.localeCompare(b.holidayDate);
@@ -82,18 +73,14 @@ const Admin = () => {
 
   useEffect(() => {
     const fetchQueries = async () => {
-      const res = await axios.get(
-        "https://monkfish-app-m3uws.ondigitalocean.app/api/query/"
-      );
+      const res = await axios.get("http://3.90.151.83/api/query/");
       // console.log(res.data);
       const revArray = res.data.message.slice().reverse();
       setSubmissions(revArray);
     };
 
     const fetchHolidays = async () => {
-      const res = await axios.get(
-        "https://monkfish-app-m3uws.ondigitalocean.app/api/holidays/"
-      );
+      const res = await axios.get("http://3.90.151.83/api/holidays/");
       // console.log(res.data);
       const sortedHolidays = res.data.message.sort((a, b) => {
         // Assuming holidayDate is in the format that allows direct string comparison
@@ -117,9 +104,7 @@ const Admin = () => {
     // Check if the user confirmed
     if (userConfirmed) {
       try {
-        const res = await axios.delete(
-          `https://monkfish-app-m3uws.ondigitalocean.app/api/holidays/${id}`
-        );
+        const res = await axios.delete(`http://3.90.151.83/api/holidays/${id}`);
 
         if (res.data.status) {
           setAllHolidays((prevHolidays) =>
