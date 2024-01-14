@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Home/Hero";
 import ParkAttractions from "@/components/Home/ParkAttractions";
+
 import Welcome from "@/components/Home/Welcome";
 import YourTicket from "@/components/Home/YourTicket";
 

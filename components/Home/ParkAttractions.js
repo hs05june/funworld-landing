@@ -27,8 +27,8 @@ const ParkAttractions = () => {
 
 
     return (
-        <div className='flex flex-col items-center px-[3vw] gap-6 relative mb-16'>
-            <h2 className='xl:text-[62px] xl:leading-[62px] text-[45px] leading-[45px] text-[#0B1A48] font-[620] text-center'>Park Attractions</h2>
+        <div className='flex flex-col items-center px-[3vw] gap-6 relative mb-16  lg:mb-0 -mt-10 md:-mt-8 '>
+            <h2 className='xl:text-[62px] xl:leading-[62px] text-[30px] md:text-[45px] lg:text-[65px] leading-[45px] text-[#0B1A48] font-[620] text-center'>Park Attractions</h2>
             <p className=' xl:px-[9rem] lg:px-[7rem] md:px-[5rem] px-[1rem]  font-[400] text-[20px] leading-[33px] text-center text-[#5B5B5B]'>Get ready to be mesmerized by a world of captivating park attractions that beckon with promises of unforgettable adventures and wondrous encounters. </p>
             <animated.div className='flex flex-wrap gap-4 justify-center mt-4' ref={divRef} style={divProps} >
                 <div className='min-w-[270px] bg-cover bg-center max-w-[400px] h-[500px] bg-[url("https://funworldblr.s3.amazonaws.com/public/Home/parkAttractions/newimage2.jpg")] 

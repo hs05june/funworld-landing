@@ -1,7 +1,7 @@
-"use client"
-import TicketPage from '@/components/Repeating/TicketPage'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+"use client";
+import TicketPage from "@/components/Repeating/TicketPage";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Success = ({ params }) => {
     const [ticket, setTicket] = useState({})
@@ -31,4 +31,4 @@ const Success = ({ params }) => {
     )
 }
 
-export default Success
+export default Success;
