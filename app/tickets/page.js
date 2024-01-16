@@ -153,10 +153,9 @@ const TicketsPage = () => {
 
     // setPage(3);
     try {
-      const res = await axios.post("http://3.90.151.83/api/soldtickets", {
-        userDetails: bookingDetails,
-        bookingInfo: info,
-      });
+      const res = await axios.post("https://funworld-backend-tawny.vercel.app/api/soldtickets", {
+        userDetails: bookingDetails, bookingInfo: info
+      })
 
       // console.log(res.data.status);
       if (res.data.status) {
@@ -179,7 +178,7 @@ const TicketsPage = () => {
       // console.log(checkoutPrice);
 
       const res = await axios.post(
-        "http://3.90.151.83/api/razorpay/create-order",
+        "https://funworld-backend-tawny.vercel.app/api/razorpay/create-order",
         {
           amount: Number(checkoutPriceAfterDiscount * 100),
           name: info.name ? info.name : "",
@@ -200,7 +199,7 @@ const TicketsPage = () => {
         description: "Book Tickets",
         image: "https://example.com/your_logo",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        callback_url: `http://3.90.151.83/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
+        callback_url: `https://funworld-backend-tawny.vercel.app/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
         prefill: {
           //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
           name: info.name, //your customer's name
@@ -270,7 +269,7 @@ const TicketsPage = () => {
     ) {
       try {
         const res = await axios.post(
-          "http://3.90.151.83/api/coupon/verifycouponcode",
+          "https://funworld-backend-tawny.vercel.app/api/coupon/verifycouponcode",
           {
             couponCode: code, // Fix the variable name here from coupon to code
           }

@@ -97,7 +97,7 @@ const AboutStart = () => {
   return (
     <div className="w-full flex flex-col items-center ">
       {/* <Image src={'/About/fun2.jpeg'}  alt="child swimming in pool" className='w-[100vw] absolute -z-10 max-lg:hidden overflow-y-hidden' /> */}
-      <div className='w-[100%] h-[100vh] bg-cover bg-no-repeat bg-center bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")] absolute -z-10  overflow-y-hidden' />
+      <div className='w-[100%] h-[100vh] bg-cover bg-no-repeat lg:flex hidden bg-center bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")] absolute -z-10  overflow-y-hidden' />
       <div className="md:h-[100%] h-full md:relative top-[100%]">
         <CardMain data={data} />
       </div>
@@ -604,7 +604,7 @@ const About = () => {
           <AboutStart />
         </div>
 
-        <div className="mt-[10rem] md:mt-[60rem] h-[65vh] md:h-[80vh] flex w-full lg:h-[100vh]">
+        <div className="mt-[10rem] md:mt-[40rem] lg:mt-[50rem] xl:mt-[40rem] 2xl:mt-[60rem] h-[65vh] md:h-[80vh] flex w-full lg:h-[100vh]">
           <AboutSecond />
         </div>
 

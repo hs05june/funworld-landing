@@ -10,26 +10,24 @@ const Scan = () => {
   const [isCameraOpen, setCameraOpen] = useState(false);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
-  useEffect(() => {
-    let token = window.localStorage.getItem("funworldLogin");
-    if (token) {
-      const token1 = JSON.parse(token);
-      let { email, password } = jwt.decode(token1);
-      if (email && password) {
-        axios
-          .post("http://3.90.151.83/api/auth/admin", {
-            email: email,
-            password: password,
-          })
-          .then((res) => {
-            if (res.data.admin) {
-              setIsAdminLoggedIn(true);
+    useEffect(() => {
+        let token = window.localStorage.getItem('funworldLogin')
+        if (token) {
+            const token1 = JSON.parse(token)
+            let { email, password } = jwt.decode(token1)
+            if (email && password) {
+                axios.post("https://funworld-backend-tawny.vercel.app/api/auth/admin", {
+                    email: email,
+                    password: password
+                }).then(res => {
+                    if (res.data.admin) {
+                        setIsAdminLoggedIn(true);
+                    }
+                })
             }
-          });
-      }
-      setIsAdminLoggedIn(true);
-    }
-  }, []);
+            setIsAdminLoggedIn(true)
+        }
+    }, [])
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,66 +37,59 @@ const Scan = () => {
     verifyCredentials(email, password);
   };
 
-  const verifyCredentials = async (email, password) => {
-    try {
-      const res = await axios.post("http://3.90.151.83/api/auth/admin", {
-        email: email,
-        password: password,
-      });
-      if (res.data.admin) {
-        setIsAdminLoggedIn(true);
-        let token = jwt.sign({ email: email, password: password }, "FUNWORLD");
-        window.localStorage.setItem("funworldLogin", JSON.stringify(token));
-      }
-    } catch (e) {
-      // console.log(e);
-      window.alert(e);
+    const verifyCredentials = async (email, password) => {
+        try {
+            const res = await axios.post("https://funworld-backend-tawny.vercel.app/api/auth/admin", {
+                email: email,
+                password: password
+            });
+            if (res.data.admin) {
+                setIsAdminLoggedIn(true);
+                let token = jwt.sign({ email: email, password: password }, "FUNWORLD")
+                window.localStorage.setItem("funworldLogin", JSON.stringify(token))
+            }
+        } catch (e) {
+            // console.log(e);
+            window.alert(e);
+        }
     }
-  };
 
   const handleCameraClick = () => {
     setCameraOpen(true);
   };
 
-  const handleScanResult = async (result, error) => {
-    if (!!result) {
-      setData(result?.text);
-      // // console.log(result?.text)
-      let qrcode = result?.text;
-      let soldTicketId = qrcode.split(" ")[0];
-      let ticketId = qrcode.split(" ")[1];
-      let res = await axios.get(
-        `http://3.90.151.83/api/soldtickets?id=${soldTicketId}`
-      );
+    const handleScanResult = async (result, error) => {
+        if (!!result) {
+            setData(result?.text);
+            // // console.log(result?.text)
+            let qrcode = result?.text
+            let soldTicketId = qrcode.split(' ')[0]
+            let ticketId = qrcode.split(' ')[1]
+            let res = await axios.get(`https://funworld-backend-tawny.vercel.app/api/soldtickets?id=${soldTicketId}`)
 
-      if (!res.data.status) {
-        alert("No such Ticket");
-        return;
-      }
-      let tickets = res.data.message.tickets;
+            if (!(res.data.status)) {
+                alert("No such Ticket")
+                return
+            }
+            let tickets = res.data.message.tickets
 
-      for (let i = 0; i < tickets.length; i++) {
-        if (tickets[i]._id == ticketId) {
-          if (tickets[i].checkedIn) {
-            alert("Already checked in");
-            return;
-          }
-          let check = confirm(
-            `Child: ${tickets[i].child} Adult: ${tickets[i].adult} Senior: ${tickets[i].senior}`
-          );
-          if (check) {
-            tickets[i].checkedIn = true;
-            res = await axios.put(
-              `http://3.90.151.83/api/soldtickets?id=${soldTicketId}`,
-              { tickets: tickets }
-            );
-          }
-          return;
+            for (let i = 0; i < tickets.length; i++) {
+                if (tickets[i]._id == ticketId) {
+                    if (tickets[i].checkedIn) {
+                        alert("Already checked in")
+                        return
+                    }
+                    let check = confirm(`Child: ${tickets[i].child} Adult: ${tickets[i].adult} Senior: ${tickets[i].senior}`);
+                    if (check) {
+                        tickets[i].checkedIn = true
+                        res = await axios.put(`https://funworld-backend-tawny.vercel.app/api/soldtickets?id=${soldTicketId}`, { tickets: tickets });
+                    }
+                    return
+                }
+            }
+            alert("No such Ticket")
+            return
         }
-      }
-      alert("No such Ticket");
-      return;
-    }
 
     if (!!error) {
       // console.log(error);

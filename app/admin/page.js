@@ -11,50 +11,50 @@ const Admin = () => {
   const [soldTicketsArray, setSoldTicketsArray] = useState();
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
 
-  useEffect(() => {
-    let token = window.localStorage.getItem("funworldLogin");
-    if (token) {
-      const token1 = JSON.parse(token);
-      let { email, password } = jwt.decode(token1);
-      if (email && password) {
-        axios
-          .post("http://3.90.151.83/api/auth/admin", {
-            email: email,
-            password: password,
-          })
-          .then((res) => {
-            if (res.data.admin) {
-              setIsAdminLoggedIn(true);
+    useEffect(() => {
+        let token = window.localStorage.getItem('funworldLogin')
+        if (token) {
+            const token1 = JSON.parse(token)
+            let { email, password } = jwt.decode(token1)
+            if (email && password) {
+                axios.post("https://funworld-backend-tawny.vercel.app/api/auth/admin", {
+                    email: email,
+                    password: password
+                }).then(res => {
+                    if (res.data.admin) {
+                        setIsAdminLoggedIn(true);
+                    }
+                })
             }
-          });
-      }
-      setIsAdminLoggedIn(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    const fetchSoldTickets = async () => {
-      if (isAdminLoggedIn) {
-        try {
-          const res = await axios.get("http://3.90.151.83/api/soldtickets");
-          // console.log(res.data);
-          // setSoldTicketsArray(res.data);
-          let arr = res.data.sort((a, b) =>
-            b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate)
-          );
-          setGeneralsoldTicketArray(arr);
-          // console.log(arr)
-          const filteredArray = arr.filter(
-            (item) => item.tickets[0].visitDate === formattedCurrentDate
-          );
-          setSoldTicketsArray(filteredArray);
-        } catch (e) {
-          window.alert("Err in fetching sold tickets");
+            setIsAdminLoggedIn(true)
         }
-      }
-    };
-    fetchSoldTickets();
-  }, [isAdminLoggedIn]);
+    }, [])
+
+    useEffect(() => {
+        const fetchSoldTickets = async () => {
+            if (isAdminLoggedIn) {
+                try {
+                    const res = await axios.get("https://funworld-backend-tawny.vercel.app/api/soldtickets");
+                    // console.log(res.data);
+                    // setSoldTicketsArray(res.data);
+                    let arr = res.data.sort((a, b) => b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate));
+                    setGeneralsoldTicketArray(arr);
+                    // console.log(arr)
+                    const filteredArray = arr.filter(item => item.tickets[0].visitDate === formattedCurrentDate);
+                    setSoldTicketsArray(filteredArray);
+
+                }
+
+                catch (e) {
+                    window.alert("Err in fetching sold tickets");
+                }
+            }
+
+        }
+        fetchSoldTickets();
+
+    }, [isAdminLoggedIn])
+
 
   const revenueLastWeek = 200000;
 
@@ -66,44 +66,43 @@ const Admin = () => {
     verifyCredentials(email, password);
   };
 
-  const handleDelete = async (id, index) => {
-    let ask = window.confirm("Do you want to delete?");
-    if (!ask) return;
-    try {
-      const res = await axios.delete(
-        `http://3.90.151.83/api/soldtickets?id=${id}`
-      );
-      console.log(res);
-      let tempArray = [...soldTicketsArray];
-      tempArray.splice(index, 1);
-      setSoldTicketsArray(tempArray);
-      let genTempArray = [];
-      for (let i = 0; i < generalSoldTicketsArray.length; i++) {
-        if (generalSoldTicketsArray[i]._id == id) continue;
-        genTempArray.push(generalSoldTicketsArray[i]);
-      }
-      setGeneralsoldTicketArray(genTempArray);
-    } catch (err) {
-      console.log(err);
+    const handleDelete = async(id,index) => {
+        let ask = window.confirm('Do you want to delete?')
+        if(!ask)return
+        try{
+            const res = await axios.delete(`https://funworld-backend-tawny.vercel.app/api/soldtickets?id=${id}`)
+            console.log(res)
+            let tempArray = [...soldTicketsArray]
+            tempArray.splice(index,1)
+            setSoldTicketsArray(tempArray)
+            let genTempArray = []
+            for(let i = 0; i < generalSoldTicketsArray.length; i++){
+                if(generalSoldTicketsArray[i]._id == id)continue
+                genTempArray.push(generalSoldTicketsArray[i])
+            }
+            setGeneralsoldTicketArray(genTempArray)
+        }catch(err){
+            console.log(err)
+        }
     }
-  };
 
-  const verifyCredentials = async (email, password) => {
-    try {
-      const res = await axios.post("http://3.90.151.83/api/auth/admin", {
-        email: email,
-        password: password,
-      });
-      if (res.data.admin) {
-        setIsAdminLoggedIn(true);
-        let token = jwt.sign({ email: email, password: password }, "FUNWORLD");
-        window.localStorage.setItem("funworldLogin", JSON.stringify(token));
-      }
-    } catch (e) {
-      // console.log(e);
-      window.alert(e);
+    const verifyCredentials = async (email, password) => {
+        
+        try {
+            const res = await axios.post("https://funworld-backend-tawny.vercel.app/api/auth/admin", {
+                email: email,
+                password: password
+            });
+            if (res.data.admin) {
+                setIsAdminLoggedIn(true);
+                let token = jwt.sign({ email: email, password: password }, "FUNWORLD")
+                window.localStorage.setItem("funworldLogin", JSON.stringify(token))
+            }
+        } catch (e) {
+            // console.log(e);
+            window.alert(e);
+        }
     }
-  };
 
   const handleCheckedInChange = async (index, soldTicketId, ticketId) => {
     if (!window.confirm("Do you want to change checked-in status?")) return;
@@ -121,11 +120,8 @@ const Admin = () => {
       }
     }
 
-    try {
-      const res = await axios.put(
-        `http://3.90.151.83/api/soldtickets?id=${soldTicketId}`,
-        { tickets: updatedSoldTicketsArray[index].tickets }
-      );
+        try {
+            const res = await axios.put(`https://funworld-backend-tawny.vercel.app/api/soldtickets?id=${soldTicketId}`, { tickets: updatedSoldTicketsArray[index].tickets });
 
       // Assuming the API call was successful, update the state with the updated array
       setSoldTicketsArray(updatedSoldTicketsArray);
