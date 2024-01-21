@@ -15,7 +15,7 @@ const Admin = () => {
       if (email && password) {
         axios
           .post(
-            "https://funworld-backend-tawny.vercel.app/api/auth/admin",
+            "https://funworld-backend-delta.vercel.app/api/auth/admin",
             {
               email: email,
               password: password,
@@ -46,7 +46,7 @@ const Admin = () => {
   const verifyCredentials = async (email, password) => {
     try {
       const res = await axios.post(
-        "https://funworld-backend-tawny.vercel.app/api/auth/admin",
+        "https://funworld-backend-delta.vercel.app/api/auth/admin",
         {
           email: email,
           password: password,
@@ -66,7 +66,7 @@ const Admin = () => {
   const handleAddHoliday = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "https://funworld-backend-tawny.vercel.app/api/holidays",
+      "https://funworld-backend-delta.vercel.app/api/holidays",
       {
         holiday: holiday,
       }
@@ -83,7 +83,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchQueries = async () => {
       const res = await axios.get(
-        "https://funworld-backend-tawny.vercel.app/api/query/"
+        "https://funworld-backend-delta.vercel.app/api/query/"
       );
       // console.log(res.data);
       const revArray = res.data.message.slice().reverse();
@@ -92,7 +92,7 @@ const Admin = () => {
 
     const fetchHolidays = async () => {
       const res = await axios.get(
-        "https://funworld-backend-tawny.vercel.app/api/holidays/"
+        "https://funworld-backend-delta.vercel.app/api/holidays/"
       );
       // console.log(res.data);
       const sortedHolidays = res.data.message.sort((a, b) => {
@@ -118,7 +118,7 @@ const Admin = () => {
     if (userConfirmed) {
       try {
         const res = await axios.delete(
-          `https://funworld-backend-tawny.vercel.app/api/holidays/${id}`
+          `https://funworld-backend-delta.vercel.app/api/holidays/${id}`
         );
 
         if (res.data.status) {

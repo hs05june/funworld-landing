@@ -205,7 +205,7 @@ const ServiceThird = () => {
 
     try {
       const res = await axios.post(
-        "https://funworld-backend-tawny.vercel.app/api/query",
+        "https://funworld-backend-delta.vercel.app/api/query",
         {
           name: name,
           email: email,
