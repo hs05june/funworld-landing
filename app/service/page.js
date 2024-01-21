@@ -205,7 +205,7 @@ const ServiceThird = () => {
 
     try {
       const res = await axios.post(
-        "https://monkfish-app-m3uws.ondigitalocean.app/api/query",
+        "https://funworld-backend-tawny.vercel.app/api/query",
         {
           name: name,
           email: email,
