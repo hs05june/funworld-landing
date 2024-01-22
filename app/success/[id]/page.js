@@ -1,12 +1,12 @@
-"use client"
-import TicketPage from '@/components/Repeating/TicketPage'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+"use client";
+import TicketPage from "@/components/Repeating/TicketPage";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Success = ({ params }) => {
     const [ticket, setTicket] = useState({})
     useEffect(() => {
-        axios.get(`https://monkfish-app-m3uws.ondigitalocean.app/api/soldtickets?id=${params.id}`).then((res) => {
+        axios.get(`https://funworld-backend-delta.vercel.app/api/soldtickets?id=${params.id}`).then((res) => {
             setTicket(res.data.message);
             // console.log(res.data.message);
             window.localStorage.setItem('cart', JSON.stringify([]))
@@ -31,4 +31,4 @@ const Success = ({ params }) => {
     )
 }
 
-export default Success
+export default Success;
