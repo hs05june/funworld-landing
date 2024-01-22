@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Box, Button, Card, Typography } from "@mui/material";
@@ -11,6 +12,7 @@ import {
 import { BsBook, BsFillTelephoneFill } from "react-icons/bs";
 import { IoMdMail } from "react-icons/io";
 import axios from "axios";
+
 
 //First Service Card
 const ServiceFirst = () => {
@@ -28,7 +30,6 @@ const ServiceFirst = () => {
   //   reset: false,
   //   delay: 1000
   // }))
-
   return (
     <div className="md:w-[80%] w-[98%] mx-auto bg-[#F8E9E0] max-lg:pb-10 max-lg:space-y-10">
       <div className="flex lg:flex-row flex-col w-full lg:h-[50%] justify-between max-lg:gap-5">
@@ -56,7 +57,8 @@ const ServiceFirst = () => {
 
       <div className="flex lg:flex-row flex-col-reverse w-full lg:h-[50%] justify-between max-lg:gap-5">
         <div className="lg:w-[50%] lg:items-center lg:justify-center gap-5 flex flex-col">
-          <span className="text-xl font-bold md:text-2xl xl:text-3xl   text-[#252525] md:px-10 text-left px-2">
+
+          <span className="text-xl font-bold md:text-2xl xl:text-3xl text-[#252525] md:px-10 text-left px-2">
             Water Park Ride Manufacturing
           </span>
           <div className="md:px-10 px-2">
@@ -85,28 +87,31 @@ const ServiceFirst = () => {
 const ServiceSecond = () => {
   return (
     <div className="w-full">
-      {/* <div className="flex-1 top-[30%] xl:top-[25%] absolute -z-10 max-xl:hidden">
+
+      <div className="flex-1 top-[30%] xl:top-[25%] absolute -z-10 max-xl:hidden">
         <img
           src={"https://funworldblr.s3.amazonaws.com/public/Service/swing.jpg"}
           className="mt-[400px] w-[100vw]"
           alt="water gun"
         />
-      </div> */}
 
-      <div className="xl:bg-[#F3E6DE] xl:w-[90vw] xl:px-20 xl:pr-20 lg:pt-32 pr-10 flex max-xl:flex-col xl:relative top-[10vh] lg:left-[12vw] lg:gap-14 xl:rounded-tl-[3rem] md:gap-8 gap-4">
+      </div>
+      <div className="xl:bg-[#F3E6DE] xl:w-[90vw] xl:px-20 xl:py-20 lg:py-32 py-10 flex max-xl:flex-col xl:relative lg:top-[30vh] xl:top-[40vh] lg:left-[12vw] lg:gap-14 xl:rounded-tl-[3rem] md:gap-8 gap-4">
         <Box className=" flex flex-col md:gap-16 gap-8">
           <Typography
             variant="h4"
-            className="font-sans font-bold text-[#252525] lg:text-4xl xl:text-5xl max-xl:text-center md:text-3xl text-xl"
+            className="font-sans font-bold text-[#252525] lg:text-4xl xl:text-5xl max-xl:text-center md:text-3xl text-[28px]"
           >
             Why Choose Us?
           </Typography>
-          <Box className="flex flex-col justify-evenly max-xl:w-[90%] max-xl:mx-auto xl:gap-10 lg:gap-8 gap-4">
+          <Box className="flex flex-col justify-evenly max-xl:w-[90%] lg:text-start text-center max-xl:mx-auto xl:gap-10 lg:gap-8 gap-4">
             <div className="flex gap-2">
               <MdPark className="xl:text-6xl md:text-5xl md:w-12 bg-white xl:w-16 p-2 rounded-full" />
 
               <div className="w-[80%] ml-2 xl:space-y-3 space-y-1">
-                <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl">
+
+                <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl text-[20px]">
+
                   Customized Park Experiences
                 </Typography>
                 <Typography className="text-[#5B5B5B] font-sans font-[500] md:text-lg text-base">
@@ -115,13 +120,14 @@ const ServiceSecond = () => {
                   visitors&apos; experiences.
                 </Typography>
               </div>
+
             </div>
 
             <div className="flex gap-2">
               <MdWebhook className="xl:text-6xl md:text-5xl md:w-12 bg-white xl:w-16 p-2 rounded-full" />
               {/* PiWebhooksLogoLight */}
               <div className=" w-[80%] ml-2 xl:space-y-3 space-y-1">
-                <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl">
+                <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl text-[20px]">
                   From Simplicity to Complexity
                 </Typography>
                 <Typography className="text-[#5B5B5B] font-sans font-[500] md:text-lg">
@@ -136,7 +142,7 @@ const ServiceSecond = () => {
               <BsBook className="xl:text-6xl md:text-5xl md:w-12 bg-white xl:w-16 p-2 rounded-full" />
               {/* LiaIndustrySolid */}
               <div className=" w-[80%] ml-2 xl:space-y-3 space-y-1">
-                <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl">
+                <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl text-[20px]">
                   Tapping into Vast Industry Expertise
                 </Typography>
                 <Typography className="text-[#5B5B5B] font-sans font-[500] md:text-lg">
@@ -159,11 +165,12 @@ const ServiceSecond = () => {
             the readable content of a page when looking!
           </Typography>
 
-          <div className="flex gap-3">
+
+          <div className="flex gap-3 lg:text-start text-center">
             {/* MdHealthAndSafety */}
             <MdHealthAndSafety className="xl:text-6xl md:text-5xl md:w-12 bg-white xl:w-16 p-2 rounded-full" />
             <div className=" w-[80%] ml-2 xl:space-y-3 space-y-1">
-              <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl">
+              <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl text-[20px]">
                 Uncompromising Safety Standards
               </Typography>
               <Typography className="text-[#5B5B5B] font-sans font-[500] md:text-lg">
@@ -174,11 +181,12 @@ const ServiceSecond = () => {
             </div>
           </div>
 
-          <div className="flex gap-3">
+
+          <div className="flex gap-3 lg:text-start text-center">
             {/* GrTechnology */}
             <MdComputer className="xl:text-6xl md:text-5xl md:w-12 bg-white xl:w-16 p-2 rounded-full" />
             <div className=" w-[80%] ml-2 xl:space-y-3 space-y-1">
-              <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl">
+              <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl text-[20px]">
                 Innovating with Cutting-Edge Technology
               </Typography>
               <Typography className="text-[#5B5B5B] font-sans font-[500] md:text-lg">
@@ -196,46 +204,39 @@ const ServiceSecond = () => {
 
 // Third Service Card
 const ServiceThird = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [query, setQuery] = useState("");
 
-  const handleQuerysubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const res = await axios.post(
-        "https://funworld-backend-delta.vercel.app/api/query",
-        {
-          name: name,
-          email: email,
-          query: query,
-        }
-      );
-
-      console.log(res.status);
-
-      if (res.status) {
-        window.alert("Query Received, we shall soon contact you back");
-        setName("");
-        setEmail("");
-        setQuery("");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    console.log(name, email, query);
-  }, [name, email, query]);
+  // const CssTextField = withStyles({
+  //     root: {
+  //       '& label.Mui-focused': {
+  //         color: 'white',
+  //       },
+  //       '& .MuiInput-underline:after': {
+  //         borderBottomColor: 'white',
+  //       },
+  //       '& .MuiOutlinedInput-root': {
+  //         '& fieldset': {
+  //           borderColor: 'white',
+  //         },
+  //         '&:hover fieldset': {
+  //           borderColor: 'white',
+  //         },
+  //         '&.Mui-focused fieldset': {
+  //           borderColor: 'white',
+  //         },
+  //       },
+  //       '& input::placeholder': {
+  //         color: 'white',
+  //       },
+  //     },
+  //   })(TextField);
 
   return (
     <div className="w-full h-full flex flex-col justify-evenly max-lg:w-[95%] max-lg:mx-auto">
       <Box className="lg:space-y-10 flex-1 py-10 space-y-5">
         <Typography
           variant="h4"
-          className="text-center text-[#0B1A48] font-[565] font-sans xl:text-5xl lg:px-[15vw] lg:text-4xl md:text-3xl xl:px-[20vw] text-xl"
+
+          className="text-center text-[#0B1A48] font-[565] font-sans xl:text-5xl lg:px-[15vw] lg:text-4xl md:text-3xl xl:px-[20vw] text-[28px]"
         >
           Consulting and Holistic Project Management
         </Typography>
@@ -265,45 +266,33 @@ const ServiceThird = () => {
             Whether it&apos;s creativity, feasibility, or timely execution,
             we&apos;re devoted to bringing your vision to life.
           </Typography>
-          <form onSubmit={handleQuerysubmit} className="flex flex-col gap-4">
-            <Box>
-              <div className=" flex justify-between">
-                <input
-                  required
-                  className="border w-[48%] bg-[#47475EF5] py-2 px-4 rounded-full placeholder:ml-2 placeholder:text-white"
-                  placeholder="First Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <input
-                  required
-                  type="email"
-                  className="border w-[48%] bg-[#47475EF5] py-2 px-4 rounded-full placeholder:ml-2 placeholder:text-white"
-                  placeholder="Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-            </Box>
 
-            <Box>
-              <textarea
-                required
-                className="border w-[98%] bg-[#47475EF5] py-2 px-4 rounded placeholder:ml-2 placeholder:text-white"
-                placeholder="Query"
-                value={query}
-                rows={5}
-                //   value={email}
-                onChange={(e) => setQuery(e.target.value)}
+          <Box>
+            <div className=" flex justify-between">
+              <input
+                className="border w-[48%] bg-[#47475EF5] py-2 px-4 rounded-full placeholder:ml-2 placeholder:text-white"
+                placeholder="First Name"
               />
-            </Box>
-            <div className="flex items-start justify-center">
-              <Button type="submit" variant="contained" className="btn">
-                Submit
-              </Button>
+              <input
+                className="border w-[48%] bg-[#47475EF5] py-2 px-4 rounded-full placeholder:ml-2 placeholder:text-white"
+                placeholder="Email Address"
+              />
             </div>
-          </form>
-
+            <div className="flex flex-col xl:mt-6 md:mt-2 h-[90%] md:gap-[1rem] mt-2">
+              <input
+                className="border w-[100%] bg-[#47475EF5] py-2 px-4 rounded-full placeholder:ml-2 placeholder:text-white"
+                placeholder="Phone Number"
+              />
+              <textarea
+                variant="outlined"
+                className="border w-[100%] py-2 px-4 bg-[#47475EF5] placeholder:ml-2 placeholder:text-white mt-2 rounded-xl h-28"
+                placeholder="Your Message"
+              />
+            </div>
+          </Box>
+          <Button variant="contained" className="btn">
+            Submit
+          </Button>
           <Box className=" flex xl:gap-8 md:gap-4 text-center justify-center gap-2">
             <span className="flex flex-row md:space-x-2 space-x-1 items-center">
               <BsFillTelephoneFill className="md:text-lg mt-[2px]" />
@@ -321,7 +310,14 @@ const ServiceThird = () => {
         </div>
       </div>
 
-      <Box className="flex max-lg:flex-col  justify-evenly items-center "></Box>
+      <Box className="flex max-lg:flex-col  justify-evenly items-center ">
+        <div
+          style={{ backgroundColor: "green" }}
+          className="flex-1 h-full bg-red-800  "
+        >
+          {/* <Image src={map} className='h-full' alt='pic' /> */}
+        </div>
+      </Box>
     </div>
   );
 };
@@ -419,7 +415,8 @@ const ServiceLast = () => {
       <div className="flex flex-col h-[10%] justify-evenly">
         <Typography
           variant="h3"
-          className="text-center max-lg:text-3xl max-lg:font-[600]"
+
+          className="text-center max-lg:text-3xl mb-4 max-lg:font-[600]"
         >
           Our Services
         </Typography>
@@ -564,7 +561,8 @@ const Service = () => {
         </section>
 
         <section className="w-full flex flex-col gap-3 md:gap-5">
-          <div className="mt-12 lg:mt-32 font-dm-sans font-[500] text-center text-[#0B1A48] text-lg md:text-2xl mx-2 lg:text-4xl xl:text-6xl">
+
+          <div className="mt-12 lg:mt-32 font-dm-sans lg:font-[500] font-[600] text-center text-[#0B1A48] text-[28px] md:text-2xl mx-2 lg:text-4xl xl:text-6xl">
             Theme Park Ride Manufacturing
           </div>
           <div className="text-[#5B5B5B] text-base mx-3 text-center md:text-lg md:mx-10 lg:mx-32 xl:mx-[25vw]">
@@ -574,10 +572,11 @@ const Service = () => {
           </div>
         </section>
 
-        <section className="lg:min-h-[50vh] min-h-[40vh] lg:mt-12 mt-6 w-full flex items-center justify-center lg:gap-0 gap-8 flex-col  ">
+
+        <section className="lg:min-h-[50vh] min-h-[40vh] lg:mt-12 mt-6 w-full flex items-center justify-center lg:gap-0 gap-8 flex-col lg:mb-[130px]">
           <div className="flex lg:flex-row flex-col items-center justify-center lg:gap-0 gap-6">
             <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16  bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/ridetube.jpg")]'></div>
-            <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
+            <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
               <h3 className="lg:text-[42px] lg:leading-[46px] md:text-[32px] md:leading-[35px] text-[25px] leading-[27px] text-[#252525] font-[550] lg:text-start text-center">
                 Amusement Park Ride Manufacturing
               </h3>
@@ -592,8 +591,9 @@ const Service = () => {
           <div className="flex lg:flex-row-reverse flex-col items-center justify-center lg:gap-0 gap-6">
             <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16 bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")]'></div>
 
-            <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
-              <h3 className="lg:text-[42px] lg:leading-[46px]  md:text-[32px] md:leading-[35px] text-[25px] leading-[27px] text-[#252525] font-[550] lg:text-start text-center">
+
+            <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
+              <h3 className="lg:text-[42px] lg:leading-[46px] md:text-[32px] md:leading-[35px] text-[25px] leading-[27px] text-[#252525] font-[550] lg:text-start text-center">
                 Water Park Ride Manufacturing
               </h3>
               <p className="text-[#5B5B5B] lg:text-start text-center">
@@ -605,11 +605,12 @@ const Service = () => {
           </div>
         </section>
 
-        <section className="w-full md:h-auto flex flex-col items-center mt-12 lg:mt-0">
+
+        <section className="w-full md:h-auto flex flex-col items-center">
           <ServiceSecond />
         </section>
 
-        <section className="w-full h-auto flex flex-col items-center mt-[40px] xl:mt-[140px] 2xl:mt-[160px] 3xl:mt-[200px]">
+        <section className="w-full h-auto flex flex-col items-center xl:mt-[350px]">
           <ServiceThird />
         </section>
 

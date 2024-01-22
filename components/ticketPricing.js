@@ -20,12 +20,15 @@ export const ticketPricingFunction = (type, visitDate) => {
   // console.log(visitDate, typeof(visitDate))
   // ${year}-${month}-${day}
   const otherWeekendDates = [
+    "2024-01-01",
     "2024-01-15",
     "2024-01-26",
     "2024-03-08",
     "2024-03-29",
     "2024-04-09",
     "2024-04-11",
+    "2024-05-01",
+    "2024-05-10",
     "2024-06-18",
     "2024-07-17",
     "2024-08-15",

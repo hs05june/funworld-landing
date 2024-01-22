@@ -67,7 +67,7 @@ const WaterSecond = () => {
   return (
     <div className="w-full bg-[#FFFAF7] px-[12vw] flex flex-col gap-8 py-12">
       <div className="flex lg:flex-row flex-col lg:gap-0 gap-6 lg:text-start text-center">
-        <h4 className="flex-1 font-[500] lg:text-[42px] md:[28px] ">
+        <h4 className="flex-1 font-[600] lg:text-[42px] md:text-[32px] text-[26px]">
           Excitement is Alright!
           <br /> But Being Safe is Also Fun
         </h4>
@@ -391,13 +391,11 @@ const WaterFourth = () => {
 
   return (
     <div className="max-md:w-[100%]">
-      <div className="flex max-md:flex-col justify-between w-[90%] xl:w-[60%] md:w-[90%] mx-auto md:h-[20%] gap-6">
-        <Typography
-          variant="h3"
-          className="text-left max-md:text-xl max-md:font-[700] max-md:text-center"
-        >
+
+      <div className="flex max-md:flex-col justify-between w-[90%] xl:w-[60%] md:w-[90%] mx-auto md:h-[20%]">
+        <p className="text-left lg:text-[2.5rem] md:text-[2rem] md:mb-0 mb-3 text-[1.5rem] lg:mr-6  font-[600] max-md:text-center">
           You Can&apos;t Resist Coming to Water World
-        </Typography>
+        </p>
         <Typography
           variant="h6"
           className="w-[80%] text-[#5B5B5B] mt-3 mx-auto max-md:text-sm max-md:w-[95%] max-md:text-center"
@@ -515,7 +513,7 @@ const CustomerReviewPage = () => {
       >
         Customers&apos; Reviews
       </Typography>
-      <Typography variant="subtitle1" className="text-center mt-5">
+      <Typography variant="subtitle1" className="text-center mt-5 px-6">
         Nothing&apos;s better than an electrifying experience at amusement parks
       </Typography>
       <Box className="mx-auto w-[80%] z-10 lg:min-h-[34vh] relative">
@@ -618,10 +616,7 @@ const WaterFifth = () => {
   return (
     <div className="w-full h-full flex flex-col gap-[2rem] mt-12 bg-[#FFFAF7] py-16">
       <div className="flex flex-col h-[10%] justify-evenly">
-        <Typography
-          variant="h3"
-          className="text-center px-[15vw] max-md:text-3xl font-[600]"
-        >
+        <Typography className="text-center px-[15vw] lg:text-[2.7rem] md:[text-2.2rem] text-[1.5rem] font-[600]">
           What Inspires Your Journey to the Water World?{" "}
         </Typography>
       </div>
@@ -780,7 +775,7 @@ const WaterPark = () => {
         </div>
       </section>
 
-      <section className="w-full py-[3vh] lg:mt-16 mt-12 sm:mt-0 ">
+      <section className="w-full py-[3vh] lg:mt-16 md:mt-12 sm:mt-0 ">
         <div className="w-full md:h-full">
           <WaterFirst />
         </div>
