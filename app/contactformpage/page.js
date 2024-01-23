@@ -88,44 +88,45 @@ const Admin = () => {
   const [formSubmissions, setSubmissions] = useState(null);
 
   useEffect(() => {
-    const fetchQueries = async () => {
+    // const fetchQueries = async () => {
       if (!isAdminLoggedIn) return;
       let token = window.localStorage.getItem('funworldLogin')
-      const res = await axios.get(
+      axios.get(
         "https://funworld-backend-delta.vercel.app/api/query/",
         {
           headers: {
             token: token
           }
         }
-      );
-      // console.log(res.data);
-      const revArray = res.data.message.slice().reverse();
-      setSubmissions(revArray);
-    };
+      ).then((res)=>{
+        const revArray = res.data.message.slice().reverse();
+        setSubmissions(revArray);
+      });
+    // };
 
-    const fetchHolidays = async () => {
-      if (!isAdminLoggedIn) return;
-      let token = window.localStorage.getItem('funworldLogin')
-      const res = await axios.get(
+    // const fetchHolidays = async () => {
+      // if (!isAdminLoggedIn) return;
+      // let token = window.localStorage.getItem('funworldLogin')
+      axios.get(
         "https://funworld-backend-delta.vercel.app/api/holidays/",
         {
           headers: {
             token: token
           }
         }
-      );
-      // console.log(res.data);
-      const sortedHolidays = res.data.message.sort((a, b) => {
-        // Assuming holidayDate is in the format that allows direct string comparison
-        return a.holidayDate.localeCompare(b.holidayDate);
+      ).then((res)=>{
+        const sortedHolidays = res.data.message.sort((a, b) => {
+          // Assuming holidayDate is in the format that allows direct string comparison
+          return a.holidayDate.localeCompare(b.holidayDate);
+        });
+        setAllHolidays(sortedHolidays);
       });
-      setAllHolidays(sortedHolidays);
-    };
+      // console.log(res.data);
+    // };
 
-    fetchQueries();
-    fetchHolidays();
-  }, []);
+    // fetchQueries();
+    // fetchHolidays();
+  }, [isAdminLoggedIn]);
 
   const handleRemoveHoliday = async (id) => {
     console.log(id);
