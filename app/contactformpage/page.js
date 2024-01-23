@@ -65,10 +65,17 @@ const Admin = () => {
 
   const handleAddHoliday = async (e) => {
     e.preventDefault();
+    if (!isAdminLoggedIn) return;
+    let token = window.localStorage.getItem('funworldLogin')
     const res = await axios.post(
       "https://funworld-backend-delta.vercel.app/api/holidays",
       {
         holiday: holiday,
+      },
+      {
+        headers: {
+          token: token
+        }
       }
     );
     const sortedHolidays = res.data.message.sort((a, b) => {
@@ -82,8 +89,15 @@ const Admin = () => {
 
   useEffect(() => {
     const fetchQueries = async () => {
+      if (!isAdminLoggedIn) return;
+      let token = window.localStorage.getItem('funworldLogin')
       const res = await axios.get(
-        "https://funworld-backend-delta.vercel.app/api/query/"
+        "https://funworld-backend-delta.vercel.app/api/query/",
+        {
+          headers: {
+            token: token
+          }
+        }
       );
       // console.log(res.data);
       const revArray = res.data.message.slice().reverse();
@@ -91,8 +105,15 @@ const Admin = () => {
     };
 
     const fetchHolidays = async () => {
+      if (!isAdminLoggedIn) return;
+      let token = window.localStorage.getItem('funworldLogin')
       const res = await axios.get(
-        "https://funworld-backend-delta.vercel.app/api/holidays/"
+        "https://funworld-backend-delta.vercel.app/api/holidays/",
+        {
+          headers: {
+            token: token
+          }
+        }
       );
       // console.log(res.data);
       const sortedHolidays = res.data.message.sort((a, b) => {
@@ -117,8 +138,10 @@ const Admin = () => {
     // Check if the user confirmed
     if (userConfirmed) {
       try {
+        if (!isAdminLoggedIn) return;
+        let token = window.localStorage.getItem('funworldLogin');
         const res = await axios.delete(
-          `https://funworld-backend-delta.vercel.app/api/holidays/${id}`
+          `https://funworld-backend-delta.vercel.app/api/holidays/${id}`, { headers: { token: token } }
         );
 
         if (res.data.status) {

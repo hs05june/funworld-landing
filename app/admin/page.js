@@ -33,8 +33,9 @@ const Admin = () => {
     useEffect(() => {
         const fetchSoldTickets = async () => {
             if (isAdminLoggedIn) {
+              let token = window.localStorage.getItem('funworldLogin')
                 try {
-                    const res = await axios.get("https://funworld-backend-delta.vercel.app/api/soldtickets");
+                    const res = await axios.get("https://funworld-backend-delta.vercel.app/api/soldtickets",{headers:{token:token}});
                     // console.log(res.data);
                     // setSoldTicketsArray(res.data);
                     let arr = res.data.sort((a, b) => b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate));
@@ -70,7 +71,8 @@ const Admin = () => {
         let ask = window.confirm('Do you want to delete?')
         if(!ask)return
         try{
-            const res = await axios.delete(`https://funworld-backend-delta.vercel.app/api/soldtickets?id=${id}`)
+            let token = window.localStorage.getItem('funworldLogin')
+            const res = await axios.delete(`https://funworld-backend-delta.vercel.app/api/soldtickets?id=${id}`,{headers:{token:token}})
             console.log(res)
             let tempArray = [...soldTicketsArray]
             tempArray.splice(index,1)
@@ -121,7 +123,8 @@ const Admin = () => {
     }
 
         try {
-            const res = await axios.put(`https://funworld-backend-delta.vercel.app/api/soldtickets?id=${soldTicketId}`, { tickets: updatedSoldTicketsArray[index].tickets });
+          let token = window.localStorage.getItem('funworldLogin')
+            const res = await axios.put(`https://funworld-backend-delta.vercel.app/api/soldtickets?id=${soldTicketId}`, { tickets: updatedSoldTicketsArray[index].tickets },{headers:{token:token}});
 
       // Assuming the API call was successful, update the state with the updated array
       setSoldTicketsArray(updatedSoldTicketsArray);
