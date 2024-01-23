@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/Repeating/Navbar";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import Head from "next/head";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,31 +19,12 @@ export default function RootLayout({ children }) {
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       <html lang="en">
-        <GoogleAnalytics GA_TRACKING_ID={'GTM-MTC3R6J3'} />
-        <title>Funworld </title>
-        {/* {typeof window !== "undefined" && (
-          <AnimatedCursor
-            innerSize={8}
-            outerSize={24}
-            color="0,0,0"
-            outerAlpha={0.2}
-            innerScale={0.7}
-            outerScale={2}
-            clickables={[
-              "a",
-              'input[type="text"]',
-              'input[type="email"]',
-              'input[type="number"]',
-              'input[type="submit"]',
-              'input[type="image"]',
-              "label[for]",
-              "select",
-              "textarea",
-              "button",
-              ".link",
-            ]}
-          />
-        )} */}
+        <Head>
+          <title>{metadata.title}</title>
+          <meta name="description" content={metadata.description} />
+          {/* Other meta tags can be added here if needed */}
+        </Head>
+        <GoogleAnalytics GA_TRACKING_ID={"GTM-MTC3R6J3"} />
         <body className={`${inter.className} relative overflow-x-hidden`}>
           <Navbar />
           {children}
