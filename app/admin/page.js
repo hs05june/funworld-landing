@@ -35,7 +35,7 @@ const Admin = () => {
             if (isAdminLoggedIn) {
               let token = window.localStorage.getItem('funworldLogin')
                 try {
-                    const res = await axios.get("https://funworld-backend-delta.vercel.app/api/soldtickets",{headers:{token:token}});
+                    const res = await axios.get("https://funworld-backend-delta.vercel.app/api/soldtickets");
                     // console.log(res.data);
                     // setSoldTicketsArray(res.data);
                     let arr = res.data.sort((a, b) => b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate));
