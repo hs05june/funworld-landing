@@ -208,6 +208,7 @@ const TicketsPage = () => {
         },
         notes: {
           info: JSON.stringify(info), // Convert the object to a JSON string
+          bookingDetails: JSON.stringify(bookingDetails)
         },
         theme: {
           color: "#3399cc",
