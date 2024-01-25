@@ -192,7 +192,8 @@ const TicketsPage = () => {
       const order = res.data.order;
 
       var options = {
-        key: "rzp_live_I288ODVatA9yrx", // Enter the Key ID generated from the Dashboard
+        // key: "rzp_live_I288ODVatA9yrx",
+        key: "rzp_test_jXxR67FCNWfnVg", // Enter the Key ID generated from the Dashboard
         amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: "INR",
         name: "Funworld Bangalore", //your business name
