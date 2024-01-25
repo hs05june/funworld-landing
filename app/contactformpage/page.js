@@ -92,13 +92,7 @@ const Admin = () => {
       if (!isAdminLoggedIn) return;
       let token = window.localStorage.getItem('funworldLogin')
       axios.get(
-        "https://funworld-backend-delta.vercel.app/api/query/",
-        {
-          headers: {
-            token: token
-          }
-        }
-      ).then((res)=>{
+        "https://funworld-backend-delta.vercel.app/api/query/").then((res)=>{
         const revArray = res.data.message.slice().reverse();
         setSubmissions(revArray);
       });
@@ -108,13 +102,7 @@ const Admin = () => {
       // if (!isAdminLoggedIn) return;
       // let token = window.localStorage.getItem('funworldLogin')
       axios.get(
-        "https://funworld-backend-delta.vercel.app/api/holidays/",
-        {
-          headers: {
-            token: token
-          }
-        }
-      ).then((res)=>{
+        "https://funworld-backend-delta.vercel.app/api/holidays/").then((res)=>{
         const sortedHolidays = res.data.message.sort((a, b) => {
           // Assuming holidayDate is in the format that allows direct string comparison
           return a.holidayDate.localeCompare(b.holidayDate);
