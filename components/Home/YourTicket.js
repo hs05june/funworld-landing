@@ -331,7 +331,7 @@ const YourTicket = () => {
                     <Image
                       className="h-full w-full"
                       src={
-                        "https://funworldblr.s3.amazonaws.com/public/Amusement/Nfamilyrides.jpg"
+                        "https://funworldblr.s3.amazonaws.com/public/Rides/Nfamilyrides-min.jpg"
                       }
                       width={1500}
                       height={1000}
