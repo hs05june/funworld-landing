@@ -15,7 +15,7 @@ const Admin = () => {
       if (email && password) {
         axios
           .post(
-            "https://funworld-backend-delta.vercel.app/api/auth/admin",
+            "https://free.funworldbackend.tech/api/auth/admin",
             {
               email: email,
               password: password,
@@ -46,7 +46,7 @@ const Admin = () => {
   const verifyCredentials = async (email, password) => {
     try {
       const res = await axios.post(
-        "https://funworld-backend-delta.vercel.app/api/auth/admin",
+        "https://free.funworldbackend.tech/api/auth/admin",
         {
           email: email,
           password: password,
@@ -68,7 +68,7 @@ const Admin = () => {
     if (!isAdminLoggedIn) return;
     let token = window.localStorage.getItem('funworldLogin')
     const res = await axios.post(
-      "https://funworld-backend-delta.vercel.app/api/holidays",
+      "https://free.funworldbackend.tech/api/holidays",
       {
         holiday: holiday,
       },
@@ -92,13 +92,7 @@ const Admin = () => {
       if (!isAdminLoggedIn) return;
       let token = window.localStorage.getItem('funworldLogin')
       axios.get(
-        "https://funworld-backend-delta.vercel.app/api/query/",
-        {
-          headers: {
-            token: token
-          }
-        }
-      ).then((res)=>{
+        "https://free.funworldbackend.tech/api/query/").then((res)=>{
         const revArray = res.data.message.slice().reverse();
         setSubmissions(revArray);
       });
@@ -108,13 +102,7 @@ const Admin = () => {
       // if (!isAdminLoggedIn) return;
       // let token = window.localStorage.getItem('funworldLogin')
       axios.get(
-        "https://funworld-backend-delta.vercel.app/api/holidays/",
-        {
-          headers: {
-            token: token
-          }
-        }
-      ).then((res)=>{
+        "https://free.funworldbackend.tech/api/holidays/").then((res)=>{
         const sortedHolidays = res.data.message.sort((a, b) => {
           // Assuming holidayDate is in the format that allows direct string comparison
           return a.holidayDate.localeCompare(b.holidayDate);
@@ -142,7 +130,7 @@ const Admin = () => {
         if (!isAdminLoggedIn) return;
         let token = window.localStorage.getItem('funworldLogin');
         const res = await axios.delete(
-          `https://funworld-backend-delta.vercel.app/api/holidays/${id}`, { headers: { token: token } }
+          `https://free.funworldbackend.tech/api/holidays/${id}`, { headers: { token: token } }
         );
 
         if (res.data.status) {
