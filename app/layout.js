@@ -3,7 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Repeating/Navbar";
 import Script from "next/script";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { GoogleTagManager } from '@next/third-parties/google'
 import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +24,8 @@ export default function RootLayout({ children }) {
           <meta name="description" content={metadata.description} />
           {/* Other meta tags can be added here if needed */}
         </Head>
-        <GoogleAnalytics GA_TRACKING_ID={"GTM-MTC3R6J3"} />
+        {/* <GoogleAnalytics GA_TRACKING_ID={"GTM-MTC3R6J3"} /> */}
+        <GoogleTagManager gtmId="GTM-MTC3R6J3" />
         <body className={`${inter.className} relative overflow-x-hidden`}>
           <Navbar />
           {children}
