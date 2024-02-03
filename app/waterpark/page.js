@@ -391,6 +391,7 @@ const WaterFourth = () => {
 
   return (
     <div className="max-md:w-[100%]">
+
       <div className="flex max-md:flex-col justify-between w-[90%] xl:w-[60%] md:w-[90%] mx-auto md:h-[20%]">
         <p className="text-left lg:text-[2.5rem] md:text-[2rem] md:mb-0 mb-3 text-[1.5rem] lg:mr-6  font-[600] max-md:text-center">
           You Can&apos;t Resist Coming to Water World

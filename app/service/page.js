@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Box, Button, Card, Typography } from "@mui/material";
 import {
@@ -10,6 +11,8 @@ import {
 } from "react-icons/md";
 import { BsBook, BsFillTelephoneFill } from "react-icons/bs";
 import { IoMdMail } from "react-icons/io";
+import axios from "axios";
+
 
 //First Service Card
 const ServiceFirst = () => {
@@ -54,6 +57,7 @@ const ServiceFirst = () => {
 
       <div className="flex lg:flex-row flex-col-reverse w-full lg:h-[50%] justify-between max-lg:gap-5">
         <div className="lg:w-[50%] lg:items-center lg:justify-center gap-5 flex flex-col">
+
           <span className="text-xl font-bold md:text-2xl xl:text-3xl text-[#252525] md:px-10 text-left px-2">
             Water Park Ride Manufacturing
           </span>
@@ -83,12 +87,14 @@ const ServiceFirst = () => {
 const ServiceSecond = () => {
   return (
     <div className="w-full">
+
       <div className="flex-1 top-[30%] xl:top-[25%] absolute -z-10 max-xl:hidden">
         <img
           src={"https://funworldblr.s3.amazonaws.com/public/Service/swing.jpg"}
           className="mt-[400px] w-[100vw]"
           alt="water gun"
         />
+
       </div>
       <div className="xl:bg-[#F3E6DE] xl:w-[90vw] xl:px-20 xl:py-20 lg:py-32 py-10 flex max-xl:flex-col xl:relative lg:top-[30vh] xl:top-[40vh] lg:left-[12vw] lg:gap-14 xl:rounded-tl-[3rem] md:gap-8 gap-4">
         <Box className=" flex flex-col md:gap-16 gap-8">
@@ -103,7 +109,9 @@ const ServiceSecond = () => {
               <MdPark className="xl:text-6xl md:text-5xl md:w-12 bg-white xl:w-16 p-2 rounded-full" />
 
               <div className="w-[80%] ml-2 xl:space-y-3 space-y-1">
+
                 <Typography className="font-bold font-sans text-[#0B1A48] xl:text-3xl md:text-2xl text-[20px]">
+
                   Customized Park Experiences
                 </Typography>
                 <Typography className="text-[#5B5B5B] font-sans font-[500] md:text-lg text-base">
@@ -112,6 +120,7 @@ const ServiceSecond = () => {
                   visitors&apos; experiences.
                 </Typography>
               </div>
+
             </div>
 
             <div className="flex gap-2">
@@ -156,6 +165,7 @@ const ServiceSecond = () => {
             the readable content of a page when looking!
           </Typography>
 
+
           <div className="flex gap-3 lg:text-start text-center">
             {/* MdHealthAndSafety */}
             <MdHealthAndSafety className="xl:text-6xl md:text-5xl md:w-12 bg-white xl:w-16 p-2 rounded-full" />
@@ -170,6 +180,7 @@ const ServiceSecond = () => {
               </Typography>
             </div>
           </div>
+
 
           <div className="flex gap-3 lg:text-start text-center">
             {/* GrTechnology */}
@@ -193,6 +204,7 @@ const ServiceSecond = () => {
 
 // Third Service Card
 const ServiceThird = () => {
+
   // const CssTextField = withStyles({
   //     root: {
   //       '& label.Mui-focused': {
@@ -223,6 +235,7 @@ const ServiceThird = () => {
       <Box className="lg:space-y-10 flex-1 py-10 space-y-5">
         <Typography
           variant="h4"
+
           className="text-center text-[#0B1A48] font-[565] font-sans xl:text-5xl lg:px-[15vw] lg:text-4xl md:text-3xl xl:px-[20vw] text-[28px]"
         >
           Consulting and Holistic Project Management
@@ -253,6 +266,7 @@ const ServiceThird = () => {
             Whether it&apos;s creativity, feasibility, or timely execution,
             we&apos;re devoted to bringing your vision to life.
           </Typography>
+
           <Box>
             <div className=" flex justify-between">
               <input
@@ -401,6 +415,7 @@ const ServiceLast = () => {
       <div className="flex flex-col h-[10%] justify-evenly">
         <Typography
           variant="h3"
+
           className="text-center max-lg:text-3xl mb-4 max-lg:font-[600]"
         >
           Our Services
@@ -546,6 +561,7 @@ const Service = () => {
         </section>
 
         <section className="w-full flex flex-col gap-3 md:gap-5">
+
           <div className="mt-12 lg:mt-32 font-dm-sans lg:font-[500] font-[600] text-center text-[#0B1A48] text-[28px] md:text-2xl mx-2 lg:text-4xl xl:text-6xl">
             Theme Park Ride Manufacturing
           </div>
@@ -555,6 +571,7 @@ const Service = () => {
             to offer B2B amusement park services according to your needs.
           </div>
         </section>
+
 
         <section className="lg:min-h-[50vh] min-h-[40vh] lg:mt-12 mt-6 w-full flex items-center justify-center lg:gap-0 gap-8 flex-col lg:mb-[130px]">
           <div className="flex lg:flex-row flex-col items-center justify-center lg:gap-0 gap-6">
@@ -574,6 +591,7 @@ const Service = () => {
           <div className="flex lg:flex-row-reverse flex-col items-center justify-center lg:gap-0 gap-6">
             <div className='lg:flex-1 lg:w-[40vw] lg:h-[70vh] h-[400px] w-[80vw] bg-cover bg-center bg-no-repeat lg:px-16 bg-[url("https://funworldblr.s3.amazonaws.com/public/About/fun2.jpeg")]'></div>
 
+
             <div className='flex-1 flex justify-center flex-col gap-4 px-16 lg:w-[40vw] w-full h-[70vh] bg-green-500 bg-[url("https://funworldblr.s3.amazonaws.com/public/Service/gradient.jpg")]'>
               <h3 className="lg:text-[42px] lg:leading-[46px] md:text-[32px] md:leading-[35px] text-[25px] leading-[27px] text-[#252525] font-[550] lg:text-start text-center">
                 Water Park Ride Manufacturing
@@ -586,6 +604,7 @@ const Service = () => {
             </div>
           </div>
         </section>
+
 
         <section className="w-full md:h-auto flex flex-col items-center">
           <ServiceSecond />
