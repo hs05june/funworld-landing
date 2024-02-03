@@ -116,7 +116,7 @@ const YourTicket = () => {
         <div
           className="flex flex-col items-center justify-center lg:gap-16 md:gap-8 gap-4"
           //  ref={divRef} style={divProps}
-         >
+        >
           <h2 className="xl:text-[62px] xl:leading-[68px] lg:text-[45px] lg:leading-[47px] md:text-[32px] md:leading-[34px] text-[24px] leading-[24px] text-[#0B1A48] mb-6 font-[620] text-center px-4">
             Splash, Spin, Soar: Your Ultimate
             <br /> Family Escape Awaits!
@@ -125,7 +125,7 @@ const YourTicket = () => {
           <div className="lg:block hidden">
             <div
               className={`flex lg:flex-row flex-col  lg:items-center justify-around xl:gap-4 lg:gap-2 gap-4 xl:text-[23px] xl:leading-[25px] lg:text-[19px] md:text-[17px] text-[15px] font-[620] text-[#2A324A]`}
-             >
+            >
               <button
                 onClick={() => {
                   handleCompChange(1);
@@ -189,7 +189,7 @@ const YourTicket = () => {
                     <Image
                       className="h-full w-full"
                       src={
-                        "https://funworldblr.s3.amazonaws.com/public/Amusement/Nadrides.jpg"
+                        "https://funworldblr.s3.amazonaws.com/public/Rides/Nadrides-min.jpg"
                       }
                       width={1500}
                       height={1000}
@@ -260,7 +260,7 @@ const YourTicket = () => {
                     <Image
                       className="h-full w-full"
                       src={
-                        "https://funworldblr.s3.amazonaws.com/public/Amusement/Nwaterrides2.jpg"
+                        "https://funworldblr.s3.amazonaws.com/public/Rides/Nwaterrides2-min.jpg"
                       }
                       width={1500}
                       height={1000}
