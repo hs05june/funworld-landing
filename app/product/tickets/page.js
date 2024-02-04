@@ -153,9 +153,13 @@ const TicketsPage = () => {
 
     // setPage(3);
     try {
-      const res = await axios.post("https://free.funworldbackend.tech/api/soldtickets", {
-        userDetails: bookingDetails, bookingInfo: info
-      })
+      const res = await axios.post(
+        "https://free.funworldbackend.tech/api/soldtickets",
+        {
+          userDetails: bookingDetails,
+          bookingInfo: info,
+        }
+      );
 
       // console.log(res.data.status);
       if (res.data.status) {
@@ -209,7 +213,7 @@ const TicketsPage = () => {
         },
         notes: {
           info: JSON.stringify(info), // Convert the object to a JSON string
-          bookingDetails: JSON.stringify(bookingDetails)
+          bookingDetails: JSON.stringify(bookingDetails),
         },
         theme: {
           color: "#3399cc",
@@ -298,37 +302,6 @@ const TicketsPage = () => {
       return;
     }
   };
-
-  const statesOfIndia = [
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chhattisgarh",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Odisha",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Tamil Nadu",
-    "Telangana",
-    "Tripura",
-    "Uttar Pradesh",
-    "Uttarakhand",
-    "West Bengal",
-  ];
 
   useEffect(() => {
     if (info.child + info.adult + info.senior > 0 && info.visitDate)
