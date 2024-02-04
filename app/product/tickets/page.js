@@ -17,14 +17,3 @@ const RedirectPage = () => {
 };
 
 export default RedirectPage;
-
-// Optional: If you want to preserve the URL structure in the browser's address bar
-RedirectPage.getInitialProps = ({ res }) => {
-  // Server-side redirection
-  if (res) {
-    res.writeHead(302, { Location: "/tickets" });
-    res.end();
-  }
-
-  return {};
-};
