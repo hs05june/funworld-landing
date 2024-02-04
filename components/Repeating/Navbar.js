@@ -190,7 +190,7 @@ const Navbar = () => {
 
               <div className="flex gap-4 items-center">
                 <div className="h-[25px] w-[2px] bg-gray-500"></div>
-                <Link href="/tickets">
+                <Link href="/product/tickets">
                   <ProceedBtn text={"Buy Tickets"} />
                 </Link>
               </div>
@@ -215,7 +215,7 @@ const Navbar = () => {
             {/* <div>
               <Image width={150} height={60} src={buy} alt="buy tickets button" />
             </div> */}
-            <Link href="/tickets">
+            <Link href="/product/tickets">
               <button
                 className="p-2 px-6 buyTicketsBtn text-white"
                 onClick={() => {
@@ -399,9 +399,6 @@ const Navbar = () => {
                 </motion.ul>
               </motion.nav>
             </div> */}
-            {/* <Link href="/tickets">
-              <button className='p-2 px-6 buyTicketsBtn text-white' onClick={() => { setIsNavOpen(false) }}>Buy Tickets</button>
-            </Link> */}
           </div>
         </div>
       </div>
