@@ -190,7 +190,7 @@ const Navbar = () => {
 
               <div className="flex gap-4 items-center">
                 <div className="h-[25px] w-[2px] bg-gray-500"></div>
-                <Link href="/product/tickets">
+                <Link href="/tickets">
                   <ProceedBtn text={"Buy Tickets"} />
                 </Link>
               </div>
@@ -215,7 +215,7 @@ const Navbar = () => {
             {/* <div>
               <Image width={150} height={60} src={buy} alt="buy tickets button" />
             </div> */}
-            <Link href="/product/tickets">
+            <Link href="/tickets">
               <button
                 className="p-2 px-6 buyTicketsBtn text-white"
                 onClick={() => {

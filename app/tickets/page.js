@@ -14,6 +14,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 const TicketsPage = () => {
   const [cartArray, setCartArray] = useState([]);
   const [value, onChange] = useState(new Date());
+  const [isAfter5pm, setIsAfter5pm] = useState(false);
 
   const [coupon, setCoupon] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
@@ -67,42 +68,6 @@ const TicketsPage = () => {
       return updatedInfo;
     });
   };
-
-  // const handleCartClick = () => {
-  //   if (info.visitDate && ((info.child + info.senior + info.adult) > 0)) {
-  //     const cart = JSON.parse(localStorage.getItem('cart'));
-  //     // // console.log(ticketData)
-  //     // // console.log(cart)
-  //     cart.push(info);
-  //     // // console.log(cart)
-  //     localStorage.setItem('cart', JSON.stringify(cart));
-
-  //     const updatedInfo = {
-  //       ...info,
-  //       ['child']: 0,
-  //       ['senior']: 0,
-  //       ['adult']: 0,
-  //       ['visitDate']: formattedCurrentDate,
-  //     };
-
-  //     setInfo(updatedInfo);
-  //     // console.log(updatedInfo)
-  //     localStorage.setItem('currentTicket', JSON.stringify(updatedInfo));
-
-  //     setCartArray(cart);
-  //     // console.log(cartArray)
-  //   } else {
-  //     window.alert("Please add the date and atleast one ticket out of child, adult or senior before adding to cart");
-  //   }
-  // };
-
-  // const removeTicket = (index) => {
-  //   const cart = JSON.parse(localStorage.getItem('cart'));
-  //   cart.splice(index, 1);
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  //   setCartArray(cart);
-
-  // }
 
   useEffect(() => {
     setInfo((prev) => {
@@ -363,6 +328,41 @@ const TicketsPage = () => {
     }, 500);
   };
 
+  useEffect(() => {
+    const checkTime = () => {
+      const now = new Date();
+      const istOptions = { timeZone: "Asia/Kolkata" };
+
+      const formattedTime = now.toLocaleTimeString("en-US", istOptions);
+
+      const lastTwoCharacters = formattedTime.slice(-2);
+
+      const [hours, minutes, seconds] = formattedTime.split(":");
+
+      let isAfter5pmIST = false;
+
+      if (lastTwoCharacters === "PM") {
+        isAfter5pmIST = parseInt(hours, 10) + 12 >= 17;
+      } else {
+        isAfter5pmIST = parseInt(hours, 10) >= 17;
+      }
+
+      if (isAfter5pmIST) {
+        handleDateChange(formattedNextDay);
+      }
+
+      setIsAfter5pm(isAfter5pmIST);
+    };
+
+    checkTime();
+
+    // Check time every minute
+    const intervalId = setInterval(checkTime, 60000);
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div className="min-h-screen w-screen flex flex-col select-none	">
       <section className="w-full min-h-[400px] relative max-lg:min-h-[400px] max-xl:min-h-[400px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]">
@@ -498,22 +498,24 @@ const TicketsPage = () => {
         <div className="flex flex-col gap-8">
           <section className="flex items-center justify-center mt-4 lg:mt-24 xl:mt-40 2xl:mt-60 3xl:mt-80">
             <div className="md:w-[60vw] w-[80vw] min-h-[180px] bg-[#FFEEF6] rounded-2xl justify-around items-center gap-4 py-4">
-              <div className="flex flex-col items-center gap-5 md:flex-row">
-                <div
-                  onClick={() => handleDateChange(formattedCurrentDate)}
-                  className={`w-[220px] md:w-1/3 md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${
-                    info.visitDate === formattedCurrentDate
-                      ? "buyTicketsBtn3"
-                      : ""
-                  } `}
-                >
-                  <span className="md:relative md:bottom-4">
-                    Today
-                    <br />
-                    {formattedCurrentDate} <br />
-                    {findDayOfWeek(formattedCurrentDate)}
-                  </span>
-                </div>
+              <div className="flex flex-col items-center justify-around gap-5 md:flex-row">
+                {isAfter5pm ? null : (
+                  <div
+                    onClick={() => handleDateChange(formattedCurrentDate)}
+                    className={`w-[220px] md:w-1/3 md:h-[130px] h-[80px] bg-[#0B1A48] text-white text-xs font-bold md:text-xl shadow-xl hover:scale-105 transition-all rounded-xl ease cursor-pointer flex flex-col gap-4 md:p-6 md:pt-8 pt-3 items-center text-center ${
+                      info.visitDate === formattedCurrentDate
+                        ? "buyTicketsBtn3"
+                        : ""
+                    } `}
+                  >
+                    <span className="md:relative md:bottom-4 ">
+                      Today
+                      <br />
+                      {formattedCurrentDate} <br />
+                      {findDayOfWeek(formattedCurrentDate)}
+                    </span>
+                  </div>
+                )}
 
                 <div
                   onClick={() => handleDateChange(formattedNextDay)}
