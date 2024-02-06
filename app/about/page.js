@@ -299,7 +299,7 @@ const AboutThird = () => {
             variant="h5"
             className="font-bold text-[5vw] md:text-[2rem]"
           >
-            INR 1199 <span className="text-[16px]">on weekends</span>, INR 1499{" "}
+            INR 1499 <span className="text-[16px]">on weekends</span>, INR 1199{" "}
             <span className="text-[16px]">on weekdays</span>
           </Typography>
 
@@ -355,7 +355,7 @@ const AboutThird = () => {
           >
             INR 999 <span className="text-[16px]">for kids</span>, INR 999{" "}
             <span className="text-[16px]">for senior citizens and </span>
-            INR 1199 <span className="text-[16px]">for adults</span>
+            INR 1499 <span className="text-[16px]">for adults</span>
           </Typography>
 
           <Typography className="text-[4vw] md:text-[1rem]">
@@ -590,7 +590,6 @@ const About = () => {
         </section>
 
         <div className="lg:px-[15vw] md:px-[10vw] lg:mt-32 md:mt-16 mt-6 px-[7vw] relative flex flex-col lg:gap-12 gap-6 items-center">
-
           <p className="lg:text-[22px] text-center md:text-[22px] text-sm md:leading-[29px] text-[#5B5B5B]">
             Since its establishment in 1990, this wide 24-acre wonderland has
             been dedicated to crafting unforgettable moments of joy, laughter,
