@@ -3,15 +3,16 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Repeating/Navbar";
 import Script from "next/script";
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from "@next/third-parties/google";
 import Head from "next/head";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Funworld Bangalore - Premier Amusement & Water Park Adventures",
+  title: "Funworld Bangalore - Premier Amusement & Water Park",
   description:
-    "Prepare to be amazed by the incredible park attractions at our amusement park in Bangalore. From thrilling rides to captivating shows, there's something for everyone to enjoy. Get ready to experience a world of fun and create memories that will last a lifetime at Fun World!",
+    "Discover endless fun at Funworld Bangalore with thrilling rides and captivating shows for all. Create lasting memories in this exciting amusement park, your ultimate destination for family enjoyment!",
 };
 
 export default function RootLayout({ children }) {
