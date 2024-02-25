@@ -341,7 +341,9 @@ const TicketsPage = () => {
 
       let isAfter5pmIST = false;
 
-      if (lastTwoCharacters === "PM") {
+      console.log(parseInt(hours, 10));
+
+      if (lastTwoCharacters === "PM" && parseInt(hours, 10) != 12) {
         isAfter5pmIST = parseInt(hours, 10) + 12 >= 17;
       } else {
         isAfter5pmIST = parseInt(hours, 10) >= 17;
@@ -350,6 +352,7 @@ const TicketsPage = () => {
       if (isAfter5pmIST) {
         handleDateChange(formattedNextDay);
       }
+      console.log(isAfter5pmIST);
 
       setIsAfter5pm(isAfter5pmIST);
     };
