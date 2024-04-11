@@ -16,11 +16,10 @@ export default function Home() {
       if (!acceptedTerms) {
         Swal.fire({
           title: "Please Note!",
-          html: "<p>Nylon swim clothes are <b>mandtory</b><br />to enter Water World.</p>",
+          html: "<p>Nylon swim clothes are <b>mandatory</b><br />to enter Water World.</p>",
           icon: "info",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
           confirmButtonText: "OK!",
         }).then((result) => {
           if (result.isConfirmed) {
