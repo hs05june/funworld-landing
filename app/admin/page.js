@@ -18,7 +18,7 @@ const Admin = () => {
       let { email, password } = jwt.decode(token1);
       if (email && password) {
         axios
-          .post("https://funworld-backend.vercel.app/api/auth/admin", {
+          .post("https://free.funworldbackend.tech//api/auth/admin", {
             email: email,
             password: password,
           })
@@ -38,7 +38,7 @@ const Admin = () => {
         let token = window.localStorage.getItem("funworldLogin");
         try {
           const res = await axios.get(
-            "https://funworld-backend.vercel.app/api/soldtickets"
+            "https://free.funworldbackend.tech//api/soldtickets"
           );
           // console.log(res.data);
           // setSoldTicketsArray(res.data);
@@ -75,7 +75,7 @@ const Admin = () => {
     try {
       let token = window.localStorage.getItem("funworldLogin");
       const res = await axios.delete(
-        `https://funworld-backend.vercel.app/api/soldtickets?id=${id}`,
+        `https://free.funworldbackend.tech//api/soldtickets?id=${id}`,
         { headers: { token: token } }
       );
       console.log(res);
@@ -96,7 +96,7 @@ const Admin = () => {
   const verifyCredentials = async (email, password) => {
     try {
       const res = await axios.post(
-        "https://funworld-backend.vercel.app/api/auth/admin",
+        "https://free.funworldbackend.tech//api/auth/admin",
         {
           email: email,
           password: password,
@@ -132,7 +132,7 @@ const Admin = () => {
     try {
       let token = window.localStorage.getItem("funworldLogin");
       const res = await axios.put(
-        `https://funworld-backend.vercel.app/api/soldtickets?id=${soldTicketId}`,
+        `https://free.funworldbackend.tech//api/soldtickets?id=${soldTicketId}`,
         { tickets: updatedSoldTicketsArray[index].tickets },
         { headers: { token: token } }
       );
