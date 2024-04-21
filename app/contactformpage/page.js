@@ -14,7 +14,7 @@ const Admin = () => {
       let { email, password } = jwt.decode(token1);
       if (email && password) {
         axios
-          .post("https://free.funworldbackend.tech//api/auth/admin", {
+          .post("https://free.funworldbackend.tech/api/auth/admin", {
             email: email,
             password: password,
           })
@@ -43,7 +43,7 @@ const Admin = () => {
   const verifyCredentials = async (email, password) => {
     try {
       const res = await axios.post(
-        "https://free.funworldbackend.tech//api/auth/admin",
+        "https://free.funworldbackend.tech/api/auth/admin",
         {
           email: email,
           password: password,
@@ -65,7 +65,7 @@ const Admin = () => {
     if (!isAdminLoggedIn) return;
     let token = window.localStorage.getItem("funworldLogin");
     const res = await axios.post(
-      "https://free.funworldbackend.tech//api/holidays",
+      "https://free.funworldbackend.tech/api/holidays",
       {
         holiday: holiday,
       },
@@ -88,7 +88,7 @@ const Admin = () => {
     // const fetchQueries = async () => {
     if (!isAdminLoggedIn) return;
     let token = window.localStorage.getItem("funworldLogin");
-    axios.get("https://free.funworldbackend.tech//api/query/").then((res) => {
+    axios.get("https://free.funworldbackend.tech/api/query/").then((res) => {
       const revArray = res.data.message.slice().reverse();
       setSubmissions(revArray);
     });
@@ -97,15 +97,13 @@ const Admin = () => {
     // const fetchHolidays = async () => {
     // if (!isAdminLoggedIn) return;
     // let token = window.localStorage.getItem('funworldLogin')
-    axios
-      .get("https://free.funworldbackend.tech//api/holidays/")
-      .then((res) => {
-        const sortedHolidays = res.data.message.sort((a, b) => {
-          // Assuming holidayDate is in the format that allows direct string comparison
-          return a.holidayDate.localeCompare(b.holidayDate);
-        });
-        setAllHolidays(sortedHolidays);
+    axios.get("https://free.funworldbackend.tech/api/holidays/").then((res) => {
+      const sortedHolidays = res.data.message.sort((a, b) => {
+        // Assuming holidayDate is in the format that allows direct string comparison
+        return a.holidayDate.localeCompare(b.holidayDate);
       });
+      setAllHolidays(sortedHolidays);
+    });
     // console.log(res.data);
     // };
 
@@ -127,7 +125,7 @@ const Admin = () => {
         if (!isAdminLoggedIn) return;
         let token = window.localStorage.getItem("funworldLogin");
         const res = await axios.delete(
-          `https://free.funworldbackend.tech//api/holidays/${id}`,
+          `https://free.funworldbackend.tech/api/holidays/${id}`,
           { headers: { token: token } }
         );
 
