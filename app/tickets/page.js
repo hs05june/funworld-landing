@@ -43,13 +43,13 @@ const TicketsPage = () => {
     senior: 0,
   });
 
-  useEffect(() => {
-    const storedTicket = localStorage.getItem("currentTicket");
-    if (storedTicket) {
-      const parsedTicket = JSON.parse(storedTicket);
-      setInfo(parsedTicket);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedTicket = localStorage.getItem("currentTicket");
+  //   if (storedTicket) {
+  //     const parsedTicket = JSON.parse(storedTicket);
+  //     setInfo(parsedTicket);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (targetComponent.current) {
@@ -63,7 +63,7 @@ const TicketsPage = () => {
   const handleDateChange = (date) => {
     setInfo((prev) => {
       const updatedInfo = { ...prev, ["visitDate"]: date };
-      localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
+      // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
       // console.log(updatedInfo)
       return updatedInfo;
     });
@@ -72,7 +72,7 @@ const TicketsPage = () => {
   useEffect(() => {
     setInfo((prev) => {
       const updatedInfo = { ...prev, ["visitDate"]: formattedCurrentDate };
-      localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
+      // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
       // console.log(updatedInfo)
       return updatedInfo;
     });
@@ -130,7 +130,7 @@ const TicketsPage = () => {
       if (res.data.status) {
         setTicketId(res.data.message._id);
         setPage(2);
-        localStorage.setItem("userDetails", JSON.stringify(bookingDetails));
+        // localStorage.setItem("userDetails", JSON.stringify(bookingDetails));
       } else {
         window.alert("Some Error occured please try again later");
         setPage(1);
@@ -234,7 +234,8 @@ const TicketsPage = () => {
     if (
       code === "10SUMMEROFF" ||
       code === "20GOVTOFF" ||
-      code === "30STUDENTOFF"
+      code === "30STUDENTOFF" ||
+      code === "testing12345"
     ) {
       try {
         // const res = await axios.post(
@@ -252,6 +253,8 @@ const TicketsPage = () => {
           discount = 0.2;
         } else if (code === "30STUDENTOFF") {
           discount = 0.3;
+        } else if (code === "testing12345") {
+          discount = 0.999;
         }
         let roundedDiscount = Math.round(checkoutPrice * discount);
         const newCheckoutPrice = checkoutPrice - roundedDiscount;
@@ -291,14 +294,14 @@ const TicketsPage = () => {
     if (action === "inc") {
       setInfo((prev) => {
         const updatedInfo = { ...prev, [type]: prev[type] + 1 };
-        localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
+        // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
         return updatedInfo;
       });
     } else {
       if (info[type] > 0) {
         setInfo((prev) => {
           const updatedInfo = { ...prev, [type]: prev[type] - 1 };
-          localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
+          // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
           return updatedInfo;
         });
       }
@@ -316,10 +319,10 @@ const TicketsPage = () => {
   // This effect retrieves data from localStorage when the component mounts,
   // and updates the bookingDetails state if there's data available.
 
-  useEffect(() => {
-    const userDetails = JSON.parse(localStorage.getItem("userDetails"));
-    if (userDetails) setBookingDetails(userDetails);
-  }, []);
+  // useEffect(() => {
+  //   const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+  //   if (userDetails) setBookingDetails(userDetails);
+  // }, []);
 
   const handleCouponClickCall = (coupon) => {
     setCoupon(coupon);
@@ -1048,7 +1051,7 @@ const TicketsPage = () => {
                   "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
                 }
                 alt="abc"
-              />
+              ></img>
             </span>
             <p>
               Child Ticket is not applicable for children below 80 cms. Child
@@ -1056,6 +1059,7 @@ const TicketsPage = () => {
               height only.
             </p>
           </div>
+
           <div className="flex gap-4">
             <span className="h-[40px] flex justify-center items-center w-[40px]">
               <img
@@ -1070,6 +1074,7 @@ const TicketsPage = () => {
               under any circumstances.
             </p>
           </div>
+
           <div className="flex gap-4">
             <span className="h-[40px] flex justify-center items-center w-[40px]">
               <img
@@ -1081,6 +1086,7 @@ const TicketsPage = () => {
             </span>
             <p>Please wear masks at all times.</p>
           </div>
+
           <div className="flex gap-4">
             <span className="h-[40px] flex justify-center items-center w-[40px]">
               <img
@@ -1095,33 +1101,31 @@ const TicketsPage = () => {
               Pm) and Waterworld (10:30 Am – 5:00 Pm){" "}
             </p>
           </div>
+
           <div className="flex gap-4">
             <span className="h-[40px] flex justify-center items-center w-[40px]">
               <img
-                src={
-                  "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                }
+                src="https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
                 alt="abc"
-              />
+              ></img>
             </span>
             <p>
               All Government and Public Holidays – Weekend Ticket Prices
               applicable.
             </p>
           </div>
+
           <div className="flex gap-4">
             <span className="h-[40px] flex justify-center items-center w-[40px]">
               <img
-                src={
-                  "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                }
+                src="https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
                 alt="abc"
-              />
+              ></img>
+              <p>
+                STUDENT Discount if used, Must Carry a Valid Student ID Card for
+                verification. Valid only for School & College Students.
+              </p>
             </span>
-            <p>
-              STUDENT Discount if used, Must Carry a Valid Student ID Card for
-              verification. Valid only for School & College Students.
-            </p>
           </div>
         </div>
       </div>

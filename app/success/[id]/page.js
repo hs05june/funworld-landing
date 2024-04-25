@@ -11,7 +11,7 @@ const Success = ({ params }) => {
       .then((res) => {
         setTicket(res.data.message);
         // console.log(res.data.message);
-        window.localStorage.setItem("cart", JSON.stringify([]));
+        // window.localStorage.setItem("cart", JSON.stringify([]));
         // console.log(res.data.message)
       })
       .catch((err) => {
