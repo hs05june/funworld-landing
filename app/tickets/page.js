@@ -227,8 +227,6 @@ const TicketsPage = () => {
   const [discountPrice, setDiscountPrice] = useState(0);
 
   const checkCoupon = async (code) => {
-    // console.log("Checking coupon");
-    // console.log(code);
     if (checkoutPrice < 999) {
       window.alert("Please add more items in the cart to avail the discount");
       return;
@@ -239,24 +237,27 @@ const TicketsPage = () => {
       code === "30STUDENTOFF"
     ) {
       try {
-        const res = await axios.post(
-          "https://api2.fwblr.apistack.net/api/coupon/verifycouponcode",
-          {
-            couponCode: code, // Fix the variable name here from coupon to code
-          }
-        );
-        const discount = res.data.discount;
+        // const res = await axios.post(
+        //   "https://api2.fwblr.apistack.net/api/coupon/verifycouponcode",
+        //   {
+        //     couponCode: code, // Fix the variable name here from coupon to code
+        //   }
+        // );
 
-        // console.log(discount);
+        let discount = 0;
+
+        if (code === "10SUMMEROFF") {
+          discount = 0.1;
+        } else if (code === "20GOVTOFF") {
+          discount = 0.2;
+        } else if (code === "30STUDENTOFF") {
+          discount = 0.3;
+        }
         let roundedDiscount = Math.round(checkoutPrice * discount);
-
         const newCheckoutPrice = checkoutPrice - roundedDiscount;
         setDiscountPrice(roundedDiscount);
         setCheckoutPriceAfterDiscount(newCheckoutPrice);
-        // console.log(newCheckoutPrice);
-
         setDiscountApplied(true);
-        // console.log("discount logged above")
       } catch (e) {
         window.alert("Some error occured, please try again");
       }
