@@ -143,6 +143,15 @@ const TicketsPage = () => {
 
   const checkout = async () => {
     // console.log("checking out");
+    console.log(discountPrice);
+
+    if (!(discountPrice > 0) && coupon != "") {
+      setCoupon("");
+      window.alert(
+        "It appears that the coupon code you entered is invalid, or you may have forgotten to click the apply button to activate the discount. As a result, the coupon has been discarded. You can reapply the coupon code before proceeding to payment or just click on the proceed to payment button without a coupon code."
+      );
+      return;
+    }
     try {
       // console.log(checkoutPrice);
 
@@ -216,11 +225,6 @@ const TicketsPage = () => {
     }));
   };
 
-  // useEffect(() => {
-  //   // console.log(bookingDetails);
-  // }, [bookingDetails])
-
-  //stuff picked up from the cart page
   const [checkoutPrice, setCheckoutPrice] = useState(0);
   const [checkoutPriceAfterDiscount, setCheckoutPriceAfterDiscount] =
     useState(0);
