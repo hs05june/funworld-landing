@@ -1107,12 +1107,7 @@ const TicketsPage = () => {
           </div>
 
           <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]">
-              <img
-                src="https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                alt="abc"
-              ></img>
-            </span>
+            <span className="h-[40px] flex justify-center items-center w-[40px]"></span>
             <p>
               All Government and Public Holidays – Weekend Ticket Prices
               applicable.
@@ -1120,16 +1115,16 @@ const TicketsPage = () => {
           </div>
 
           <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]">
+            <span>
               <img
                 src="https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
                 alt="abc"
               ></img>
-              <p>
-                STUDENT Discount if used, Must Carry a Valid Student ID Card for
-                verification. Valid only for School & College Students.
-              </p>
             </span>
+            <p>
+              STUDENT Discount if used, Must Carry a Valid Student ID Card for
+              verification. Valid only for School & College Students.
+            </p>
           </div>
         </div>
       </div>
