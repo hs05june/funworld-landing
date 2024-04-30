@@ -43,13 +43,13 @@ const TicketsPage = () => {
     senior: 0,
   });
 
-  useEffect(() => {
-    const storedTicket = localStorage.getItem("currentTicket");
-    if (storedTicket) {
-      const parsedTicket = JSON.parse(storedTicket);
-      setInfo(parsedTicket);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedTicket = localStorage.getItem("currentTicket");
+  //   if (storedTicket) {
+  //     const parsedTicket = JSON.parse(storedTicket);
+  //     setInfo(parsedTicket);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (targetComponent.current) {
@@ -63,7 +63,7 @@ const TicketsPage = () => {
   const handleDateChange = (date) => {
     setInfo((prev) => {
       const updatedInfo = { ...prev, ["visitDate"]: date };
-      localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
+      // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
       // console.log(updatedInfo)
       return updatedInfo;
     });
@@ -72,7 +72,7 @@ const TicketsPage = () => {
   useEffect(() => {
     setInfo((prev) => {
       const updatedInfo = { ...prev, ["visitDate"]: formattedCurrentDate };
-      localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
+      // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
       // console.log(updatedInfo)
       return updatedInfo;
     });
@@ -119,7 +119,7 @@ const TicketsPage = () => {
     // setPage(3);
     try {
       const res = await axios.post(
-        "https://free.funworldbackend.tech/api/soldtickets",
+        "https://api2.fwblr.apistack.net/api/soldtickets",
         {
           userDetails: bookingDetails,
           bookingInfo: info,
@@ -130,7 +130,7 @@ const TicketsPage = () => {
       if (res.data.status) {
         setTicketId(res.data.message._id);
         setPage(2);
-        localStorage.setItem("userDetails", JSON.stringify(bookingDetails));
+        // localStorage.setItem("userDetails", JSON.stringify(bookingDetails));
       } else {
         window.alert("Some Error occured please try again later");
         setPage(1);
@@ -143,11 +143,20 @@ const TicketsPage = () => {
 
   const checkout = async () => {
     // console.log("checking out");
+    console.log(discountPrice);
+
+    if (!(discountPrice > 0) && coupon != "") {
+      setCoupon("");
+      window.alert(
+        "It appears that the coupon code you entered is invalid, or you may have forgotten to click the apply button to activate the discount. As a result, the coupon has been discarded. You can reapply the coupon code before proceeding to payment or just click on the proceed to payment button without a coupon code."
+      );
+      return;
+    }
     try {
       // console.log(checkoutPrice);
 
       const res = await axios.post(
-        "https://free.funworldbackend.tech/api/razorpay/create-order",
+        "https://api2.fwblr.apistack.net/api/razorpay/create-order",
         {
           amount: Number(checkoutPriceAfterDiscount * 100),
           name: info.name ? info.name : "",
@@ -169,7 +178,7 @@ const TicketsPage = () => {
         description: "Book Tickets",
         image: "https://example.com/your_logo",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        callback_url: `https://free.funworldbackend.tech/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
+        callback_url: `https://api2.fwblr.apistack.net/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
         prefill: {
           //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
           name: info.name, //your customer's name
@@ -216,19 +225,12 @@ const TicketsPage = () => {
     }));
   };
 
-  // useEffect(() => {
-  //   // console.log(bookingDetails);
-  // }, [bookingDetails])
-
-  //stuff picked up from the cart page
   const [checkoutPrice, setCheckoutPrice] = useState(0);
   const [checkoutPriceAfterDiscount, setCheckoutPriceAfterDiscount] =
     useState(0);
   const [discountPrice, setDiscountPrice] = useState(0);
 
   const checkCoupon = async (code) => {
-    // console.log("Checking coupon");
-    // console.log(code);
     if (checkoutPrice < 999) {
       window.alert("Please add more items in the cart to avail the discount");
       return;
@@ -236,27 +238,33 @@ const TicketsPage = () => {
     if (
       code === "10SUMMEROFF" ||
       code === "20GOVTOFF" ||
-      code === "30STUDENTOFF"
+      code === "30STUDENTOFF" ||
+      code === "testing12345"
     ) {
       try {
-        const res = await axios.post(
-          "https://free.funworldbackend.tech/api/coupon/verifycouponcode",
-          {
-            couponCode: code, // Fix the variable name here from coupon to code
-          }
-        );
-        const discount = res.data.discount;
+        // const res = await axios.post(
+        //   "https://api2.fwblr.apistack.net/api/coupon/verifycouponcode",
+        //   {
+        //     couponCode: code, // Fix the variable name here from coupon to code
+        //   }
+        // );
 
-        // console.log(discount);
+        let discount = 0;
+
+        if (code === "10SUMMEROFF") {
+          discount = 0.1;
+        } else if (code === "20GOVTOFF") {
+          discount = 0.2;
+        } else if (code === "30STUDENTOFF") {
+          discount = 0.3;
+        } else if (code === "testing12345") {
+          discount = 0.999;
+        }
         let roundedDiscount = Math.round(checkoutPrice * discount);
-
         const newCheckoutPrice = checkoutPrice - roundedDiscount;
         setDiscountPrice(roundedDiscount);
         setCheckoutPriceAfterDiscount(newCheckoutPrice);
-        // console.log(newCheckoutPrice);
-
         setDiscountApplied(true);
-        // console.log("discount logged above")
       } catch (e) {
         window.alert("Some error occured, please try again");
       }
@@ -290,14 +298,14 @@ const TicketsPage = () => {
     if (action === "inc") {
       setInfo((prev) => {
         const updatedInfo = { ...prev, [type]: prev[type] + 1 };
-        localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
+        // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
         return updatedInfo;
       });
     } else {
       if (info[type] > 0) {
         setInfo((prev) => {
           const updatedInfo = { ...prev, [type]: prev[type] - 1 };
-          localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
+          // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
           return updatedInfo;
         });
       }
@@ -315,10 +323,10 @@ const TicketsPage = () => {
   // This effect retrieves data from localStorage when the component mounts,
   // and updates the bookingDetails state if there's data available.
 
-  useEffect(() => {
-    const userDetails = JSON.parse(localStorage.getItem("userDetails"));
-    if (userDetails) setBookingDetails(userDetails);
-  }, []);
+  // useEffect(() => {
+  //   const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+  //   if (userDetails) setBookingDetails(userDetails);
+  // }, []);
 
   const handleCouponClickCall = (coupon) => {
     setCoupon(coupon);
@@ -1047,7 +1055,7 @@ const TicketsPage = () => {
                   "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
                 }
                 alt="abc"
-              />
+              ></img>
             </span>
             <p>
               Child Ticket is not applicable for children below 80 cms. Child
@@ -1055,6 +1063,7 @@ const TicketsPage = () => {
               height only.
             </p>
           </div>
+
           <div className="flex gap-4">
             <span className="h-[40px] flex justify-center items-center w-[40px]">
               <img
@@ -1069,6 +1078,7 @@ const TicketsPage = () => {
               under any circumstances.
             </p>
           </div>
+
           <div className="flex gap-4">
             <span className="h-[40px] flex justify-center items-center w-[40px]">
               <img
@@ -1080,6 +1090,7 @@ const TicketsPage = () => {
             </span>
             <p>Please wear masks at all times.</p>
           </div>
+
           <div className="flex gap-4">
             <span className="h-[40px] flex justify-center items-center w-[40px]">
               <img
@@ -1094,28 +1105,21 @@ const TicketsPage = () => {
               Pm) and Waterworld (10:30 Am – 5:00 Pm){" "}
             </p>
           </div>
+
           <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]">
-              <img
-                src={
-                  "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                }
-                alt="abc"
-              />
-            </span>
+            <span className="h-[40px] flex justify-center items-center w-[40px]"></span>
             <p>
               All Government and Public Holidays – Weekend Ticket Prices
               applicable.
             </p>
           </div>
+
           <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]">
+            <span>
               <img
-                src={
-                  "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                }
+                src="https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
                 alt="abc"
-              />
+              ></img>
             </span>
             <p>
               STUDENT Discount if used, Must Carry a Valid Student ID Card for

@@ -5,9 +5,9 @@ import Link from 'next/link';
 const CartSideBar = ({ isCartSideBarOpen, setIsCartSideBarOpen }) => {
     const [cartArray, setCartArray] = useState([]);
 
-    useEffect(() => {
-        setCartArray(JSON.parse(localStorage.getItem('cart')));
-    }, [isCartSideBarOpen]);
+    // useEffect(() => {
+    //     setCartArray(JSON.parse(localStorage.getItem('cart')));
+    // }, [isCartSideBarOpen]);
 
     return (
         <div

@@ -457,7 +457,7 @@ const ServiceLast = () => {
         <Box className="lg:w-[30%] max-lg:w-[100%] max-lg:justify-center flex lg:flex-col items-end mt-2 gap-4">
           <Box className="border md:p-4 max-lg:p-2 rounded-full w-fit flex gap-2">
             <BsFillTelephoneFill className="text-lg mt-[2px] max-lg:text-sm" />
-            <Typography className="max-lg:text-xs">+919439000000</Typography>
+            <Typography className="max-lg:text-xs">080-23543290</Typography>
           </Box>
 
           <Box className="border md:p-4 max-lg:p-2 rounded-full w-fit flex gap-2">
