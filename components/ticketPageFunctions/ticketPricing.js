@@ -62,37 +62,6 @@ export const ticketPricingFunction = (type, visitDate) => {
       price = 1199;
     }
   }
-  //  else {
-  //     if (isWeekend) {
-  //         price = 1199;
-  //     }
-  // }
 
   return price;
 };
-
-function TicketPricing({ type, visitDate }) {
-  const isAdult = type === "adult";
-  const isWeekend =
-    findDayOfWeek(visitDate) === "Saturday" ||
-    findDayOfWeek(visitDate) === "Sunday";
-
-  let price = 999; // Default price for non-adult and non-weekend tickets.
-
-  if (isAdult) {
-    if (isWeekend) {
-      price = 1499;
-    } else {
-      price = 1199;
-    }
-  }
-  // else {
-  //     if (isWeekend) {
-  //         price = 1199;
-  //     }
-  // }
-
-  return <span>{price}</span>;
-}
-
-export default TicketPricing;
