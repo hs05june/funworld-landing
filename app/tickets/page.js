@@ -173,6 +173,18 @@ const TicketsPage = () => {
     }
   }, [page]);
 
+  useEffect(() => {
+    if (coupon && discountPrice > 0) {
+      checkCouponAndAddingDiscount({
+        coupon,
+        checkoutPrice,
+        setDiscountPrice,
+        setCheckoutPriceAfterDiscount,
+        setDiscountApplied,
+      });
+    }
+  }, [checkoutPriceAfterDiscount]);
+
   return (
     <div className="min-h-screen w-screen flex flex-col select-none	">
       <HeroBackground />
