@@ -1,210 +1,46 @@
 "use client";
-import ProceedBtn from "@/components/Repeating/Button";
-import { ticketPricingFunction } from "@/components/ticketPricing";
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import "react-calendar/dist/Calendar.css";
+
+// Imported Functions
+import ProceedBtn from "@/components/Repeating/Button";
+import { ticketPricingFunction } from "@/components/ticketPageFunctions/ticketPricing";
+import { checkCouponAndAddingDiscount } from "@/components/ticketPageFunctions/couponcheckAndAddingDiscount";
+import { formatDate } from "@/components/ticketPageFunctions/formatDate";
+import { findDayOfWeek } from "@/components/ticketPageFunctions/findDayOfWeek";
+import { handleSummaryclick } from "@/components/ticketPageFunctions/handleSummaryClick";
+import { RazorpayCheckout } from "@/components/ticketPageFunctions/RazorpayCheckout";
+
+// Imported modules:
 import ConfettiExplosion from "react-confetti-explosion";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import ClipLoader from "react-spinners/ClipLoader";
+import { HeroBackground } from "@/components/ticketPageComponents/heroBackground";
+import { TermsAndConditionsForTickets } from "@/components/ticketPageComponents/termsAndConditionsForTickets";
+import { Banner } from "@/components/ticketPageComponents/Banner";
 
+// Main function starts here:
 const TicketsPage = () => {
-  const [cartArray, setCartArray] = useState([]);
-  const [value, onChange] = useState(new Date());
   const [isAfter5pm, setIsAfter5pm] = useState(false);
-
+  const [checkoutPrice, setCheckoutPrice] = useState(0);
+  const [checkoutPriceAfterDiscount, setCheckoutPriceAfterDiscount] =
+    useState(0);
+  const [discountPrice, setDiscountPrice] = useState(0);
   const [coupon, setCoupon] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
   const [page, setPage] = useState(1);
   const targetComponent = useRef(null);
   const targetComponent2 = useRef(null);
-
-  const currentDate = new Date();
-  const nextDay = new Date(currentDate);
-  nextDay.setDate(currentDate.getDate() + 1);
-
-  const formatDate = (date) => {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
-  };
-
-  const formattedCurrentDate = formatDate(currentDate);
-  const formattedNextDay = formatDate(nextDay);
-
   const [info, setInfo] = useState({
     visitDate: "",
     child: 0,
     adult: 0,
     senior: 0,
   });
-
-  // useEffect(() => {
-  //   const storedTicket = localStorage.getItem("currentTicket");
-  //   if (storedTicket) {
-  //     const parsedTicket = JSON.parse(storedTicket);
-  //     setInfo(parsedTicket);
-  //   }
-  // }, []);
-
-  useEffect(() => {
-    if (targetComponent.current) {
-      targetComponent.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, [page]);
-
-  const handleDateChange = (date) => {
-    setInfo((prev) => {
-      const updatedInfo = { ...prev, ["visitDate"]: date };
-      // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
-      // console.log(updatedInfo)
-      return updatedInfo;
-    });
-  };
-
-  useEffect(() => {
-    setInfo((prev) => {
-      const updatedInfo = { ...prev, ["visitDate"]: formattedCurrentDate };
-      // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
-      // console.log(updatedInfo)
-      return updatedInfo;
-    });
-  }, []);
-
-  function findDayOfWeek(givenDate) {
-    const dateObj = new Date(givenDate);
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const dayOfWeek = days[dateObj.getDay()];
-    return dayOfWeek;
-  }
-
-  //summary button click to set page from 1 to 2:
-  const handleSummaryclick = async () => {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-    if (info.child + info.adult + info.senior === 0) {
-      window.alert(
-        "Please add some tickets and your details before moving to the summary page."
-      );
-      return;
-    } else if (
-      bookingDetails.name.length < 4 ||
-      bookingDetails.name.length > 23
-    ) {
-      window.alert("Please add a valid name");
-      return;
-    } else if (bookingDetails.number.length != 10) {
-      window.alert("Please add a valid 10 digit mobile number");
-      return;
-    } else if (!emailPattern.test(bookingDetails.email)) {
-      window.alert("Please add a valid email address");
-      return;
-    }
-
-    // setPage(3);
-    try {
-      const res = await axios.post(
-        "https://api2.fwblr.apistack.net/api/soldtickets",
-        {
-          userDetails: bookingDetails,
-          bookingInfo: info,
-        }
-      );
-
-      // console.log(res.data.status);
-      if (res.data.status) {
-        setTicketId(res.data.message._id);
-        setPage(2);
-        // localStorage.setItem("userDetails", JSON.stringify(bookingDetails));
-      } else {
-        window.alert("Some Error occured please try again later");
-        setPage(1);
-      }
-    } catch (err) {
-      window.alert("Some Error occured please try again later");
-      setPage(1);
-    }
-  };
-
-  const checkout = async () => {
-    // console.log("checking out");
-    console.log(discountPrice);
-
-    if (!(discountPrice > 0) && coupon != "") {
-      setCoupon("");
-      window.alert(
-        "It appears that the coupon code you entered is invalid, or you may have forgotten to click the apply button to activate the discount. As a result, the coupon has been discarded. You can reapply the coupon code before proceeding to payment or just click on the proceed to payment button without a coupon code."
-      );
-      return;
-    }
-    try {
-      // console.log(checkoutPrice);
-
-      const res = await axios.post(
-        "https://api2.fwblr.apistack.net/api/razorpay/create-order",
-        {
-          amount: Number(checkoutPriceAfterDiscount * 100),
-          name: info.name ? info.name : "",
-        }
-      );
-      if (res.status != 200) {
-        alert("Error doing checkout");
-        return;
-      }
-      // console.log(res.data.order);
-      const order = res.data.order;
-
-      var options = {
-        key: "rzp_live_I288ODVatA9yrx",
-        // key: "rzp_test_jXxR67FCNWfnVg", // Enter the Key ID generated from the Dashboard
-        amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        currency: "INR",
-        name: "Funworld Bangalore", //your business name
-        description: "Book Tickets",
-        image: "https://example.com/your_logo",
-        order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        callback_url: `https://api2.fwblr.apistack.net/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
-        prefill: {
-          //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
-          name: info.name, //your customer's name
-          //   "email": user.email,
-          //   "contact": billingDetails.mobile  //Provide the customer's phone number for better conversion rates
-        },
-        notes: {
-          info: JSON.stringify(info), // Convert the object to a JSON string
-          bookingDetails: JSON.stringify(bookingDetails),
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
-      const razorpay = new window.Razorpay(options);
-      // console.log(razorpay);
-      razorpay.open();
-    } catch (error) {
-      window.alert("Some Error occurred, Please try again later");
-      alert(error.message);
-      return;
-    }
-  };
-
-  //filling details in the form by the user
-
   const [bookingDetails, setBookingDetails] = useState({
     name: "",
     number: "",
@@ -214,6 +50,19 @@ const TicketsPage = () => {
     zipCode: "",
     email: "",
   });
+
+  const currentDate = new Date();
+  const nextDay = new Date(currentDate);
+  nextDay.setDate(currentDate.getDate() + 1);
+  const formattedCurrentDate = formatDate(currentDate);
+  const formattedNextDay = formatDate(nextDay);
+
+  const handleDateChange = (date) => {
+    setInfo((prev) => {
+      const updatedInfo = { ...prev, ["visitDate"]: date };
+      return updatedInfo;
+    });
+  };
 
   const [ticketId, setTicketId] = useState("");
 
@@ -225,87 +74,17 @@ const TicketsPage = () => {
     }));
   };
 
-  const [checkoutPrice, setCheckoutPrice] = useState(0);
-  const [checkoutPriceAfterDiscount, setCheckoutPriceAfterDiscount] =
-    useState(0);
-  const [discountPrice, setDiscountPrice] = useState(0);
-
-  const checkCoupon = async (code) => {
-    if (checkoutPrice < 999) {
-      window.alert("Please add more items in the cart to avail the discount");
-      return;
-    }
-    if (
-      code === "10SUMMEROFF" ||
-      code === "20GOVTOFF" ||
-      code === "30STUDENTOFF" ||
-      code === "testing12345"
-    ) {
-      try {
-        // const res = await axios.post(
-        //   "https://api2.fwblr.apistack.net/api/coupon/verifycouponcode",
-        //   {
-        //     couponCode: code, // Fix the variable name here from coupon to code
-        //   }
-        // );
-
-        let discount = 0;
-
-        if (code === "10SUMMEROFF") {
-          discount = 0.1;
-        } else if (code === "20GOVTOFF") {
-          discount = 0.2;
-        } else if (code === "30STUDENTOFF") {
-          discount = 0.3;
-        } else if (code === "testing12345") {
-          discount = 0.999;
-        }
-        let roundedDiscount = Math.round(checkoutPrice * discount);
-        const newCheckoutPrice = checkoutPrice - roundedDiscount;
-        setDiscountPrice(roundedDiscount);
-        setCheckoutPriceAfterDiscount(newCheckoutPrice);
-        setDiscountApplied(true);
-      } catch (e) {
-        window.alert("Some error occured, please try again");
-      }
-    } else {
-      window.alert(
-        "Please add a valid coupon code from the above given coupons"
-      );
-      return;
-    }
-  };
-
-  useEffect(() => {
-    if (info.child + info.adult + info.senior > 0 && info.visitDate)
-      setCheckoutPrice(
-        ticketPricingFunction("child", info.visitDate) * info.child +
-          ticketPricingFunction("adult", info.visitDate) * info.adult +
-          ticketPricingFunction("senior", info.visitDate) * info.senior
-      );
-    // console.log(checkoutPrice);
-
-    setCheckoutPriceAfterDiscount(
-      ticketPricingFunction("child", info.visitDate) * info.child +
-        ticketPricingFunction("adult", info.visitDate) * info.adult +
-        ticketPricingFunction("senior", info.visitDate) * info.senior
-    );
-    // console.log(checkoutPrice);
-  }, [info]);
-
   //handling changing of tickets
   const handleNoOfTickets = (action, type) => {
     if (action === "inc") {
       setInfo((prev) => {
         const updatedInfo = { ...prev, [type]: prev[type] + 1 };
-        // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
         return updatedInfo;
       });
     } else {
       if (info[type] > 0) {
         setInfo((prev) => {
           const updatedInfo = { ...prev, [type]: prev[type] - 1 };
-          // localStorage.setItem("currentTicket", JSON.stringify(updatedInfo));
           return updatedInfo;
         });
       }
@@ -318,50 +97,39 @@ const TicketsPage = () => {
     setDiscountApplied(false);
   };
 
-  // This effect saves the bookingDetails to localStorage whenever it changes.
-
-  // This effect retrieves data from localStorage when the component mounts,
-  // and updates the bookingDetails state if there's data available.
-
-  // useEffect(() => {
-  //   const userDetails = JSON.parse(localStorage.getItem("userDetails"));
-  //   if (userDetails) setBookingDetails(userDetails);
-  // }, []);
-
   const handleCouponClickCall = (coupon) => {
     setCoupon(coupon);
     targetComponent2.current?.scrollIntoView({ behavior: "smooth" });
     setTimeout(() => {
-      checkCoupon(coupon);
+      checkCouponAndAddingDiscount({
+        coupon,
+        checkoutPrice,
+        setDiscountPrice,
+        setCheckoutPriceAfterDiscount,
+        setDiscountApplied,
+      });
     }, 500);
   };
+
+  // Use Effect hooks
 
   useEffect(() => {
     const checkTime = () => {
       const now = new Date();
       const istOptions = { timeZone: "Asia/Kolkata" };
-
       const formattedTime = now.toLocaleTimeString("en-US", istOptions);
-
       const lastTwoCharacters = formattedTime.slice(-2);
-
       const [hours, minutes, seconds] = formattedTime.split(":");
-
       let isAfter5pmIST = false;
-
       console.log(parseInt(hours, 10));
-
       if (lastTwoCharacters === "PM" && parseInt(hours, 10) != 12) {
         isAfter5pmIST = parseInt(hours, 10) + 12 >= 17;
       } else {
         isAfter5pmIST = parseInt(hours, 10) >= 17;
       }
-
       if (isAfter5pmIST) {
         handleDateChange(formattedNextDay);
       }
-      console.log(isAfter5pmIST);
-
       setIsAfter5pm(isAfter5pmIST);
     };
 
@@ -374,68 +142,40 @@ const TicketsPage = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    if (info.child + info.adult + info.senior > 0 && info.visitDate)
+      setCheckoutPrice(
+        ticketPricingFunction("child", info.visitDate) * info.child +
+          ticketPricingFunction("adult", info.visitDate) * info.adult +
+          ticketPricingFunction("senior", info.visitDate) * info.senior
+      );
+
+    setCheckoutPriceAfterDiscount(
+      ticketPricingFunction("child", info.visitDate) * info.child +
+        ticketPricingFunction("adult", info.visitDate) * info.adult +
+        ticketPricingFunction("senior", info.visitDate) * info.senior
+    );
+  }, [info]);
+
+  useEffect(() => {
+    setInfo((prev) => {
+      const updatedInfo = { ...prev, ["visitDate"]: formattedCurrentDate };
+      return updatedInfo;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (targetComponent.current) {
+      targetComponent.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [page]);
+
   return (
     <div className="min-h-screen w-screen flex flex-col select-none	">
-      <section className="w-full min-h-[400px] relative max-lg:min-h-[400px] max-xl:min-h-[400px] xl:h-fit max-md:min-h-[300px] max-sm:min-h-[250px]">
-        <Image
-          className="bg-cover bg-center bg-no-repeat absolute top-0 -z-10  max-sm:h-full object-contain  max-xs:object-cover  "
-          src={"https://funworldblr.s3.amazonaws.com/public/Reusable/bg2.jpg"}
-          alt="bacgkround img"
-          width={2042}
-          height={1029}
-        />
-        <div className="w-full bottom-[45%] sm:bottom-[60%] lg:bottom-[45%] xl:bottom-[40%] 1.5xl:bottom-[40%] 2xl:bottom-[35%] 3xl:bottom-[20%] absolute">
-          <div className=" h-[100%] w-full flex flex-col text-center justify-center items-center ">
-            <h1 className=" text-center px-[10vw] xl:leading-[60px] 2xl:text-[75px] 3xl:text-[85px] md:w-full font-extrabold lg:leading-[42px]  lg:text-[45px] xl:text-[65px] md:text-[50px] md:leading-[46px] text-[32px] text-white sm:text-3xl">
-              Tickets
-            </h1>
-          </div>
-        </div>
-
-        <div className="w-full h-full flex">
-          <div className="absolute bottom-[200px] right-[425px] max-xl:bottom-[10vw] max-xl:right-[30%] max-lg:bottom-[16vw] max-md:hidden">
-            <Image
-              alt="/"
-              src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse1.webp"
-              width={18}
-              height={18}
-            />
-          </div>
-          <div>
-            <Image
-              alt="/"
-              src="https://funworldblr.s3.amazonaws.com/public/Rides/Ellipse2.webp"
-              width={28}
-              height={28}
-            />
-          </div>
-          <div className="absolute bottom-[150px] right-[10rem] max-md:hidden ">
-            <Image
-              alt="/"
-              src="https://funworldblr.s3.amazonaws.com/public/Rides/stars.webp"
-              width={68}
-              height={68}
-            />
-          </div>
-          <div className="absolute bottom-[200px] left-[89px] max-xl:bottom-[10vw] max-lg:hidden">
-            <Image
-              alt="/"
-              src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner1.webp"
-              width={141}
-              height={168}
-            />
-          </div>
-          <div className="absolute bottom-[165px] right-8 max-xl:bottom-[8vw] max-lg:hidden">
-            <Image
-              alt="/"
-              src="https://funworldblr.s3.amazonaws.com/public/Rides/white-shape-banner2.webp"
-              width={141}
-              height={148}
-            />
-          </div>
-        </div>
-      </section>
-
+      <HeroBackground />
       {page == 2 ? (
         <div className="mb-6 mt-20 3xl:mt-80  2xl:mt-60 xl:mt-40">
           <div className="flex lg:flex-row flex-col items-center lg;gap-0 gap-6 text-white lg:space-x-4  justify-center">
@@ -757,56 +497,20 @@ const TicketsPage = () => {
                 onChange={handleChange}
                 className="outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow"
               />
-              {/* </div> */}
-
-              {/* <textarea
-                name='address'
-                placeholder='Address'
-                value={bookingDetails.address}
-                onChange={handleChange}
-                className='flex-1 outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded'
-              /> */}
-
-              {/* <div className='flex gap-6 md:flex-row flex-col'>
-                <input
-                  type='text'
-                  name='city'
-                  placeholder='City'
-                  value={bookingDetails.city}
-                  onChange={handleChange}
-                  className='flex-1 outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded'
-                />
-                <select
-                  name='state'
-                  value={bookingDetails.state}
-                  onChange={handleChange}
-                  className='flex-1 outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded'
-                >
-                  <option value=''>Select State</option>
-                  {statesOfIndia.map((state) => (
-                    <option key={state} value={state}>
-                      {state}
-                    </option>
-                  ))}
-                </select>
-
-              </div>
-              <div className='flex gap-6 md:flex-row flex-col'>
-                <input
-                  type='text'
-                  name='zipCode'
-                  placeholder='ZIP Code'
-                  value={bookingDetails.zipCode}
-                  onChange={handleChange}
-                  className='flex-1 outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded'
-                />
-              
-              </div> */}
             </div>
           </div>
 
           <div className="md:w-[60vw] w-[80vw] mx-auto flex items-center justify-center mb-6">
-            <span onClick={handleSummaryclick}>
+            <span
+              onClick={() =>
+                handleSummaryclick({
+                  info,
+                  bookingDetails,
+                  setTicketId,
+                  setPage,
+                })
+              }
+            >
               <ProceedBtn text={"Order Summary"} />
             </span>
           </div>
@@ -950,7 +654,13 @@ const TicketsPage = () => {
               <button
                 className="couponButton text-white p-4 flex gap-2"
                 onClick={(e) => {
-                  checkCoupon(coupon);
+                  checkCouponAndAddingDiscount({
+                    coupon,
+                    checkoutPrice,
+                    setDiscountPrice,
+                    setCheckoutPriceAfterDiscount,
+                    setDiscountApplied,
+                  });
                 }}
               >
                 <span className="hidden md:inline">Apply</span>{" "}
@@ -965,7 +675,19 @@ const TicketsPage = () => {
               <ProceedBtn text={"Update Tickets"} />
             </span>
 
-            <span onClick={checkout}>
+            <span
+              onClick={() =>
+                RazorpayCheckout({
+                  discountPrice,
+                  coupon,
+                  checkoutPriceAfterDiscount,
+                  ticketId,
+                  bookingDetails,
+                  setCoupon,
+                  info,
+                })
+              }
+            >
               <ProceedBtn text={"Proceed to Payment"} />
             </span>
           </div>
@@ -977,157 +699,8 @@ const TicketsPage = () => {
           </div>
         </div>
       )}
-      <div
-        style={{
-          backgroundImage:
-            "url('https://funworldblr.s3.amazonaws.com/public/ticketspageimg.webp')",
-        }}
-        className="w-[80vw] lg:flex hidden mt-16 mx-auto bg-no-repeat h-[250px] bg-cover rounded-xl bg-center justify-around gap-6 items-center px-4"
-      >
-        <div className="flex flex-col items-center justify-start text-white">
-          <img
-            src={
-              "https://funworldblr.s3.amazonaws.com/public/Reusable/ticketsicon1.webp"
-            }
-            alt="abc"
-          />
-          <span className="text-center text-[23px] font-[700] ">
-            100% Secure Payments
-          </span>
-          <span className="text-center text-[18px] ">
-            Go cashless. Make 100% secure payments
-          </span>
-        </div>
-        <div className="flex flex-col items-center justify-start text-white">
-          <img
-            src={
-              "https://funworldblr.s3.amazonaws.com/public/Reusable/ticketsicon2.webp"
-            }
-            alt="abc"
-          />
-          <span className="text-center text-[23px] font-[700] ">Trust pay</span>
-          <span className="text-center text-[18px] ">
-            100% Payment Protection
-          </span>
-        </div>
-        <div className="flex flex-col items-center justify-start text-white">
-          <img
-            src={
-              "https://funworldblr.s3.amazonaws.com/public/Reusable/ticketsicon3.webp"
-            }
-            alt="abc"
-          />
-          <span className="text-center text-[23px] font-[700] ">
-            Instant Booking
-          </span>
-          <span className="text-center text-[18px] ">
-            Book & get instant tickets
-          </span>
-        </div>
-        <div className="flex flex-col items-center justify-start text-white">
-          <img
-            src={
-              "https://funworldblr.s3.amazonaws.com/public/Reusable/ticketsicon4.webp"
-            }
-            alt="abc"
-          />
-          <span className="text-center text-[23px] font-[700] ">
-            24X7 Support
-          </span>
-          <span className="text-center text-[18px] ">
-            Have a query and need help ? Click here
-          </span>
-        </div>
-      </div>
-
-      <div className="w-[80vw] mx-auto flex flex-col gap-8 mt-12">
-        <div className="flex items-center justify-center">
-          <h5 className="text-[#0B1A48] xl:text-[55px] lg:text-[42px] md:text-[35px] text-[28px] font-[550] ">
-            Terms & Conditions:
-          </h5>
-        </div>
-
-        <div className="flex flex-col gap-3 text-[#5B5B5B] xl:text-[21px] lg:text-[20px] md:text-[18px] text-[16px]">
-          <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]">
-              <img
-                src={
-                  "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                }
-                alt="abc"
-              ></img>
-            </span>
-            <p>
-              Child Ticket is not applicable for children below 80 cms. Child
-              Ticket is applicable only for children between 80 cms – 140 cms of
-              height only.
-            </p>
-          </div>
-
-          <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]">
-              <img
-                src={
-                  "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                }
-                alt="abc"
-              />
-            </span>
-            <p>
-              No Refunds | No Cancellations | No Exchanges | No Date Extensions
-              under any circumstances.
-            </p>
-          </div>
-
-          <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]">
-              <img
-                src={
-                  "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                }
-                alt="abc"
-              />
-            </span>
-            <p>Please wear masks at all times.</p>
-          </div>
-
-          <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]">
-              <img
-                src={
-                  "https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                }
-                alt="abc"
-              />
-            </span>
-            <p>
-              Timings due to Covid Restrictions are Funworld (10:30 Am – 7:00
-              Pm) and Waterworld (10:30 Am – 5:00 Pm){" "}
-            </p>
-          </div>
-
-          <div className="flex gap-4">
-            <span className="h-[40px] flex justify-center items-center w-[40px]"></span>
-            <p>
-              All Government and Public Holidays – Weekend Ticket Prices
-              applicable.
-            </p>
-          </div>
-
-          <div className="flex gap-4">
-            <span>
-              <img
-                src="https://funworldblr.s3.amazonaws.com/public/bulletIcon.webp"
-                alt="abc"
-              ></img>
-            </span>
-            <p>
-              STUDENT Discount if used, Must Carry a Valid Student ID Card for
-              verification. Valid only for School & College Students.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Banner />
+      <TermsAndConditionsForTickets />
     </div>
   );
 };
