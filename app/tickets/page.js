@@ -157,12 +157,12 @@ const TicketsPage = () => {
     );
   }, [info]);
 
-  useEffect(() => {
-    setInfo((prev) => {
-      const updatedInfo = { ...prev, ["visitDate"]: formattedCurrentDate };
-      return updatedInfo;
-    });
-  }, []);
+  // useEffect(() => {
+  //   setInfo((prev) => {
+  //     const updatedInfo = { ...prev, ["visitDate"]: formattedCurrentDate };
+  //     return updatedInfo;
+  //   });
+  // }, []);
 
   useEffect(() => {
     if (targetComponent.current) {
