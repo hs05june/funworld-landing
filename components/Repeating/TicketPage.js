@@ -19,12 +19,12 @@ const TicketPage = ({id, child, adult, senior, name, date, number, email, price,
       pdf.addImage(imgData, 'PNG', 0, 10, imgWidth * ratio, imgHeight * ratio);
       var base64 = canvas.toDataURL('image/jpeg', 0.01)
       console.log(base64)
-      emailjs.send("service_giwq3bu","template_zswzw7d",{
+      emailjs.send("service_9877yx5","template_utegu2g",{
         name: name,
         date: date,
         email: email,
         content:base64
-        },"zBhJl0ffrgeu4XvKj")
+        },"iBbq3zBOFYMMm9l1I")
         .then(function (response) {
           console.log('Email with attachment sent:', response);
           alert(`Your ticket has been downloaded and sent to ${email}.`)
