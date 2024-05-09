@@ -7,10 +7,10 @@ export const handleSummaryclick = async ({
   setPage,
 }) => {
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  if(!info.visitDate){
+  if (!info.visitDate) {
     window.alert("Please select a date");
-  }
-  else if (info.child + info.adult + info.senior === 0) {
+    return;
+  } else if (info.child + info.adult + info.senior === 0) {
     window.alert(
       "Please add some tickets and your details before moving to the summary page."
     );

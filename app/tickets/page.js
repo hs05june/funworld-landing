@@ -554,6 +554,13 @@ const TicketsPage = () => {
               <span>{bookingDetails.number}</span>
             </div>
 
+            <div className="flex justify-between px-8 lg:text-[25px] md:text-[22px] text-[16px] font-[500] text-[#0B1A48]">
+              <span>Visit Date</span>
+              <span>
+                {info.visitDate} ({findDayOfWeek(info.visitDate)})
+              </span>
+            </div>
+
             <div className="px-6">
               <hr />
             </div>
@@ -681,6 +688,10 @@ const TicketsPage = () => {
                 </span>
               </button>
             </div>
+          </div>
+
+          <div className="text-red-700">
+            Please verify all the above details before proceeding to payment
           </div>
           <div className="md:w-[60vw] w-[80vw] mx-auto flex md:flex-row flex-col-reverse gap-8 items-center justify-center mb-6">
             <span onClick={() => setPage(1)}>
