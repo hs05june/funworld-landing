@@ -20,7 +20,7 @@ export const RazorpayCheckout = async ({
     // console.log(checkoutPrice);
 
     const res = await axios.post(
-      "https://api2.fwblr.apistack.net/api/razorpay/create-order",
+      "http://localhost:8000/api/razorpay/create-order",
       {
         amount: Number(checkoutPriceAfterDiscount * 100),
         name: info.name ? info.name : "",
@@ -42,7 +42,8 @@ export const RazorpayCheckout = async ({
       description: "Book Tickets",
       image: "https://example.com/your_logo",
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: `https://api2.fwblr.apistack.net/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
+      callback_url: `http://localhost:8000/success/${ticketId}`,
+      // callback_url: `http://localhost:8000/api/razorpay/paymentverification?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
       prefill: {
         //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
         name: info.name, //your customer's name
@@ -52,6 +53,10 @@ export const RazorpayCheckout = async ({
       notes: {
         info: JSON.stringify(info), // Convert the object to a JSON string
         bookingDetails: JSON.stringify(bookingDetails),
+        id: ticketId,
+        price: checkoutPriceAfterDiscount,
+        discount: discountPrice,
+        coupon_code: coupon,
       },
       theme: {
         color: "#3399cc",

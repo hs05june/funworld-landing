@@ -18,7 +18,7 @@ const Admin = () => {
       let { email, password } = jwt.decode(token1);
       if (email && password) {
         axios
-          .post("https://api2.fwblr.apistack.net/api/auth/admin", {
+          .post("http://localhost:8000/api/auth/admin", {
             email: email,
             password: password,
           })
@@ -37,9 +37,7 @@ const Admin = () => {
       if (isAdminLoggedIn) {
         let token = window.localStorage.getItem("funworldLogin");
         try {
-          const res = await axios.get(
-            "https://api2.fwblr.apistack.net/api/soldtickets"
-          );
+          const res = await axios.get("http://localhost:8000/api/soldtickets");
           // console.log(res.data);
           // setSoldTicketsArray(res.data);
           let arr = res.data.sort((a, b) =>
@@ -75,7 +73,7 @@ const Admin = () => {
     try {
       let token = window.localStorage.getItem("funworldLogin");
       const res = await axios.delete(
-        `https://api2.fwblr.apistack.net/api/soldtickets?id=${id}`,
+        `http://localhost:8000/api/soldtickets?id=${id}`,
         { headers: { token: token } }
       );
       console.log(res);
@@ -95,13 +93,10 @@ const Admin = () => {
 
   const verifyCredentials = async (email, password) => {
     try {
-      const res = await axios.post(
-        "https://api2.fwblr.apistack.net/api/auth/admin",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const res = await axios.post("http://localhost:8000/api/auth/admin", {
+        email: email,
+        password: password,
+      });
       if (res.data.admin) {
         setIsAdminLoggedIn(true);
         let token = jwt.sign({ email: email, password: password }, "FUNWORLD");
@@ -132,7 +127,7 @@ const Admin = () => {
     try {
       let token = window.localStorage.getItem("funworldLogin");
       const res = await axios.put(
-        `https://api2.fwblr.apistack.net/api/soldtickets?id=${soldTicketId}`,
+        `http://localhost:8000/api/soldtickets?id=${soldTicketId}`,
         { tickets: updatedSoldTicketsArray[index].tickets },
         { headers: { token: token } }
       );
