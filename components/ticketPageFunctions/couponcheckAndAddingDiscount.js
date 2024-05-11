@@ -1,5 +1,5 @@
 export const checkCouponAndAddingDiscount = async ({
-    coupon,
+  coupon,
   checkoutPrice,
   setDiscountPrice,
   setCheckoutPriceAfterDiscount,
@@ -47,5 +47,3 @@ export const checkCouponAndAddingDiscount = async ({
     return;
   }
 };
-
-
