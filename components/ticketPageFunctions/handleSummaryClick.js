@@ -30,10 +30,13 @@ export const handleSummaryclick = async ({
   }
 
   try {
-    const res = await axios.post("http://localhost:8000/api/soldtickets", {
-      userDetails: bookingDetails,
-      bookingInfo: info,
-    });
+    const res = await axios.post(
+      "https://api2.fwblr.apistack.net/api/soldtickets",
+      {
+        userDetails: bookingDetails,
+        bookingInfo: info,
+      }
+    );
     if (res.data.status) {
       setTicketId(res.data.message._id);
       setPage(2);

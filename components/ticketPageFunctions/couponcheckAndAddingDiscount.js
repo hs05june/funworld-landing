@@ -17,7 +17,7 @@ export const checkCouponAndAddingDiscount = async ({
   ) {
     try {
       // const res = await axios.post(
-      //   "http://localhost:8000/api/coupon/verifycouponcode",
+      //   "https://api2.fwblr.apistack.net/api/coupon/verifycouponcode",
       //   {
       //     couponCode: code, // Fix the variable name here from coupon to code
       //   }
