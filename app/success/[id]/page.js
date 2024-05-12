@@ -27,7 +27,7 @@ const Success = ({ params }) => {
               <>
                 <TicketPage
                   key={ind}
-                  id={params.id + " " + t._id}
+                  id={params.id}
                   child={t.child}
                   adult={t.adult}
                   senior={t.senior}

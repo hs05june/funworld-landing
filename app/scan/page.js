@@ -69,7 +69,8 @@ const Scan = () => {
       // // console.log(result?.text)
       let qrcode = result?.text;
       let soldTicketId = qrcode.split(" ")[0];
-      let ticketId = qrcode.split(" ")[1];
+      // let ticketId = qrcode.split(" ")[1];
+      console.log(soldTicketId)
       let res = await axios.get(
         `https://api2.fwblr.apistack.net/api/soldtickets?id=${soldTicketId}`
       );
@@ -81,7 +82,7 @@ const Scan = () => {
       let tickets = res.data.message.tickets;
 
       for (let i = 0; i < tickets.length; i++) {
-        if (tickets[i]._id == ticketId) {
+        // if (tickets[i]._id == ticketId) {
           if (tickets[i].checkedIn) {
             alert("Already checked in");
             return;
@@ -97,7 +98,7 @@ const Scan = () => {
             );
           }
           return;
-        }
+        // }
       }
       alert("No such Ticket");
       return;
