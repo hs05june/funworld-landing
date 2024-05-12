@@ -1,6 +1,7 @@
 "use client";
 import TicketPage from "@/components/Repeating/TicketPage";
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Success = ({ params }) => {
@@ -21,7 +22,26 @@ const Success = ({ params }) => {
   return (
     <div>
       <div className="flex flex-col space-y-3 my-10">
-        {ticket.tickets &&
+        {ticket && ticket.payment === false ? (
+          <div className="flex flex-col gap-4 text-center px-8 py-4 items-center min-h-[50vh]">
+            <div className="">
+              Sorry, There was some error in booking the ticket, maybe the
+              payment failed. Please rebook the ticket by going to:{" "}
+            </div>
+            <Link
+              className="px-4 py-2 rounded-lg bg-orange-600 w-[150px] text-white"
+              href="/tickets"
+            >
+              Ticket's Page
+            </Link>
+
+            <div>
+              In case if the ticket was booked, you will receive the mail for
+              it. In case of any problem please mail to : info@funworldblr.com
+            </div>
+          </div>
+        ) : (
+          ticket.tickets &&
           ticket.tickets.map((t, ind) => {
             return (
               <>
@@ -42,7 +62,8 @@ const Success = ({ params }) => {
                 <hr />
               </>
             );
-          })}
+          })
+        )}
       </div>
     </div>
   );

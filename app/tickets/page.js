@@ -157,12 +157,6 @@ const TicketsPage = () => {
     );
   }, [info]);
 
-  // useEffect(() => {
-  //   setInfo((prev) => {
-  //     const updatedInfo = { ...prev, ["visitDate"]: formattedCurrentDate };
-  //     return updatedInfo;
-  //   });
-  // }, []);
 
   useEffect(() => {
     if (targetComponent.current) {
@@ -510,6 +504,11 @@ const TicketsPage = () => {
                 className="outline-none text-[#5B5B5B] bg-[#F5F5F5E5] px-6 py-3 text-[550] rounded grow"
               />
             </div>
+          </div>
+
+          <div className="md:w-[60vw] w-[80vw] mx-auto text-red-700 flex items-center justify-center mb">
+            Please add correct information here as it will be used to send you
+            the ticket.
           </div>
 
           <div className="md:w-[60vw] w-[80vw] mx-auto flex items-center justify-center mb-6">
