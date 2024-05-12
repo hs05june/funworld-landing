@@ -127,9 +127,9 @@ const TicketsPage = () => {
       } else {
         isAfter5pmIST = parseInt(hours, 10) >= 17;
       }
-      if (isAfter5pmIST) {
-        handleDateChange(formattedNextDay);
-      }
+      // if (isAfter5pmIST) {
+      // handleDateChange(formattedNextDay);
+      // }
       setIsAfter5pm(isAfter5pmIST);
     };
 
@@ -156,7 +156,6 @@ const TicketsPage = () => {
         ticketPricingFunction("senior", info.visitDate) * info.senior
     );
   }, [info]);
-
 
   useEffect(() => {
     if (targetComponent.current) {
