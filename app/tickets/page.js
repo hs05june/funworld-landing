@@ -91,7 +91,7 @@ const TicketsPage = () => {
     }
   };
 
-  const handleRemoveDiscountClick = () => {
+  const handleRemoveDiscountClick = async () => {
     setCheckoutPriceAfterDiscount(checkoutPrice);
     setDiscountPrice(0);
     setDiscountApplied(false);
@@ -107,8 +107,14 @@ const TicketsPage = () => {
         setDiscountPrice,
         setCheckoutPriceAfterDiscount,
         setDiscountApplied,
+        info,
       });
     }, 500);
+  };
+
+  const handleSetPageBackToOne = () => {
+    handleRemoveDiscountClick();
+    setPage(1);
   };
 
   // Use Effect hooks
@@ -174,6 +180,7 @@ const TicketsPage = () => {
         setDiscountPrice,
         setCheckoutPriceAfterDiscount,
         setDiscountApplied,
+        info,
       });
     }
   }, [checkoutPriceAfterDiscount]);
@@ -184,7 +191,7 @@ const TicketsPage = () => {
       {page == 2 ? (
         <div className="mb-6 mt-20 3xl:mt-80  2xl:mt-60 xl:mt-40">
           <div className="flex lg:flex-row flex-col items-center lg;gap-0 gap-6 text-white lg:space-x-4  justify-center">
-            <div className="xl:w-[25vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
+            <div className="xl:w-[20vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
               <div
                 className="flex flex-col items-center gap-2 w-[90%] mx-auto h-[90%] my-auto justify-center border-white border-dashed border-2 cursor-pointer hover:scale-105 transition-all delay-200"
                 onClick={() => handleCouponClickCall("10SUMMEROFF")}
@@ -203,7 +210,7 @@ const TicketsPage = () => {
               </div>
             </div>
 
-            <div className="xl:w-[25vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
+            <div className="xl:w-[20vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
               <div
                 className="flex flex-col items-center gap-2 w-[90%] mx-auto h-[90%] my-auto justify-center border-white border-dashed border-2 hover:scale-105 transition-all delay-200 cursor-pointer"
                 onClick={() => handleCouponClickCall("20GOVTOFF")}
@@ -224,7 +231,7 @@ const TicketsPage = () => {
             </div>
 
             <div
-              className="xl:w-[25vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center"
+              className="xl:w-[20vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center"
               ref={targetComponent}
             >
               <div
@@ -243,6 +250,35 @@ const TicketsPage = () => {
                 <div className="mt-4 px-2 text-center text-[11px]">
                   Must Carry a Valid Student ID Card for verification. Valid
                   only for School & College Students.
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="xl:w-[20vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center"
+              ref={targetComponent}
+            >
+              <div
+                className="flex flex-col items-center gap-2 w-[90%] mx-auto h-[90%] my-auto justify-center border-white border-dashed border-2 hover:scale-105 transition-all delay-200 cursor-pointer"
+                onClick={() => handleCouponClickCall("FUN5")}
+              >
+                <p>
+                  Buy <span className="lg:text-2xl text-xl font-[700]">3 </span>
+                  get <span className="lg:text-2xl text-xl font-[700]">
+                    2
+                  </span>{" "}
+                  Free
+                </p>
+
+                <div className="border border-white rounded-xl lg:py-2 px-2 py-1 mt-2">
+                  FUN5
+                </div>
+
+                <div className="mt-4 px-2 text-center text-[11px]">
+                  {/* <span className="font-bold">Pay for 3 and get 2 Free. </span> */}
+                  This offer is valid on purchase of adult tickets only, no
+                  other offer can be combined. Add 5 Adult tickets, apply this
+                  coupon and pay for only 3.
                 </div>
               </div>
             </div>
@@ -558,6 +594,10 @@ const TicketsPage = () => {
                 {info.visitDate} ({findDayOfWeek(info.visitDate)})
               </span>
             </div>
+            <div className="flex justify-between px-8 lg:text-[25px] md:text-[22px] text-[16px] font-[500] text-[#0B1A48]">
+              <span>Email</span>
+              <span>{bookingDetails.email}</span>
+            </div>
 
             <div className="px-6">
               <hr />
@@ -677,6 +717,7 @@ const TicketsPage = () => {
                     setDiscountPrice,
                     setCheckoutPriceAfterDiscount,
                     setDiscountApplied,
+                    info,
                   });
                 }}
               >
@@ -692,7 +733,7 @@ const TicketsPage = () => {
             Please verify all the above details before proceeding to payment
           </div>
           <div className="md:w-[60vw] w-[80vw] mx-auto flex md:flex-row flex-col-reverse gap-8 items-center justify-center mb-6">
-            <span onClick={() => setPage(1)}>
+            <span onClick={() => handleSetPageBackToOne()}>
               <ProceedBtn text={"Update Tickets"} />
             </span>
 
