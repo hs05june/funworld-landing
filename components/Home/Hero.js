@@ -46,7 +46,7 @@ const Hero = () => {
               <div className="">
                 <img
                   priority
-                  src="https://funworldblr.s3.amazonaws.com/public/Home/hero/funworld+2024+(1920+x+1080+px)+(1).png"
+                  src="https://funworldblr.s3.amazonaws.com/public/Home/hero/funworld+2024+(1920+x+1080+px)+(1).webp"
                   alt="img1"
                 />
               </div>
