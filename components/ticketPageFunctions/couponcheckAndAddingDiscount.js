@@ -4,6 +4,7 @@ export const checkCouponAndAddingDiscount = async ({
   setDiscountPrice,
   setCheckoutPriceAfterDiscount,
   setDiscountApplied,
+  info,
 }) => {
   if (checkoutPrice < 999) {
     window.alert("Please add more items in the cart to avail the discount");
@@ -13,7 +14,8 @@ export const checkCouponAndAddingDiscount = async ({
     coupon === "10SUMMEROFF" ||
     coupon === "20GOVTOFF" ||
     coupon === "30STUDENTOFF" ||
-    coupon === "testing12345"
+    coupon === "testing12345" ||
+    coupon === "FUN5"
   ) {
     try {
       // const res = await axios.post(
@@ -33,6 +35,17 @@ export const checkCouponAndAddingDiscount = async ({
         discount = 0.3;
       } else if (coupon === "testing12345") {
         discount = 0.999;
+      } else if (coupon === "FUN5") {
+        if (info.child > 0 || info.senior > 0 || info.adult < 5) {
+          window.alert(
+            "This coupon is only valid on 5 Adult tickets(or a multiple of 5). So please remove the child and adult tickets and add 5 or more adult tickets and reapply the coupon"
+          );
+          return;
+        } else {
+          let a = 2 * Math.floor(info.adult / 5);
+          // console.log(a);
+          discount = a / info.adult;
+        }
       }
       let roundedDiscount = Math.round(checkoutPrice * discount);
       const newCheckoutPrice = checkoutPrice - roundedDiscount;
