@@ -38,29 +38,62 @@ export const checkCouponAndAddingDiscount = async ({
           );
           return;
         } else {
-          const res = await axios.post(
-            "https://api2.fwblr.apistack.net/api/coupon/checkcoupon",
-            {
-              coupon: coupon,
-              date: info.visitDate,
-            }
-          );
+
+          const date = info.visitDate;
+
+          var givenDate = await new Date(date);
+          givenDate.setHours(0, 0, 0, 0); // Set time to midnight
+      
+          var currentDate =await new Date();
+          currentDate.setHours(0, 0, 0, 0); // Set time to midnight
+      
+          var june7th =await new Date("2024-06-07");
+          june7th.setHours(0, 0, 0, 0); // Set time to midnight
+      
+          var isBeforeJune7th = givenDate < june7th;
+      
+          // Check if the given date is greater than or equal to the current date
+          var isFutureDate = givenDate > currentDate;
+
+
+          if(!isBeforeJune7th){
+            window.alert("This offer is only valid till June 7th. Please select some other coupon.")
+            return;
+          }
+
+          else if(!isFutureDate){
+            window.alert("This offer is only valid on pre-bookings so you cannot use this coupon for today's date. Please choose a future date to apply this offer.");
+            return;
+          }
+          else{
+            let a = 2 * Math.floor(info.adult / 5);
+           discount = a / info.adult;
+          }
+      
+       
+          // const res = await axios.post(
+          //   "https://api2.fwblr.apistack.net/api/coupon/checkcoupon",
+          //   {
+          //     coupon: coupon,
+          //     date: info.visitDate,
+          //   }
+          // );
 
           
 
-          if (res.status === 200) {
-            let a = 2 * Math.floor(info.adult / 5);
-            discount = a / info.adult;
-          } else if (res.status === 201) {
-            window.alert(res.data);
-            return;
-          } else if (res.status === 202) {
-            window.alert(res.data);
-            return;
-          } else {
-            window.alert("Some error occurred, please try again");
-            return;
-          }
+          // if (res.status === 200) {
+          //   let a = 2 * Math.floor(info.adult / 5);
+          //   discount = a / info.adult;
+          // } else if (res.status === 201) {
+          //   window.alert(res.data);
+          //   return;
+          // } else if (res.status === 202) {
+          //   window.alert(res.data);
+          //   return;
+          // } else {
+          //   window.alert("Some error occurred, please try again");
+          //   return;
+          // }
         }
       }
 
