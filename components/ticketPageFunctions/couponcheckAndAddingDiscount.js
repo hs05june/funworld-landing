@@ -46,6 +46,8 @@ export const checkCouponAndAddingDiscount = async ({
             }
           );
 
+          
+
           if (res.status === 200) {
             let a = 2 * Math.floor(info.adult / 5);
             discount = a / info.adult;
