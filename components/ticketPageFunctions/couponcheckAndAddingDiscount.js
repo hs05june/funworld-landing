@@ -39,12 +39,14 @@ export const checkCouponAndAddingDiscount = async ({
           return;
         } else {
           const res = await axios.post(
-            "http://localhost:8000/api/coupon/checkcoupon",
+            "https://api2.fwblr.apistack.net/api/coupon/checkcoupon",
             {
               coupon: coupon,
               date: info.visitDate,
             }
           );
+
+          
 
           if (res.status === 200) {
             let a = 2 * Math.floor(info.adult / 5);
