@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const checkCouponAndAddingDiscount = async ({
   coupon,
   checkoutPrice,
@@ -6,25 +8,19 @@ export const checkCouponAndAddingDiscount = async ({
   setDiscountApplied,
   info,
 }) => {
-  if (checkoutPrice < 999) {
-    window.alert("Please add more items in the cart to avail the discount");
-    return;
-  }
-  if (
-    coupon === "10SUMMEROFF" ||
-    coupon === "20GOVTOFF" ||
-    coupon === "30STUDENTOFF" ||
-    coupon === "testing12345" ||
-    coupon === "FUN5"
-  ) {
-    try {
-      // const res = await axios.post(
-      //   "https://api2.fwblr.apistack.net/api/coupon/verifycouponcode",
-      //   {
-      //     couponCode: code, // Fix the variable name here from coupon to code
-      //   }
-      // );
+  try {
+    if (checkoutPrice < 999) {
+      window.alert("Please add more items in the cart to avail the discount");
+      return;
+    }
 
+    if (
+      coupon === "10SUMMEROFF" ||
+      coupon === "20GOVTOFF" ||
+      coupon === "30STUDENTOFF" ||
+      coupon === "testing12345" ||
+      coupon === "FUN5"
+    ) {
       let discount = 0;
 
       if (coupon === "10SUMMEROFF") {
@@ -38,25 +34,45 @@ export const checkCouponAndAddingDiscount = async ({
       } else if (coupon === "FUN5") {
         if (info.child > 0 || info.senior > 0 || info.adult < 5) {
           window.alert(
-            "This coupon is only valid on 5 Adult tickets(or a multiple of 5). So please remove the child and adult tickets and add 5 or more adult tickets and reapply the coupon"
+            "This coupon is only valid on 5 Adult tickets (or a multiple of 5). Please remove the child and senior tickets and add 5 or more adult tickets to apply this coupon."
           );
           return;
         } else {
-          let a = 2 * Math.floor(info.adult / 5);
-          // console.log(a);
-          discount = a / info.adult;
+          const res = await axios.post(
+            "http://localhost:8000/api/coupon/checkcoupon",
+            {
+              coupon: coupon,
+              date: info.visitDate,
+            }
+          );
+
+          if (res.status === 200) {
+            let a = 2 * Math.floor(info.adult / 5);
+            discount = a / info.adult;
+          } else if (res.status === 201) {
+            window.alert(res.data);
+            return;
+          } else if (res.status === 202) {
+            window.alert(res.data);
+            return;
+          } else {
+            window.alert("Some error occurred, please try again");
+            return;
+          }
         }
       }
+
       let roundedDiscount = Math.round(checkoutPrice * discount);
       const newCheckoutPrice = checkoutPrice - roundedDiscount;
       setDiscountPrice(roundedDiscount);
       setCheckoutPriceAfterDiscount(newCheckoutPrice);
       setDiscountApplied(true);
-    } catch (e) {
-      window.alert("Some error occured, please try again");
+    } else {
+      window.alert("Please add a valid coupon code from the above given coupons");
+      return;
     }
-  } else {
-    window.alert("Please add a valid coupon code from the above given coupons");
-    return;
+  } catch (error) {
+    console.error("Some error occurred:", error);
+    window.alert("Some error occurred, please try again");
   }
 };
