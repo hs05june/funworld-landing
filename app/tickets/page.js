@@ -178,6 +178,7 @@ const TicketsPage = () => {
     if (coupon && discountPrice > 0) {
       checkCouponAndAddingDiscount({
         coupon,
+        setCoupon,
         checkoutPrice,
         setDiscountPrice,
         setCheckoutPriceAfterDiscount,
@@ -735,6 +736,7 @@ const TicketsPage = () => {
                 onClick={(e) => {
                   checkCouponAndAddingDiscount({
                     coupon,
+                    setCoupon,
                     checkoutPrice,
                     setDiscountPrice,
                     setCheckoutPriceAfterDiscount,
