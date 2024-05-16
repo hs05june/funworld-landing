@@ -104,6 +104,7 @@ const TicketsPage = () => {
     setTimeout(() => {
       checkCouponAndAddingDiscount({
         coupon,
+        setCoupon,
         checkoutPrice,
         setDiscountPrice,
         setCheckoutPriceAfterDiscount,

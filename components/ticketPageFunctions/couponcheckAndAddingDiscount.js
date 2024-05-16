@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const checkCouponAndAddingDiscount = async ({
   coupon,
+  setCoupon,
   checkoutPrice,
   setDiscountPrice,
   setCheckoutPriceAfterDiscount,
@@ -33,6 +34,7 @@ export const checkCouponAndAddingDiscount = async ({
         discount = 0.999;
       } else if (coupon === "FUN5") {
         if (info.child > 0 || info.senior > 0 || info.adult < 5) {
+          setCoupon("");
           window.alert(
             "This coupon is only valid on 5 Adult tickets (or a multiple of 5). Please remove the child and senior tickets and add 5 or more adult tickets to apply this coupon."
           );
