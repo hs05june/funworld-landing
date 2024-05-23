@@ -52,7 +52,7 @@ export const checkCouponAndAddingDiscount = async ({
           var june7th =await new Date("2024-06-07");
           june7th.setHours(0, 0, 0, 0); // Set time to midnight
       
-          var isBeforeJune7th = givenDate < june7th;
+          var isBeforeJune7th = givenDate <= june7th;
       
           // Check if the given date is greater than or equal to the current date
           var isFutureDate = givenDate > currentDate;
