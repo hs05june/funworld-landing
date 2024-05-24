@@ -10,6 +10,7 @@ const Admin = () => {
   const [search, setSearch] = useState("");
   const [soldTicketsArray, setSoldTicketsArray] = useState();
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
+  const [revenue,setRevenue] = useState(0);
 
   useEffect(() => {
     let token = window.localStorage.getItem("funworldLogin");
@@ -199,6 +200,31 @@ const Admin = () => {
     }
   };
 
+
+  const calculateTodaysRevenue = ()=>{
+    let rev = 0;
+    soldTicketsArray.forEach((ticket)=>{
+      rev += ticket.price;
+    })
+    setRevenue(rev);
+
+
+  }
+
+
+
+   useEffect(()=>{
+    if(soldTicketsArray){
+      calculateTodaysRevenue();
+    } 
+
+   },[soldTicketsArray])
+
+
+
+
+  
+
   return (
     <>
       {isAdminLoggedIn ? (
@@ -234,6 +260,10 @@ const Admin = () => {
                   />
                 </div>
 
+                <div>
+                  {selectedButton}'s Revenue :  {revenue} rs
+                </div>
+
                 <div className="lg:w-[800px] md:min-w-[200px] flex justify-end">
                   <Link
                     href="/contactformpage"
@@ -242,6 +272,10 @@ const Admin = () => {
                     Queries / Holidays
                   </Link>
                 </div>
+
+
+              
+
               </div>
 
               <div>
