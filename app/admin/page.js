@@ -263,8 +263,11 @@ const Admin = () => {
                 <div>
                   {selectedButton}'s Revenue :  {revenue} rs
                 </div>
+                <div>
+                  {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
+                </div>
 
-                <div className="lg:w-[800px] md:min-w-[200px] flex justify-end">
+                <div className="lg:w-[800px] md:min-w-[200px] flex">
                   <Link
                     href="/contactformpage"
                     className="px-6 py-3 rounded border hover:scale-105 text-xl transition-all delay-150 text-white font-[500] bg-orange-400"
