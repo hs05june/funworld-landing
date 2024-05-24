@@ -10,6 +10,7 @@ const Admin = () => {
   const [search, setSearch] = useState("");
   const [soldTicketsArray, setSoldTicketsArray] = useState();
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
+  const [revenue,setRevenue] = useState(0);
 
   useEffect(() => {
     let token = window.localStorage.getItem("funworldLogin");
@@ -199,6 +200,31 @@ const Admin = () => {
     }
   };
 
+
+  const calculateTodaysRevenue = ()=>{
+    let rev = 0;
+    soldTicketsArray.forEach((ticket)=>{
+      rev += ticket.price;
+    })
+    setRevenue(rev);
+
+
+  }
+
+
+
+   useEffect(()=>{
+    if(soldTicketsArray){
+      calculateTodaysRevenue();
+    } 
+
+   },[soldTicketsArray])
+
+
+
+
+  
+
   return (
     <>
       {isAdminLoggedIn ? (
@@ -234,7 +260,14 @@ const Admin = () => {
                   />
                 </div>
 
-                <div className="lg:w-[800px] md:min-w-[200px] flex justify-end">
+                <div>
+                  {selectedButton}'s Revenue :  {revenue} rs
+                </div>
+                <div>
+                  {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
+                </div>
+
+                <div className="lg:w-[800px] md:min-w-[200px] flex">
                   <Link
                     href="/contactformpage"
                     className="px-6 py-3 rounded border hover:scale-105 text-xl transition-all delay-150 text-white font-[500] bg-orange-400"
@@ -242,6 +275,10 @@ const Admin = () => {
                     Queries / Holidays
                   </Link>
                 </div>
+
+
+              
+
               </div>
 
               <div>
