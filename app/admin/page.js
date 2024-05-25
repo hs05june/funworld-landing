@@ -260,12 +260,12 @@ const Admin = () => {
                   />
                 </div>
 
-                <div>
-                  {selectedButton}'s Revenue :  {revenue} rs
-                </div>
-                <div>
-                  {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
-                </div>
+                // <div>
+                //   {selectedButton}'s Revenue :  {revenue} rs
+                // </div>
+                // <div>
+                //   {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
+                // </div>
 
                 <div className="lg:w-[800px] md:min-w-[200px] flex">
                   <Link
