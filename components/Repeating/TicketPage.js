@@ -113,7 +113,7 @@ const TicketPage = ({
               applicable.
             </li>
             <li className="font-dm-sans mb-4 text-lg">
-              STUDENT Discount if used, Must Carry a Valid Student ID Card for{" "}
+              STUDENT Discount if used, Must Carry a Valid Physical Student ID Card for{" "}
               <br /> verification. Valid only for School & College Students.
             </li>
           </ul>

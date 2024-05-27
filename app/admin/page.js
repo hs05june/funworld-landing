@@ -260,12 +260,13 @@ const Admin = () => {
                   />
                 </div>
 
-                {/* // <div>
-                //   {selectedButton}'s Revenue :  {revenue} rs
-                // </div>
-                // <div>
-                //   {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
-                // </div> */}
+                 {/* <div>
+                   {selectedButton}'s Revenue :  {revenue} rs
+                 </div> */}
+
+               <div>
+                 {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
+               </div>
 
                 <div className="lg:w-[800px] md:min-w-[200px] flex">
                   <Link
@@ -401,7 +402,10 @@ const Admin = () => {
                                       ticket.tickets[0]._id
                                     )
                                   }
-                                  className="px-2 py-1 bg-blue-600 text-white font-[600] ml-4 rounded hover:scale-105 transition-all delay-150"
+                                  className={`px-2 py-1  text-white font-[600] ml-4 rounded hover:scale-105 transition-all delay-150 
+                                  ${ticket.tickets[0].checkedIn === true
+                                  ? "bg-green-600"
+                                  : "bg-red-600"}`}
                                 >
                                   Change
                                 </button>
