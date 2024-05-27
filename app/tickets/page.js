@@ -248,7 +248,7 @@ const TicketsPage = () => {
 
                 <div className="mt-4 px-2 text-center text-[11px]">
                   20% OFF for Government Employees. Must show the <span className="font-bold">Physical</span> Government
-                  Identification to avail discount. ID Compulsory for Entry.
+                  Identification to avail discount. ID Compulsory for Entry.(Will not work if Seniors are there in Ticket)
                 </div>
               </div>
             </div>
@@ -272,7 +272,7 @@ const TicketsPage = () => {
 
                 <div className="mt-4 px-2 text-center text-[11px]">
                   Must Carry a Valid <span className="font-bold">Physical</span> Student ID Card for verification. Valid
-                  only for School & College Students.
+                  only for School & College Students.(Will not work if Seniors are there in Ticket)
                 </div>
               </div>
             </div>
