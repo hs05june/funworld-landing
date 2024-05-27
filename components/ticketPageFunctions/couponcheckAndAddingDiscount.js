@@ -27,8 +27,20 @@ export const checkCouponAndAddingDiscount = async ({
       if (coupon === "10SUMMEROFF") {
         discount = 0.1;
       } else if (coupon === "20GOVTOFF") {
+        if(info.senior > 0){
+          setCoupon("");
+          window.alert("You can't apply this coupon with Senior Citizens in the ticket, please book a separate ticket for senior citizens or continue without this coupon.")
+          return;
+        }
+
         discount = 0.2;
+
       } else if (coupon === "30STUDENTOFF") {
+        if(info.senior > 0){
+          setCoupon("");
+          window.alert("You can't apply this coupon with Senior Citizens in the ticket, please book a separate ticket for senior citizens or continue without this coupon.")
+          return;
+        }
         discount = 0.3;
       } else if (coupon === "testing12345") {
         discount = 0.999;
@@ -104,6 +116,7 @@ export const checkCouponAndAddingDiscount = async ({
       setDiscountPrice(roundedDiscount);
       setCheckoutPriceAfterDiscount(newCheckoutPrice);
       setDiscountApplied(true);
+      // window.alert("The coupon has been applied. Please bring a physical ID card if you applied 30STUDENTOFF or 20GOVTOFF, The discount is only valid for the person with ID itself and not for his/her family member. You might have to pay the discounted money if you don't have a valid ID card for everyone on ticket while Checking in.")
     } else {
       window.alert("Please add a valid coupon code from the above given coupons");
       return;

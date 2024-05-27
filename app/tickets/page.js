@@ -247,7 +247,7 @@ const TicketsPage = () => {
                 </div>
 
                 <div className="mt-4 px-2 text-center text-[11px]">
-                  20% OFF for Government Employees. Must show Government
+                  20% OFF for Government Employees. Must show the <span className="font-bold">Physical</span> Government
                   Identification to avail discount. ID Compulsory for Entry.
                 </div>
               </div>
@@ -271,7 +271,7 @@ const TicketsPage = () => {
                 </div>
 
                 <div className="mt-4 px-2 text-center text-[11px]">
-                  Must Carry a Valid Student ID Card for verification. Valid
+                  Must Carry a Valid <span className="font-bold">Physical</span> Student ID Card for verification. Valid
                   only for School & College Students.
                 </div>
               </div>
@@ -586,9 +586,27 @@ const TicketsPage = () => {
         </div>
       ) : page == 2 ? (
         <div className="md:w-[60vw] w-[80vw] mx-auto flex flex-col items-center  gap-4">
+
+          <div className=" md:w-[60vw] w-[80vw]">
+            <p className="text-[#0B1A48] text-[18px] font-[650] ">Please note:</p>
+            <ul className="list-disc flex flex-col gap-2">
+              <li>You can't apply 30STUDENTOFF or 20GOVTOFF coupon with Senior Citizens in the ticket, please remove Seniors Citizens from the ticket to avail these offers.(You can book a separate tickets for seniors citizens)</li>
+              <li>
+                Bring a Physical ID card if you are availing 30STUDENTOFF or 20GOVTOFF.
+              </li>
+              <li>
+              The discount of 30STUDENTOFF or 20GOVTOFF is only valid for the person with ID itself and not for his/her family members. You might have to pay the discounted money if you don't have a valid Physical ID card for everyone on ticket while Checking in(You can book a separate ticket for people without ID Cards).
+              </li>
+              <li>
+                Scroll to bottom of page for more terms and conditions.
+              </li>
+            </ul>
+          </div>
+
           <div className="text-[#0B1A48] text-[29px] font-[650]">
             Order Summary
           </div>
+
 
           {discountApplied && (
             <ConfettiExplosion

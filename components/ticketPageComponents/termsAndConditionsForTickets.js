@@ -82,7 +82,7 @@ export const TermsAndConditionsForTickets = () => {
             ></img>
           </span>
           <p>
-            STUDENT Discount if used, Must Carry a Valid Student ID Card for
+            STUDENT Discount if used, Must Carry a Valid Physical Student ID Card for
             verification. Valid only for School & College Students.
           </p>
         </div>
