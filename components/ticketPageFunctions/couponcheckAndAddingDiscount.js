@@ -27,9 +27,9 @@ export const checkCouponAndAddingDiscount = async ({
       if (coupon === "10SUMMEROFF") {
         discount = 0.1;
       } else if (coupon === "20GOVTOFF") {
-        if(info.senior > 0){
+        if(info.senior > 0  || info.child > 0){
           setCoupon("");
-          window.alert("You can't apply this coupon with Senior Citizens in the ticket, please book a separate ticket for senior citizens or continue without this coupon.")
+          window.alert("You can't apply this coupon with Senior Citizens or Children in the ticket, please book a separate ticket for senior citizens / Children or continue without this coupon.")
           return;
         }
 
