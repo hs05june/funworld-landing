@@ -9,6 +9,7 @@ const Admin = () => {
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [search, setSearch] = useState("");
   const [soldTicketsArray, setSoldTicketsArray] = useState();
+  const [soldTicketsCategories, setSoldTicketsCategories] = useState({child:0, adult:0, senior:0});
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
   const [revenue,setRevenue] = useState(0);
 
@@ -59,6 +60,16 @@ const Admin = () => {
     };
     fetchSoldTickets();
   }, [isAdminLoggedIn]);
+
+  useEffect(()=>{
+    let child = 0, adult = 0, senior = 0;
+    soldTicketsArray?.forEach(e=>{
+      child += e?.tickets[0]?.child;
+      adult += e?.tickets[0]?.adult;
+      senior += e?.tickets[0]?.senior;
+    })
+    setSoldTicketsCategories({child,adult,senior});
+  },[soldTicketsArray])
 
   const revenueLastWeek = 200000;
 
@@ -267,7 +278,15 @@ const Admin = () => {
                <div>
                  {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
                </div>
-
+               <div>
+                 Children :  {soldTicketsCategories?.child} 
+               </div>
+               <div>
+                 Adults :  {soldTicketsCategories?.adult} 
+               </div>
+               <div>
+                 Seniors :  {soldTicketsCategories?.senior} 
+               </div>
                 <div className="lg:w-[800px] md:min-w-[200px] flex">
                   <Link
                     href="/contactformpage"

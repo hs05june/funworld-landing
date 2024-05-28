@@ -58,6 +58,7 @@ const TicketPage = ({
       <div className="text-4xl font-dm-sans my-2 font-medium">Ticket</div>
       <div className="flex flex-row p-10 items-center space-x-40">
         <div>
+          <div className="text-lg font-dm-sans mb-1">Ticket Id: {id}</div>
           <div className="text-lg font-dm-sans mb-1">Ticket Holder: {name}</div>
           <div className="text-lg font-dm-sans mb-1">Phone: {number}</div>
           <div className="text-lg font-dm-sans mb-1">Email: {email}</div>
