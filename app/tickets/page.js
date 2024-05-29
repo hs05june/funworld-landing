@@ -213,8 +213,8 @@ const TicketsPage = () => {
       <HeroBackground />
       {page == 2 ? (
         <div className="mb-6 mt-20 3xl:mt-80  2xl:mt-60 xl:mt-40">
-          <div className="flex lg:flex-row flex-col items-center lg;gap-0 gap-6 text-white lg:space-x-4  justify-center">
-            <div className="xl:w-[20vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
+          <div className="flex lg:flex-row flex-col items-center lg:gap-0 gap-4 text-white lg:space-x-4  justify-center">
+            <div className="xl:w-[17vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
               <div
                 className="flex flex-col items-center gap-2 w-[90%] mx-auto h-[90%] my-auto justify-center border-white border-dashed border-2 cursor-pointer hover:scale-105 transition-all delay-200"
                 onClick={() => handleCouponClickCall("10SUMMEROFF")}
@@ -233,7 +233,9 @@ const TicketsPage = () => {
               </div>
             </div>
 
-            <div className="xl:w-[20vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
+          
+
+            <div className="xl:w-[17vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
               <div
                 className="flex flex-col items-center gap-2 w-[90%] mx-auto h-[90%] my-auto justify-center border-white border-dashed border-2 hover:scale-105 transition-all delay-200 cursor-pointer"
                 onClick={() => handleCouponClickCall("20GOVTOFF")}
@@ -254,7 +256,7 @@ const TicketsPage = () => {
             </div>
 
             <div
-              className="xl:w-[20vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center"
+              className="xl:w-[17vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center"
               ref={targetComponent}
             >
               <div
@@ -278,7 +280,7 @@ const TicketsPage = () => {
             </div>
 
             <div
-              className="xl:w-[20vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center"
+              className="xl:w-[17vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center"
               ref={targetComponent}
             >
               <div
@@ -305,6 +307,27 @@ const TicketsPage = () => {
                 </div>
               </div>
             </div>
+
+
+            <div className="xl:w-[17vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
+              <div
+                className="flex flex-col items-center gap-2 w-[90%] mx-auto h-[90%] my-auto justify-center border-white border-dashed border-2 cursor-pointer hover:scale-105 transition-all delay-200"
+                onClick={() => handleCouponClickCall("WONDERWOMEN")}
+              >
+                <p>
+                  <span className="lg:text-2xl text-xl font-[700]">Buy 1 Get 1 Free</span>{" "}
+                </p>
+                <div className="border border-white rounded-xl lg:px-4 lg:py-2 px-2 py-1 mt-2">
+                  WONDERWOMEN
+                </div>
+
+                <div className="mt-4 px-2 text-center text-[11px]">
+                Offer valid exclusively for female customers on Wednesdays. To avail of this Offer, both individuals checking in must be women.(Add any two people in the ticket to apply this offer)
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </div>
       ) : null}
