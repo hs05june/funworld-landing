@@ -8,9 +8,9 @@ const Hero = () => {
 
   const handleCLick = (arrow) => {
     if (arrow === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 1);
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
     } else {
-      setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0);
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
 
@@ -47,6 +47,15 @@ const Hero = () => {
                 <img
                   priority
                   src="https://funworldblr.s3.amazonaws.com/public/Home/hero/funworld+2024+(1920+x+1080+px)+(1).webp"
+                  alt="img1"
+                />
+              </div>
+            </div>
+            <div className="flex w-[100vw] justify-center" id="slide">
+              <div className="">
+                <img
+                  priority
+                  src="https://funworldblr.s3.amazonaws.com/public/Home/hero/WhatsApp+Image+2024-05-30+at+12.14.20+AM.jpeg"
                   alt="img1"
                 />
               </div>

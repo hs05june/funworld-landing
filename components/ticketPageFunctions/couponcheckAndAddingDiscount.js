@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { findDayOfWeek } from './findDayOfWeek';
+import { ticketPricingFunction } from './ticketPricing';
 
 export const checkCouponAndAddingDiscount = async ({
   coupon,
@@ -20,7 +22,7 @@ export const checkCouponAndAddingDiscount = async ({
       coupon === "20GOVTOFF" ||
       coupon === "30STUDENTOFF" ||
       coupon === "testing12345" ||
-      coupon === "FUN5"
+      coupon === "FUN5" || coupon === "WONDERWOMEN"
     ) {
       let discount = 0;
 
@@ -83,32 +85,48 @@ export const checkCouponAndAddingDiscount = async ({
             let a = 2 * Math.floor(info.adult / 5);
            discount = a / info.adult;
           }
-      
-       
-          // const res = await axios.post(
-          //   "https://api2.fwblr.apistack.net/api/coupon/checkcoupon",
-          //   {
-          //     coupon: coupon,
-          //     date: info.visitDate,
-          //   }
-          // );
-
-          
-
-          // if (res.status === 200) {
-          //   let a = 2 * Math.floor(info.adult / 5);
-          //   discount = a / info.adult;
-          // } else if (res.status === 201) {
-          //   window.alert(res.data);
-          //   return;
-          // } else if (res.status === 202) {
-          //   window.alert(res.data);
-          //   return;
-          // } else {
-          //   window.alert("Some error occurred, please try again");
-          //   return;
-          // }
         }
+      }
+      else if(coupon == "WONDERWOMEN"){
+
+        const date = info.visitDate;
+
+
+        if(findDayOfWeek(date) != "Wednesday"){
+          setCoupon("");
+          window.alert("The offer is only applicable for bookings of Wednesday");
+          return;
+        }
+
+        else if(info.child+info.adult+info.senior != 2){
+          setCoupon("");
+          window.alert("The offer is only applicable for two Female tickets.(you have more than 2 people in the ticket to apply this offer).")
+          return;
+        }
+
+        else{
+          if(info.adult > 0){
+            let p= checkoutPrice;
+            const price = ticketPricingFunction("adult", info.visitDate);
+            setDiscountPrice(p-price);
+            setCheckoutPriceAfterDiscount(price);
+            setDiscountApplied(true);
+          }
+          else{
+              discount = 0.5;
+              let roundedDiscount = Math.round(checkoutPrice * discount);
+              const newCheckoutPrice = checkoutPrice - roundedDiscount;
+              setDiscountPrice(roundedDiscount);
+              setCheckoutPriceAfterDiscount(newCheckoutPrice);
+              setDiscountApplied(true);
+          }
+
+          return;
+
+        }
+
+
+        
       }
 
       let roundedDiscount = Math.round(checkoutPrice * discount);
