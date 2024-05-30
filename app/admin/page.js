@@ -13,6 +13,8 @@ const Admin = () => {
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
   const [revenue,setRevenue] = useState(0);
 
+  const [couponsDistribution, setCouponsDistribution] = useState({a:0,b:0,c:0,d:0,e:0,f:0});
+
   useEffect(() => {
     let token = window.localStorage.getItem("funworldLogin");
     if (token) {
@@ -63,11 +65,33 @@ const Admin = () => {
 
   useEffect(()=>{
     let child = 0, adult = 0, senior = 0;
+    let a = 0, b= 0,c= 0,d= 0,e= 0,f= 0;
     soldTicketsArray?.forEach(e=>{
       child += e?.tickets[0]?.child;
       adult += e?.tickets[0]?.adult;
       senior += e?.tickets[0]?.senior;
+
+      if(e?.coupon_used == '10SUMMEROFF'){
+        a++;
+      }
+      else if(e?.coupon_used == "20GOVTOFF"){
+        b++;
+      }
+      else if(e?.coupon_used == "30STUDENTOFF"){
+        c++;
+      }
+      else if(e?.coupon_used == "FUN5"){
+        d++;
+      }
+      else if(e?.coupon_used== "WONDERWOMEN"){
+        e++;
+      }
+      else{
+        f++;
+      }
     })
+    console.log(a,b,c,d,e,f);
+    setCouponsDistribution({a,b,c,d,e,f})
     setSoldTicketsCategories({child,adult,senior});
   },[soldTicketsArray])
 
@@ -241,8 +265,26 @@ const Admin = () => {
       {isAdminLoggedIn ? (
         <>
           <div className="p-4">
-            <div className="flex items-center justify-center my-8">
-              <h1 className="text-3xl font-semibold mb-4">Admin Panel</h1>
+            <div className="flex items-center justify-center gap-4 my-8">
+              {/* <h1 className="text-3xl font-semibold mb-4">Admin Panel</h1> */}
+              <div className="flex items-center justify-center px-2">
+                10SUMMEROFF : <span className="font-bold">{couponsDistribution?.a}</span>
+              </div>
+              <div className="flex items-center justify-center px-2">
+                20GOVTOFF :<span className="font-bold">{couponsDistribution?.b}</span>
+              </div>
+              <div className="flex items-center justify-center px-2">
+                30STUDENTOFF :<span className="font-bold">{couponsDistribution?.c}</span>
+              </div>
+              <div className="flex items-center justify-center px-2">
+                FUN5 :<span className="font-bold">{couponsDistribution?.d}</span>
+              </div>
+              <div className="flex items-center justify-center px-2">
+                WONDERWOMEN : <span className="font-bold">{couponsDistribution?.e}</span>
+              </div>
+              <div className="flex items-center justify-center px-2">
+                NO COUPON :<span className="font-bold">{couponsDistribution?.f}</span>
+              </div>
             </div>
 
             <div className="flex justify-between items-center mb-4">
