@@ -89,9 +89,12 @@ export const checkCouponAndAddingDiscount = async ({
       }
       else if(coupon == "WONDERWOMEN"){
 
+        if(info.child > 0){
+          window.alert("The Offer is Applicable to Adult/Senior Women, please remove childs from ticket")
+          return;
+        }
+
         const date = info.visitDate;
-
-
         if(findDayOfWeek(date) != "Wednesday"){
           setCoupon("");
           window.alert("The offer is only applicable for bookings of Wednesday");
