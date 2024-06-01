@@ -315,6 +315,28 @@ const Insights = () => {
    },[soldTicketsArray])
 
 
+   
+
+
+  const exportToExcel = () => {
+    const data = [
+      { coupon: "10SUMMEROFF",adult:  adultsDistribution.ten, child:childDstribution.ten, senior: seniorDistribution.ten },
+      { coupon: "20GOVTOFF", adult: adultsDistribution.twenty, child: childDstribution.twenty, senior: seniorDistribution.twenty },
+      { coupon: "30STUDENTOFF", adult: adultsDistribution.thirty, child: childDstribution.thirty, senior: seniorDistribution.thirty },
+      { coupon: "FUN5", adult: adultsDistribution.fun, child: childDstribution.fun, senior: seniorDistribution.fun},
+      { coupon: "WONDERWOMEN", adult:adultsDistribution.ww, child: childDstribution.ww, senior: seniorDistribution.ww},
+      { coupon: "No Coupon", adult: adultsDistribution.none, child: childDstribution.none, senior: seniorDistribution.none},
+      { coupon: "Grand Total", adult: soldTicketsCategories.adult, child: soldTicketsCategories.child, senior: soldTicketsCategories.senior},
+    ];
+    const ws = XLSX.utils.json_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.writeFile(wb, "data.xlsx");
+  };
+
+
+
+
 
 
   
@@ -348,9 +370,7 @@ const Insights = () => {
           </div>
     
           </div>
-            <div>
-              Hello
-            </div>
+           
           {/* <div className="flex-1 pt-8 px-4">
             <div className="text-xl font-[500] mb-4">Holidays</div>
             <form
@@ -404,18 +424,6 @@ const Insights = () => {
                   </select>
                 </div>
 
-                {/* <div className="flex items-center">
-                  <input
-                    type="text"
-                    className="p-2 border border-gray-300 rounded-md"
-                    placeholder="Search tickets..."
-                    value={search}
-                    onInput={(e) => {
-                      setSearch(e.target.value);
-                    }}
-                  />
-                </div> */}
-
                <div>
                  {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
                </div>
@@ -423,6 +431,7 @@ const Insights = () => {
                  Children :  {soldTicketsCategories?.child} 
                </div>
                <div>
+                
                  Adults :  {soldTicketsCategories?.adult} 
                </div>
                <div>
@@ -444,7 +453,7 @@ const Insights = () => {
         <br/>
         <br/>
 
-       <div className="flex items-center justify-center">
+       <div className="flex flex-col gap-4 items-center justify-center">
        <table className="w-[80vw] border border-gray-300">
                 <thead>
                   <tr className="bg-gray-100">
@@ -457,46 +466,61 @@ const Insights = () => {
                 </thead>
 
 
-                <tr>
-                  <td>10SUMMEROFF </td>
-                  <td>{adultsDistribution?.ten} </td>
-                  <td>{childDstribution?.ten} </td>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid">10SUMMEROFF </td>
+                  <td className="border-r border-red-500 border-solid">{adultsDistribution?.ten} </td>
+                  <td className="border-r border-red-500 border-solid">{childDstribution?.ten} </td>
                   <td>{seniorDistribution?.ten} </td>
                 </tr>
-                <tr>
-                  <td>20GOVTOFF </td>
-                  <td>{adultsDistribution?.twenty} </td>
-                  <td>{childDstribution?.twenty} </td>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid">20GOVTOFF </td>
+                  <td className="border-r border-red-500 border-solid">{adultsDistribution?.twenty} </td>
+                  <td className="border-r border-red-500 border-solid">{childDstribution?.twenty} </td>
                   <td>{seniorDistribution?.twenty} </td>
                 </tr>
-                <tr>
-                  <td>30STUDENTOFF </td>
-                  <td>{adultsDistribution?.thirty} </td>
-                  <td>{childDstribution?.thirty} </td>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid">30STUDENTOFF </td>
+                  <td className="border-r border-red-500 border-solid">{adultsDistribution?.thirty} </td>
+                  <td className="border-r border-red-500 border-solid">{childDstribution?.thirty} </td>
                   <td>{seniorDistribution?.thirty} </td>
                 </tr>
-                <tr>
-                  <td>FUN5 </td>
-                  <td>{adultsDistribution?.fun}</td>
-                  <td>{childDstribution?.fun} </td>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid">FUN5 </td>
+                  <td className="border-r border-red-500 border-solid">{adultsDistribution?.fun}</td>
+                  <td className="border-r border-red-500 border-solid">{childDstribution?.fun} </td>
                   <td>{seniorDistribution?.fun} </td>
                 </tr>
-                <tr>
-                  <td>WONDERWOMEN </td>
-                  <td>{adultsDistribution?.ww} </td>
-                  <td>{childDstribution?.ww}  </td>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid">WONDERWOMEN </td>
+                  <td className="border-r border-red-500 border-solid">{adultsDistribution?.ww} </td>
+                  <td className="border-r border-red-500 border-solid">{childDstribution?.ww}  </td>
                   <td>{seniorDistribution?.ww}  </td>
                 </tr>
-                <tr>
-                  <td>No Coupon </td>
-                  <td>{adultsDistribution?.none} </td>
-                  <td>{childDstribution?.none}  </td>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid">No Coupon </td>
+                  <td className="border-r border-red-500 border-solid">{adultsDistribution?.none} </td>
+                  <td className="border-r border-red-500 border-solid">{childDstribution?.none}  </td>
                   <td>{seniorDistribution?.none}  </td>
+                </tr>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid font-bold">Grand Total </td>
+                  <td className="border-r border-red-500 border-solid">{soldTicketsCategories?.adult} </td>
+                  <td className="border-r border-red-500 border-solid">  {soldTicketsCategories?.child}  </td>
+                  <td>  {soldTicketsCategories?.senior}   </td>
                 </tr>
 
         </table>
 
+
+        <div>
+        <button className="px-4 py-2 text-white font-[500] bg-green-400 rounded-lg" onClick={exportToExcel}>Export to Excel</button> 
+        </div>
+
+
+    
        </div>
+
+       
       
       </>
     ) : (
