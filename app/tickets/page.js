@@ -322,7 +322,7 @@ const TicketsPage = () => {
                 </div>
 
                 <div className="mt-4 px-2 text-center text-[11px]">
-                Offer valid exclusively for female customers on Wednesdays. To avail of this Offer, both individuals checking in must be women.(Add any two people in the ticket to apply this offer)
+                Offer valid exclusively for 18+ female customers on Wednesdays. Both individuals checking in must be women above 18 years of age.(Add any two people in the ticket to apply this offer)
                 </div>
               </div>
             </div>
@@ -416,7 +416,7 @@ const TicketsPage = () => {
 
                   <div className="flex w-[100%] bg-[#FFEEF6] text-xs md:text-lg rounded-tl-2xl rounded-tr-2xl p-2 md:py-3 md:px-4 font-[600] items-center justify-around">
                     <label className="text-sm md:text-xl">
-                      Fun World - Child
+                      Fun World - Child 
                     </label>
                     <label>
                       ₹{" "}
