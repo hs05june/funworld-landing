@@ -331,7 +331,7 @@ const Admin = () => {
                </div>
                 <div className="lg:w-[800px] md:min-w-[200px] flex">
                   <Link
-                    href="/contactformpage"
+                    href="/insights"
                     className="px-6 py-3 rounded border hover:scale-105 text-xl transition-all delay-150 text-white font-[500] bg-orange-400"
                   >
                     Queries / Holidays
