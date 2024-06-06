@@ -10,6 +10,8 @@ import * as XLSX from 'xlsx';
 const Insights = () => {
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [search, setSearch] = useState("");
+  const [checkedInBooking,setCheckedInBooking] = useState(0);
+  const [freeAdults,setFreeAdults] = useState(0);
   const [soldTicketsArray, setSoldTicketsArray] = useState();
   const [soldTicketsCategories, setSoldTicketsCategories] = useState({child:0, adult:0, senior:0});
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
@@ -69,61 +71,81 @@ const Insights = () => {
     fetchSoldTickets();
   }, [isAdminLoggedIn]);
 
-  useEffect(()=>{
+  useEffect(() => {
     let child = 0, adult = 0, senior = 0;
-    let a = 0, b= 0,c= 0,d= 0,e= 0,f= 0;
+    let checkedIn = 0;
 
+    let a = 0, b = 0, c = 0, d = 0, e = 0, f = 0;
 
-    let tenA =0, twentyA = 0, thirtyA =0, funA = 0, wwA = 0, nA = 0;
-    let tenC =0, twentyC = 0, thirtyC =0, funC = 0, wwC = 0, nC = 0;
-    let tenS =0, twentyS = 0, thirtyS =0, funS = 0, wwS= 0, nS = 0;
+    let freeA =0;
   
-    soldTicketsArray?.forEach(e=>{
-      child += e?.tickets[0]?.child;
-      adult += e?.tickets[0]?.adult;
-      senior += e?.tickets[0]?.senior;
+    let tenA = 0, twentyA = 0, thirtyA = 0, funA = 0,  nA = 0;
+    let tenC = 0, twentyC = 0, thirtyC = 0, funC = 0,  nC = 0;
+    let tenS = 0, twentyS = 0, thirtyS = 0, funS = 0,  nS = 0;
+  
+    soldTicketsArray?.forEach(e => {
+      child += e.tickets[0]?.child || 0;
+      adult += e.tickets[0]?.adult || 0;
+      senior += e.tickets[0]?.senior || 0;
 
-      if(e?.coupon_used == '10SUMMEROFF'){
+      // console.log(e.tickets[0]?.checkedIn);
+
+
+      if (e.tickets[0]?.checkedIn === true) {
+        checkedIn++;
+        // console.log("Checked in count incremented. Current count:", checkedIn);
+    } 
+
+  
+      if (e?.coupon_used == '10SUMMEROFF') {
         a++;
-        tenC += e?.tickets[0]?.child;
-        tenA += e?.tickets[0]?.adult;
-        tenS += e?.tickets[0]?.senior;
-  
-      }
-      else if(e?.coupon_used == "20GOVTOFF"){
+        tenC += e.tickets[0]?.child || 0;
+        tenA += e.tickets[0]?.adult || 0;
+        tenS += e.tickets[0]?.senior || 0;
+      } else if (e?.coupon_used == "20GOVTOFF") {
         b++;
-        twentyC+= e?.tickets[0]?.child;
-        twentyA += e?.tickets[0]?.adult;
-        twentyS += e?.tickets[0]?.senior;
-      }
-      else if(e?.coupon_used == "30STUDENTOFF"){
+        twentyC += e.tickets[0]?.child || 0;
+        twentyA += e.tickets[0]?.adult || 0;
+        twentyS += e.tickets[0]?.senior || 0;
+      } else if (e?.coupon_used == "30STUDENTOFF") {
         c++;
-        
-        thirtyC += e?.tickets[0]?.child;
-        thirtyA += e?.tickets[0]?.adult;
-        thirtyS += e?.tickets[0]?.senior;
-      }
-      else if(e?.coupon_used == "FUN5"){
-        d++;
-        funC += e?.tickets[0]?.child;
-        funA += e?.tickets[0]?.adult;
-        funS += e?.tickets[0]?.senior;
+        thirtyC += e.tickets[0]?.child || 0;
+        thirtyA += e.tickets[0]?.adult || 0;
+        thirtyS += e.tickets[0]?.senior || 0;
+      } else if (e?.coupon_used == "FUN5") {
 
-      }
-      else if(e?.coupon_used== "WONDERWOMEN"){
-        e++;
-        wwC+= e?.tickets[0]?.child;
-        wwA += e?.tickets[0]?.adult;
-        wwS += e?.tickets[0]?.senior;
-      }
-      else{
+        freeA +=  2 * Math.floor(e.tickets[0]?.adult / 5);       
+
+        d++;
+        funC += e.tickets[0]?.child || 0;
+        funA += e.tickets[0]?.adult || 0;
+        funS += e.tickets[0]?.senior || 0;
+      } else if (e && e?.coupon_used == "WONDERWOMEN") {
+        // was not working here so wrote the code again in the next few lines...
+      } else {
         f++;
-        nC+= e?.tickets[0]?.child;
-        nA += e?.tickets[0]?.adult;
-        nS += e?.tickets[0]?.senior;
+        nC += e.tickets[0]?.child || 0;
+        nA += e.tickets[0]?.adult || 0;
+        nS += e.tickets[0]?.senior || 0;
+      }
+    });
+
+
+    let wwC = 0, wwA = 0, wwS = 0;
+
+    
+    soldTicketsArray?.forEach((ticket)=>{
+      if(ticket.coupon_used === "WONDERWOMEN"){
+        e++;
+        // console.log(ticket);
+
+        wwC += ticket.tickets[0]?.child || 0;
+        wwA += ticket.tickets[0]?.adult || 0;
+        wwS += ticket.tickets[0]?.senior || 0;
       }
     })
-    console.log(tenA,funA);
+  
+    // console.log(tenA, funA);
     setAdultsDistribution({
       ten: tenA,
       twenty: twentyA,
@@ -132,27 +154,28 @@ const Insights = () => {
       ww: wwA,
       none: nA
     });
-        setChildDistribution({
-          ten: tenC,
-          twenty: twentyC,
-          thirty: thirtyC,
-          fun: funC,
-          ww: wwC,
-          none: nC
-        });
-
-        setSeniorDistribution({
-          ten: tenS,
-          twenty: twentyS,
-          thirty: thirtyS,
-          fun: funS,
-          ww: wwS,
-          none: nS
-        });
-        
-    setCouponsDistribution({a,b,c,d,e,f})
-    setSoldTicketsCategories({child,adult,senior});
-  },[soldTicketsArray])
+    setChildDistribution({
+      ten: tenC,
+      twenty: twentyC,
+      thirty: thirtyC,
+      fun: funC,
+      ww: wwC,
+      none: nC
+    });
+    setSeniorDistribution({
+      ten: tenS,
+      twenty: twentyS,
+      thirty: thirtyS,
+      fun: funS,
+      ww: wwS,
+      none: nS
+    });
+    setFreeAdults(freeA);
+    setCheckedInBooking(checkedIn);
+    setCouponsDistribution({ a, b, c, d, e, f });
+    setSoldTicketsCategories({ child, adult, senior });
+  }, [soldTicketsArray]);
+  
 
   const revenueLastWeek = 200000;
 
@@ -162,30 +185,6 @@ const Insights = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     verifyCredentials(email, password);
-  };
-
-  const handleDelete = async (id, index) => {
-    let ask = window.confirm("Do you want to delete?");
-    if (!ask) return;
-    try {
-      let token = window.localStorage.getItem("funworldLogin");
-      const res = await axios.delete(
-        `https://api2.fwblr.apistack.net/api/soldtickets?id=${id}`,
-        { headers: { token: token } }
-      );
-      console.log(res);
-      let tempArray = [...soldTicketsArray];
-      tempArray.splice(index, 1);
-      setSoldTicketsArray(tempArray);
-      let genTempArray = [];
-      for (let i = 0; i < generalSoldTicketsArray.length; i++) {
-        if (generalSoldTicketsArray[i]._id == id) continue;
-        genTempArray.push(generalSoldTicketsArray[i]);
-      }
-      setGeneralsoldTicketArray(genTempArray);
-    } catch (err) {
-      console.log(err);
-    }
   };
 
   const verifyCredentials = async (email, password) => {
@@ -205,39 +204,6 @@ const Insights = () => {
     } catch (e) {
       // console.log(e);
       window.alert(e);
-    }
-  };
-
-  const handleCheckedInChange = async (index, soldTicketId, ticketId) => {
-    if (!window.confirm("Do you want to change checked-in status?")) return;
-
-    const updatedSoldTicketsArray = [...soldTicketsArray]; // Create a copy of the array
-    const ticketToUpdate = updatedSoldTicketsArray[index].tickets[0];
-    ticketToUpdate.checkedIn = !ticketToUpdate.checkedIn;
-
-    const updatedGeneralSoldTicketsArray = [...generalSoldTicketsArray]; // Create a copy of the array
-    for (let i = 0; i < updatedGeneralSoldTicketsArray.length; i++) {
-      if (updatedGeneralSoldTicketsArray._id == soldTicketId) {
-        const generalTicketToUpdate =
-          updatedGeneralSoldTicketsArray[i].tickets[0];
-        generalTicketToUpdate.checkedIn = !generalTicketToUpdate.checkedIn;
-      }
-    }
-
-    try {
-      let token = window.localStorage.getItem("funworldLogin");
-      const res = await axios.put(
-        `https://api2.fwblr.apistack.net/api/soldtickets?id=${soldTicketId}`,
-        { tickets: updatedSoldTicketsArray[index].tickets },
-        { headers: { token: token } }
-      );
-
-      // Assuming the API call was successful, update the state with the updated array
-      setSoldTicketsArray(updatedSoldTicketsArray);
-      setGeneralsoldTicketArray(updatedGeneralSoldTicketsArray);
-      // console.log(res.data, ticketToUpdate);
-    } catch (error) {
-      console.error("Error updating checked-in status:", error);
     }
   };
 
@@ -289,7 +255,88 @@ const Insights = () => {
         (item) => item.tickets[0].visitDate === formattedNextDay
       );
       setSoldTicketsArray(filteredArray);
-    } else {
+    }
+    else if (btn === "Yesterday") {
+    
+      let reqDate = new Date(currentDate);
+      reqDate.setDate(currentDate.getDate()-1); 
+
+      reqDate = formatDate(reqDate);
+
+      const filteredArray = generalSoldTicketsArray.filter(
+        (item) => item.tickets[0].visitDate === reqDate
+      );
+      setSoldTicketsArray(filteredArray);
+    }
+    else if (btn === "Day before Yesterday") {
+      let reqDate = new Date(currentDate);
+      reqDate.setDate(currentDate.getDate()-2); 
+
+      reqDate = formatDate(reqDate);
+
+      const filteredArray = generalSoldTicketsArray.filter(
+        (item) => item.tickets[0].visitDate === reqDate
+      );
+      setSoldTicketsArray(filteredArray);
+    }
+    else if (btn === "2 Days before Yesterday") {
+      let reqDate = new Date(currentDate);
+      reqDate.setDate(currentDate.getDate()-3); 
+
+      reqDate = formatDate(reqDate);
+
+      const filteredArray = generalSoldTicketsArray.filter(
+        (item) => item.tickets[0].visitDate === reqDate
+      );
+      setSoldTicketsArray(filteredArray);
+    }
+    else if (btn === "3 Days before Yesterday") {
+      let reqDate = new Date(currentDate);
+      reqDate.setDate(currentDate.getDate()-4); 
+
+      reqDate = formatDate(reqDate);
+
+      const filteredArray = generalSoldTicketsArray.filter(
+        (item) => item.tickets[0].visitDate === reqDate
+      );
+      setSoldTicketsArray(filteredArray);
+    }
+    else if (btn === "4 Days before Yesterday") {
+      let reqDate = new Date(currentDate);
+      reqDate.setDate(currentDate.getDate()-5); 
+
+      reqDate = formatDate(reqDate);
+
+      const filteredArray = generalSoldTicketsArray.filter(
+        (item) => item.tickets[0].visitDate === reqDate
+      );
+      setSoldTicketsArray(filteredArray);
+    }
+    else if (btn === "5 Days before Yesterday") {
+      let reqDate = new Date(currentDate);
+      reqDate.setDate(currentDate.getDate()-6); 
+
+      reqDate = formatDate(reqDate);
+
+      const filteredArray = generalSoldTicketsArray.filter(
+        (item) => item.tickets[0].visitDate === reqDate
+      );
+      setSoldTicketsArray(filteredArray);
+    }
+    else if (btn === "6 Days before Yesterday") {
+      let reqDate = new Date(currentDate);
+      reqDate.setDate(currentDate.getDate()-7); 
+
+      reqDate = formatDate(reqDate);
+
+      const filteredArray = generalSoldTicketsArray.filter(
+        (item) => item.tickets[0].visitDate === reqDate
+      );
+      setSoldTicketsArray(filteredArray);
+    }
+    
+    
+    else {
       setSoldTicketsArray(generalSoldTicketsArray);
     }
   };
@@ -301,33 +348,49 @@ const Insights = () => {
       rev += ticket.price;
     })
     setRevenue(rev);
-
-
   }
 
 
 
-   useEffect(()=>{
-    if(soldTicketsArray){
-      calculateTodaysRevenue();
-    } 
+  //  useEffect(()=>{
+  //   if(soldTicketsArray){
+  //     calculateTodaysRevenue();
+  //   } 
 
-   },[soldTicketsArray])
+  //  },[soldTicketsArray])
 
+
+  
 
    
 
 
   const exportToExcel = () => {
     const data = [
-      { coupon: "10SUMMEROFF",adult:  adultsDistribution.ten, child:childDstribution.ten, senior: seniorDistribution.ten },
-      { coupon: "20GOVTOFF", adult: adultsDistribution.twenty, child: childDstribution.twenty, senior: seniorDistribution.twenty },
-      { coupon: "30STUDENTOFF", adult: adultsDistribution.thirty, child: childDstribution.thirty, senior: seniorDistribution.thirty },
-      { coupon: "FUN5", adult: adultsDistribution.fun, child: childDstribution.fun, senior: seniorDistribution.fun},
-      { coupon: "WONDERWOMEN", adult:adultsDistribution.ww, child: childDstribution.ww, senior: seniorDistribution.ww},
-      { coupon: "No Coupon", adult: adultsDistribution.none, child: childDstribution.none, senior: seniorDistribution.none},
-      { coupon: "Grand Total", adult: soldTicketsCategories.adult, child: soldTicketsCategories.child, senior: soldTicketsCategories.senior},
+      { coupon: "10SUMMEROFF", adult: adultsDistribution.ten, child: childDstribution?.ten, senior: seniorDistribution?.ten },
+      { coupon: "20GOVTOFF", adult: adultsDistribution?.twenty, child: childDstribution?.twenty, senior: seniorDistribution?.twenty },
+      { coupon: "30STUDENTOFF", adult: adultsDistribution?.thirty, child: childDstribution?.thirty, senior: seniorDistribution?.thirty },
+      { 
+        coupon: "FUN5",
+        adult:`Paid : ${adultsDistribution?.fun - freeAdults}, Free : ${freeAdults}, Total : ${adultsDistribution?.fun}`
+        ,
+        child: childDstribution?.fun,
+        senior: seniorDistribution?.fun
+      },
+      { 
+        coupon: "WONDERWOMEN",
+        adult:`Paid: ${adultsDistribution?.ww/2}, Free: ${adultsDistribution?.ww/2}, Total : ${adultsDistribution?.ww}` ,
+        child:`Paid: ${childDstribution?.ww/2} : Free:${childDstribution?.ww/2}, Total : ${childDstribution?.ww} `,
+        senior:`Paid: ${seniorDistribution?.ww/2} : Free:${seniorDistribution?.ww/2}, Total : ${seniorDistribution?.ww} `
+
+      },
+      { coupon: "No Coupon", adult: adultsDistribution?.none, child: childDstribution?.none, senior: seniorDistribution?.none },
+      { coupon: "Grand Total", adult: soldTicketsCategories?.adult, child: soldTicketsCategories?.child, senior: soldTicketsCategories?.senior },
+      { coupon: "...", adult: "...", child: "...", senior: "..." }, // Placeholder for additional coupons not specified in the table
+      { coupon: "Free Tickets from Adults", adult: `${freeAdults} from FUN5 + ${couponsDistribution?.e} from WONDERWOMEN`, child: "...", senior: "..." }
     ];
+
+    
     const ws = XLSX.utils.json_to_sheet(data);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
@@ -420,12 +483,22 @@ const Insights = () => {
                   >
                     <option value="Today">Today</option>
                     <option value="Tomorrow">Tomorrow</option>
+                    <option value="Yesterday">Yesterday</option>
+                    <option value="Day before Yesterday">Day before Yesterday</option>
+                    <option value="2 Days before Yesterday">2 Days before Yesterday</option>
+                    <option value="3 Days before Yesterday">3 Days before Yesterday</option>
+                    <option value="4 Days before Yesterday">4 Days before Yesterday</option>
+                    <option value="5 Days before Yesterday">5 Days before Yesterday</option>
+                    <option value="6 Days before Yesterday">6 Days before Yesterday</option>
                     <option value="General">General</option>
                   </select>
                 </div>
 
                <div>
                  {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
+               </div>
+               <div>
+                 {selectedButton}'s CheckedIn Bookings :  {checkedInBooking} 
                </div>
                <div>
                  Children :  {soldTicketsCategories?.child} 
@@ -437,14 +510,6 @@ const Insights = () => {
                <div>
                  Seniors :  {soldTicketsCategories?.senior} 
                </div>
-                {/* <div className="lg:w-[800px] md:min-w-[200px] flex">
-                  <Link
-                    href="/contactformpage"
-                    className="px-6 py-3 rounded border hover:scale-105 text-xl transition-all delay-150 text-white font-[500] bg-orange-400"
-                  >
-                    Queries / Holidays
-                  </Link>
-                </div> */}
               </div>  
             </div>
         </div>
@@ -465,8 +530,8 @@ const Insights = () => {
                   </tr>
                 </thead>
 
-
-                <tr className="border-b border-red-500 text-center border-solid">
+               <tbody>
+               <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid">10SUMMEROFF </td>
                   <td className="border-r border-red-500 border-solid">{adultsDistribution?.ten} </td>
                   <td className="border-r border-red-500 border-solid">{childDstribution?.ten} </td>
@@ -486,15 +551,15 @@ const Insights = () => {
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid">FUN5 </td>
-                  <td className="border-r border-red-500 border-solid">{adultsDistribution?.fun}</td>
+                  <td className="border-r border-red-500 border-solid">Paid: {adultsDistribution?.fun - freeAdults} , Free : {freeAdults}, total : {adultsDistribution?.fun} </td>
                   <td className="border-r border-red-500 border-solid">{childDstribution?.fun} </td>
                   <td>{seniorDistribution?.fun} </td>
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid">WONDERWOMEN </td>
-                  <td className="border-r border-red-500 border-solid">{adultsDistribution?.ww} </td>
-                  <td className="border-r border-red-500 border-solid">{childDstribution?.ww}  </td>
-                  <td>{seniorDistribution?.ww}  </td>
+                  <td className="border-r border-red-500 border-solid"> Paid: {adultsDistribution?.ww/2} : Free:{adultsDistribution?.ww/2}, Total : {adultsDistribution?.ww} </td>
+                  <td className="border-r border-red-500 border-solid">Paid: {childDstribution?.ww/2} : Free:{childDstribution?.ww/2}, Total : {childDstribution?.ww}  </td>
+                  <td>Paid: {seniorDistribution?.ww/2} : Free:{seniorDistribution?.ww/2}, Total : {seniorDistribution?.ww}   </td>
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid">No Coupon </td>
@@ -508,6 +573,20 @@ const Insights = () => {
                   <td className="border-r border-red-500 border-solid">  {soldTicketsCategories?.child}  </td>
                   <td>  {soldTicketsCategories?.senior}   </td>
                 </tr>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid font-bold">... </td>
+                  <td className="border-r border-red-500 border-solid">...</td>
+                  <td className="border-r border-red-500 border-solid"> ...  </td>
+                  <td>  ...   </td>
+                </tr>
+                <tr className="border-b border-red-500 text-center border-solid">
+                  <td className="border-r border-red-500 border-solid font-bold">Free Tickets from Adults </td>
+                  <td className="border-r border-red-500 border-solid">{freeAdults} from FUN5 +  {couponsDistribution.e} from WONDERWOMEN </td>
+                  <td className="border-r border-red-500 border-solid"> ...  </td>
+                  <td> ...</td>
+                </tr>
+               </tbody>
+               
 
         </table>
 
