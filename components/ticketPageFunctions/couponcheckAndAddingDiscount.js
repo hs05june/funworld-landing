@@ -54,7 +54,6 @@ export const checkCouponAndAddingDiscount = async ({
           );
           return;
         } else {
-
           const date = info.visitDate;
 
           var givenDate = await new Date(date);
@@ -63,17 +62,17 @@ export const checkCouponAndAddingDiscount = async ({
           var currentDate =await new Date();
           currentDate.setHours(0, 0, 0, 0); // Set time to midnight
       
-          var june7th =await new Date("2024-06-07");
-          june7th.setHours(0, 0, 0, 0); // Set time to midnight
+          var june15 =await new Date("2024-06-15");
+          june15.setHours(0, 0, 0, 0); // Set time to midnight
       
-          var isBeforeJune7th = givenDate <= june7th;
+          var isBeforeJune15th = givenDate <= june15;
       
           // Check if the given date is greater than or equal to the current date
           var isFutureDate = givenDate > currentDate;
 
 
-          if(!isBeforeJune7th){
-            window.alert("This offer is only valid till June 7th. Please select some other coupon.")
+          if(!isBeforeJune15th){
+            window.alert("This offer is only valid till June 15th. Please select some other coupon.")
             return;
           }
 
@@ -83,7 +82,7 @@ export const checkCouponAndAddingDiscount = async ({
           }
           else{
             let a = 2 * Math.floor(info.adult / 5);
-           discount = a / info.adult;
+            discount = a / info.adult;
           }
         }
       }

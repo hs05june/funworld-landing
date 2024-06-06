@@ -374,6 +374,9 @@ const Admin = () => {
                           ticket.name
                             .toLowerCase()
                             .includes(search.toLowerCase()) ||
+                          ticket.coupon_used
+                            .toLowerCase()
+                            .includes(search.toLowerCase()) ||
                           ticket.email
                             .toLowerCase()
                             .includes(search.toLowerCase()) ||
