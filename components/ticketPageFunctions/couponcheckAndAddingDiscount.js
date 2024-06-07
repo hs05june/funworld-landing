@@ -71,12 +71,12 @@ export const checkCouponAndAddingDiscount = async ({
           var isFutureDate = givenDate > currentDate;
 
 
-          if(!isBeforeJune15th){
-            window.alert("This offer is only valid till June 15th. Please select some other coupon.")
-            return;
-          }
+          // if(!isBeforeJune15th){
+          //   window.alert("This offer is only valid till June 15th. Please select some other coupon.")
+          //   return;
+          // }
 
-          else if(!isFutureDate){
+          if(!isFutureDate){
             window.alert("This offer is only valid on pre-bookings so you cannot use this coupon for today's date. Please choose a future date to apply this offer.");
             return;
           }
@@ -89,7 +89,7 @@ export const checkCouponAndAddingDiscount = async ({
       else if(coupon == "WONDERWOMEN"){
 
         if(info.child > 0){
-          window.alert("The Offer is Applicable to Adult/Senior Women, please remove childs from ticket")
+          window.alert("The Offer is Applicable to Adult/Senior Women, please remove children from ticket")
           return;
         }
 
