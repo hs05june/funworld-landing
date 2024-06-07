@@ -194,7 +194,7 @@ const TicketsPage = () => {
       if (!newOfferSeen) {
         Swal.fire({
           title: "New Offer!",
-          html: "<p> <b>Buy 3<b/> get <b>2<b/> Free. Use code <b>'FUN5' <b/> to avail this offer. Valid only for Adult tickets. Offer ends on 15th June</p>",
+          html: "<p> <b>Buy 3<b/> get <b>2<b/> Free. Use code <b>'FUN5' <b/> to avail this offer. Valid only for Adult tickets.</p>",
           icon: "info",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
