@@ -62,7 +62,7 @@ export const checkCouponAndAddingDiscount = async ({
           var currentDate =await new Date();
           currentDate.setHours(0, 0, 0, 0); // Set time to midnight
       
-          var june15 =await new Date("2024-06-15");
+          var june15 =await new Date("2024-06-30");
           june15.setHours(0, 0, 0, 0); // Set time to midnight
       
           var isBeforeJune15th = givenDate <= june15;
@@ -71,10 +71,10 @@ export const checkCouponAndAddingDiscount = async ({
           var isFutureDate = givenDate > currentDate;
 
 
-          // if(!isBeforeJune15th){
-          //   window.alert("This offer is only valid till June 15th. Please select some other coupon.")
-          //   return;
-          // }
+          if(!isBeforeJune15th){
+            window.alert("This offer is only valid till June 30th. Please select some other coupon.")
+            return;
+          }
 
           if(!isFutureDate){
             window.alert("This offer is only valid on pre-bookings so you cannot use this coupon for today's date. Please choose a future date to apply this offer.");
