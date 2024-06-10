@@ -21,7 +21,6 @@ export const checkCouponAndAddingDiscount = async ({
       coupon === "10SUMMEROFF" ||
       coupon === "20GOVTOFF" ||
       coupon === "30STUDENTOFF" ||
-      coupon === "testing12345" ||
       coupon === "FUN5" || coupon === "WONDERWOMEN"
     ) {
       let discount = 0;
@@ -44,8 +43,6 @@ export const checkCouponAndAddingDiscount = async ({
           return;
         }
         discount = 0.3;
-      } else if (coupon === "testing12345") {
-        discount = 0.999;
       } else if (coupon === "FUN5") {
         if (info.child > 0 || info.senior > 0 || info.adult < 5) {
           setCoupon("");
