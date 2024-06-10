@@ -23,7 +23,12 @@ export const RazorpayCheckout = async ({
       "https://api2.fwblr.apistack.net/api/razorpay/create-order",
       {
         amount: Number(checkoutPriceAfterDiscount * 100),
-        name: info.name ? info.name : "",
+        name: bookingDetails.name ? bookingDetails.name : "",
+        info : info,
+        bookingDetails: bookingDetails,
+        coupon : coupon,
+        discountPrice : discountPrice,
+        checkoutPriceAfterDiscount: checkoutPriceAfterDiscount
       }
     );
     if (res.status != 200) {
@@ -42,8 +47,7 @@ export const RazorpayCheckout = async ({
       description: "Book Tickets",
       image: "https://example.com/your_logo",
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: `http://localhost:3000/success/${ticketId}`,
-      // callback_url: `https://www.funworldblr.com/success/${ticketId}`,
+
       callback_url: `https://api2.fwblr.apistack.net/api/razorpay/redirecting?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
       prefill: {
         //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
