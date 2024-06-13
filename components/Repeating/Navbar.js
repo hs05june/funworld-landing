@@ -20,7 +20,7 @@ let itemVariants = {
 
 const Navbar = () => {
   const pathname = usePathname();
-  console.log(pathname);
+  // console.log(pathname);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -331,9 +331,8 @@ const Navbar = () => {
               <span
                 className={`w-0 group-hover:w-[100%]  transition-all duration-200 h-[3px] bg-[#B6004C] ${
                   pathname === "/service" ? "w-[100%] " : ""
-                }`}>
-                  
-                </span>
+                }`}
+              ></span>
             </Link>
           </div>
         </div>

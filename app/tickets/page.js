@@ -129,7 +129,7 @@ const TicketsPage = () => {
       const lastTwoCharacters = formattedTime.slice(-2);
       const [hours, minutes, seconds] = formattedTime.split(":");
       let isAfter5pmIST = false;
-      console.log(parseInt(hours, 10));
+      // console.log(parseInt(hours, 10));
       if (lastTwoCharacters === "PM" && parseInt(hours, 10) != 12) {
         isAfter5pmIST = parseInt(hours, 10) + 12 >= 17;
       } else {

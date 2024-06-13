@@ -18,17 +18,16 @@ export const RazorpayCheckout = async ({
   }
   try {
     // console.log(checkoutPrice);
-
     const res = await axios.post(
       "https://api2.fwblr.apistack.net/api/razorpay/create-order",
       {
         amount: Number(checkoutPriceAfterDiscount * 100),
         name: bookingDetails.name ? bookingDetails.name : "",
-        info : info,
+        info: info,
         bookingDetails: bookingDetails,
-        coupon : coupon,
-        discountPrice : discountPrice,
-        checkoutPriceAfterDiscount: checkoutPriceAfterDiscount
+        coupon: coupon,
+        discountPrice: discountPrice,
+        checkoutPriceAfterDiscount: checkoutPriceAfterDiscount,
       }
     );
     if (res.status != 200) {
