@@ -4,115 +4,116 @@ import React, { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Admin = () => {
+  const router = useRouter();
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [search, setSearch] = useState("");
   const [soldTicketsArray, setSoldTicketsArray] = useState();
-  const [soldTicketsCategories, setSoldTicketsCategories] = useState({child:0, adult:0, senior:0});
+  const [loading, setLoading] = useState(true);
+  const [soldTicketsCategories, setSoldTicketsCategories] = useState({
+    child: 0,
+    adult: 0,
+    senior: 0,
+  });
   const [generalSoldTicketsArray, setGeneralsoldTicketArray] = useState([]);
-  const [revenue,setRevenue] = useState(0);
+  const [couponsDistribution, setCouponsDistribution] = useState({
+    a: 0,
+    b: 0,
+    c: 0,
+    d: 0,
+    e: 0,
+    f: 0,
+  });
 
-  const [couponsDistribution, setCouponsDistribution] = useState({a:0,b:0,c:0,d:0,e:0,f:0});
+  const axiosJWT = axios.create();
+
+  axiosJWT.interceptors.request.use(
+    async (config) => {
+      let currentDate = new Date();
+      const accessToken = window.localStorage.getItem("fwAccessToken");
+      config.headers["authorization"] = "Bearer " + accessToken;
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
 
   useEffect(() => {
-    let token = window.localStorage.getItem("funworldLogin");
-    if (token) {
-      const token1 = JSON.parse(token);
-      let { email, password } = jwt.decode(token1);
-      if (email && password) {
-        axios
-          .post("https://api2.fwblr.apistack.net/api/auth/admin", {
-            email: email,
-            password: password,
-          })
-          .then((res) => {
-            if (res.data.admin) {
-              setIsAdminLoggedIn(true);
-            }
-          });
+    let accessToken = window.localStorage.getItem("fwAccessToken");
+    const fetchSoldTickets = async () => {
+      try {
+        const res = await axiosJWT.get(
+          "https://api2.fwblr.apistack.net/api/soldtickets/all"
+        );
+        let arr = res.data.sort((a, b) =>
+          b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate)
+        );
+        setGeneralsoldTicketArray(arr);
+        const filteredArray = arr.filter(
+          (item) => item.tickets[0].visitDate === formattedCurrentDate
+        );
+        setSoldTicketsArray(filteredArray);
+        setLoading(false);
+      } catch (e) {
+        window.alert("Err in fetching sold tickets");
+        setLoading(false);
+        router.replace("/adminlogin");
       }
-      setIsAdminLoggedIn(true);
+    };
+
+    if (!accessToken) {
+      router.replace("/adminlogin");
+    } else {
+      fetchSoldTickets();
     }
   }, []);
 
   useEffect(() => {
-    const fetchSoldTickets = async () => {
-      if (isAdminLoggedIn) {
-        let token = window.localStorage.getItem("funworldLogin");
-        try {
-          const res = await axios.get(
-            "https://api2.fwblr.apistack.net/api/soldtickets"
-          );
-          // console.log(res.data);
-          // setSoldTicketsArray(res.data);
-          let arr = res.data.sort((a, b) =>
-            b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate)
-          );
-          setGeneralsoldTicketArray(arr);
-          // console.log(arr)
-          const filteredArray = arr.filter(
-            (item) => item.tickets[0].visitDate === formattedCurrentDate
-          );
-          setSoldTicketsArray(filteredArray);
-        } catch (e) {
-          window.alert("Err in fetching sold tickets");
-        }
-      }
-    };
-    fetchSoldTickets();
-  }, [isAdminLoggedIn]);
-
-  useEffect(()=>{
-    let child = 0, adult = 0, senior = 0;
-    let a = 0, b= 0,c= 0,d= 0,e= 0,f= 0;
-    soldTicketsArray?.forEach(e=>{
+    let child = 0,
+      adult = 0,
+      senior = 0;
+    let a = 0,
+      b = 0,
+      c = 0,
+      d = 0,
+      e = 0,
+      f = 0;
+    soldTicketsArray?.forEach((e) => {
       child += e?.tickets[0]?.child;
       adult += e?.tickets[0]?.adult;
       senior += e?.tickets[0]?.senior;
 
-      if(e?.coupon_used == '10SUMMEROFF'){
+      if (e?.coupon_used == "10SUMMEROFF") {
         a++;
-      }
-      else if(e?.coupon_used == "20GOVTOFF"){
+      } else if (e?.coupon_used == "20GOVTOFF") {
         b++;
-      }
-      else if(e?.coupon_used == "30STUDENTOFF"){
+      } else if (e?.coupon_used == "30STUDENTOFF") {
         c++;
-      }
-      else if(e?.coupon_used == "FUN5"){
+      } else if (e?.coupon_used == "FUN5") {
         d++;
-      }
-      else if(e?.coupon_used== "WONDERWOMEN"){
+      } else if (e?.coupon_used == "WONDERWOMEN") {
         e++;
-      }
-      else{
+      } else {
         f++;
       }
-    })
-    console.log(a,b,c,d,e,f);
-    setCouponsDistribution({a,b,c,d,e,f})
-    setSoldTicketsCategories({child,adult,senior});
-  },[soldTicketsArray])
-
-  const revenueLastWeek = 200000;
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    verifyCredentials(email, password);
-  };
+    });
+    console.log(a, b, c, d, e, f);
+    setCouponsDistribution({ a, b, c, d, e, f });
+    setSoldTicketsCategories({ child, adult, senior });
+  }, [soldTicketsArray]);
 
   const handleDelete = async (id, index) => {
     let ask = window.confirm("Do you want to delete?");
     if (!ask) return;
     try {
       let token = window.localStorage.getItem("funworldLogin");
-      const res = await axios.delete(
-        `https://api2.fwblr.apistack.net/api/soldtickets?id=${id}`,
-        { headers: { token: token } }
+      const res = await axiosJWT.delete(
+        `https://api2.fwblr.apistack.net/api/soldtickets?id=${id}`
       );
       console.log(res);
       let tempArray = [...soldTicketsArray];
@@ -126,26 +127,6 @@ const Admin = () => {
       setGeneralsoldTicketArray(genTempArray);
     } catch (err) {
       console.log(err);
-    }
-  };
-
-  const verifyCredentials = async (email, password) => {
-    try {
-      const res = await axios.post(
-        "https://api2.fwblr.apistack.net/api/auth/admin",
-        {
-          email: email,
-          password: password,
-        }
-      );
-      if (res.data.admin) {
-        setIsAdminLoggedIn(true);
-        let token = jwt.sign({ email: email, password: password }, "FUNWORLD");
-        window.localStorage.setItem("funworldLogin", JSON.stringify(token));
-      }
-    } catch (e) {
-      // console.log(e);
-      window.alert(e);
     }
   };
 
@@ -166,11 +147,9 @@ const Admin = () => {
     }
 
     try {
-      let token = window.localStorage.getItem("funworldLogin");
-      const res = await axios.put(
+      const res = await axiosJWT.put(
         `https://api2.fwblr.apistack.net/api/soldtickets?id=${soldTicketId}`,
-        { tickets: updatedSoldTicketsArray[index].tickets },
-        { headers: { token: token } }
+        { tickets: updatedSoldTicketsArray[index].tickets }
       );
 
       // Assuming the API call was successful, update the state with the updated array
@@ -235,55 +214,69 @@ const Admin = () => {
     }
   };
 
-
-  const calculateTodaysRevenue = ()=>{
-    let rev = 0;
-    soldTicketsArray.forEach((ticket)=>{
-      rev += ticket.price;
-    })
-    setRevenue(rev);
-
-
-  }
-
-
-
-   useEffect(()=>{
-    if(soldTicketsArray){
-      calculateTodaysRevenue();
-    } 
-
-   },[soldTicketsArray])
-
-
-
-
-  
+  const handleLogout = () => {
+    window.localStorage.removeItem("fwAccessToken");
+    router.replace("/adminlogin");
+  };
 
   return (
     <>
-      {isAdminLoggedIn ? (
+      {loading ? (
+        <>
+          <div
+            style={{
+              position: "absolute",
+              backgroundColor: "white",
+              zIndex: "100",
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "100%",
+              height: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ClipLoader color="lightblue" loading={loading} size={130} />
+          </div>
+        </>
+      ) : (
         <>
           <div className="p-4">
             <div className="flex items-center justify-center gap-4 my-8">
               {/* <h1 className="text-3xl font-semibold mb-4">Admin Panel</h1> */}
               <div className="flex items-center justify-center px-2">
-                10SUMMEROFF : <span className="font-bold">{couponsDistribution?.a}</span>
+                10SUMMEROFF :{" "}
+                <span className="font-bold">{couponsDistribution?.a}</span>
               </div>
               <div className="flex items-center justify-center px-2">
-                20GOVTOFF :<span className="font-bold">{couponsDistribution?.b}</span>
+                20GOVTOFF :
+                <span className="font-bold">{couponsDistribution?.b}</span>
               </div>
               <div className="flex items-center justify-center px-2">
-                30STUDENTOFF :<span className="font-bold">{couponsDistribution?.c}</span>
+                30STUDENTOFF :
+                <span className="font-bold">{couponsDistribution?.c}</span>
               </div>
               <div className="flex items-center justify-center px-2">
-                FUN5 :<span className="font-bold">{couponsDistribution?.d}</span>
+                FUN5 :
+                <span className="font-bold">{couponsDistribution?.d}</span>
               </div>
               <div className="flex items-center justify-center px-2">
-                WONDERWOMEN : <span className="font-bold">{couponsDistribution?.e}</span>
+                WONDERWOMEN :{" "}
+                <span className="font-bold">{couponsDistribution?.e}</span>
               </div>
               <div className="flex items-center justify-center px-2">
-                NO COUPON :<span className="font-bold">{couponsDistribution?.f}</span>
+                NO COUPON :
+                <span className="font-bold">{couponsDistribution?.f}</span>
+              </div>
+              <div
+                onClick={handleLogout}
+                className="flex items-center text-2xl cursor-pointer hover:scale-105  justify-center px-2 border "
+              >
+                Logout
               </div>
             </div>
 
@@ -313,22 +306,16 @@ const Admin = () => {
                   />
                 </div>
 
-                 {/* <div>
+                {/* <div>
                    {selectedButton}'s Revenue :  {revenue} rs
                  </div> */}
 
-               <div>
-                 {selectedButton}'s Bookings :  {soldTicketsArray?.length} 
-               </div>
-               <div>
-                 Children :  {soldTicketsCategories?.child} 
-               </div>
-               <div>
-                 Adults :  {soldTicketsCategories?.adult} 
-               </div>
-               <div>
-                 Seniors :  {soldTicketsCategories?.senior} 
-               </div>
+                <div>
+                  {selectedButton}'s Bookings : {soldTicketsArray?.length}
+                </div>
+                <div>Children : {soldTicketsCategories?.child}</div>
+                <div>Adults : {soldTicketsCategories?.adult}</div>
+                <div>Seniors : {soldTicketsCategories?.senior}</div>
                 <div className="lg:w-[800px] md:min-w-[200px] flex">
                   <Link
                     href="/insights"
@@ -337,10 +324,6 @@ const Admin = () => {
                     Queries / Holidays
                   </Link>
                 </div>
-
-
-              
-
               </div>
 
               <div>
@@ -467,9 +450,11 @@ const Admin = () => {
                                     )
                                   }
                                   className={`px-2 py-1  text-white font-[600] ml-4 rounded hover:scale-105 transition-all delay-150 
-                                  ${ticket.tickets[0].checkedIn === true
-                                  ? "bg-green-600"
-                                  : "bg-red-600"}`}
+                                  ${
+                                    ticket.tickets[0].checkedIn === true
+                                      ? "bg-green-600"
+                                      : "bg-red-600"
+                                  }`}
                                 >
                                   Change
                                 </button>
@@ -481,58 +466,6 @@ const Admin = () => {
                     )}
                 </tbody>
               </table>
-            </div>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="min-h-[70vh] flex items-center justify-center  px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full">
-              <p className="text-center mb-8 font-bold text-2xl">Admin Login</p>
-              <form className="flex flex-col gap-4" onSubmit={handleLogin}>
-                <div className="rounded-md shadow-sm -space-y-px flex flex-col gap-4">
-                  <div>
-                    <label htmlFor="email" className="sr-only">
-                      Email address
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="appearance-none rounded-none relative block w-full px-3 py-2 placeholder-gray-500 text-gray-900 rounded-t-md focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                      placeholder="Email address"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="password" className="sr-only">
-                      Password
-                    </label>
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      autoComplete="current-password"
-                      required
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="appearance-none rounded-none relative block w-full px-3 py-2 placeholder-gray-500 text-gray-900 rounded-b-md focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                      placeholder="Password"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white  focus:outline-none focus:ring-2 focus:ring-offset-2 sidebox-css"
-                  >
-                    Sign in
-                  </button>
-                </div>
-              </form>
             </div>
           </div>
         </>
