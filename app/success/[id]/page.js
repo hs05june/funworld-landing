@@ -11,6 +11,7 @@ const Success = ({ params }) => {
       .get(`https://api2.fwblr.apistack.net/api/soldtickets?id=${params.id}`)
       .then((res) => {
         setTicket(res.data.message);
+        console.log(res.data.message);
         // console.log(res.data.message);
         // window.localStorage.setItem("cart", JSON.stringify([]));
         // console.log(res.data.message)
@@ -25,8 +26,11 @@ const Success = ({ params }) => {
         {ticket && ticket.payment === false ? (
           <div className="flex flex-col gap-4 text-center px-8 py-4 items-center min-h-[50vh]">
             <div className="">
-              Sorry, There was some error in booking the ticket, maybe the
-              payment failed. In case the payment was done, stay rest assured, our team will help you out while checking in.
+              Sorry, There was some error in fetching the ticket, maybe the
+              payment failed or some other error occured, If you paid the money,
+              stay rest assured, our team will be there to help you while checking in, else if
+              payment didn't went through,Please rebook the ticket by going to:{" "}
+
             </div>
             <Link
               className="px-4 py-2 rounded-lg bg-orange-600 w-[150px] text-white"
