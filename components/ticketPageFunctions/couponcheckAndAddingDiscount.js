@@ -23,7 +23,6 @@ export const checkCouponAndAddingDiscount = async ({
       coupon === "30STUDENTOFF" ||
       coupon === "FUN5" ||
       coupon === "WONDERWOMEN" ||
-      coupon === "test982"
     ) {
       let discount = 0;
 
@@ -128,9 +127,7 @@ export const checkCouponAndAddingDiscount = async ({
 
           return;
         }
-      } else if (coupon === "test982") {
-        discount = 0.999;
-      }
+      
 
       let roundedDiscount = Math.round(checkoutPrice * discount);
       const newCheckoutPrice = checkoutPrice - roundedDiscount;
