@@ -26,7 +26,7 @@ const Success = ({ params }) => {
           <div className="flex flex-col gap-4 text-center px-8 py-4 items-center min-h-[50vh]">
             <div className="">
               Sorry, There was some error in booking the ticket, maybe the
-              payment failed. Please rebook the ticket by going to:{" "}
+              payment failed. In case the payment was done, stay rest assured, our team will help you out while checking in.
             </div>
             <Link
               className="px-4 py-2 rounded-lg bg-orange-600 w-[150px] text-white"
