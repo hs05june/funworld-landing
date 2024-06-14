@@ -28,8 +28,9 @@ const Success = ({ params }) => {
             <div className="">
               Sorry, There was some error in fetching the ticket, maybe the
               payment failed or some other error occured, If you paid the money,
-              stay rest assured, our team will be there to help you, else if
+              stay rest assured, our team will be there to help you while checking in, else if
               payment didn't went through,Please rebook the ticket by going to:{" "}
+
             </div>
             <Link
               className="px-4 py-2 rounded-lg bg-orange-600 w-[150px] text-white"
