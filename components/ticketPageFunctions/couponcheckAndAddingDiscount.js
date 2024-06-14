@@ -127,6 +127,7 @@ export const checkCouponAndAddingDiscount = async ({
 
           return;
         }
+      }
       
 
       let roundedDiscount = Math.round(checkoutPrice * discount);
