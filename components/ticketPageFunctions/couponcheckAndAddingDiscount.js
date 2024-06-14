@@ -22,7 +22,7 @@ export const checkCouponAndAddingDiscount = async ({
       coupon === "20GOVTOFF" ||
       coupon === "30STUDENTOFF" ||
       coupon === "FUN5" ||
-      coupon === "WONDERWOMEN" ||
+      coupon === "WONDERWOMEN"
     ) {
       let discount = 0;
 
@@ -88,7 +88,7 @@ export const checkCouponAndAddingDiscount = async ({
             discount = a / info.adult;
           }
         }
-      } else if (coupon == "WONDERWOMEN") {
+      } else if (coupon === "WONDERWOMEN") {
         if (info.child > 0) {
           window.alert(
             "The Offer is Applicable to Adult/Senior Women, please remove children from ticket"
@@ -128,7 +128,6 @@ export const checkCouponAndAddingDiscount = async ({
           return;
         }
       }
-      
 
       let roundedDiscount = Math.round(checkoutPrice * discount);
       const newCheckoutPrice = checkoutPrice - roundedDiscount;
