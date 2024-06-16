@@ -21,6 +21,10 @@ export default function RootLayout({ children }) {
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
       <html lang="en">
         <Head>
+          <meta
+            name="google-site-verification"
+            content="pEMom7iH1FwSg6wn8sWpC6-2d-RLN0xCNnqjkAeE4AQ"
+          />
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
           {/* Other meta tags can be added here if needed */}
