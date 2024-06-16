@@ -48,7 +48,7 @@ const Admin = () => {
     const fetchSoldTickets = async () => {
       try {
         const res = await axiosJWT.get(
-          "https://www.funworldbackend.tech/api/soldtickets/all"
+          "https://api2.fwblr.apistack.net/api/soldtickets/all"
         );
         let arr = res.data.sort((a, b) =>
           b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate)
@@ -113,7 +113,7 @@ const Admin = () => {
     try {
       let token = window.localStorage.getItem("funworldLogin");
       const res = await axiosJWT.delete(
-        `https://www.funworldbackend.tech/api/soldtickets?id=${id}`
+        `https://api2.fwblr.apistack.net/api/soldtickets?id=${id}`
       );
       console.log(res);
       let tempArray = [...soldTicketsArray];
@@ -148,7 +148,7 @@ const Admin = () => {
 
     try {
       const res = await axiosJWT.put(
-        `https://www.funworldbackend.tech/api/soldtickets?id=${soldTicketId}`,
+        `https://api2.fwblr.apistack.net/api/soldtickets?id=${soldTicketId}`,
         { tickets: updatedSoldTicketsArray[index].tickets }
       );
 

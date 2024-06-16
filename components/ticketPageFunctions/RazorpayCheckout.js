@@ -19,7 +19,7 @@ export const RazorpayCheckout = async ({
   try {
     // console.log(checkoutPrice);
     const res = await axios.post(
-      "https://www.funworldbackend.tech/api/razorpay/create-order",
+      "https://api2.fwblr.apistack.net/api/razorpay/create-order",
       {
         amount: Number(checkoutPriceAfterDiscount * 100),
         name: bookingDetails.name ? bookingDetails.name : "",
@@ -47,7 +47,7 @@ export const RazorpayCheckout = async ({
       image: "https://example.com/your_logo",
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
 
-      callback_url: `https://www.funworldbackend.tech/api/razorpay/redirecting?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
+      callback_url: `https://api2.fwblr.apistack.net/api/razorpay/redirecting?id=${ticketId}&price=${checkoutPriceAfterDiscount}&discount=${discountPrice}&coupon_code=${coupon}`,
       prefill: {
         //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
         name: info.name, //your customer's name
