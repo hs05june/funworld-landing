@@ -31,7 +31,7 @@ export const handleSummaryclick = async ({
 
   try {
     const res = await axios.post(
-      "https://www.funworldbackend.tech/api/soldtickets",
+      "https://api2.fwblr.apistack.net/api/soldtickets",
       {
         userDetails: bookingDetails,
         bookingInfo: info,

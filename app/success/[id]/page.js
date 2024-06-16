@@ -8,7 +8,7 @@ const Success = ({ params }) => {
   const [ticket, setTicket] = useState({});
   useEffect(() => {
     axios
-      .get(`https://www.funworldbackend.tech/api/soldtickets?id=${params.id}`)
+      .get(`https://api2.fwblr.apistack.net/api/soldtickets?id=${params.id}`)
       .then((res) => {
         setTicket(res.data.message);
         console.log(res.data.message);
@@ -28,9 +28,9 @@ const Success = ({ params }) => {
             <div className="">
               Sorry, There was some error in fetching the ticket, maybe the
               payment failed or some other error occured, If you paid the money,
-              stay rest assured, our team will be there to help you while checking in, else if
-              payment didn't went through,Please rebook the ticket by going to:{" "}
-
+              stay rest assured, our team will be there to help you while
+              checking in, else if payment didn't went through,Please rebook the
+              ticket by going to:{" "}
             </div>
             <Link
               className="px-4 py-2 rounded-lg bg-orange-600 w-[150px] text-white"

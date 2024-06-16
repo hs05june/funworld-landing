@@ -13,7 +13,7 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://www.funworldbackend.tech/api/auth/admin",
+        "https://api2.fwblr.apistack.net/api/auth/admin",
         {
           email: email,
           password: password,
