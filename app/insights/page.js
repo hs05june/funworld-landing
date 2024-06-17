@@ -77,7 +77,7 @@ const Insights = () => {
     const fetchSoldTickets = async () => {
       try {
         const res = await axiosJWT.get(
-          "https://api2.fwblr.apistack.net/api/soldtickets/all"
+          "https://www.funworldbackend.tech/api/soldtickets/all"
         );
         let arr = res.data.sort((a, b) =>
           b.tickets[0].visitDate.localeCompare(a.tickets[0].visitDate)
