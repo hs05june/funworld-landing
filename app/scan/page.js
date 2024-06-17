@@ -44,7 +44,7 @@ const Scan = () => {
       let soldTicketId = qrcode.split(" ")[0];
       console.log(soldTicketId);
       let res = await axios.get(
-        `https://api2.fwblr.apistack.net/api/soldtickets?id=${soldTicketId}`
+        `https://www.funworldbackend.tech/api/soldtickets?id=${soldTicketId}`
       );
 
       if (!res.data.status) {
@@ -65,7 +65,7 @@ const Scan = () => {
         if (check) {
           tickets[i].checkedIn = true;
           res = await axiosJWT.put(
-            `https://api2.fwblr.apistack.net/api/soldtickets?id=${soldTicketId}`,
+            `https://www.funworldbackend.tech/api/soldtickets?id=${soldTicketId}`,
             { tickets: tickets }
           );
         }

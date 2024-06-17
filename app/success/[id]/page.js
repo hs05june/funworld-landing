@@ -8,7 +8,7 @@ const Success = ({ params }) => {
   const [ticket, setTicket] = useState({});
   useEffect(() => {
     axios
-      .get(`https://api2.fwblr.apistack.net/api/soldtickets?id=${params.id}`)
+      .get(`https://www.funworldbackend.tech/api/soldtickets?id=${params.id}`)
       .then((res) => {
         setTicket(res.data.message);
         console.log(res.data.message);
