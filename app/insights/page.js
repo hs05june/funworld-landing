@@ -1,12 +1,13 @@
 "use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import jwt from "jsonwebtoken";
 import Image from "next/image";
 import Link from "next/link";
 import * as XLSX from "xlsx";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useRouter } from "next/navigation";
+import { ticketPricingFunction } from "@/components/ticketPageFunctions/ticketPricing";
+import jwt from "jsonwebtoken";
 
 const Insights = () => {
   const router = useRouter();
@@ -16,6 +17,7 @@ const Insights = () => {
   const [checkedInBooking, setCheckedInBooking] = useState(0);
   const [freeAdults, setFreeAdults] = useState(0);
   const [soldTicketsArray, setSoldTicketsArray] = useState();
+  const [selectedDate, setSelectedDate] = useState();
   const [soldTicketsCategories, setSoldTicketsCategories] = useState({
     child: 0,
     adult: 0,
@@ -74,6 +76,14 @@ const Insights = () => {
 
   useEffect(() => {
     let accessToken = window.localStorage.getItem("fwAccessToken");
+
+    const decoded = jwt.decode(accessToken);
+    console.log(decoded);
+
+    if (decoded.email != "info@funworldblr.com") {
+      router.replace("/adminlogin");
+    }
+
     const fetchSoldTickets = async () => {
       try {
         const res = await axiosJWT.get(
@@ -87,6 +97,7 @@ const Insights = () => {
           (item) => item.tickets[0].visitDate === formattedCurrentDate
         );
         setSoldTicketsArray(filteredArray);
+        setSelectedDate(formattedCurrentDate);
         setLoading(false);
       } catch (e) {
         window.alert("Err in fetching sold tickets");
@@ -259,6 +270,7 @@ const Insights = () => {
         (item) => item.tickets[0].visitDate === formattedNextDay
       );
       setSoldTicketsArray(filteredArray);
+      setSelectedDate(formattedNextDay);
     } else if (btn === "Yesterday") {
       let reqDate = new Date(currentDate);
       reqDate.setDate(currentDate.getDate() - 1);
@@ -268,6 +280,7 @@ const Insights = () => {
       const filteredArray = generalSoldTicketsArray.filter(
         (item) => item.tickets[0].visitDate === reqDate
       );
+      setSelectedDate(reqDate);
       setSoldTicketsArray(filteredArray);
     } else if (btn === "Day before Yesterday") {
       let reqDate = new Date(currentDate);
@@ -278,6 +291,7 @@ const Insights = () => {
       const filteredArray = generalSoldTicketsArray.filter(
         (item) => item.tickets[0].visitDate === reqDate
       );
+      setSelectedDate(reqDate);
       setSoldTicketsArray(filteredArray);
     } else if (btn === "2 Days before Yesterday") {
       let reqDate = new Date(currentDate);
@@ -289,6 +303,7 @@ const Insights = () => {
         (item) => item.tickets[0].visitDate === reqDate
       );
       setSoldTicketsArray(filteredArray);
+      setSelectedDate(reqDate);
     } else if (btn === "3 Days before Yesterday") {
       let reqDate = new Date(currentDate);
       reqDate.setDate(currentDate.getDate() - 4);
@@ -299,6 +314,7 @@ const Insights = () => {
         (item) => item.tickets[0].visitDate === reqDate
       );
       setSoldTicketsArray(filteredArray);
+      setSelectedDate(reqDate);
     } else if (btn === "4 Days before Yesterday") {
       let reqDate = new Date(currentDate);
       reqDate.setDate(currentDate.getDate() - 5);
@@ -309,6 +325,7 @@ const Insights = () => {
         (item) => item.tickets[0].visitDate === reqDate
       );
       setSoldTicketsArray(filteredArray);
+      setSelectedDate(reqDate);
     } else if (btn === "5 Days before Yesterday") {
       let reqDate = new Date(currentDate);
       reqDate.setDate(currentDate.getDate() - 6);
@@ -319,6 +336,7 @@ const Insights = () => {
         (item) => item.tickets[0].visitDate === reqDate
       );
       setSoldTicketsArray(filteredArray);
+      setSelectedDate(reqDate);
     } else if (btn === "6 Days before Yesterday") {
       let reqDate = new Date(currentDate);
       reqDate.setDate(currentDate.getDate() - 7);
@@ -329,6 +347,7 @@ const Insights = () => {
         (item) => item.tickets[0].visitDate === reqDate
       );
       setSoldTicketsArray(filteredArray);
+      setSelectedDate(reqDate);
     } else {
       setSoldTicketsArray(generalSoldTicketsArray);
     }
@@ -518,6 +537,7 @@ const Insights = () => {
                   <th className="p-2 border border-gray-300">Adult</th>
                   <th className="p-2 border border-gray-300">Child</th>
                   <th className="p-2 border border-gray-300">Senior</th>
+                  <th className="p-2 border border-gray-300">Revenue</th>
                 </tr>
               </thead>
 
@@ -532,7 +552,20 @@ const Insights = () => {
                   <td className="border-r border-red-500 border-solid">
                     {childDstribution?.ten}{" "}
                   </td>
-                  <td>{seniorDistribution?.ten} </td>
+                  <td className="border-r border-red-500 border-solid">
+                    {seniorDistribution?.ten}{" "}
+                  </td>
+                  <td>
+                    {Math.round(
+                      (adultsDistribution?.ten *
+                        ticketPricingFunction("adult", selectedDate) +
+                        childDstribution?.ten *
+                          ticketPricingFunction("child", selectedDate) +
+                        seniorDistribution?.ten *
+                          ticketPricingFunction("senior", selectedDate)) *
+                        0.9
+                    )}{" "}
+                  </td>
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid">
@@ -544,7 +577,20 @@ const Insights = () => {
                   <td className="border-r border-red-500 border-solid">
                     {childDstribution?.twenty}{" "}
                   </td>
-                  <td>{seniorDistribution?.twenty} </td>
+                  <td className="border-r border-red-500 border-solid">
+                    {seniorDistribution?.twenty}{" "}
+                  </td>
+                  <td>
+                    {Math.round(
+                      (adultsDistribution?.twenty *
+                        ticketPricingFunction("adult", selectedDate) +
+                        childDstribution?.twenty *
+                          ticketPricingFunction("child", selectedDate) +
+                        seniorDistribution?.twenty *
+                          ticketPricingFunction("senior", selectedDate)) *
+                        0.8
+                    )}{" "}
+                  </td>
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid">
@@ -556,7 +602,20 @@ const Insights = () => {
                   <td className="border-r border-red-500 border-solid">
                     {childDstribution?.thirty}{" "}
                   </td>
-                  <td>{seniorDistribution?.thirty} </td>
+                  <td className="border-r border-red-500 border-solid">
+                    {seniorDistribution?.thirty}{" "}
+                  </td>
+                  <td>
+                    {Math.round(
+                      (adultsDistribution?.thirty *
+                        ticketPricingFunction("adult", selectedDate) +
+                        childDstribution?.thirty *
+                          ticketPricingFunction("child", selectedDate) +
+                        seniorDistribution?.thirty *
+                          ticketPricingFunction("senior", selectedDate)) *
+                        0.7
+                    )}{" "}
+                  </td>
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid">
@@ -569,7 +628,14 @@ const Insights = () => {
                   <td className="border-r border-red-500 border-solid">
                     {childDstribution?.fun}{" "}
                   </td>
-                  <td>{seniorDistribution?.fun} </td>
+
+                  <td className="border-r border-red-500 border-solid">
+                    {seniorDistribution?.fun}{" "}
+                  </td>
+                  <td>
+                    {(adultsDistribution?.fun - freeAdults) *
+                      ticketPricingFunction("adult", selectedDate)}{" "}
+                  </td>
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid">
@@ -585,10 +651,20 @@ const Insights = () => {
                     Paid: {childDstribution?.ww / 2} : Free:
                     {childDstribution?.ww / 2}, Total : {childDstribution?.ww}{" "}
                   </td>
-                  <td>
+                  <td className="border-r border-red-500 border-solid">
                     Paid: {seniorDistribution?.ww / 2} : Free:
                     {seniorDistribution?.ww / 2}, Total :{" "}
                     {seniorDistribution?.ww}{" "}
+                  </td>
+                  <td>
+                    {Math.round(
+                      (adultsDistribution?.ww / 2) *
+                        ticketPricingFunction("adult", selectedDate) +
+                        (childDstribution?.ww / 2) *
+                          ticketPricingFunction("child", selectedDate) +
+                        (seniorDistribution?.ww / 2) *
+                          ticketPricingFunction("senior", selectedDate)
+                    )}{" "}
                   </td>
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
@@ -602,6 +678,16 @@ const Insights = () => {
                     {childDstribution?.none}{" "}
                   </td>
                   <td>{seniorDistribution?.none} </td>
+                  <td className="border-r border-red-500 border-solid">
+                    {Math.round(
+                      adultsDistribution?.none *
+                        ticketPricingFunction("adult", selectedDate) +
+                        childDstribution?.none *
+                          ticketPricingFunction("child", selectedDate) +
+                        seniorDistribution?.none *
+                          ticketPricingFunction("senior", selectedDate)
+                    )}{" "}
+                  </td>
                 </tr>
                 <tr className="border-b border-red-500 text-center border-solid">
                   <td className="border-r border-red-500 border-solid font-bold">
