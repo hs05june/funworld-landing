@@ -21,8 +21,7 @@ export const RazorpayCheckout = async ({
     const res = await axios.post(
       "https://www.funworldbackend.tech/api/razorpay/create-order",
       {
-        // amount: Number(checkoutPriceAfterDiscount * 100),
-        amount: Number(100),
+         amount: Number(checkoutPriceAfterDiscount * 100),
         name: bookingDetails.name ? bookingDetails.name : "",
         info: info,
         bookingDetails: bookingDetails,
