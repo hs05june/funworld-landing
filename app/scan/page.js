@@ -51,7 +51,16 @@ const Scan = () => {
         alert("No such Ticket");
         return;
       }
+
+      // console.log(res.data.message.payment);
+
+      if (!res.data.message.payment) {
+        alert("Payment not done");
+        return;
+      }
+
       let tickets = res.data.message.tickets;
+      // console.log(res.data.message);
 
       for (let i = 0; i < tickets.length; i++) {
         // if (tickets[i]._id == ticketId) {
@@ -59,10 +68,29 @@ const Scan = () => {
           alert("Already checked in");
           return;
         }
-        let check = confirm(
-          `Child: ${tickets[i].child} Adult: ${tickets[i].adult} Senior: ${tickets[i].senior}`
-        );
-        if (check) {
+
+        let user = res.data.message;
+
+        const message = `
+          Name: ${user.name}
+          Number: ${user.number}
+          Email: ${user.email}
+          Payment: ${user.payment ? "Completed" : "Pending"}
+          Price: ${user.price}, Discount: ${user.discount},Coupon : ${
+          user.coupon_used || "None"
+        }
+          Visit Date: ${user.tickets[0].visitDate}
+          Children : ${user.tickets[0].child}, Adults: ${
+          user.tickets[0].adult
+        },Seniors: ${user.tickets[0].senior}
+        `;
+
+        const checkIn = confirm(`${message} Check in the customer?`);
+
+        // let check = confirm(
+        //   `Child: ${tickets[i].child} Adult: ${tickets[i].adult} Senior: ${tickets[i].senior}`
+        // );
+        if (checkIn) {
           tickets[i].checkedIn = true;
           res = await axiosJWT.put(
             `https://www.funworldbackend.tech/api/soldtickets?id=${soldTicketId}`,

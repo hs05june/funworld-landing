@@ -102,7 +102,7 @@ const Admin = () => {
         f++;
       }
     });
-    console.log(a, b, c, d, e, f);
+    // console.log(a, b, c, d, e, f);
     setCouponsDistribution({ a, b, c, d, e, f });
     setSoldTicketsCategories({ child, adult, senior });
   }, [soldTicketsArray]);
@@ -246,39 +246,44 @@ const Admin = () => {
       ) : (
         <>
           <div className="p-4">
-            <div className="flex items-center justify-center gap-4 my-8">
-              {/* <h1 className="text-3xl font-semibold mb-4">Admin Panel</h1> */}
-              <div className="flex items-center justify-center px-2">
-                10SUMMEROFF :{" "}
-                <span className="font-bold">{couponsDistribution?.a}</span>
-              </div>
-              <div className="flex items-center justify-center px-2">
-                20GOVTOFF :
-                <span className="font-bold">{couponsDistribution?.b}</span>
-              </div>
-              <div className="flex items-center justify-center px-2">
-                30STUDENTOFF :
-                <span className="font-bold">{couponsDistribution?.c}</span>
-              </div>
-              <div className="flex items-center justify-center px-2">
-                FUN5 :
-                <span className="font-bold">{couponsDistribution?.d}</span>
-              </div>
-              <div className="flex items-center justify-center px-2">
-                WONDERWOMEN :{" "}
-                <span className="font-bold">{couponsDistribution?.e}</span>
-              </div>
-              <div className="flex items-center justify-center px-2">
-                NO COUPON :
-                <span className="font-bold">{couponsDistribution?.f}</span>
-              </div>
-              <div
-                onClick={handleLogout}
-                className="flex items-center text-2xl cursor-pointer hover:scale-105  justify-center px-2 border "
-              >
-                Logout
-              </div>
-            </div>
+            {selectedButton === "Today" ? (
+              <>
+                <div className="flex items-center justify-center gap-4 my-8">
+                  <div className="flex items-center justify-center px-2">
+                    10SUMMEROFF :{" "}
+                    <span className="font-bold">{couponsDistribution?.a}</span>
+                  </div>
+                  <div className="flex items-center justify-center px-2">
+                    20GOVTOFF :
+                    <span className="font-bold">{couponsDistribution?.b}</span>
+                  </div>
+                  <div className="flex items-center justify-center px-2">
+                    30STUDENTOFF :
+                    <span className="font-bold">{couponsDistribution?.c}</span>
+                  </div>
+                  <div className="flex items-center justify-center px-2">
+                    FUN5 :
+                    <span className="font-bold">{couponsDistribution?.d}</span>
+                  </div>
+                  <div className="flex items-center justify-center px-2">
+                    WONDERWOMEN :{" "}
+                    <span className="font-bold">{couponsDistribution?.e}</span>
+                  </div>
+                  <div className="flex items-center justify-center px-2">
+                    NO COUPON :
+                    <span className="font-bold">{couponsDistribution?.f}</span>
+                  </div>
+                  <div
+                    onClick={handleLogout}
+                    className="flex items-center text-2xl cursor-pointer hover:scale-105  justify-center px-2 border "
+                  >
+                    Logout
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="mt-16"></div>
+            )}
 
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center gap-8">
@@ -306,24 +311,24 @@ const Admin = () => {
                   />
                 </div>
 
-                {/* <div>
-                   {selectedButton}'s Revenue :  {revenue} rs
-                 </div> */}
-
-                <div>
-                  {selectedButton}'s Bookings : {soldTicketsArray?.length}
-                </div>
-                <div>Children : {soldTicketsCategories?.child}</div>
-                <div>Adults : {soldTicketsCategories?.adult}</div>
-                <div>Seniors : {soldTicketsCategories?.senior}</div>
-                <div className="lg:w-[800px] md:min-w-[200px] flex">
-                  <Link
-                    href="/insights"
-                    className="px-6 py-3 rounded border hover:scale-105 text-xl transition-all delay-150 text-white font-[500] bg-orange-400"
-                  >
-                    Queries / Holidays
-                  </Link>
-                </div>
+                {selectedButton == "Today" ? (
+                  <>
+                    <div>
+                      {selectedButton}'s Bookings : {soldTicketsArray?.length}
+                    </div>
+                    <div>Children : {soldTicketsCategories?.child}</div>
+                    <div>Adults : {soldTicketsCategories?.adult}</div>
+                    <div>Seniors : {soldTicketsCategories?.senior}</div>
+                    <div className="lg:w-[800px] md:min-w-[200px] flex">
+                      <Link
+                        href="/insights"
+                        className="px-6 py-3 rounded border hover:scale-105 text-xl transition-all delay-150 text-white font-[500] bg-orange-400"
+                      >
+                        Queries / Holidays
+                      </Link>
+                    </div>
+                  </>
+                ) : null}
               </div>
 
               <div>
