@@ -63,17 +63,17 @@ export const checkCouponAndAddingDiscount = async ({
           var currentDate = await new Date();
           currentDate.setHours(0, 0, 0, 0); // Set time to midnight
 
-          var june15 = await new Date("2024-06-30");
-          june15.setHours(0, 0, 0, 0); // Set time to midnight
+          var july31 = await new Date("2024-07-31");
+          july31.setHours(0, 0, 0, 0); // Set time to midnight
 
-          var isBeforeJune15th = givenDate <= june15;
+          var isBeforeJuly31th = givenDate <= july31;
 
           // Check if the given date is greater than or equal to the current date
           var isFutureDate = givenDate > currentDate;
 
-          if (!isBeforeJune15th) {
+          if (!isBeforeJuly31th) {
             window.alert(
-              "This offer is only valid till June 30th. Please select some other coupon."
+              "This offer is only valid till July 31th. Please select some other coupon."
             );
             return;
           }
