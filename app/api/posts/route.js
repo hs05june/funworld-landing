@@ -4,8 +4,7 @@ import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
-
-  const page = searchParams.get("page");
+  const page = parseInt(searchParams.get("page")) || 1; // Parse page as integer
   const cat = searchParams.get("cat");
 
   const POST_PER_PAGE = 2;
@@ -15,16 +14,10 @@ export const GET = async (req) => {
     skip: POST_PER_PAGE * (page - 1),
     where: {
       ...(cat && { catSlug: cat }),
+      isVerified: true, // Filter posts where isVerified is true
     },
   };
 
-
-
-
-
-
-  
-  
   try {
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany(query),
@@ -39,15 +32,6 @@ export const GET = async (req) => {
   }
 };
 
-
-
-
-
-
-
-
-
-
 // CREATE A POST
 export const POST = async (req) => {
   const session = await getAuthSession();
@@ -60,8 +44,17 @@ export const POST = async (req) => {
 
   try {
     const body = await req.json();
+
+    let verification = false;
+    if (session.user.email === "info@funworldblr.com") {
+      verification = true;
+    }
     const post = await prisma.post.create({
-      data: { ...body, userEmail: session.user.email },
+      data: {
+        ...body,
+        userEmail: session.user.email,
+        isVerified: verification,
+      },
     });
 
     return new NextResponse(JSON.stringify(post, { status: 200 }));

@@ -98,6 +98,13 @@ const WritePage = () => {
   return (
     <div className="container">
       <div className="wrapper">
+        <div className="mt-12">
+          Disclaimer: Your blog won't be published until its verfied by the
+          team, Once you write a mail, just mail us about the Blog you wrote, it
+          should contain : <br />
+          The email from which it was published,
+          <br /> and the brief about the blog{" "}
+        </div>
         <div className={styles.container}>
           <input
             type="text"
@@ -105,6 +112,8 @@ const WritePage = () => {
             className={styles.input}
             onChange={(e) => setTitle(e.target.value)}
           />
+
+         
           <select
             className={styles.select}
             onChange={(e) => setCatSlug(e.target.value)}
@@ -141,6 +150,7 @@ const WritePage = () => {
                 </button>
               </div>
             )}
+
             <ReactQuill
               className={styles.textArea}
               theme="bubble"
