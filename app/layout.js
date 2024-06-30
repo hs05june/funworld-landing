@@ -6,6 +6,7 @@ import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Head from "next/head";
 import { Metadata } from "next";
+import AuthProvider from "@/providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,9 +33,11 @@ export default function RootLayout({ children }) {
         {/* <GoogleAnalytics GA_TRACKING_ID={"GTM-MTC3R6J3"} /> */}
         <GoogleTagManager gtmId="GTM-MTC3R6J3" />
         <body className={`${inter.className} relative overflow-x-hidden`}>
-          <Navbar />
-          {children}
-          <Footer />
+          <AuthProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </AuthProvider>
         </body>
       </html>
     </>
