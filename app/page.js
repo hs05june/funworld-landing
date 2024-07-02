@@ -5,7 +5,8 @@ import ParkAttractions from "@/components/Home/ParkAttractions";
 import Welcome from "@/components/Home/Welcome";
 import YourTicket from "@/components/Home/YourTicket";
 import Head from "next/head";
-export const metadata = {
+
+const metadata = {
   title: "Funworldblr",
   description:
     "Unleash the thrill! Visit Fun World Amusement Park | Funworldblr for exhilarating rides, family fun, and unforgettable memories. Book now and join the adventure!",

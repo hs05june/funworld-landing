@@ -213,6 +213,10 @@ const TicketsPage = () => {
       <HeroBackground />
       {page == 2 ? (
         <div className="mb-6 mt-20 3xl:mt-80  2xl:mt-60 xl:mt-40">
+          <div className="text-center mb-12 text-red-600 font-bold text-xl px-[10vh]">
+            New Offer coming soon: Buy 2 get 1 free only on Friday(Booking
+            starts next Friday)
+          </div>
           <div className="flex lg:flex-row flex-col items-center lg:gap-0 gap-4 text-white lg:space-x-4  justify-center">
             <div className="xl:w-[17vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
               <div
@@ -233,8 +237,6 @@ const TicketsPage = () => {
               </div>
             </div>
 
-          
-
             <div className="xl:w-[17vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
               <div
                 className="flex flex-col items-center gap-2 w-[90%] mx-auto h-[90%] my-auto justify-center border-white border-dashed border-2 hover:scale-105 transition-all delay-200 cursor-pointer"
@@ -249,8 +251,10 @@ const TicketsPage = () => {
                 </div>
 
                 <div className="mt-4 px-2 text-center text-[11px]">
-                  20% OFF for Government Employees. Must show the <span className="font-bold">Physical</span> Government
-                  Identification to avail discount. ID Compulsory for Entry.(Will not work if Seniors are there in Ticket)
+                  20% OFF for Government Employees. Must show the{" "}
+                  <span className="font-bold">Physical</span> Government
+                  Identification to avail discount. ID Compulsory for
+                  Entry.(Will not work if Seniors are there in Ticket)
                 </div>
               </div>
             </div>
@@ -273,8 +277,10 @@ const TicketsPage = () => {
                 </div>
 
                 <div className="mt-4 px-2 text-center text-[11px]">
-                  Must Carry a Valid <span className="font-bold">Physical</span> Student ID Card for verification. Valid
-                  only for School & College Students.(Will not work if Seniors are there in Ticket)
+                  Must Carry a Valid <span className="font-bold">Physical</span>{" "}
+                  Student ID Card for verification. Valid only for School &
+                  College Students.(Will not work if Seniors are there in
+                  Ticket)
                 </div>
               </div>
             </div>
@@ -308,26 +314,28 @@ const TicketsPage = () => {
               </div>
             </div>
 
-
             <div className="xl:w-[17vw] lg:w-[30vw] md:w-[65vw] w-[75vw] h-[240px] bg-red-600 rounded flex justify-center">
               <div
                 className="flex flex-col items-center gap-2 w-[90%] mx-auto h-[90%] my-auto justify-center border-white border-dashed border-2 cursor-pointer hover:scale-105 transition-all delay-200"
                 onClick={() => handleCouponClickCall("WONDERWOMEN")}
               >
                 <p>
-                  <span className="lg:text-2xl text-xl font-[700]">Buy 1 Get 1 Free</span>{" "}
+                  <span className="lg:text-2xl text-xl font-[700]">
+                    Buy 1 Get 1 Free
+                  </span>{" "}
                 </p>
                 <div className="border border-white rounded-xl lg:px-4 lg:py-2 px-2 py-1 mt-2">
                   WONDERWOMEN
                 </div>
 
                 <div className="mt-4 px-2 text-center text-[11px]">
-                Offer valid exclusively for 18+ female customers on Wednesdays. Both individuals checking in must be women above 18 years of age.(Add any two people in the ticket to apply this offer)
+                  Offer valid exclusively for 18+ female customers on
+                  Wednesdays. Both individuals checking in must be women above
+                  18 years of age.(Add any two people in the ticket to apply
+                  this offer)
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
       ) : null}
@@ -416,7 +424,7 @@ const TicketsPage = () => {
 
                   <div className="flex w-[100%] bg-[#FFEEF6] text-xs md:text-lg rounded-tl-2xl rounded-tr-2xl p-2 md:py-3 md:px-4 font-[600] items-center justify-around">
                     <label className="text-sm md:text-xl">
-                      Fun World - Child 
+                      Fun World - Child
                     </label>
                     <label>
                       ₹{" "}
@@ -609,27 +617,35 @@ const TicketsPage = () => {
         </div>
       ) : page == 2 ? (
         <div className="md:w-[60vw] w-[80vw] mx-auto flex flex-col items-center  gap-4">
-
           <div className=" md:w-[60vw] w-[80vw]">
-            <p className="text-[#0B1A48] text-[18px] font-[650] ">Please note:</p>
+            <p className="text-[#0B1A48] text-[18px] font-[650] ">
+              Please note:
+            </p>
             <ul className="list-disc flex flex-col gap-2">
-              <li>You can't apply 30STUDENTOFF or 20GOVTOFF coupon with Senior Citizens in the ticket, please remove Seniors Citizens from the ticket to avail these offers.(You can book a separate tickets for seniors citizens)</li>
               <li>
-                Bring a Physical ID card if you are availing 30STUDENTOFF or 20GOVTOFF.
+                You can't apply 30STUDENTOFF or 20GOVTOFF coupon with Senior
+                Citizens in the ticket, please remove Seniors Citizens from the
+                ticket to avail these offers.(You can book a separate tickets
+                for seniors citizens)
               </li>
               <li>
-              The discount of 30STUDENTOFF or 20GOVTOFF is only valid for the person with ID itself and not for his/her family members. You might have to pay the discounted money if you don't have a valid Physical ID card for everyone on ticket while Checking in(You can book a separate ticket for people without ID Cards).
+                Bring a Physical ID card if you are availing 30STUDENTOFF or
+                20GOVTOFF.
               </li>
               <li>
-                Scroll to bottom of page for more terms and conditions.
+                The discount of 30STUDENTOFF or 20GOVTOFF is only valid for the
+                person with ID itself and not for his/her family members. You
+                might have to pay the discounted money if you don't have a valid
+                Physical ID card for everyone on ticket while Checking in(You
+                can book a separate ticket for people without ID Cards).
               </li>
+              <li>Scroll to bottom of page for more terms and conditions.</li>
             </ul>
           </div>
 
           <div className="text-[#0B1A48] text-[29px] font-[650]">
             Order Summary
           </div>
-
 
           {discountApplied && (
             <ConfettiExplosion
