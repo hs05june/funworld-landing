@@ -6,14 +6,11 @@ import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Head from "next/head";
 import { Metadata } from "next";
+import AuthProvider from "@/providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Funworld Bangalore - Premier Amusement & Water Park",
-  description:
-    "Discover endless fun at Funworld Bangalore with thrilling rides and captivating shows for all. Create lasting memories in this exciting amusement park, your ultimate destination for family enjoyment!",
-};
+
 
 export default function RootLayout({ children }) {
   return (
@@ -25,16 +22,17 @@ export default function RootLayout({ children }) {
             name="google-site-verification"
             content="pEMom7iH1FwSg6wn8sWpC6-2d-RLN0xCNnqjkAeE4AQ"
           />
-          <title>{metadata.title}</title>
-          <meta name="description" content={metadata.description} />
+          
           {/* Other meta tags can be added here if needed */}
         </Head>
         {/* <GoogleAnalytics GA_TRACKING_ID={"GTM-MTC3R6J3"} /> */}
         <GoogleTagManager gtmId="GTM-MTC3R6J3" />
         <body className={`${inter.className} relative overflow-x-hidden`}>
-          <Navbar />
-          {children}
-          <Footer />
+          <AuthProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </AuthProvider>
         </body>
       </html>
     </>
