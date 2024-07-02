@@ -4,19 +4,17 @@ import Link from "next/link";
 
 const Card = ({ key, item }) => {
   return (
-    <div className={styles.container} key={key}>
+    <div className="flex flex-col px-2 py-2 md:flex-row justify-between items-center gap-4 border my-4" key={key}>
       {item.img && (
-        <div className={styles.imageContainer}>
-          <Image src={item.img} alt="" fill className={styles.image} />
+        <div className="first-line:">
+          <Image src={item.img} alt="" width={250} height={300} />
+          <span className={styles.date}>
+            {item.createdAt.substring(0, 10)} -{" "} {item.catSlug}
+          </span>
         </div>
       )}
       <div className={styles.textContainer}>
-        <div className={styles.detail}>
-          <span className={styles.date}>
-            {item.createdAt.substring(0, 10)} -{" "}
-          </span>
-          <span className={styles.category}>{item.catSlug}</span>
-        </div>
+        
         <Link href={`/posts/${item.slug}`}>
           <h1>{item.title}</h1>
         </Link>
