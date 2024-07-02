@@ -19,7 +19,6 @@ const WritePage = () => {
   const { status } = useSession();
   const router = useRouter();
 
-  const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
@@ -27,38 +26,42 @@ const WritePage = () => {
   const [catSlug, setCatSlug] = useState("");
 
   useEffect(() => {
-    const storage = getStorage(app);
-    const upload = () => {
-      const name = new Date().getTime() + file.name;
-      const storageRef = ref(storage, name);
+    if (file) {
+      const storage = getStorage(app);
+      const upload = () => {
+        const name = new Date().getTime() + file.name;
+        const storageRef = ref(storage, name);
 
-      const uploadTask = uploadBytesResumable(storageRef, file);
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          switch (snapshot.state) {
-            case "paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+            switch (snapshot.state) {
+              case "paused":
+                console.log("Upload is paused");
+                break;
+              case "running":
+                console.log("Upload is running");
+                break;
+            }
+          },
+          (error) => {
+            console.error("Upload failed", error);
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              setMedia(downloadURL);
+            });
           }
-        },
-        (error) => {},
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setMedia(downloadURL);
-          });
-        }
-      );
-    };
+        );
+      };
 
-    file && upload();
+      upload();
+    }
   }, [file]);
 
   if (status === "loading") {
@@ -78,7 +81,7 @@ const WritePage = () => {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    console.log("requested started ->");
+    console.log("Request started ->");
     const res = await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -86,7 +89,7 @@ const WritePage = () => {
         desc: value,
         img: media,
         slug: slugify(title),
-        catSlug: catSlug || "style", //If not selected, choose the general category
+        catSlug: catSlug || "style", // If not selected, choose the general category
       }),
     });
 
@@ -100,58 +103,48 @@ const WritePage = () => {
     <div className="container">
       <div className="wrapper">
         <div className="mt-12">
-          Disclaimer: Your blog won't be published until its verfied by the
-          team, Once you write a mail, just mail us about the Blog you wrote, it
-          should contain : <br />
+          <span className="font-bold text-xl">Disclaimer:</span> Your blog won't be published until it's verified by the
+          team. Once you write a blog, just mail us about it. The email should
+          contain:
+          <br />
           The email from which it was published,
-          <br /> and the brief about the blog{" "}
+          <br /> and a brief about the blog.
         </div>
         <div className={styles.container}>
           <input
             type="text"
             placeholder="Title"
-            className={styles.input}
+            className="my-6 px-4 w-full h-[15vh] border border-gray-300 text-2xl rounded-lg text-textColor"
             onChange={(e) => setTitle(e.target.value)}
           />
 
-         
-          <select
-            className={styles.select}
-            onChange={(e) => setCatSlug(e.target.value)}
-          >
-            <option value="style">style</option>
-            <option value="fashion">fashion</option>
-            <option value="food">food</option>
-            <option value="culture">culture</option>
-            <option value="travel">travel</option>
-            <option value="coding">coding</option>
-          </select>
-          <div className={styles.editor}>
-            <button className={styles.button} onClick={() => setOpen(!open)}>
-              <Image src="/plus.png" alt="" width={16} height={16} />
-            </button>
-            {open && (
-              <div className={styles.add}>
-                <input
-                  type="file"
-                  id="image"
-                  onChange={(e) => setFile(e.target.files[0])}
-                  style={{ display: "none" }}
-                />
-                <button className={styles.addButton}>
-                  <label htmlFor="image">
-                    <Image src="/image.png" alt="" width={16} height={16} />
-                  </label>
-                </button>
-                <button className={styles.addButton}>
-                  <Image src="/external.png" alt="" width={16} height={16} />
-                </button>
-                <button className={styles.addButton}>
-                  <Image src="/video.png" alt="" width={16} height={16} />
-                </button>
-              </div>
-            )}
+          <div className="flex justify-between border items-center py-4 px-2">
+            <div>
+              <label htmlFor="categorySelect" className="pr-2">Select a Category:</label>
+              <select
+                id="categorySelect"
+                className="bg-gray-300 py-2 px-2"
+                onChange={(e) => setCatSlug(e.target.value)}
+              >
+                <option value="style">Style</option>
+                <option value="fashion">Fashion</option>
+                <option value="food">Food</option>
+                <option value="culture">Culture</option>
+                <option value="travel">Travel</option>
+                <option value="coding">Coding</option>
+              </select>
+            </div>
+            <div>
+              <input
+                type="file"
+                id="image"
+                onChange={(e) => setFile(e.target.files[0])}
+                style={{ display: "block", marginBottom: "10px" }}
+              />
+            </div>
+          </div>
 
+          <div className="border-2 min-h-[30vh]">
             <ReactQuill
               className={styles.textArea}
               theme="bubble"
@@ -160,9 +153,7 @@ const WritePage = () => {
               placeholder="Tell your story..."
             />
           </div>
-          <button  className={styles.publish} onClick={handleSubmit}>
-            Publish
-          </button>
+          <button className="bg-[#1a8917] py-2 px-4 my-4 text-white font-bold" onClick={handleSubmit}>Publish</button>
         </div>
       </div>
     </div>
